@@ -1,32 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Meta Tags -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-LMLV119BXE"
-    ></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <script
-      src="https://kit.fontawesome.com/32c0f3b9ec.js"
-      crossorigin="anonymous"
-    ></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css?v=1.0" />
-
     <meta
       name="description"
       content="Enhance your online presence, increase user engagement, lead generation, and conversion rates with expertly crafted custom websites, WordPress sites, and Shopify stores. 24/7 support, risk-free partnership, and premium service."
@@ -36,9 +13,10 @@
       content="web development, custom websites, WordPress, Shopify, web solutions, SEO, lead generation, user engagement, SMEs, startups"
     />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://marinsabo.online" />
     <meta name="language" content="en" />
+    <link rel="canonical" href="https://marinsabo.online" />
 
+    <!-- Open Graph / Social Meta -->
     <meta
       property="og:title"
       content="Boost Your Business with Proven Web Solutions for SMEs and Startups"
@@ -53,14 +31,14 @@
     />
     <meta property="og:url" content="https://marinsabo.42web.io" />
     <meta property="og:type" content="website" />
-    <link rel="dns-prefetch" href="https://marinsabo.online" />
-    <link rel="preconnect" href="https://marinsabo.online" />
+    <meta property="og:site_name" content="Marin Sabo Development" />
+
+    <!-- Favicon & Manifest -->
     <link
       rel="apple-touch-icon"
       sizes="180x180"
       href="favicon.ico/apple-touch-icon.png"
     />
-    <meta property="og:site_name" content="Marin Sabo Development" />
     <link
       rel="icon"
       type="image/png"
@@ -81,9 +59,39 @@
     />
     <meta name="msapplication-TileColor" content="#130821" />
     <meta name="theme-color" content="#130821" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Stylesheets -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css?v=1.0" />
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script
+      src="https://kit.fontawesome.com/32c0f3b9ec.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-LMLV119BXE"
+    ></script>
+
     <title>Marin Sabo Development</title>
   </head>
+
   <body>
+    <!-- HEADER -->
     <div class="header">
       <img
         src="images/logo-dark.png"
@@ -91,6 +99,8 @@
         alt="Marin Sabo Development Logo"
       />
       <div id="menu-btn">&#9776;</div>
+
+      <!-- Desktop Menu -->
       <ul id="menu-desktop">
         <li><a href="index.html">Home</a></li>
         <li><a href="index.html#services">Services</a></li>
@@ -104,6 +114,8 @@
         <li><a href="index.html#projects">Results</a></li>
         <li><a href="resources.html">Resources</a></li>
       </ul>
+
+      <!-- Mobile Menu -->
       <ul id="menu-mobile">
         <li><a href="index.html">Home</a></li>
         <li><a href="index.html#services">Services</a></li>
@@ -117,14 +129,19 @@
         <li id="close-btn">X</li>
       </ul>
     </div>
+
     <div id="blur-overlay"></div>
 
+    <!-- HERO SECTION -->
     <div class="hero">
       <h1>
         <span id="gold">Boost</span> Your Business with Proven Web Solutions For
         <span id="gold">SMEs and Startups</span>
       </h1>
-      <h3>(boost your business and brand online visibility in 30 days)</h3>
+      <p class="hero-disclaimer">
+        (boost your business and brand online visibility in 30 days)
+      </p>
+
       <div class="hero-btns">
         <button id="hero-cta-black">
           <a href="#projects">Read Case Studies</a>
@@ -135,20 +152,34 @@
           >
         </button>
       </div>
+
       <ul class="hero-perks">
         <li>🚀 24/7 support</li>
         <li>🥱 Risk-free partnership</li>
         <li>👑 premium service</li>
       </ul>
-      <img src="images/hero-img.png" alt="Hero Image" id="hero-img" />
     </div>
 
+    <!-- SERVICES SECTION -->
     <div class="services" id="services">
-      <h1>Services</h1>
+      <!-- Top Divider Shape -->
+      <div class="custom-shape-divider-top-1760802072">
+        <svg
+          data-name="Layer 1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+        >
+          <path d="M1200 0L0 0 892.25 114.72 1200 0z" class="shape-fill"></path>
+        </svg>
+      </div>
+
+      <h2>Services</h2>
+
       <div class="services-cont">
+        <!-- Main Service Description -->
         <div class="services-box">
-          <h2>Premium Web Services</h2>
-          <h3><strong>for SMEs and startups</strong></h3>
+          <h3>Premium Web Services for SMEs and startups</h3>
           <p>
             We help businesses enhance their online presence and significantly
             increase user engagement, lead generation, and conversion rates by
@@ -169,6 +200,8 @@
             >
           </button>
         </div>
+
+        <!-- Individual Services -->
         <div class="services-box">
           <div
             class="service"
@@ -212,8 +245,11 @@
         </div>
       </div>
     </div>
+
+    <!-- PROCESS SECTION -->
     <div class="process">
-      <h1>The Process</h1>
+      <h2>The Process</h2>
+
       <div
         class="process-step"
         data-aos="fade-up"
@@ -230,6 +266,7 @@
           <li>Discussing your target audience and competitors</li>
         </ol>
       </div>
+
       <div
         class="process-step"
         data-aos="fade-up"
@@ -245,6 +282,7 @@
           <li>Estimating project duration and resource allocation</li>
         </ul>
       </div>
+
       <div
         class="process-step"
         data-aos="fade-up"
@@ -260,6 +298,7 @@
           <li>Ensuring design aligns with brand identity and goals</li>
         </ul>
       </div>
+
       <div
         class="process-step"
         data-aos="fade-up"
@@ -276,17 +315,18 @@
       </div>
     </div>
 
+    <!-- PROJECTS SECTION -->
     <div class="projects" id="projects">
-      <h1>Most Recent Projects</h1>
+      <h2>Most Recent Projects</h2>
+
+      <!-- Row 1 -->
       <div class="projects-row">
         <div class="project-container">
           <div class="project-image">
             <img src="images/wavelance.png" alt="Wavelance logo" />
           </div>
           <div class="project-description">
-            <div class="subtitle">
-              <h3>Online Agency</h3>
-            </div>
+            <div class="subtitle"><p>Online Agency</p></div>
             <div class="main-text">
               <h2>Wavelance</h2>
               <p>
@@ -306,9 +346,7 @@
             <img src="images/gamechanger.png" alt="Game changer Logo" />
           </div>
           <div class="project-description">
-            <div class="subtitle">
-              <h3>Live Events</h3>
-            </div>
+            <div class="subtitle"><p>Live Events</p></div>
             <div class="main-text">
               <h2>Game changer</h2>
               <p>
@@ -323,15 +361,15 @@
           </div>
         </div>
       </div>
+
+      <!-- Row 2 -->
       <div class="projects-row">
         <div class="project-container">
           <div class="project-image">
             <img src="images/ikarus-agency.png" alt="Ikarus Agency Logo" />
           </div>
           <div class="project-description">
-            <div class="subtitle">
-              <h3>Web Agency</h3>
-            </div>
+            <div class="subtitle"><p>Web Agency</p></div>
             <div class="main-text">
               <h2>Ikarus Agency</h2>
               <p>
@@ -345,14 +383,13 @@
             </div>
           </div>
         </div>
+
         <div class="project-container">
           <div class="project-image">
             <img src="images/codehustling.png" alt="Code Hustling Logo" />
           </div>
           <div class="project-description">
-            <div class="subtitle">
-              <h3>Web Community</h3>
-            </div>
+            <div class="subtitle"><p>Web Community</p></div>
             <div class="main-text">
               <h2>Code Hustling</h2>
               <p>
@@ -368,14 +405,18 @@
       </div>
     </div>
 
+    <!-- SELECTION / BENEFITS SECTION -->
     <div class="selection">
-      <h1>This is for you if you want to:</h1>
+      <h2>This is for you if you want to:</h2>
+
+      <!-- Rows -->
       <div
         class="selection-row"
         data-aos="fade-right"
         data-aos-duration="600"
         data-aos-delay="200"
       >
+        <!-- Box 1 -->
         <div class="selection-box">
           <div class="selection-box-side-number">
             <span class="selection-number">1</span>
@@ -388,6 +429,7 @@
             </p>
           </div>
         </div>
+        <!-- Box 2 -->
         <div class="selection-box">
           <div class="selection-box-side-number">
             <span class="selection-number">2</span>
@@ -400,6 +442,7 @@
           </div>
         </div>
       </div>
+
       <div
         class="selection-row"
         data-aos="fade-left"
@@ -431,6 +474,7 @@
           </div>
         </div>
       </div>
+
       <div
         class="selection-row"
         data-aos="fade-right"
@@ -463,6 +507,7 @@
       </div>
     </div>
 
+    <!-- DISCOVERY CALL SECTION -->
     <div class="discovery">
       <div class="discovery-box">
         <!-- Calendly inline widget begin -->
@@ -480,7 +525,7 @@
       </div>
 
       <div class="discovery-box">
-        <h1>Discovery call</h1>
+        <h2>Discovery call</h2>
         <p>
           During our discovery call on Google Meet, we’ll determine if our
           services align well with your needs.
@@ -498,6 +543,7 @@
       </div>
     </div>
 
+    <!-- FAQ SECTION -->
     <div class="faq">
       <h2 class="title">Frequently Asked Questions</h2>
 
@@ -507,8 +553,7 @@
           Web development agencies often focus on maximizing their profits. They
           may not prioritize creating a design that truly meets your needs
           because they see clients as just numbers to boost their portfolio.
-          <br />
-          <br />
+          <br /><br />
           In contrast, my business depends on my reputation. I prioritize my
           clients' happiness because my success relies on it. I am fully
           committed to ensuring you are 100% satisfied with your website.
@@ -531,8 +576,8 @@
           In the dynamic world of web development, there's rarely a fixed price
           for a project. The cost depends on various factors such as the
           complexity of the design, the estimated duration, and other specific
-          requirements. <br />
-          <br />To ensure my pricing fits within your budget, schedule a
+          requirements. <br /><br />
+          To ensure my pricing fits within your budget, schedule a
           <a href="https://calendly.com/marinsabo" style="color: #ffb54c"
             >free call</a
           >
@@ -545,8 +590,7 @@
         <div class="answer">
           As stated above, each website is custom and the time frame is
           dependent on the complexity of the project.
-          <br />
-          <br />
+          <br /><br />
           Typically, smaller websites take about 7-10 days to complete, while
           more complex projects can take 3-4 weeks. I emphasize delivering your
           website as quickly as possible without sacrificing quality, ensuring
@@ -555,17 +599,11 @@
       </div>
     </div>
 
+    <!-- FOOTER -->
     <div class="background-image">
       <footer id="footer">
         <section class="landing-container inquiry-container">
           <div class="even-columns inquiry">
-            <div class="copyright">
-              <img
-                src="images/logo-dark.png"
-                loading="lazy"
-                alt="Marin Sabo Logo"
-              />
-            </div>
             <div class="inquiry-text">
               <h1>Have a Question?</h1>
               <button id="footer-cta-gold">
@@ -582,58 +620,57 @@
                 ><i class="fa fa-brands fa-linkedin"></i
               ></a>
             </div>
-            <span>2024 Marin Sabo. All Rights Reserved.</span>
+
+            <span>2025 Marin Sabo Development. All Rights Reserved.</span>
           </div>
         </section>
       </footer>
     </div>
-    <script
-      src="//code.tidio.co/ffcheoabzhxsvedvtlro7crtgekxsuys.js"
-      async
-    ></script>
-  </body>
-  <script>
-    var menuBtn = document.getElementById("menu-btn");
-    var menu = document.getElementById("menu-mobile");
-    var closeBtn = document.getElementById("close-btn");
-    var blurOverlay = document.getElementById("blur-overlay");
 
-    menuBtn.addEventListener("click", function () {
-      menu.classList.add("open");
-      blurOverlay.style.display = "block";
-      document.body.style.overflow = "hidden";
-    });
+    <!-- SCRIPTS -->
+    <script>
+      // Mobile Menu Toggle
+      var menuBtn = document.getElementById("menu-btn");
+      var menu = document.getElementById("menu-mobile");
+      var closeBtn = document.getElementById("close-btn");
+      var blurOverlay = document.getElementById("blur-overlay");
 
-    closeBtn.addEventListener("click", function () {
-      menu.classList.remove("open");
-      blurOverlay.style.display = "none";
-      document.body.style.overflow = "auto";
-    });
-
-    blurOverlay.addEventListener("click", function () {
-      menu.classList.remove("open");
-      blurOverlay.style.display = "none";
-      document.body.style.overflow = "auto";
-    });
-
-    const container = document.querySelectorAll(".content");
-
-    for (i = 0; i < container.length; i++) {
-      container[i].addEventListener("click", function () {
-        this.classList.toggle("active");
+      menuBtn.addEventListener("click", function () {
+        menu.classList.add("open");
+        blurOverlay.style.display = "block";
+        document.body.style.overflow = "hidden";
       });
-    }
 
-    AOS.init();
+      closeBtn.addEventListener("click", function () {
+        menu.classList.remove("open");
+        blurOverlay.style.display = "none";
+        document.body.style.overflow = "auto";
+      });
 
-    <!-- Google tag (gtag.js) -->
+      blurOverlay.addEventListener("click", function () {
+        menu.classList.remove("open");
+        blurOverlay.style.display = "none";
+        document.body.style.overflow = "auto";
+      });
 
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
+      // FAQ Toggle
+      const container = document.querySelectorAll(".content");
+      for (i = 0; i < container.length; i++) {
+        container[i].addEventListener("click", function () {
+          this.classList.toggle("active");
+        });
+      }
 
-    gtag("config", "G-LMLV119BXE");
-  </script>
+      // Initialize AOS
+      AOS.init();
+
+      // Google Tag
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-LMLV119BXE");
+    </script>
+  </body>
 </html>
