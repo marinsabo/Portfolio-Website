@@ -1,4 +1,0 @@
-User-agent: *
-Disallow:
-Sitemap: https://marinsabo.42web.io/sitemap.xml
-
