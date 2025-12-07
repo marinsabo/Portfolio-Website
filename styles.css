@@ -234,6 +234,32 @@ body:hover .cursor-outline {
   opacity: 1;
 }
 
+@media (max-width: 768px) {
+
+  .cursor-dot,
+  .cursor-outline {
+    display: none;
+  }
+
+  body,
+  a,
+  button,
+  .btn {
+    cursor: auto;
+  }
+
+  .pain-point-title {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  p {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 :focus-visible {
   outline: none;
   box-shadow: 0 0 0 2px var(--color-bg), 0 0 0 4px var(--color-accent);
