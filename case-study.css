@@ -384,12 +384,27 @@
     gap: 0.5rem;
   }
 
+  .tag {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-width: fit-content;
+  }
+
   .case-study-content {
     padding: 4rem 0;
   }
 
   .case-study-section {
     margin-bottom: 4rem;
+  }
+
+  .section-title,
+  .case-study-title {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 
   .overview-grid,
