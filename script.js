@@ -75,11 +75,12 @@ magneticBtns.forEach(btn => {
 
 // Mobile Menu Toggle
 const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+const mobileMenuCloseBtn = document.querySelector('.mobile-menu-close');
 const mobileMenu = document.querySelector('.mobile-menu');
 const mobileLinks = document.querySelectorAll('.mobile-nav-link');
 
 if (mobileMenuBtn && mobileMenu) {
-    mobileMenuBtn.addEventListener('click', () => {
+    const toggleMenu = () => {
         mobileMenuBtn.classList.toggle('active');
         mobileMenu.classList.toggle('active');
 
@@ -89,15 +90,23 @@ if (mobileMenuBtn && mobileMenu) {
         } else {
             document.body.style.overflow = '';
         }
-    });
+    };
+
+    const closeMenu = () => {
+        mobileMenuBtn.classList.remove('active');
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
+    };
+
+    mobileMenuBtn.addEventListener('click', toggleMenu);
+
+    if (mobileMenuCloseBtn) {
+        mobileMenuCloseBtn.addEventListener('click', closeMenu);
+    }
 
     // Close menu when clicking a link
     mobileLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenuBtn.classList.remove('active');
-            mobileMenu.classList.remove('active');
-            document.body.style.overflow = '';
-        });
+        link.addEventListener('click', closeMenu);
     });
 }
 
