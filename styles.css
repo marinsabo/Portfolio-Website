@@ -855,7 +855,7 @@ body:hover .cursor-outline {
   left: 0;
   width: 100%;
   z-index: 100;
-  padding: 1.5rem 0;
+  padding: 1rem 0;
   /* Prevent layout thrashing on mobile scroll */
   transition: background-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
     padding 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
@@ -866,6 +866,12 @@ body:hover .cursor-outline {
   /* Hardware acceleration to keep header pinned */
   transform: translate3d(0, 0, 0);
   -webkit-transform: translate3d(0, 0, 0);
+}
+
+@media (min-width: 768px) {
+  .header {
+    padding: 1.5rem 0;
+  }
 }
 
 .header.scrolled {
