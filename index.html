@@ -376,7 +376,7 @@
       align-items: center;
       position: relative;
       overflow: hidden;
-      padding-top: var(--header-height);
+      padding-top: calc(var(--header-height) + 4rem);
     }
 
     .hero-container {
@@ -396,6 +396,8 @@
       margin-top: 1.5rem;
       margin-bottom: 3rem;
       max-width: 500px;
+      text-align: left;
+      margin-left: 0;
     }
 
     .hero-visual {
@@ -503,6 +505,12 @@
       .hero-image-wrapper {
         max-width: 350px;
         margin: 0 auto;
+      }
+
+      .hero-subtitle {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
       }
     }
 
@@ -690,7 +698,7 @@
 
     .tech-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 2rem;
     }
 
@@ -718,6 +726,9 @@
     .tech-card p {
       line-height: 1.7;
       margin-bottom: 0;
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
     }
 
     .tech-tags {
@@ -936,18 +947,25 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      position: relative;
     }
 
     .logo-img {
       height: 40px;
       width: auto;
+      position: relative;
+      z-index: 2;
     }
 
     .nav-desktop {
       display: none;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: 1025px) {
       .nav-desktop {
         display: block;
       }
@@ -1019,7 +1037,7 @@
       z-index: 101;
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: 1025px) {
       .mobile-menu-btn {
         display: none;
       }
@@ -1987,6 +2005,67 @@
 
       .mobile-nav-link {
         font-size: 1.5rem;
+      }
+    }
+
+    /* Optimization for 1024x600 and Short Screens */
+    @media (max-height: 800px),
+    (max-width: 1024px) {
+      .hero-section {
+        min-height: auto;
+        padding-top: calc(var(--header-height) + 3rem);
+        padding-bottom: 4rem;
+      }
+
+      .hero-title {
+        font-size: clamp(2.5rem, 4vw, 3.5rem);
+      }
+
+      .hero-subtitle {
+        margin-bottom: 2rem;
+      }
+
+      /* Stacking Grids for 1024px */
+      .value-prop-grid,
+      .tech-grid,
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .booking-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+    }
+
+    /* Slimmer Calendly Widget & Status Card Logic */
+    @media (max-width: 1024px) {
+      .calendly-column {
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      .status-column {
+        max-width: 500px;
+        margin: 0 auto;
+        width: 100%;
+      }
+
+      .ms-model {
+        transform: scale(1);
+      }
+    }
+
+    @media (max-width: 1200px) {
+      .container {
+        width: 95%;
+      }
+
+      .hero-container {
+        gap: 2rem;
       }
     }
 
