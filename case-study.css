@@ -10,6 +10,12 @@
   padding-bottom: 4rem;
 }
 
+@media (min-width: 1024px) {
+  .case-study-hero {
+    padding-top: calc(var(--header-height) + 5rem);
+  }
+}
+
 .case-study-hero::before {
   content: '';
   position: absolute;
@@ -46,6 +52,12 @@
   width: auto;
   margin-bottom: 2rem;
   filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.3));
+}
+
+@media (min-width: 1024px) {
+  .case-study-logo {
+    margin-top: 2rem;
+  }
 }
 
 .case-study-title {
@@ -373,12 +385,13 @@
 
 @media (max-width: 768px) {
   .case-study-hero {
-    min-height: 50vh;
-    padding: 8rem 1rem 4rem;
+    min-height: auto;
+    padding: 6rem 1rem 3rem;
   }
 
   .case-study-logo {
-    height: 60px;
+    height: 50px;
+    margin-bottom: 1.5rem;
   }
 
   .case-study-tags {
@@ -392,14 +405,16 @@
     align-items: center;
     text-align: center;
     min-width: fit-content;
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
   }
 
   .case-study-content {
-    padding: 4rem 0;
+    padding: 3rem 0;
   }
 
   .case-study-section {
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
   }
 
   .section-title,
@@ -451,13 +466,17 @@
 
 @media (max-width: 480px) {
 
+  .case-study-title {
+    font-size: 2rem;
+  }
+
   .overview-card,
   .cs-card {
-    padding: 1.5rem;
+    padding: 1.25rem;
   }
 
   .metric-card {
-    padding: 2rem 1.5rem;
+    padding: 1.25rem 1rem;
   }
 
   .testimonial-section::before {
@@ -465,4 +484,84 @@
     top: -10px;
     left: 20px;
   }
+}
+
+/* Showcase Slider Styles */
+.showcase-slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 2rem;
+  padding-bottom: 2rem;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.showcase-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.showcase-item {
+  flex: 0 0 calc(100% - 2rem);
+  /* Mobile default */
+  scroll-snap-align: center;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  /* Maintain aspect ratio or let image decide */
+}
+
+.showcase-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (min-width: 768px) {
+  .showcase-item {
+    flex: 0 0 calc(50% - 1rem);
+    /* 2 items visible */
+  }
+}
+
+@media (min-width: 1024px) {
+  .showcase-item {
+    flex: 0 0 calc(33.333% - 1.33rem);
+    /* 3 items visible */
+  }
+}
+
+/* Navigation Buttons (Reused from index.html style if available, else defined here) */
+.portfolio-nav-container {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .portfolio-nav-container {
+    display: none !important;
+  }
+}
+
+.portfolio-nav-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--color-text-high);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.portfolio-nav-btn:hover {
+  background: var(--color-accent);
+  color: var(--color-bg);
+  transform: scale(1.1);
 }

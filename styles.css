@@ -258,6 +258,10 @@ body:hover .cursor-outline {
     margin-left: auto;
     margin-right: auto;
   }
+
+  .header-actions .btn {
+    display: none !important;
+  }
 }
 
 :focus-visible {
@@ -1478,7 +1482,7 @@ body:hover .cursor-outline {
   font-size: 0.85rem;
 }
 
-@media (max-width: 968px) {
+@media (max-width: 768px) {
   .booking-grid {
     grid-template-columns: 1fr;
     gap: 3rem;
@@ -1610,8 +1614,8 @@ body:hover .cursor-outline {
 @media (max-width: 480px) {
 
   h1 {
-    font-size: 2rem;
-    line-height: 1.2;
+    font-size: 1.75rem;
+    line-height: 1.25;
   }
 
   h2 {
@@ -1633,7 +1637,7 @@ body:hover .cursor-outline {
   }
 
   .hero-title {
-    font-size: 2rem !important;
+    font-size: 1.75rem !important;
   }
 
   .hero-subtitle {
@@ -1668,9 +1672,6 @@ body:hover .cursor-outline {
     height: 32px;
   }
 
-  .header-actions .btn {
-    display: none;
-  }
 
   .pain-point-section {
     padding: 4rem 0;
@@ -1984,15 +1985,10 @@ body:hover .cursor-outline {
     margin-left: auto;
     margin-right: auto;
   }
-
-  .booking-grid {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
 }
 
 /* Slimmer Calendly Widget & Status Card Logic */
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   .calendly-column {
     max-width: 500px;
     margin: 0 auto;
