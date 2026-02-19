@@ -777,9 +777,58 @@
     }
 
     .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
       gap: 2rem;
+      padding-bottom: 2rem;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      /* Firefox */
+    }
+
+    .portfolio-grid::-webkit-scrollbar {
+      display: none;
+      /* Chrome/Safari */
+    }
+
+    .portfolio-nav-container {
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .portfolio-nav-container {
+        display: none !important;
+      }
+    }
+
+    .portfolio-nav-btn {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--color-text-high);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .portfolio-nav-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--color-accent);
+      transform: scale(1.05);
+    }
+
+    .portfolio-nav-btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+      border-color: rgba(255, 255, 255, 0.05);
     }
 
     .portfolio-card {
@@ -792,6 +841,27 @@
       display: flex;
       flex-direction: column;
       gap: 1.25rem;
+
+      /* Carousel Sizing */
+      flex: 0 0 85%;
+      /* Mobile default */
+      scroll-snap-align: center;
+    }
+
+    @media (min-width: 768px) {
+      .portfolio-card {
+        flex: 0 0 calc(50% - 1rem);
+        /* 2 items visible */
+        scroll-snap-align: start;
+      }
+    }
+
+    @media (min-width: 1025px) {
+      .portfolio-card {
+        flex: 0 0 calc(33.333% - 1.33rem);
+        /* 3 items visible */
+        scroll-snap-align: start;
+      }
     }
 
     .portfolio-card:hover {
@@ -1529,7 +1599,7 @@
       font-size: 0.85rem;
     }
 
-    @media (max-width: 968px) {
+    @media (max-width: 768px) {
       .booking-grid {
         grid-template-columns: 1fr;
         gap: 3rem;
@@ -1784,10 +1854,7 @@
         padding: 4rem 0;
       }
 
-      .portfolio-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
+
 
       .booking-section {
         padding: 4rem 0;
@@ -2028,22 +2095,16 @@
 
       /* Stacking Grids for 1024px */
       .value-prop-grid,
-      .tech-grid,
-      .portfolio-grid {
+      .tech-grid {
         grid-template-columns: 1fr;
         max-width: 600px;
         margin-left: auto;
         margin-right: auto;
       }
-
-      .booking-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-      }
     }
 
     /* Slimmer Calendly Widget & Status Card Logic */
-    @media (max-width: 1024px) {
+    @media (max-width: 768px) {
       .calendly-column {
         max-width: 500px;
         margin: 0 auto;
@@ -2200,48 +2261,56 @@
       <div class="marquee-container">
         <div class="marquee-content">
           <!-- Duplicated content for seamless scrolling -->
-          <div class="marquee-item">
+          <a href="gamechanger-case-study.html" class="marquee-item">
             <img src="images/gamechanger-all-white-logo.webp" alt="GameChanger" class="client-logo">
             <span class="client-name">GameChanger</span>
-          </div>
-          <div class="marquee-item">
+          </a>
+          <a href="ikarus-case-study.html" class="marquee-item">
             <img src="images/ikarus-agency-all-white-logo.webp" alt="Ikarus Agency" class="client-logo">
             <span class="client-name">Ikarus Agency</span>
-          </div>
-          <div class="marquee-item">
+          </a>
+          <a href="wavelance-case-study.html" class="marquee-item">
             <img src="images/wavelance-all-white-logo.webp" alt="WaveLance" class="client-logo">
             <span class="client-name">WaveLance</span>
-          </div>
-          <div class="marquee-item">
+          </a>
+          <a href="vukovarski-golubici-case-study.html" class="marquee-item">
             <img src="images/vukovarski-golubici-all-white-logo.webp" alt="Vukovarski Golubići" class="client-logo">
             <span class="client-name">Vukovarski Golubići</span>
-          </div>
-          <div class="marquee-item">
-            <img src="images/codehustling-all-white-logo" alt="Vukovarski Golubići" class="client-logo">
+          </a>
+          <a href="codehustling-case-study.html" class="marquee-item">
+            <img src="images/codehustling-all-white-logo.png" alt="Code Hustling" class="client-logo">
             <span class="client-name">CodeHustling</span>
-          </div>
+          </a>
+          <a href="slavonski-brod-case-study.html" class="marquee-item">
+            <img src="images/brod-all-white-logo.png" alt="Brodsko-posavska županija" class="client-logo">
+            <span class="client-name">Brodsko-posavska županija</span>
+          </a>
 
           <!-- Duplicate for loop -->
-          <div class="marquee-item">
+          <a href="gamechanger-case-study.html" class="marquee-item">
             <img src="images/gamechanger-all-white-logo.webp" alt="GameChanger" class="client-logo">
             <span class="client-name">GameChanger</span>
-          </div>
-          <div class="marquee-item">
+          </a>
+          <a href="ikarus-case-study.html" class="marquee-item">
             <img src="images/ikarus-agency-all-white-logo.webp" alt="Ikarus Agency" class="client-logo">
             <span class="client-name">Ikarus Agency</span>
-          </div>
-          <div class="marquee-item">
+          </a>
+          <a href="wavelance-case-study.html" class="marquee-item">
             <img src="images/wavelance-all-white-logo.webp" alt="WaveLance" class="client-logo">
             <span class="client-name">WaveLance</span>
-          </div>
-          <div class="marquee-item">
+          </a>
+          <a href="vukovarski-golubici-case-study.html" class="marquee-item">
             <img src="images/vukovarski-golubici-all-white-logo.webp" alt="Vukovarski Golubići" class="client-logo">
             <span class="client-name">Vukovarski Golubići</span>
-          </div>
-          <div class="marquee-item">
-            <img src="images/codehustling-all-white-logo" alt="Vukovarski Golubići" class="client-logo">
+          </a>
+          <a href="codehustling-case-study.html" class="marquee-item">
+            <img src="images/codehustling-all-white-logo.png" alt="Code Hustling" class="client-logo">
             <span class="client-name">CodeHustling</span>
-          </div>
+          </a>
+          <a href="slavonski-brod-case-study.html" class="marquee-item">
+            <img src="images/brod-all-white-logo.png" alt="Brodsko-posavska županija" class="client-logo">
+            <span class="client-name">Brodsko-posavska županija</span>
+          </a>
         </div>
       </div>
     </section>
@@ -2431,91 +2500,188 @@
       </div>
     </section>
 
-    <section class="portfolio-section" id="case-studies">
-      <div class="container">
-        <h2 class="section-title">Istaknuti Projekti</h2>
-        <div class="portfolio-grid">
-
-          <article class="portfolio-card">
-            <div class="portfolio-image-wrapper" style="background-color: #2a2a4a;">
-              <img src="images/wavelance-logo.webp" alt="WaveLance Project" class="portfolio-image object-contain"
-                loading="lazy">
-
-              <div class="portfolio-badge warning">
-                <span class="metric-label">Load Time 0.8s</span>
-              </div>
-            </div>
-
-            <div class="portfolio-content">
-              <div class="content-header">
-                <h3>WaveLance</h3>
-                <div class="arrow-icon">↗</div>
-              </div>
-              <p>SaaS platforma za freelancere.</p>
-
-              <div class="card-tags">
-                <span class="tag">SaaS</span>
-                <span class="tag">Platform</span>
-              </div>
-
-              <a href="wavelance-case-study.html" class="card-link"><span class="sr-only">View Project</span></a>
-            </div>
-          </article>
-
-          <article class="portfolio-card">
-            <div class="portfolio-image-wrapper" style="background-color: #ff0000;">
-              <img src="images/gamechanger-all-white-logo.webp" alt="GameChanger Project"
-                class="portfolio-image object-contain" loading="lazy">
-
-              <div class="portfolio-badge warning">
-                <span class="metric-label">Load Time 1.2s</span>
-              </div>
-            </div>
-
-            <div class="portfolio-content">
-              <div class="content-header">
-                <h3>GameChanger</h3>
-                <div class="arrow-icon">↗</div>
-              </div>
-              <p>Razvoj landing stranice visokih performansi za tehnološku konferenciju</p>
-
-              <div class="card-tags">
-                <span class="tag">Performance</span>
-                <span class="tag">Event</span>
-              </div>
-
-              <a href="gamechanger-case-study.html" class="card-link"><span class="sr-only">View Project</span></a>
-            </div>
-          </article>
-
-          <article class="portfolio-card">
-            <div class="portfolio-image-wrapper" style="background-color: #2f3130;">
-              <img src="images/codehustling.webp" alt="Code Hustling Project" class="portfolio-image object-contain"
-                loading="lazy" style="padding: 4rem;">
-
-              <div class="portfolio-badge warning">
-                <span class="metric-label">Load Time 0.9s</span>
-              </div>
-            </div>
-
-            <div class="portfolio-content">
-              <div class="content-header">
-                <h3>Code Hustling</h3>
-                <div class="arrow-icon">↗</div>
-              </div>
-              <p>Cjeloviti rebranding i custom web rješenje.</p>
-
-              <div class="card-tags">
-                <span class="tag">Rebranding</span>
-                <span class="tag">Design</span>
-              </div>
-
-              <a href="codehustling-case-study.html" class="card-link"><span class="sr-only">View
-                  Project</span></a>
-            </div>
-          </article>
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: end; margin-bottom: 2rem;">
+        <h2 class="section-title" style="margin-bottom: 0;">Istaknuti Projekti</h2>
+        <div class="portfolio-nav-container" style="margin-bottom: 0;">
+          <button class="portfolio-nav-btn prev-btn" aria-label="Previous">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+          </button>
+          <button class="portfolio-nav-btn next-btn" aria-label="Next">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 18l6-6-6-6" />
+            </svg>
+          </button>
         </div>
       </div>
+
+      <div class="portfolio-grid" id="portfolio-slider">
+
+        <article class="portfolio-card">
+          <div class="portfolio-image-wrapper" style="background-color: #2a2a4a;">
+            <img src="images/wavelance-logo.webp" alt="WaveLance Project" class="portfolio-image object-contain"
+              loading="lazy">
+
+            <div class="portfolio-badge warning">
+              <span class="metric-label">Vrijeme učitavanja 0.8s</span>
+            </div>
+          </div>
+
+          <div class="portfolio-content">
+            <div class="content-header">
+              <h3>WaveLance</h3>
+              <div class="arrow-icon">↗</div>
+            </div>
+            <p>SaaS platforma za freelancere.</p>
+
+            <div class="card-tags">
+              <span class="tag">SaaS</span>
+              <span class="tag">Platforma</span>
+            </div>
+
+            <a href="wavelance-case-study.html" class="card-link"><span class="sr-only">View Project</span></a>
+          </div>
+        </article>
+
+        <article class="portfolio-card">
+          <div class="portfolio-image-wrapper" style="background-color: #ffcc00;">
+            <img src="images/vukovarski-golubići.webp" alt="Vukovarski Golubići Project"
+              class="portfolio-image object-contain" loading="lazy">
+
+            <div class="portfolio-badge warning">
+              <span class="metric-label">U razvoju</span>
+            </div>
+          </div>
+
+          <div class="portfolio-content">
+            <div class="content-header">
+              <h3>Vukovarski Golubići</h3>
+              <div class="arrow-icon">↗</div>
+            </div>
+            <p>Kompletna web platforma za dječji zbor "Vukovarski Golubići"</p>
+
+            <div class="card-tags">
+              <span class="tag">Platforma</span>
+              <span class="tag">Rebranding</span>
+            </div>
+
+            <a href="vukovarski-golubici-case-study.html" class="card-link"><span class="sr-only">View
+                Project</span></a>
+          </div>
+        </article>
+
+        <article class="portfolio-card">
+          <div class="portfolio-image-wrapper" style="background-color: #2f3130;">
+            <img src="images/codehustling.webp" alt="Code Hustling Project" class="portfolio-image object-contain"
+              loading="lazy" style="padding: 4rem;">
+
+            <div class="portfolio-badge warning">
+              <span class="metric-label">Vrijeme učitavanja 0.9s</span>
+            </div>
+          </div>
+
+          <div class="portfolio-content">
+            <div class="content-header">
+              <h3>Code Hustling</h3>
+              <div class="arrow-icon">↗</div>
+            </div>
+            <p>Cjeloviti rebranding i custom web rješenje.</p>
+
+            <div class="card-tags">
+              <span class="tag">Rebranding</span>
+              <span class="tag">Dizajn</span>
+            </div>
+
+            <a href="codehustling-case-study.html" class="card-link"><span class="sr-only">View
+                Project</span></a>
+          </div>
+        </article>
+
+        <article class="portfolio-card">
+          <div class="portfolio-image-wrapper" style="background-color: #ff0000;">
+            <img src="images/gamechanger-all-white-logo.webp" alt="GameChanger Project"
+              class="portfolio-image object-contain" loading="lazy" style="padding: 4rem;">
+
+            <div class="portfolio-badge warning">
+              <span class="metric-label">1100+ Posjetitelja</span>
+            </div>
+          </div>
+
+          <div class="portfolio-content">
+            <div class="content-header">
+              <h3>GameChanger</h3>
+              <div class="arrow-icon">↗</div>
+            </div>
+            <p>Razvoj landing stranice visokih performansi za vodeću tehnološku konferenciju</p>
+
+            <div class="card-tags">
+              <span class="tag">Event</span>
+              <span class="tag">Gaming</span>
+            </div>
+
+            <a href="gamechanger-case-study.html" class="card-link"><span class="sr-only">View
+                Project</span></a>
+          </div>
+        </article>
+
+        <article class="portfolio-card">
+          <div class="portfolio-image-wrapper" style="background-color: #d60043;">
+            <img src="images/ikarus-agency-all-white-logo.webp" alt="Ikarus Agency Project"
+              class="portfolio-image object-contain" loading="lazy" style="padding: 4rem;">
+
+            <div class="portfolio-badge warning">
+              <span class="metric-label">+150% Konverzija</span>
+            </div>
+          </div>
+
+          <div class="portfolio-content">
+            <div class="content-header">
+              <h3>Ikarus Agency</h3>
+              <div class="arrow-icon">↗</div>
+            </div>
+            <p>Kompletan rebranding i web dizajn.</p>
+
+            <div class="card-tags">
+              <span class="tag">Rebranding</span>
+              <span class="tag">Web Dizajn</span>
+            </div>
+
+            <a href="ikarus-case-study.html" class="card-link"><span class="sr-only">View
+                Project</span></a>
+          </div>
+        </article>
+
+        <article class="portfolio-card">
+          <div class="portfolio-image-wrapper" style="background-color: #0561ad;">
+            <img src="images/brod-all-white-logo.png" alt="Slavonski Brod Project"
+              class="portfolio-image object-contain" loading="lazy" style="padding: 4rem;">
+
+            <div class="portfolio-badge warning">
+              <span class="metric-label">+200% Doseg</span>
+            </div>
+          </div>
+
+          <div class="portfolio-content">
+            <div class="content-header">
+              <h3>Slavonski Brod</h3>
+              <div class="arrow-icon">↗</div>
+            </div>
+            <p>Strategija i vođenje društvenih mreža.</p>
+
+            <div class="card-tags">
+              <span class="tag">Društvene mreže</span>
+              <span class="tag">Marketing</span>
+            </div>
+
+            <a href="slavonski-brod-case-study.html" class="card-link"><span class="sr-only">Pogledaj projekt</span></a>
+          </div>
+        </article>
+      </div>
+    </div>
     </section>
     <!-- Booking Section -->
     <section class="booking-section" id="booking">
@@ -2593,23 +2759,23 @@
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Socials</h4>
+          <h4>Društvene mreže</h4>
           <ul>
-            <li><a href="https://www.linkedin.com/in/marinsabo/" target="_blank">LinkedIn</a></li>
+            <li><a href="#" target="_blank">LinkedIn</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Legal</h4>
+          <h4>Pravno</h4>
           <ul>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Politika privatnosti</a></li>
+            <li><a href="#">Uvjeti korištenja</a></li>
           </ul>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
       <div class="container">
-        <p>&copy; 2025 MS Development. All rights reserved.</p>
+        <p>&copy; 2026 MS Development. All rights reserved.</p>
       </div>
     </div>
   </footer>
@@ -2804,21 +2970,7 @@
       }
     });
 
-    // Portfolio Item Click Handlers - Link to Case Studies
-    const portfolioItems = document.querySelectorAll('.portfolio-item');
-    portfolioItems.forEach((item, index) => {
-      item.style.cursor = 'pointer';
-      item.addEventListener('click', function () {
-        const caseStudyPages = [
-          'gamechanger-case-study.html',
-          'ikarus-case-study.html',
-          'wavelance-case-study.html'
-        ];
-        if (caseStudyPages[index]) {
-          window.location.href = caseStudyPages[index];
-        }
-      });
-    });
+
 
     // Service Worker Registration
     function registerServiceWorker() {
@@ -2834,11 +2986,104 @@
         });
       }
     }
+
+    // Disable Right Click
+    document.addEventListener('contextmenu', (e) => e.preventDefault());
+
+    function ctrlShiftKey(e, keyCode) {
+      return e.ctrlKey && e.shiftKey && e.keyCode === keyCode.charCodeAt(0);
+    }
+
+    document.onkeydown = (e) => {
+      // Disable F12, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + U
+      if (
+        event.keyCode === 123 ||
+        ctrlShiftKey(e, 'I') ||
+        ctrlShiftKey(e, 'J') ||
+        ctrlShiftKey(e, 'C') ||
+        (e.ctrlKey && e.keyCode === 'U'.charCodeAt(0))
+      )
+        return false;
+    };
+
+    // Reusable Infinite Carousel Logic
+    function setupInfiniteCarousel(sliderId, prevBtnSelector, nextBtnSelector) {
+      const slider = document.getElementById(sliderId);
+      const prevBtn = document.querySelector(prevBtnSelector);
+      const nextBtn = document.querySelector(nextBtnSelector);
+  
+      if (!slider || !prevBtn || !nextBtn) return;
+  
+      const cards = Array.from(slider.children);
+      if (cards.length === 0) return;
+  
+      const cardCount = cards.length;
+      const cardsToClone = 3; // Number of items to clone for buffer
+  
+      // Clone items
+      const firstClones = cards.slice(0, cardsToClone).map(card => card.cloneNode(true));
+      const lastClones = cards.slice(-cardsToClone).map(card => card.cloneNode(true));
+  
+      // Append and Prepend clones
+      firstClones.forEach(clone => slider.appendChild(clone));
+      lastClones.reverse().forEach(clone => slider.prepend(clone));
+  
+      // Scroll to the first real element
+      const alignSlider = () => {
+          const firstCard = cards[0];
+          if (!firstCard) return;
+  
+          const cardWidth = firstCard.offsetWidth;
+          const gap = parseFloat(window.getComputedStyle(slider).gap) || 32; // Default to 32px if not set
+          slider.scrollLeft = cardsToClone * (cardWidth + gap);
+      };
+  
+      // Run initially and on resize
+      window.addEventListener('load', alignSlider);
+      window.addEventListener('resize', alignSlider);
+      setTimeout(alignSlider, 100);
+  
+      // Scroll Event for Infinite Loop
+      slider.addEventListener('scroll', () => {
+          const firstCard = cards[0];
+          if (!firstCard) return;
+  
+          const cardWidth = firstCard.offsetWidth;
+          const gap = parseFloat(window.getComputedStyle(slider).gap) || 32;
+          const itemWidth = cardWidth + gap;
+          const totalRealWidth = cardCount * itemWidth;
+  
+          // If scrolled to the start (into prepended clones)
+          if (slider.scrollLeft <= 10) {
+              slider.scrollLeft = slider.scrollLeft + totalRealWidth;
+          }
+          // If scrolled to the end (into appended clones)
+          else if (slider.scrollLeft >= totalRealWidth + (cardsToClone * itemWidth) - 10) {
+              slider.scrollLeft = slider.scrollLeft - totalRealWidth;
+          }
+      });
+  
+      nextBtn.addEventListener('click', () => {
+          const currentFirst = slider.children[0];
+          const cardWidth = currentFirst.offsetWidth;
+          const gap = parseFloat(window.getComputedStyle(slider).gap) || 32;
+  
+          slider.scrollBy({ left: cardWidth + gap, behavior: 'smooth' });
+      });
+  
+      prevBtn.addEventListener('click', () => {
+          const currentFirst = slider.children[0];
+          const cardWidth = currentFirst.offsetWidth;
+          const gap = parseFloat(window.getComputedStyle(slider).gap) || 32;
+  
+          slider.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' });
+      });
+  }
+
+    // Initialize Portfolio Carousel
+    setupInfiniteCarousel('portfolio-slider', '.prev-btn', '.next-btn');
   </script>
 </body>
 
 
 </html>
-
-
-

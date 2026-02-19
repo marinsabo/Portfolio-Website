@@ -135,3 +135,101 @@ portfolioItems.forEach((item, index) => {
         }
     });
 });
+
+// Disable Right Click
+document.addEventListener('contextmenu', (e) => e.preventDefault());
+
+function ctrlShiftKey(e, keyCode) {
+    return e.ctrlKey && e.shiftKey && e.keyCode === keyCode.charCodeAt(0);
+}
+
+document.onkeydown = (e) => {
+    // Disable F12, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + U
+    if (
+        event.keyCode === 123 ||
+        ctrlShiftKey(e, 'I') ||
+        ctrlShiftKey(e, 'J') ||
+        ctrlShiftKey(e, 'C') ||
+        (e.ctrlKey && e.keyCode === 'U'.charCodeAt(0))
+    ) {
+        return false;
+    }
+};
+
+// Reusable Infinite Carousel Logic
+function setupInfiniteCarousel(sliderId, prevBtnSelector, nextBtnSelector) {
+    const slider = document.getElementById(sliderId);
+    const prevBtn = document.querySelector(prevBtnSelector);
+    const nextBtn = document.querySelector(nextBtnSelector);
+
+    if (!slider || !prevBtn || !nextBtn) return;
+
+    const cards = Array.from(slider.children);
+    if (cards.length === 0) return;
+
+    const cardCount = cards.length;
+    const cardsToClone = 3; // Number of items to clone for buffer
+
+    // Clone items
+    const firstClones = cards.slice(0, cardsToClone).map(card => card.cloneNode(true));
+    const lastClones = cards.slice(-cardsToClone).map(card => card.cloneNode(true));
+
+    // Append and Prepend clones
+    firstClones.forEach(clone => slider.appendChild(clone));
+    lastClones.reverse().forEach(clone => slider.prepend(clone));
+
+    // Scroll to the first real element
+    const alignSlider = () => {
+        const firstCard = cards[0];
+        if (!firstCard) return;
+
+        const cardWidth = firstCard.offsetWidth;
+        const gap = parseFloat(window.getComputedStyle(slider).gap) || 32; // Default to 32px if not set
+        slider.scrollLeft = cardsToClone * (cardWidth + gap);
+    };
+
+    // Run initially and on resize
+    window.addEventListener('load', alignSlider);
+    window.addEventListener('resize', alignSlider);
+    setTimeout(alignSlider, 100);
+
+    // Scroll Event for Infinite Loop
+    slider.addEventListener('scroll', () => {
+        const firstCard = cards[0];
+        if (!firstCard) return;
+
+        const cardWidth = firstCard.offsetWidth;
+        const gap = parseFloat(window.getComputedStyle(slider).gap) || 32;
+        const itemWidth = cardWidth + gap;
+        const totalRealWidth = cardCount * itemWidth;
+
+        // If scrolled to the start (into prepended clones)
+        if (slider.scrollLeft <= 10) {
+            slider.scrollLeft = slider.scrollLeft + totalRealWidth;
+        }
+        // If scrolled to the end (into appended clones)
+        else if (slider.scrollLeft >= totalRealWidth + (cardsToClone * itemWidth) - 10) {
+            slider.scrollLeft = slider.scrollLeft - totalRealWidth;
+        }
+    });
+
+    nextBtn.addEventListener('click', () => {
+        const firstCard = cards[0]; // Use original REF for width measurement (or query selector)
+        // Better to query current first child in case of resize updates on clones? 
+        // Actually cards[0] is still in DOM but might be shifted? No, it's just a reference.
+        // Let's us slider.children[0] or just re-measure.
+        const currentFirst = slider.children[0];
+        const cardWidth = currentFirst.offsetWidth;
+        const gap = parseFloat(window.getComputedStyle(slider).gap) || 32;
+
+        slider.scrollBy({ left: cardWidth + gap, behavior: 'smooth' });
+    });
+
+    prevBtn.addEventListener('click', () => {
+        const currentFirst = slider.children[0];
+        const cardWidth = currentFirst.offsetWidth;
+        const gap = parseFloat(window.getComputedStyle(slider).gap) || 32;
+
+        slider.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' });
+    });
+}
