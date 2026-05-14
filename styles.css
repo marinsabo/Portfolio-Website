@@ -730,9 +730,56 @@ body:hover .cursor-outline {
 }
 
 .portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
   gap: 2rem;
+  padding-bottom: 2rem;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.portfolio-grid::-webkit-scrollbar {
+  display: none;
+}
+
+.portfolio-nav-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+  .portfolio-nav-container {
+    display: none !important;
+  }
+}
+
+.portfolio-nav-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--color-text-high);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.portfolio-nav-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--color-accent);
+  transform: scale(1.05);
+}
+
+.portfolio-nav-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  border-color: rgba(255, 255, 255, 0.05);
 }
 
 .portfolio-card {
@@ -745,6 +792,24 @@ body:hover .cursor-outline {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
+
+  /* Carousel Sizing */
+  flex: 0 0 85%;
+  scroll-snap-align: center;
+}
+
+@media (min-width: 768px) {
+  .portfolio-card {
+    flex: 0 0 calc(50% - 1rem);
+    scroll-snap-align: start;
+  }
+}
+
+@media (min-width: 1025px) {
+  .portfolio-card {
+    flex: 0 0 calc(33.333% - 1.33rem);
+    scroll-snap-align: start;
+  }
 }
 
 .portfolio-card:hover {
