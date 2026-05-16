@@ -1,300 +1,459 @@
 <!DOCTYPE html>
 <html lang="hr">
+
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Brushy – Aplikacija koja mijenja kako djeca brinu o zubima</title>
-  <meta name="description" content="Brushy pretvara pranje zubi u najveću avanturu dana. Jer zdravi zubi počinju s navikom, a navika počinje s motivacijom."/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Fredoka:wght@600;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="style.css?v=8"/>
+  <meta name="description"
+    content="Brushy pretvara pranje zubi u najveću avanturu dana. Jer zdravi zubi počinju s navikom, a navika počinje s motivacijom." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Fredoka:wght@600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=8" />
 </head>
+
 <body>
-<nav class="nav" id="nav">
-  <div class="nav__inner">
-    <div class="nav__logo">🦷 <span>Brushy</span></div>
-    <div class="nav__links">
-      <a href="#problem">Problem</a>
-      <a href="#features">Rješenje</a>
-      <a href="#screens">Ekrani</a>
-    </div>
-  </div>
-</nav>
-<section class="hero" id="hero">
-  <div class="hero__bg-blobs" aria-hidden="true">
-    <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
-    <span class="bubble bub1"></span><span class="bubble bub2"></span><span class="bubble bub3"></span>
-    <span class="bubble bub4"></span><span class="bubble bub5"></span>
-  </div>
-  <div class="hero__inner">
-    <div class="hero__content">
-      <div class="hero__eyebrow">✨ Predstavljamo Brushy</div>
-      <h1 class="hero__title">
-        Vaše dijete<br/>
-        ne voli prati zube.<br/>
-        <span class="hero__title--glow">Brushy to mijenja.</span>
-      </h1>
-      <p class="hero__sub">
-        Prva gamificirana aplikacija za oralno zdravlje djece
-        koja je toliko zabavna – da djeca <em>sama traže</em> da peru zube.
-      </p>
-      <div class="hero__cta-row">
-        <a href="#problem" class="btn btn--yellow" id="hero-cta-1">Saznaj više ↓</a>
-        <a href="#screens" class="btn btn--ghost" id="hero-cta-2">Vidi aplikaciju</a>
-      </div>
-      <div class="hero__trust">
-        <span>🎯 Edukativan</span>
-        <span>🔒 Siguran za djecu</span>
-        <span>📊 Roditeljski nadzor</span>
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <div class="nav__logo">🦷 <span>Brushy</span></div>
+      <div class="nav__links">
+        <a href="#hero">Početna</a>
+        <a href="#problem">Problem</a>
+        <a href="#solution">Naše rješenje</a>
+        <a href="#features">Značajke aplikacije</a>
+        <a href="#parents">Za roditelje</a>
+        <a href="#closing">Preuzmi Brushy</a>
       </div>
     </div>
-    <div class="hero__phones" aria-label="Ekrani aplikacije Brushy">
-      <div class="phone-wrap phone-wrap--extra">
-        <div class="phone-frame"><div class="phone-frame__screen"><img src="images/First-load-page.webp" alt="Brushy dobrodošlica"/></div></div>
-      </div>
-      <div class="phone-wrap phone-wrap--left">
-        <div class="phone-frame"><div class="phone-frame__screen"><img src="images/Dashboard_instruction-1.webp" alt="Brushy upute"/></div></div>
-      </div>
-      <div class="phone-wrap phone-wrap--center">
-        <div class="phone-frame phone-frame--hero"><div class="phone-frame__screen"><img src="images/Dashboard.webp" alt="Brushy nadzorna ploča"/></div></div>
-      </div>
-      <div class="phone-wrap phone-wrap--right">
-        <div class="phone-frame"><div class="phone-frame__screen"><img src="images/Timer-ongoing.webp" alt="Brushy timer"/></div></div>
-      </div>
-      <div class="phone-wrap phone-wrap--extra">
-        <div class="phone-frame"><div class="phone-frame__screen"><img src="images/Streak_extended.webp" alt="Brushy nagrade"/></div></div>
-      </div>
+  </nav>
+  <section class="hero" id="hero">
+    <div class="hero__bg-blobs" aria-hidden="true">
+      <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
+      <span class="bubble bub1"></span><span class="bubble bub2"></span><span class="bubble bub3"></span>
+      <span class="bubble bub4"></span><span class="bubble bub5"></span>
     </div>
-  </div>
-</section>
-<section class="problem" id="problem">
-  <div class="container">
-    <div class="problem__header">
-      <div class="section-label label--red">⚠️ Istraživanjem utvrđeno</div>
-      <h2 class="section-title">Karijes je najčešća kronična<br/>bolest djece na svijetu.</h2>
-      <p class="section-sub">Ovi podaci nisu procjene. Prikupljeni su u okviru istraživanja koje je prethodilo razvoju Brushyja i objavljene u aktualnoj medicinskoj literaturi.</p>
-    </div>
-    <div class="crisis-stats">
-      <div class="crisis-stat" id="cs-1">
-        <div class="crisis-stat__num">46<span>%</span></div>
-        <div class="crisis-stat__text">globalna prevalencija karijesa ranog djetinjstva (ECC) u mlječnoj denticiji <em>(podaci iz 2021.)</em></div>
-      </div>
-      <div class="crisis-stat" id="cs-2">
-        <div class="crisis-stat__num">53<span>%</span></div>
-        <div class="crisis-stat__text">školske djece u trajnoj denticiji ima karijes — što ga čini najčešćom kroničnom bolesti djetinjstva</div>
-      </div>
-      <div class="crisis-stat" id="cs-3">
-        <div class="crisis-stat__num">3×</div>
-        <div class="crisis-stat__text">veća vjerojatnost razvoja karijesa na trajnim zubima kod djece koja su imala ECC <em>(meta-analiza, 2022.)</em></div>
-      </div>
-    </div>
-    <div class="problem__quote">
-      <div class="problem__quote-mark">"</div>
-      <blockquote>
-        Zubi su najranjiviji za karijesne lezije u prve 2–4 godine nakon erupcije,
-        prije nego sazrijevanje cakline dosegne optimalan stupanj. Upravo je to prozor
-        u kojemu djeca najčešće nemaju dovoljno razvijene higijenske navike.
-      </blockquote>
-      <cite>— iz istraživanja koje je prethodilo razvoju Brushyja (Fdmz Osijek &amp; FERIT Osijek, 2026.)</cite>
-    </div>
-    <div class="problem__transition">
-      <div class="transition-arrow">↓</div>
-      <p class="transition-text">Svega <strong>4% zdravstvenih aplikacija</strong> koristi gamifikaciju — Brushy je osmišljen upravo kao taj nedostajući odgovor.</p>
-    </div>
-  </div>
-</section>
-<section class="solution" id="solution">
-  <div class="container">
-    <div class="solution__split">
-      <div class="solution__text">
-        <div class="section-label label--blue">💡 Rješenje</div>
-        <h2 class="section-title">Upoznajte Brushy –<br/>superjunaka vašeg djeteta</h2>
-        <p class="solution__desc">
-          Brushy je interaktivni prototip edukativne mobilne aplikacije razvijen u suradnji
-          <strong>Fakulteta za dentalnu medicinu i zdravstvo Osijek</strong> i
-          <strong>FERIT-a Osijek</strong> — temeljen na istraživanju provedenom na 70 učenika
-          u dobi 7–11 godina. Svaka funkcionalnost izravno odgovara stvarnoj potrebi utvrđenoj istraživanjem.
+    <div class="hero__inner">
+      <div class="hero__content">
+        <div class="hero__eyebrow">✨ Predstavljamo Brushy</div>
+        <h1 class="hero__title">
+          Vaše dijete
+          ne voli prati zube.<br />
+          <span class="hero__title--glow">Brushy tome staje na kraj.</span>
+        </h1>
+        <p class="hero__sub">
+          Pitali smo djecu što bi im pranje zubi učinilo zanimljivim, a
+          zatim smo stvorili Brushy – besplatnu edukativnu aplikaciju koja dosadnu rutinu pretvara u igru.
         </p>
-        <ul class="solution__pillars">
-          <li><span class="pillar-icon">🎮</span><div><strong>Gamifikacija</strong> – Virtualna valuta (Zubići), niz, tjedni zadaci — jer 27% djece izjavljuje da im je pranje zubi dosadno</div></li>
-          <li><span class="pillar-icon">🧠</span><div><strong>Edukacija</strong> – Interaktivni kvizovi i Laboratorij temeljen na selektivnom predznanju utvrđenom anketom</div></li>
-          <li><span class="pillar-icon">👨‍👩‍👧</span><div><strong>Roditeljski nadzor</strong> – PIN zaštita, kalendar pranja i podsjetnici, jer literatura ističe roditelje kao ključan faktor</div></li>
-          <li><span class="pillar-icon">⏱️</span><div><strong>Animirani timer</strong> – Vodi dijete kroz sektore jer 39% anketiranih djece zaboravlja prati zube</div></li>
-        </ul>
-      </div>
-      <div class="solution__visual">
-        <div class="phone-frame phone-frame--solution">
-          <img src="images/Dashboard.webp" alt="Brushy nadzorna ploča"/>
+        <div class="hero__cta-row">
+          <a href="#problem" class="btn btn--yellow" id="hero-cta-1">Saznaj više ↓</a>
+          <a href="#screens" class="btn btn--ghost" id="hero-cta-2">Vidi aplikaciju</a>
         </div>
-        <div class="solution__badge solution__badge--1">🔥 Streak: 7 dana!</div>
-        <div class="solution__badge solution__badge--2">🦷 +100 bodova!</div>
-        <div class="solution__badge solution__badge--3">✅ Cilj postignut!</div>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="transform" id="transform">
-  <div class="container">
-    <div class="section-label label--yellow">✨ Transformacija</div>
-    <h2 class="section-title tc">Jutro prije i nakon Brushyja</h2>
-    <div class="transform__cards">
-      <div class="transform__card transform__card--before" id="tc-before">
-        <div class="tc-label">😩 Što istraživanje bilježi</div>
-        <ul>
-          <li>39% djece zaboravlja prati zube <em>(anketa, n=70)</em></li>
-          <li>27% djece dosadno je pranje zubi <em>(anketa, n=70)</em></li>
-          <li>Djeca s karijesom u mlječnoj denticiji imaju 3× veći rizik za karijes na trajnim zubima</li>
-          <li>Karijes prijevremeno gubi mlječne zube → ortodontske komplikacije, govorni razvoj, nutritivni status</li>
-          <li>Niti jedna dostupna aplikacija nije eksplicitno dizajnirana za dobnu skupinu 7–11 godina <em>(sustavni pregled, 2023.)</em></li>
-        </ul>
-      </div>
-      <div class="transform__vs">→</div>
-      <div class="transform__card transform__card--after" id="tc-after">
-        <div class="tc-label">✅ Što Brushy adresira</div>
-        <ul>
-          <li>Animirani podsjetnici i podrška formiranju navike — jer navika u prosjeku traje 66 dana da se ustali</li>
-          <li>Timer koji vodi kroz sektore — ispravna tehnika, ne samo trajanje</li>
-          <li>Gamifikacija koja motivira: istraživanja potvrđuju pozitivan učinak mHealth-a na indekse plaka kod djece</li>
-          <li>Roditeljski panel s kalendarom i analitikom — transparentnost bez konflikta</li>
-          <li>Laboratorij i kvizovi — edukacija prilagođena kognitivnoj fazi 7–11 godina (Piaget: faza konkretnih operacija)</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="features" id="features">
-  <div class="container">
-    <div class="section-label label--blue">🚀 Funkcionalnosti</div>
-    <h2 class="section-title">Sve što treba za zdrave zube</h2>
-    <div class="feat-grid">
-      <div class="feat-card feat-card--wide" id="fc-timer">
-        <div class="feat-card__phone">
-          <div class="phone-frame phone-frame--feat"><div class="phone-frame__screen"><img src="images/Timer-ongoing.webp" alt="Timer"/></div></div>
-        </div>
-        <div class="feat-card__body">
-          <div class="feat-icon">⏱️</div>
-          <h3>Interaktivni Timer</h3>
-          <p>Animirani vodič dijeli usta na kvadrante i vizualno vodi dijete kroz pranje. Dizajniran jer je 39% anketiranih učenika izjavilo da zaboravlja prati zube — a animirani format smanjuje kognitivno opterećenje i čini pranje jasnim čak i djeci s teškoćama u učenju.</p>
-          <div class="feat-tags"><span>2 ili 3 min</span><span>Sektori</span><span>Zubići nagrade</span></div>
+        <div class="hero__trust">
+          <span>🎯 Edukativan</span>
+          <span>🔒 Siguran za djecu</span>
+          <span>📊 Roditeljski nadzor</span>
         </div>
       </div>
-      <div class="feat-card" id="fc-quiz">
-        <div class="phone-frame phone-frame--feat-sm"><div class="phone-frame__screen"><img src="images/Quiz_question.webp" alt="Kviz"/></div></div>
-        <div class="feat-icon">🧠</div>
-        <h3>Edukativni Kvizovi & Laboratorij</h3>
-        <p>Kvizovi (poput poglavlja "Napad Šećerne Vile") i Laboratorij edukativan su odgovor na konkretne rupe u znanju djece utvrđene anketom. Vizualni format odgovora prilagođen je i djeci s nižom razinom čitalačke pismenosti.</p>
-        <div class="feat-tags"><span>Priče</span><span>Laboratorij</span><span>Vizualni odgovori</span></div>
-      </div>
-      <div class="feat-card" id="fc-streak">
-        <div class="phone-frame phone-frame--feat-sm"><div class="phone-frame__screen"><img src="images/Streak_extended.webp" alt="Streak"/></div></div>
-        <div class="feat-icon">🔥</div>
-        <h3>Niz, Zubići &amp; Virtualna Trgovina</h3>
-        <p>Ekonomija Zubića projektirana je za kratkoročnu i dugoročnu motivaciju: Common predmeti za ~2 dana, Legendary predmeti za ~42 dana — dovoljno za usvajanje navike (prosjek 66 dana). Opcija "Popravi niz" sprječava odustajanje zbog jednog propuštenog dana, što literatura identificira kao ključni rizik novelty efekta.</p>
-        <div class="feat-tags"><span>Dnevni niz</span><span>Virtualna trgovina</span><span>Tjedni zadaci</span></div>
-      </div>
-      <div class="feat-card feat-card--wide feat-card--flipped" id="fc-parent">
-        <div class="feat-card__body">
-          <div class="feat-icon">👨‍👩‍👧</div>
-          <h3>Roditeljski Nadzorni Panel</h3>
-          <p>Literatura prepoznaje uključenost roditelja kao ključan faktor u dizajnu mHealth aplikacija za djecu. Panel je zaštićen PIN-om i prikazuje kalendar pranja po danima (zeleno/žuto/crveno), a brisanje podataka usklađeno je s GDPR-om — što je posebno važno jer su korisnici maloljetnici.</p>
-          <div class="feat-tags"><span>Analitika</span><span>PIN zaštita</span><span>GDPR usklađenost</span></div>
+      <div class="hero__phones" aria-label="Ekrani aplikacije Brushy">
+        <div class="phone-wrap phone-wrap--extra">
+          <div class="phone-frame">
+            <div class="phone-frame__screen"><img src="images/First-load-page.webp" alt="Brushy dobrodošlica" /></div>
+          </div>
         </div>
-        <div class="feat-card__phone">
-          <div class="phone-frame phone-frame--feat"><div class="phone-frame__screen"><img src="images/Parental-Control_dashboard.webp" alt="Roditelski nadzor"/></div></div>
+        <div class="phone-wrap phone-wrap--left">
+          <div class="phone-frame">
+            <div class="phone-frame__screen"><img src="images/Quiz.webp" alt="Brushy Quiz" /></div>
+          </div>
+        </div>
+        <div class="phone-wrap phone-wrap--center">
+          <div class="phone-frame phone-frame--hero">
+            <div class="phone-frame__screen"><img src="images/Dashboard.webp" alt="Brushy nadzorna ploča" /></div>
+          </div>
+        </div>
+        <div class="phone-wrap phone-wrap--right">
+          <div class="phone-frame">
+            <div class="phone-frame__screen"><img src="images/Timer-ongoing.webp" alt="Brushy timer" /></div>
+          </div>
+        </div>
+        <div class="phone-wrap phone-wrap--extra">
+          <div class="phone-frame">
+            <div class="phone-frame__screen"><img src="images/Streak_extended.webp" alt="Brushy nagrade" /></div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-<section class="screens" id="screens">
-  <div class="container tc">
-    <div class="section-label label--blue">📱 Svi ekrani</div>
-    <h2 class="section-title">Upoznajte Brushy izbliza</h2>
-    <p class="section-sub" style="margin:0 auto 32px;max-width:520px">Kliknite na bilo koji ekran za detaljan prikaz.</p>
-  </div>
-  <div class="screens__filters">
-    <button class="flt active" data-cat="all" id="f-all">Sve</button>
-    <button class="flt" data-cat="onboarding" id="f-onb">Uvod</button>
-    <button class="flt" data-cat="timer" id="f-tim">Timer</button>
-    <button class="flt" data-cat="quiz" id="f-quiz">Kviz</button>
-    <button class="flt" data-cat="progress" id="f-prog">Napredak</button>
-    <button class="flt" data-cat="parent" id="f-par">Roditelj</button>
-  </div>
-  <div class="screens__grid" id="screens-grid">
-    <div class="sc" data-cat="onboarding"><div class="phone-frame phone-frame--sc"><div class="phone-frame__screen"><img src="images/First-load-page.webp" alt="Dobrodošlica" loading="lazy"/></div></div><p>Dobrodošlica</p></div>
-    <div class="sc" data-cat="onboarding"><div class="phone-frame phone-frame--sc"><div class="phone-frame__screen"><img src="images/Role-Roditelj (screen 1).webp" alt="Uloga 1" loading="lazy"/></div></div><p>Odabir uloge</p></div>
-    <div class="sc" data-cat="onboarding"><div class="phone-frame phone-frame--sc"><div class="phone-frame__screen"><img src="images/Role-Roditelj (screen 2).webp" alt="Uloga 2" loading="lazy"/></div></div><p>Postavljanje profila</p></div>
-    <div class="sc" data-cat="timer"><div class="phone-frame phone-frame--sc"><div class="phone-frame__screen"><img src="images/Timer-ongoing.webp" alt="Timer" loading="lazy"/></div></div><p>Timer – u tijeku</p></div>
-    <div class="sc" data-cat="timer"><div class="phone-frame phone-frame--sc"><div class="phone-frame__screen"><img src="images/Timer-end.webp" alt="Timer kraj" loading="lazy"/></div></div><p>Timer – završeno!</p></div>
-    <div class="sc" data-cat="quiz"><div class="phone-frame phone-frame--sc"><div class="phone-frame__screen"><img src="images/Quiz.webp" alt="Kviz mapa" loading="lazy"/></div></div><p>Karta razina</p></div>
-    <div class="sc" data-cat="quiz"><div class="phone-frame phone-frame--sc"><div class="phone-frame__screen"><img src="images/Quiz_question.webp" alt="Pitanje" loading="lazy"/></div></div><p>Pitanje</p></div>
-    <div class="sc" data-cat="quiz"><div class="phone-frame phone-frame--sc"><div class="phone-frame__screen"><img src="images/Quiz_correct-answer.webp" alt="Točno" loading="lazy"/></div></div><p>Točno! ✅</p></div>
-    <div class="sc" data-cat="quiz"><div class="phone-frame phone-frame--sc"><div class="phone-frame__screen"><img src="images/Quiz_incorrect-answer.webp" alt="Netočno" loading="lazy"/></div></div><p>Netočno ❌</p></div>
-    <div class="sc" data-cat="quiz"><div class="phone-frame phone-frame--sc"><div class="phone-frame__screen"><img src="images/Quiz_end.webp" alt="Kviz kraj" loading="lazy"/></div></div><p>Kraj kviza</p></div>
-    <div class="sc" data-cat="progress"><div class="phone-frame phone-frame--sc"><div class="phone-frame__screen"><img src="images/Dashboard.webp" alt="Dashboard" loading="lazy"/></div></div><p>Nadzorna ploča</p></div>
-    <div class="sc" data-cat="progress"><div class="phone-frame phone-frame--sc"><div class="phone-frame__screen"><img src="images/Streak_extended.webp" alt="Streak" loading="lazy"/></div></div><p>Streak 🔥</p></div>
-    <div class="sc" data-cat="progress"><div class="phone-frame phone-frame--sc"><div class="phone-frame__screen"><img src="images/Streak_broken.webp" alt="Streak broken" loading="lazy"/></div></div><p>Streak prekinut</p></div>
-    <div class="sc" data-cat="progress"><div class="phone-frame phone-frame--sc"><div class="phone-frame__screen"><img src="images/Shop.webp" alt="Shop" loading="lazy"/></div></div><p>Prodavaonica</p></div>
-    <div class="sc" data-cat="progress"><div class="phone-frame phone-frame--sc"><div class="phone-frame__screen"><img src="images/Shop_active-item.webp" alt="Shop item" loading="lazy"/></div></div><p>Aktivni predmet</p></div>
-    <div class="sc" data-cat="progress"><div class="phone-frame phone-frame--sc"><div class="phone-frame__screen"><img src="images/Laboratory.webp" alt="Laboratorij" loading="lazy"/></div></div><p>Laboratorij 🔬</p></div>
-    <div class="sc" data-cat="parent"><div class="phone-frame phone-frame--sc"><div class="phone-frame__screen"><img src="images/Parental-Control_dashboard.webp" alt="Roditelji" loading="lazy"/></div></div><p>Roditeljska analitika</p></div>
-    <div class="sc" data-cat="parent"><div class="phone-frame phone-frame--sc"><div class="phone-frame__screen"><img src="images/Parental-Control_access.webp" alt="Pristup" loading="lazy"/></div></div><p>PIN pristup</p></div>
-  </div>
-</section>
-<section class="testimonials" id="research">
-  <div class="container">
-    <div class="section-label label--yellow">📚 Utemeljeno u znanosti</div>
-    <h2 class="section-title tc">Brushy nije intuicija — to je istraživanje</h2>
-    <div class="testi-grid">
-      <div class="testi-card" id="t1">
-        <div class="testi-stars">🔬 Anketa</div>
-        <p>Istraživanje je provedeno na <strong>70 učenika OŠ Mitnica u Vukovaru</strong> (dob 7–11 godina, siječanj 2026.). Svaka funkcionalnost Brushyja izravno odgovara nekom od identificiranih problema — od zaboravljanja pranja do selektivnih rupa u znanju o kariogenim namirnicama.</p>
-        <div class="testi-author">— Fdmz Osijek &amp; FERIT Osijek, 2026.</div>
+  </section>
+
+  <section class="problem" id="problem">
+    <div class="container">
+      <div class="problem__header">
+        <div class="section-label label--red">⚠️ Istraživanjem utvrđeno</div>
+        <h2 class="section-title">Zašto djeca preskaču pranje zubi?<br />Znamo pravu istinu.</h2>
+        <p class="section-sub">Kroz naše istraživanje provedeno na 70 osnovnoškolaca, otkrili smo stvarne razloge loših
+          higijenskih navika. Brojke su jasne:</p>
       </div>
-      <div class="testi-card" id="t2">
-        <div class="testi-stars">📊 Meta-analiza</div>
-        <p>Meta-analiza 15 studija pokazuje da mHealth intervencije rezultiraju <strong>statistički značajnim poboljšanjem indeksa plaka i gingivnog krvarenja</strong> kod djece u usporedbi s kontrolnim skupinama. Najnovija sustavna analiza (2025.) posebno ističe korist upravo u mlađoj dobnoj skupini.</p>
-        <div class="testi-author">— Objavljeno u recenziranoj literaturi (lit. 34, 35)</div>
+      <div class="crisis-stats">
+        <div class="crisis-stat" id="cs-1">
+          <div class="crisis-stat__num">61<span>%</span></div>
+          <div class="crisis-stat__text">djece već je imalo karijes</div>
+        </div>
+        <div class="crisis-stat" id="cs-2">
+          <div class="crisis-stat__num">41<span>%</span></div>
+          <div class="crisis-stat__text">ih misli da zubaru treba ići samo kad zub zaboli</div>
+        </div>
+        <div class="crisis-stat" id="cs-3">
+          <div class="crisis-stat__num">39<span>%</span></div>
+          <div class="crisis-stat__text">djece jednostavno zaboravi oprati zube</div>
+        </div>
       </div>
-      <div class="testi-card" id="t3">
-        <div class="testi-stars">🏥 Tržišna praznina</div>
-        <p>Sustavni pregled iz 2023. utvrdio je: <strong>ne postoji niti jedna aplikacija</strong> eksplicitno dizajnirana za djecu 7–11 godina koja kombinira edukaciju, gamifikaciju i roditeljski nadzor u besplatnom proizvodu koji nije vezan uz kupnju specifične četkice. Brushy popunjava tu prazninu.</p>
-        <div class="testi-author">— Sustavni pregled mHealth aplikacija za prevenciju ECC-a (lit. 36)</div>
+      <div class="problem__transition problem-transition-card"
+        style="margin-top: 40px; padding: 32px; background: rgba(255,255,255,0.6); border-radius: 24px; box-shadow: var(--sh-sm);">
+        <p style="font-size: 1.15rem; color: var(--mid); line-height: 1.7; margin: 0; text-align: center;">
+          Zašto je to tako? Zato što <strong>39 %</strong> djece jednostavno zaboravi oprati zube, <strong>37 %</strong>
+          je preumorno navečer, a <strong>27 %</strong> njih smatra pranje zubi čistom dosadom. Tradicionalne metode
+          zastrašivanja karijesom jednostavno ne djeluju.
+        </p>
       </div>
     </div>
-  </div>
-</section>
-<section class="closing" id="closing">
-  <div class="closing__bg" aria-hidden="true">
-    <span class="blob cb1"></span><span class="blob cb2"></span>
-  </div>
-  <div class="container tc">
-    <div class="closing__icon">🦷</div>
-    <h2 class="closing__title">Svako dijete zaslužuje<br/>zdrav osmijeh.</h2>
-    <p class="closing__sub">Brushy je trenutno interaktivni prototip razvijen u Figmi, koji vizualizira puno korisničko iskustvo. Sljedeći korak je razvoj aplikacije u Kotlinu i klinička evaluacija učinkovitosti na stvarnoj populaciji. Jer samo istraživanjem možemo potvrditi ono što teorija i dizajn obećavaju.</p>
-    <div class="closing__phones">
-      <div class="phone-frame phone-frame--closing"><div class="phone-frame__screen"><img src="images/Dashboard.webp" alt="Brushy dashboard" loading="lazy"/></div></div>
-      <div class="phone-frame phone-frame--closing phone-frame--closing-main"><div class="phone-frame__screen"><img src="images/Streak_extended.webp" alt="Brushy streak" loading="lazy"/></div></div>
-      <div class="phone-frame phone-frame--closing"><div class="phone-frame__screen"><img src="images/Quiz_correct-answer.webp" alt="Brushy kviz" loading="lazy"/></div></div>
+  </section>
+
+  <section class="solution" id="solution">
+    <div class="container">
+      <div class="solution__split">
+        <div class="solution__text">
+          <div class="section-label label--blue">💡 Rješenje</div>
+          <h2 class="section-title">Rješenje? Slušali smo djecu i dali im točno ono što žele.</h2>
+          <p class="solution__desc" style="font-size: 1.125rem; line-height: 1.75;">
+            Umjesto da djeci držimo prodike, pitali smo ih što ih motivira. Otkrili smo da je čak 72 % djece motivirano
+            lijepim i čistim osmijehom, a velik broj njih (25 %) izričito je tražio interaktivnu aplikaciju s brojačem i
+            nagradama. Tako je nastao Brushy – dizajniran za djecu od 7 do 11 godina, utemeljen na znanosti i dječjoj
+            psihologiji.
+          </p>
+        </div>
+        <div class="solution__visual">
+          <div class="phone-frame phone-frame--solution">
+            <img src="images/Dashboard.webp" alt="Brushy nadzorna ploča" />
+          </div>
+          <div class="solution__badge solution__badge--1">🔥 Streak: 7 dana!</div>
+          <div class="solution__badge solution__badge--2">🦷 +100 bodova!</div>
+          <div class="solution__badge solution__badge--3">✅ Cilj postignut!</div>
+        </div>
+      </div>
     </div>
+  </section>
+
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-label label--blue">🚀 Funkcionalnosti</div>
+      <h2 class="section-title">Značajke zbog kojih će vaša djeca jedva čekati pranje zubi</h2>
+      <div class="feat-grid">
+
+        <div class="feat-card feat-card--wide" id="fc-timer">
+          <div class="feat-card__phone">
+            <div class="phone-frame phone-frame--feat">
+              <div class="phone-frame__screen"><img src="images/Timer-ongoing.webp" alt="Timer" /></div>
+            </div>
+          </div>
+          <div class="feat-card__body">
+            <div class="feat-icon">⏱️</div>
+            <h3>Interaktivni brojač</h3>
+            <p>Vizualni prikaz usne šupljine koji dijete vodi kroz sva 4 kvadranta tijekom preporučene 2 minute. Kako
+              vrijeme odmiče, zubi na ekranu postaju blistavo čisti!</p>
+            <div class="feat-tags"><span>2 minute</span><span>Kvadranti</span><span>Vizualni napredak</span></div>
+          </div>
+        </div>
+
+        <div class="feat-card" id="fc-rewards">
+          <div class="phone-frame phone-frame--feat-sm">
+            <div class="phone-frame__screen"><img src="images/Shop.webp" alt="Trgovina" /></div>
+          </div>
+          <div class="feat-icon">💎</div>
+          <h3>Sustav nagrađivanja</h3>
+          <p>Svako uspješno pranje donosi virtualnu valutu "Zubiće". Djeca ih štede i troše u Virtualnoj Trgovini za
+            opremanje svog avatara – maskote Brushyja.</p>
+        </div>
+
+        <div class="feat-card" id="fc-lab">
+          <div class="phone-frame phone-frame--feat-sm">
+            <div class="phone-frame__screen"><img src="images/Laboratory.webp" alt="Laboratorij" /></div>
+          </div>
+          <div class="feat-icon">🔬</div>
+          <h3>Laboratorij zdrave hrane</h3>
+          <p>Vaše dijete nije sigurno uzrokuje li jabuka karijes? Kroz naš Laboratorij djeca mogu pretraživati namirnice
+            i saznati njihov "Zubi Score" kako bi naučila razlikovati zdravu hranu od one štetne.</p>
+        </div>
+
+        <div class="feat-card feat-card--wide feat-card--flipped" id="fc-quiz">
+          <div class="feat-card__body">
+            <div class="feat-icon">🧠</div>
+            <h3>Edukacija</h3>
+            <p>Edukativni sadržaj pretvoren u zabavne vizualne kvizove u kojima djeca uče kako pobijediti bakterije i
+              karijes.</p>
+            <div class="feat-tags"><span>Napad Šećerne Vile</span><span>Vizualno učenje</span></div>
+          </div>
+          <div class="feat-card__phone">
+            <div class="phone-frame phone-frame--feat">
+              <div class="phone-frame__screen"><img src="images/Quiz_question.webp" alt="Kviz" /></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="feat-card feat-card--wide" id="fc-streak">
+          <div class="feat-card__phone">
+            <div class="phone-frame phone-frame--feat">
+              <div class="phone-frame__screen"><img src="images/Streak_extended.webp" alt="Streak" /></div>
+            </div>
+          </div>
+          <div class="feat-card__body">
+            <div class="feat-icon">🔥</div>
+            <h3>Tjedni niz i zadaci</h3>
+            <p>Održavanje svakodnevne navike donosi dodatne nagrade. Znanost kaže da je za usvajanje navike potrebno u
+              prosjeku 66 dana – Brushyjeva ekonomija dizajnirana je da zadrži dječju motivaciju upravo toliko dugo!</p>
+            <div class="feat-tags"><span>Streak</span><span>Dnevni zadaci</span><span>66 dana</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="parents" id="parents" style="padding: 100px 0; background: transparent;">
+    <div class="container">
+      <div class="solution__split">
+        <div class="solution__text">
+          <div class="section-label label--yellow">👨‍👩‍👧 Za roditelje</div>
+          <h2 class="section-title">Dizajnirano za djecu,<br />stvoreno za roditelje.</h2>
+          <p class="solution__desc" style="font-size: 1.125rem; line-height: 1.75; margin-bottom: 24px;">
+            Znamo koliko je roditeljski nadzor važan. Zato Brushy ima poseban Roditeljski panel zaštićen PIN-om. Unutar
+            njega možete pratiti kalendar pranja zubi za tekući mjesec, prilagoditi trajanje pranja (2 ili 3 minute) i
+            namjestiti jutarnje i večernje podsjetnike prema ritmu vaše obitelji.
+          </p>
+          <div class="privacy-block"
+            style="background: rgba(34, 197, 94, 0.1); border-left: 4px solid var(--green); padding: 20px 24px; border-radius: 0 16px 16px 0; box-shadow: 0 4px 12px rgba(34, 197, 94, 0.05);">
+            <p
+              style="margin: 0; font-weight: 800; color: var(--dark); font-size: 1.15rem; display: flex; align-items: center; gap: 8px;">
+              <span>🔒</span> 100% Privatnost zajamčena
+            </p>
+            <p style="margin: 8px 0 0; color: var(--mid); font-size: 0.98rem; line-height: 1.6;">
+              I najvažnije: svi podaci ostaju <strong>isključivo na vašem uređaju</strong>. Nema prijenosa trećim
+              stranama niti prodaje podataka, jer nam je sigurnost vaše djece na prvom mjestu.
+            </p>
+          </div>
+        </div>
+        <div class="solution__visual">
+          <div class="phone-frame phone-frame--solution">
+            <img src="images/Parental-Control_dashboard.webp" alt="Roditeljski nadzor" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="screens" id="screens">
+    <div class="container tc">
+      <div class="section-label label--blue">📱 Svi ekrani</div>
+      <h2 class="section-title">Upoznajte Brushy izbliza</h2>
+      <p class="section-sub" style="margin:0 auto 32px;max-width:520px">Kliknite na bilo koji ekran za detaljan prikaz.
+      </p>
+    </div>
+    <div class="screens__filters">
+      <button class="flt active" data-cat="all" id="f-all">Sve</button>
+      <button class="flt" data-cat="onboarding" id="f-onb">Uvod</button>
+      <button class="flt" data-cat="timer" id="f-tim">Timer</button>
+      <button class="flt" data-cat="quiz" id="f-quiz">Kviz</button>
+      <button class="flt" data-cat="progress" id="f-prog">Napredak</button>
+      <button class="flt" data-cat="parent" id="f-par">Roditelj</button>
+    </div>
+    <div class="screens__grid" id="screens-grid">
+      <div class="sc" data-cat="onboarding">
+        <div class="phone-frame phone-frame--sc">
+          <div class="phone-frame__screen"><img src="images/First-load-page.webp" alt="Dobrodošlica" loading="lazy" />
+          </div>
+        </div>
+        <p>Dobrodošlica</p>
+      </div>
+      <div class="sc" data-cat="onboarding">
+        <div class="phone-frame phone-frame--sc">
+          <div class="phone-frame__screen"><img src="images/Role-Roditelj (screen 1).webp" alt="Uloga 1"
+              loading="lazy" /></div>
+        </div>
+        <p>Odabir uloge</p>
+      </div>
+      <div class="sc" data-cat="onboarding">
+        <div class="phone-frame phone-frame--sc">
+          <div class="phone-frame__screen"><img src="images/Role-Roditelj (screen 2).webp" alt="Uloga 2"
+              loading="lazy" /></div>
+        </div>
+        <p>Postavljanje profila</p>
+      </div>
+      <div class="sc" data-cat="timer">
+        <div class="phone-frame phone-frame--sc">
+          <div class="phone-frame__screen"><img src="images/Timer-ongoing.webp" alt="Timer" loading="lazy" /></div>
+        </div>
+        <p>Timer – u tijeku</p>
+      </div>
+      <div class="sc" data-cat="timer">
+        <div class="phone-frame phone-frame--sc">
+          <div class="phone-frame__screen"><img src="images/Timer-end.webp" alt="Timer kraj" loading="lazy" /></div>
+        </div>
+        <p>Timer – završeno!</p>
+      </div>
+      <div class="sc" data-cat="quiz">
+        <div class="phone-frame phone-frame--sc">
+          <div class="phone-frame__screen"><img src="images/Quiz.webp" alt="Kviz mapa" loading="lazy" /></div>
+        </div>
+        <p>Karta razina</p>
+      </div>
+      <div class="sc" data-cat="quiz">
+        <div class="phone-frame phone-frame--sc">
+          <div class="phone-frame__screen"><img src="images/Quiz_question.webp" alt="Pitanje" loading="lazy" /></div>
+        </div>
+        <p>Pitanje</p>
+      </div>
+      <div class="sc" data-cat="quiz">
+        <div class="phone-frame phone-frame--sc">
+          <div class="phone-frame__screen"><img src="images/Quiz_correct-answer.webp" alt="Točno" loading="lazy" />
+          </div>
+        </div>
+        <p>Točno! ✅</p>
+      </div>
+      <div class="sc" data-cat="quiz">
+        <div class="phone-frame phone-frame--sc">
+          <div class="phone-frame__screen"><img src="images/Quiz_incorrect-answer.webp" alt="Netočno" loading="lazy" />
+          </div>
+        </div>
+        <p>Netočno ❌</p>
+      </div>
+      <div class="sc" data-cat="quiz">
+        <div class="phone-frame phone-frame--sc">
+          <div class="phone-frame__screen"><img src="images/Quiz_end.webp" alt="Kviz kraj" loading="lazy" /></div>
+        </div>
+        <p>Kraj kviza</p>
+      </div>
+      <div class="sc" data-cat="progress">
+        <div class="phone-frame phone-frame--sc">
+          <div class="phone-frame__screen"><img src="images/Dashboard.webp" alt="Dashboard" loading="lazy" /></div>
+        </div>
+        <p>Nadzorna ploča</p>
+      </div>
+      <div class="sc" data-cat="progress">
+        <div class="phone-frame phone-frame--sc">
+          <div class="phone-frame__screen"><img src="images/Streak_extended.webp" alt="Streak" loading="lazy" /></div>
+        </div>
+        <p>Streak 🔥</p>
+      </div>
+      <div class="sc" data-cat="progress">
+        <div class="phone-frame phone-frame--sc">
+          <div class="phone-frame__screen"><img src="images/Streak_broken.webp" alt="Streak broken" loading="lazy" />
+          </div>
+        </div>
+        <p>Streak prekinut</p>
+      </div>
+      <div class="sc" data-cat="progress">
+        <div class="phone-frame phone-frame--sc">
+          <div class="phone-frame__screen"><img src="images/Shop.webp" alt="Shop" loading="lazy" /></div>
+        </div>
+        <p>Prodavaonica</p>
+      </div>
+      <div class="sc" data-cat="progress">
+        <div class="phone-frame phone-frame--sc">
+          <div class="phone-frame__screen"><img src="images/Shop_active-item.webp" alt="Shop item" loading="lazy" />
+          </div>
+        </div>
+        <p>Aktivni predmet</p>
+      </div>
+      <div class="sc" data-cat="progress">
+        <div class="phone-frame phone-frame--sc">
+          <div class="phone-frame__screen"><img src="images/Laboratory.webp" alt="Laboratorij" loading="lazy" /></div>
+        </div>
+        <p>Laboratorij 🔬</p>
+      </div>
+      <div class="sc" data-cat="parent">
+        <div class="phone-frame phone-frame--sc">
+          <div class="phone-frame__screen"><img src="images/Parental-Control_dashboard.webp" alt="Roditelji"
+              loading="lazy" /></div>
+        </div>
+        <p>Roditeljska analitika</p>
+      </div>
+      <div class="sc" data-cat="parent">
+        <div class="phone-frame phone-frame--sc">
+          <div class="phone-frame__screen"><img src="images/Parental-Control_access.webp" alt="Pristup"
+              loading="lazy" /></div>
+        </div>
+        <p>PIN pristup</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials" id="research">
+    <div class="container tc">
+      <div class="section-label label--yellow">📚 Utemeljeno u znanosti</div>
+      <h2 class="section-title">Projekt utemeljen na znanosti</h2>
+      <div class="research-card"
+        style="max-width: 800px; margin: 0 auto; background: linear-gradient(135deg,rgba(255,255,255,.8),rgba(255,255,255,.2)); backdrop-filter: blur(24px); border-radius: var(--r-lg); padding: 48px 40px; border: 1px solid rgba(255,255,255,.5); box-shadow: var(--sh-md);">
+        <p style="font-size: 1.15rem; color: var(--mid); line-height: 1.8; text-align: left; margin: 0;">
+          Brushy nije samo još jedna mobilna aplikacija. On je rezultat primijenjenog znanstveno-istraživačkog rada
+          temeljenog na podacima, razvijen u suradnji <strong>Fakulteta za dentalnu medicinu i zdravstvo</strong> te
+          <strong>Fakulteta elektrotehnike, računarstva i informacijskih tehnologija Osijek</strong>. Napravili smo alat
+          koji uvažava dječju kognitivnu psihologiju i rješava stvarni problem nesuglasja između znanja i ponašanja kod
+          djece.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing" id="closing">
+    <div class="closing__bg" aria-hidden="true">
+      <span class="blob cb1"></span><span class="blob cb2"></span>
+    </div>
+    <div class="container tc">
+      <div class="closing__icon">🦷</div>
+      <h2 class="closing__title">Imate ideju?<br />Pomognite nam unaprijediti Brushy.</h2>
+      <p class="closing__sub" style="margin-bottom: 32px;">
+        Podijelite svoje mišljenje, prijedloge ili
+        kritike s nama i budite dio stvaranja aplikacije koja će pranje zubi pretvoriti u najzabavniji dio dana
+      </p>
+      <div style="margin-bottom: 56px; display: flex; justify-content: center; position: relative; z-index: 10;">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc-t0o3n5yCdRnOGmvptM8rXhaKTI5Omn7wMrzjywjhIcHm4A/viewform?usp=publish-editor"
+          class="btn btn--yellow" style="box-shadow: 0 0 40px rgba(245,197,24,0.3);">Ostavite povratnu
+          informaciju</a>
+      </div>
+      <div class="closing__phones">
+        <div class="phone-frame phone-frame--closing">
+          <div class="phone-frame__screen"><img src="images/Dashboard.webp" alt="Brushy dashboard" loading="lazy" />
+          </div>
+        </div>
+        <div class="phone-frame phone-frame--closing phone-frame--closing-main">
+          <div class="phone-frame__screen"><img src="images/Streak_extended.webp" alt="Brushy streak" loading="lazy" />
+          </div>
+        </div>
+        <div class="phone-frame phone-frame--closing">
+          <div class="phone-frame__screen"><img src="images/Quiz_correct-answer.webp" alt="Brushy kviz"
+              loading="lazy" /></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container tc">
+      <div class="footer__logo">🦷 <span>Brushy</span></div>
+      <p class="footer__copy">© 2026 Brushy. Sva prava pridržana.</p>
+    </div>
+  </footer>
+
+  <div class="lb-overlay" id="lb-overlay"></div>
+  <div class="lb" id="lb">
+    <button class="lb__close" id="lb-close">✕</button>
+    <button class="lb__nav lb__nav--prev" id="lb-prev">‹</button>
+    <img src="" alt="" id="lb-img" class="lb__img" />
+    <button class="lb__nav lb__nav--next" id="lb-next">›</button>
+    <div class="lb__cap" id="lb-cap"></div>
   </div>
-</section>
-<footer class="footer">
-  <div class="container tc">
-    <div class="footer__logo">🦷 <span>Brushy</span></div>
-    <p class="footer__tag">Čišći zubi. Sretnija djeca. Mirniji roditelji.</p>
-    <p class="footer__copy">© 2026 Brushy. Sva prava pridržana.</p>
-  </div>
-</footer>
-<div class="lb-overlay" id="lb-overlay"></div>
-<div class="lb" id="lb">
-  <button class="lb__close" id="lb-close">✕</button>
-  <button class="lb__nav lb__nav--prev" id="lb-prev">‹</button>
-  <img src="" alt="" id="lb-img" class="lb__img"/>
-  <button class="lb__nav lb__nav--next" id="lb-next">›</button>
-  <div class="lb__cap" id="lb-cap"></div>
-</div>
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
+
 </html>
