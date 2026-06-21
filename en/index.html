@@ -76,7 +76,7 @@
         <div class="hero-content">
           <div class="availability-badge">
             <span class="status-dot"></span>
-            <span>Available for Q1 2026</span>
+            <span>Available for Q3 2026</span>
           </div>
           <h1 class="hero-title">
             Upgrade your business with <span class="text-gradient">proven web solutions</span>
@@ -348,70 +348,30 @@
 
     <section class="portfolio-section" id="case-studies">
       <div class="container">
-        <h2 class="section-title">Featured Projects</h2>
-        <div class="portfolio-grid">
+        <div style="display: flex; justify-content: space-between; align-items: end; margin-bottom: 2rem;">
+          <h2 class="section-title" style="margin-bottom: 0;">Featured Projects</h2>
+          <div class="portfolio-nav-container" style="margin-bottom: 0;">
+            <button class="portfolio-nav-btn prev-btn" aria-label="Previous">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 18l-6-6 6-6" />
+              </svg>
+            </button>
+            <button class="portfolio-nav-btn next-btn" aria-label="Next">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 18l6-6-6-6" />
+              </svg>
+            </button>
+          </div>
+        </div>
 
-          <article class="portfolio-card">
-            <div class="portfolio-image-wrapper" style="background-color: #ff0000;">
-              <img src="../images/gamechanger-all-white-logo.webp" alt="GameChanger Project"
-                class="portfolio-image object-contain" loading="lazy">
-
-              <div class="portfolio-badge warning">
-                <span class="metric-label">Load Time 0.8s</span>
-              </div>
-            </div>
-
-            <div class="portfolio-content">
-              <div class="content-header">
-                <h3>GameChanger</h3>
-                <div class="arrow-icon">↗</div>
-              </div>
-              <p>High-performance landing page development for a tech conference</p>
-
-              <div class="card-tags">
-                <span class="tag">Performance</span>
-                <span class="tag">Event</span>
-              </div>
-
-              <a href="gamechanger-case-study.html" class="card-link"><span class="sr-only">View Project</span></a>
-            </div>
-          </article>
-
-          <article class="portfolio-card">
-            <div class="portfolio-image-wrapper" style="background-color: #2f3130;">
-              <img src="../images/codehustling.webp" alt="Code Hustling Project" class="portfolio-image object-contain"
-                loading="lazy" style="padding: 4rem;">
-
-              <div class="portfolio-badge warning">
-                <span class="metric-label">+150% Conversion</span>
-              </div>
-            </div>
-
-            <div class="portfolio-content">
-              <div class="content-header">
-                <h3>Code Hustling</h3>
-                <div class="arrow-icon">↗</div>
-              </div>
-              <p>Complete rebranding and custom WordPress solution.</p>
-
-              <div class="card-tags">
-                <span class="tag">Rebranding</span>
-                <span class="tag">Design</span>
-              </div>
-
-              <a href="codehustling-case-study.html" class="card-link"><span class="sr-only">View
-                  Project</span></a>
-            </div>
-          </article>
+        <div class="portfolio-grid" id="portfolio-slider">
 
           <article class="portfolio-card">
             <div class="portfolio-image-wrapper" style="background-color: #2a2a4a;">
               <img src="../images/wavelance-logo.webp" alt="WaveLance Project" class="portfolio-image object-contain"
                 loading="lazy">
-
-              <div class="portfolio-badge warning">
-                <span class="metric-label">SEO Score 100</span>
-              </div>
             </div>
 
             <div class="portfolio-content">
@@ -427,6 +387,120 @@
               </div>
 
               <a href="wavelance-case-study.html" class="card-link"><span class="sr-only">View Project</span></a>
+            </div>
+          </article>
+
+          <article class="portfolio-card">
+            <div class="portfolio-image-wrapper" style="background-color: #ffcc00;">
+              <img src="../images/vukovarski-golubići.webp" alt="Vukovarski Golubići Project"
+                class="portfolio-image object-contain" loading="lazy">
+            </div>
+
+            <div class="portfolio-content">
+              <div class="content-header">
+                <h3>Vukovarski Golubići</h3>
+                <div class="arrow-icon">↗</div>
+              </div>
+              <p>Complete web platform for children's choir "Vukovarski Golubići"</p>
+
+              <div class="card-tags">
+                <span class="tag">Platform</span>
+                <span class="tag">Rebranding</span>
+              </div>
+
+              <a href="vukovarski-golubici-case-study.html" class="card-link"><span class="sr-only">View
+                  Project</span></a>
+            </div>
+          </article>
+
+          <article class="portfolio-card">
+            <div class="portfolio-image-wrapper" style="background-color: #2f3130;">
+              <img src="../images/codehustling.webp" alt="Code Hustling Project" class="portfolio-image object-contain"
+                loading="lazy" style="padding: 4rem;">
+            </div>
+
+            <div class="portfolio-content">
+              <div class="content-header">
+                <h3>Code Hustling</h3>
+                <div class="arrow-icon">↗</div>
+              </div>
+              <p>Complete rebranding and custom web solution.</p>
+
+              <div class="card-tags">
+                <span class="tag">Rebranding</span>
+                <span class="tag">Design</span>
+              </div>
+
+              <a href="codehustling-case-study.html" class="card-link"><span class="sr-only">View
+                  Project</span></a>
+            </div>
+          </article>
+
+          <article class="portfolio-card">
+            <div class="portfolio-image-wrapper" style="background-color: #ff0000;">
+              <img src="../images/gamechanger-all-white-logo.webp" alt="GameChanger Project"
+                class="portfolio-image object-contain" loading="lazy" style="padding: 4rem;">
+            </div>
+
+            <div class="portfolio-content">
+              <div class="content-header">
+                <h3>GameChanger</h3>
+                <div class="arrow-icon">↗</div>
+              </div>
+              <p>High-performance landing page development for a leading tech conference</p>
+
+              <div class="card-tags">
+                <span class="tag">Event</span>
+                <span class="tag">Gaming</span>
+              </div>
+
+              <a href="gamechanger-case-study.html" class="card-link"><span class="sr-only">View
+                  Project</span></a>
+            </div>
+          </article>
+
+          <article class="portfolio-card">
+            <div class="portfolio-image-wrapper" style="background-color: #d60043;">
+              <img src="../images/ikarus-agency-all-white-logo.webp" alt="Ikarus Agency Project"
+                class="portfolio-image object-contain" loading="lazy" style="padding: 4rem;">
+            </div>
+
+            <div class="portfolio-content">
+              <div class="content-header">
+                <h3>Ikarus Agency</h3>
+                <div class="arrow-icon">↗</div>
+              </div>
+              <p>Complete rebranding and web design.</p>
+
+              <div class="card-tags">
+                <span class="tag">Rebranding</span>
+                <span class="tag">Web Design</span>
+              </div>
+
+              <a href="ikarus-case-study.html" class="card-link"><span class="sr-only">View
+                  Project</span></a>
+            </div>
+          </article>
+
+          <article class="portfolio-card">
+            <div class="portfolio-image-wrapper" style="background-color: #0561ad;">
+              <img src="../images/brod-all-white-logo.png" alt="Slavonski Brod Project"
+                class="portfolio-image object-contain" loading="lazy" style="padding: 4rem;">
+            </div>
+
+            <div class="portfolio-content">
+              <div class="content-header">
+                <h3>Slavonski Brod</h3>
+                <div class="arrow-icon">↗</div>
+              </div>
+              <p>Social media strategy and management.</p>
+
+              <div class="card-tags">
+                <span class="tag">Social Media</span>
+                <span class="tag">Marketing</span>
+              </div>
+
+              <a href="slavonski-brod-case-study.html" class="card-link"><span class="sr-only">View Project</span></a>
             </div>
           </article>
 
@@ -549,6 +623,14 @@
   </div>
 
   <script src="../script.js"></script>
+  <script>
+    // Initialize Portfolio Carousel
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof setupInfiniteCarousel === 'function') {
+        setupInfiniteCarousel('portfolio-slider', '.prev-btn', '.next-btn');
+      }
+    });
+  </script>
 </body>
 
 </html>
