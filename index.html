@@ -19,8 +19,7 @@
 
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-  <meta name="theme-color" content="#f6f4ef" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#111317" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#0a0b0d">
 
   <script>
     try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) { }
@@ -29,7 +28,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,600..800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 
@@ -72,7 +71,7 @@
         <a href="#contact">Contact</a>
       </nav>
       <div class="header-actions">
-        <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
+        <button class="theme-toggle" type="button" aria-label="Switch light / dark theme">
           <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
@@ -83,8 +82,8 @@
             <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
           </svg>
         </button>
-        <a class="btn btn-sm" href="assets/Marin-Sabo-CV.pdf" download>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        <a class="btn btn-primary btn-sm" href="assets/Marin-Sabo-CV.pdf" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
             stroke-linejoin="round" aria-hidden="true">
             <path d="M12 3v12M7 10l5 5 5-5M5 21h14" />
           </svg>
@@ -99,25 +98,81 @@
     <!-- ============ Hero ============ -->
     <section class="hero" id="top">
       <div class="wrap">
-        <div>
+        <div class="hero-top">
           <p class="label">Mainframe developer · CS student at FERIT Osijek</p>
-          <h1>Building software for systems that <em>can’t afford to stop.</em></h1>
-          <p class="hero-lede">
-            I’m Marin, a third-year Computer Science student. This summer at CROZ I helped build an application on IBM
-            z/OS in COBOL, CICS and Db2, owned its database, and helped move its delivery from the mainframe to Git.
-          </p>
-          <p class="availability"><span class="dot" aria-hidden="true"></span>Open to student jobs and 2027
+          <p class="availability"><span class="dot" aria-hidden="true"></span>Open to student jobs &amp; 2027
             internships · Remote or Osijek</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="mailto:marin.sabo.contact@gmail.com">Get in touch</a>
-            <a class="btn" href="#work">See my work</a>
-            <a class="btn" href="https://www.linkedin.com/in/marinsabo/" target="_blank" rel="noopener">LinkedIn</a>
-          </div>
         </div>
-        <figure class="hero-photo">
-          <img src="images/MarinSabo.webp" width="864" height="1080" alt="Portrait of Marin Sabo in a dark suit">
-          <figcaption>Požega · Osijek, Croatia</figcaption>
-        </figure>
+
+        <h1 class="hero-name"><span>Marin</span> <span class="outline">Sabo</span></h1>
+
+        <div class="hero-grid">
+          <div>
+            <p class="hero-statement">I build software for systems that <span class="mark">can’t afford to
+                stop.</span></p>
+            <p class="hero-lede">
+              Third-year Computer Science student. This summer at CROZ I helped build a z/OS application in COBOL, CICS
+              and Db2, owned its entire database, and helped move its delivery from the mainframe to Git.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="mailto:marin.sabo.contact@gmail.com">Get in touch</a>
+              <a class="btn" href="#work">See my work</a>
+              <a class="btn" href="https://www.linkedin.com/in/marinsabo/" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+          </div>
+          <figure class="hero-photo">
+            <img src="images/MarinSabo.webp" width="864" height="1080" alt="Portrait of Marin Sabo in a dark suit">
+          </figure>
+        </div>
+      </div>
+
+      <div class="ticker" aria-label="Tech stack">
+        <div class="ticker-track">
+          <ul>
+            <li>z/OS</li>
+            <li>COBOL</li>
+            <li>CICS</li>
+            <li>Db2</li>
+            <li>JCL</li>
+            <li>PL/I</li>
+            <li>IBM DBB</li>
+            <li>Zowe</li>
+            <li>Git</li>
+            <li>SQL</li>
+            <li>C</li>
+            <li>C#</li>
+          </ul>
+          <ul aria-hidden="true">
+            <li>z/OS</li>
+            <li>COBOL</li>
+            <li>CICS</li>
+            <li>Db2</li>
+            <li>JCL</li>
+            <li>PL/I</li>
+            <li>IBM DBB</li>
+            <li>Zowe</li>
+            <li>Git</li>
+            <li>SQL</li>
+            <li>C</li>
+            <li>C#</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Fact strip ============ -->
+    <section class="facts" aria-label="At a glance">
+      <div class="wrap">
+        <ul class="facts-grid">
+          <li><span class="fact-num">10</span><span class="fact-label">IBM mainframe badges, verified on
+              Credly</span></li>
+          <li><span class="fact-num">3<em>×</em></span><span class="fact-label">seasons at Maistra, rehired every
+              time</span></li>
+          <li><span class="fact-num">5<em>+</em></span><span class="fact-label">freelance clients, from first call to
+              launch</span></li>
+          <li><span class="fact-num">2<em>%</em></span><span class="fact-label">top students in Požega-Slavonia
+              County</span></li>
+        </ul>
       </div>
     </section>
 
@@ -125,24 +180,22 @@
     <section class="section" id="work">
       <div class="wrap">
         <div class="section-head">
-          <p class="label">01 — Featured work</p>
-          <h2>DartZ: a darts league system on IBM z/OS</h2>
-          <p>A team project from my internship at CROZ. DartZ records darts games, tournaments and leagues. It’s a
-            full CICS application with COBOL business logic and a Db2 database underneath.</p>
-          <div class="feature-meta">
-            <span>CROZ, Zagreb</span>
-            <span>Jul – Sep 2026</span>
-            <span>Mainframe Developer (Intern)</span>
+          <div>
+            <p class="label">01 — Featured work</p>
+            <h2>DartZ <span class="hl">on z/OS</span></h2>
           </div>
+          <p>A darts tournament and league system, built by our team during my internship at CROZ. It’s a full CICS
+            application with COBOL business logic and a Db2 database underneath.</p>
         </div>
 
-        <div class="console" data-console>
-          <div class="console-bar">
-            <span class="lights" aria-hidden="true"><i></i><i></i><i></i></span>
-            <span>CICS · TRANSACTION DZ01</span>
-          </div>
-          <pre class="console-screen" tabindex="0" aria-live="polite"
-            aria-label="Recreated DartZ terminal screen. Use the function keys below to switch screens."><span class="dim">DZL010  </span><span class="hi">                   D A R T Z                    </span><span class="dim">OCT 2026</span>
+        <div class="bento">
+          <div class="tile console span-8 row-3" data-console>
+            <div class="console-bar">
+              <span class="lights" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span>CICS · TRANSACTION DZ01</span>
+            </div>
+            <pre class="console-screen" tabindex="0" aria-live="polite"
+              aria-label="Recreated DartZ terminal screen. Use the function keys below to switch screens."><span class="dim">DZL010  </span><span class="hi">                   D A R T Z                    </span><span class="dim">OCT 2026</span>
 <span class="warn">                        LEAGUE STANDINGS</span>
 
  LEAGUE . : <span class="hi">SLAVONIA AUTUMN LEAGUE 2026</span>          ROUND <span class="hi">09</span> OF <span class="hi">14</span>
@@ -163,15 +216,16 @@
  <span class="dim">DZL011I 6 PLAYERS LISTED. STANDINGS AS OF ROUND 09.</span>
 
  COMMAND ===> <span class="cursor"> </span></pre>
-          <div class="pf-keys" role="group" aria-label="Function keys">
-            <button type="button" data-key="F1"><b>F1</b>=HELP</button>
-            <button type="button" data-key="F3"><b>F3</b>=EXIT</button>
-            <button type="button" data-key="F5" aria-pressed="true"><b>F5</b>=LEAGUE</button>
-            <button type="button" data-key="F6"><b>F6</b>=MATCH</button>
-            <button type="button" data-key="F9"><b>F9</b>=PLAYER</button>
+            <div class="pf-keys" role="group" aria-label="Function keys">
+              <button type="button" data-key="F1"><b>F1</b>=HELP</button>
+              <button type="button" data-key="F3"><b>F3</b>=EXIT</button>
+              <button type="button" data-key="F5" aria-pressed="true"><b>F5</b>=LEAGUE</button>
+              <button type="button" data-key="F6"><b>F6</b>=MATCH</button>
+              <button type="button" data-key="F9"><b>F9</b>=PLAYER</button>
+            </div>
+            <p class="console-note">Recreation for this site · names and numbers are made up · try the keys</p>
           </div>
-        </div>
-        <template id="screen-match"><span class="dim">DZM020  </span><span class="hi">                   D A R T Z                    </span><span class="dim">OCT 2026</span>
+          <template id="screen-match"><span class="dim">DZM020  </span><span class="hi">                   D A R T Z                    </span><span class="dim">OCT 2026</span>
 <span class="warn">                      RECORD MATCH RESULT</span>
 
  MATCH ID . . : <span class="hi">M-2026-0417</span>        ROUND  . . . : <span class="hi">09</span>
@@ -255,73 +309,93 @@
 
 
  COMMAND ===> <span class="cursor"> </span></template>
-        <p class="console-note">Recreation of the DartZ 3270 interface for this site. Names and numbers are made
-          up. Try the function keys.</p>
 
-        <div class="two-col">
-          <div>
-            <h3>The application</h3>
-            <p>DartZ runs entirely on z/OS. CICS handles the transactions and the terminal screens, COBOL programs
-              hold the business logic, and Db2 stores everything: players, matches, legs, tournaments and leagues.
-              Compiling and batch work run through JCL.</p>
-            <ul class="chips" aria-label="Technologies">
-              <li>z/OS</li>
-              <li>COBOL</li>
-              <li>CICS</li>
-              <li>Db2</li>
-              <li>JCL</li>
-            </ul>
+          <div class="tile tile-accent span-4">
+            <p class="tile-kicker">My role <b>01</b></p>
+            <p class="tile-big">Designed the entire Db2 data model</p>
+            <p>…and built it. Every program in the application read from and wrote to it.</p>
           </div>
-          <div>
-            <h3>My role</h3>
-            <ul class="check-list">
-              <li><strong>Designed the entire Db2 data model</strong> and built it, which every program in the
-                application depended on.</li>
-              <li><strong>Created the test data</strong> the developers used to test their programs.</li>
-              <li><strong>Kept the database consistent</strong> as the team’s Db2 and z/OS administrator, maintaining
-                the environment the whole team worked in.</li>
-              <li><strong>Worked on the DevOps modernisation</strong> once the application was finished.</li>
-            </ul>
+          <div class="tile span-4">
+            <p class="tile-kicker">My role <b>02</b></p>
+            <h3>Test data for the whole team</h3>
+            <p>Created the data the developers used to test their programs.</p>
+          </div>
+          <div class="tile span-4">
+            <p class="tile-kicker">My role <b>03</b></p>
+            <h3>Db2 &amp; z/OS admin</h3>
+            <p>Kept the database consistent and maintained the environment the whole team worked in.</p>
+          </div>
+
+          <div class="tile span-7">
+            <p class="tile-kicker">The application</p>
+            <h3>Players, matches, leagues — all on the mainframe</h3>
+            <p>CICS handles the transactions and the terminal screens, COBOL programs hold the business logic, and Db2
+              stores everything: players, matches, legs, tournaments and leagues. Compiling and batch work run through
+              JCL.</p>
+          </div>
+          <div class="tile span-5">
+            <p class="tile-kicker">At a glance</p>
+            <dl class="cs-facts">
+              <div>
+                <dt>Where</dt>
+                <dd>CROZ, Zagreb · team project</dd>
+              </div>
+              <div>
+                <dt>When</dt>
+                <dd>Jul – Sep 2026</dd>
+              </div>
+              <div>
+                <dt>Stack</dt>
+                <dd>
+                  <ul class="chips" style="margin-top:6px">
+                    <li>z/OS</li>
+                    <li>COBOL</li>
+                    <li>CICS</li>
+                    <li>Db2</li>
+                    <li>JCL</li>
+                  </ul>
+                </dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="tile pipeline-tile span-12">
+            <p class="tile-kicker">Modernisation <b>DevOps</b></p>
+            <div class="pipeline-intro">
+              <div>
+                <h3 class="tile-big" style="margin-bottom:12px">From datasets to Git</h3>
+                <p>After DartZ was finished, we changed how it’s built and delivered, following IBM Dependency Based
+                  Build. The source of truth moved off the mainframe into Git, and a pipeline now delivers every
+                  committed change to z/OS automatically.</p>
+              </div>
+              <div class="before-after">
+                <div>
+                  <b>Before</b>
+                  Source lived in mainframe datasets, and builds were run on the host with JCL.
+                </div>
+                <div class="after">
+                  <b>After</b>
+                  Source lives in Git. A commit triggers the pipeline, which builds and delivers the change to the
+                  mainframe.
+                </div>
+              </div>
+            </div>
+
+            <ol class="pipeline" data-pipeline aria-label="Delivery pipeline">
+              <li class="pulse" aria-hidden="true"></li>
+              <li><span class="step">01</span><strong>VS Code</strong><span>COBOL, JCL and copybooks edited
+                  locally</span></li>
+              <li><span class="step">02</span><strong>Git</strong><span>Single source of truth, where every change is a
+                  commit</span></li>
+              <li><span class="step">03</span><strong>Pipeline</strong><span>Starts automatically on each push</span>
+              </li>
+              <li><span class="step">04</span><strong>IBM DBB</strong><span>Builds the programs affected by the
+                  change</span></li>
+              <li><span class="step">05</span><strong>Zowe → z/OS</strong><span>Changes land on the mainframe</span>
+              </li>
+            </ol>
           </div>
         </div>
-
-        <div class="pipeline-block">
-          <h3>Modernisation: from datasets to Git</h3>
-          <p>After DartZ was finished, we changed how it’s built and delivered, following IBM Dependency Based Build
-            (DBB). The source of truth moved off the mainframe into Git, and a pipeline now delivers every committed
-            change to z/OS automatically.</p>
-
-          <div class="before-after">
-            <div>
-              <b>Before</b>
-              Source lived in mainframe datasets, and builds were run on the host with JCL.
-            </div>
-            <div class="after">
-              <b>After</b>
-              Source lives in Git. A commit triggers the pipeline, which builds and delivers the change to the
-              mainframe.
-            </div>
-          </div>
-
-          <ol class="pipeline" aria-label="Delivery pipeline">
-            <li><strong>VS Code</strong><span>COBOL, JCL and copybooks edited locally</span></li>
-            <li><strong>Git</strong><span>Single source of truth, where every change is a commit</span></li>
-            <li><strong>Pipeline</strong><span>Starts automatically on each push</span></li>
-            <li><strong>IBM DBB</strong><span>Builds the programs affected by the change</span></li>
-            <li><strong>Zowe → z/OS</strong><span>Changes land on the mainframe</span></li>
-          </ol>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ Why mainframe ============ -->
-    <section class="quote-section" aria-label="Why mainframe">
-      <div class="wrap">
-        <p class="label">Why mainframe</p>
-        <blockquote class="quote">
-          <p>I prefer mastery and real craft over chasing the next shiny framework that will change in two weeks.</p>
-          <footer>That’s why I want to build my career on enterprise systems.</footer>
-        </blockquote>
       </div>
     </section>
 
@@ -329,55 +403,98 @@
     <section class="section" id="experience">
       <div class="wrap">
         <div class="section-head">
-          <p class="label">02 — Experience</p>
-          <h2>Where I’ve worked</h2>
+          <div>
+            <p class="label">02 — Experience</p>
+            <h2>Where I’ve <span class="hl">delivered</span></h2>
+          </div>
+          <p>Three very different jobs. In each one, people relied on me to get things right, and to fix problems
+            fast.</p>
         </div>
 
         <ol class="timeline">
           <li>
-            <div class="when">07/2026 – 09/2026</div>
-            <div>
-              <h3>Mainframe Developer (Intern)</h3>
-              <p class="org">CROZ · Zagreb</p>
-              <ul class="check-list">
-                <li>Developed an application on IBM z/OS as part of a team, using COBOL, PL/I and JCL with CICS
-                  transactions and a Db2 database.</li>
-                <li>As the team’s Db2 and system administrator, maintained the database and z/OS environment the
-                  entire development team depended on.</li>
-                <li>Contributed to the DevOps modernisation: moved the source of truth from the mainframe to Git,
-                  with automated delivery from the repository to the mainframe (IBM DBB, Zowe).</li>
-              </ul>
-            </div>
+            <details class="job" open>
+              <summary>
+                <span class="job-meta"><span class="role">Mainframe Developer (Intern) · CROZ, Zagreb</span><span>07 –
+                    09/2026</span></span>
+                <span class="job-outcome">Owned the database the whole team built on.</span>
+                <span class="job-foot">
+                  <span class="chips">
+                    <span>z/OS</span>
+                    <span>COBOL</span>
+                    <span>PL/I</span>
+                    <span>CICS</span>
+                    <span>Db2</span>
+                    <span>DBB</span>
+                  </span>
+                  <span class="job-toggle"><span class="more">Details</span><span class="less">Close</span></span>
+                </span>
+              </summary>
+              <div class="job-body">
+                <ul class="check-list">
+                  <li>Developed an application on IBM z/OS as part of a team, using COBOL, PL/I and JCL with CICS
+                    transactions and a Db2 database.</li>
+                  <li>As the team’s Db2 and system administrator, maintained the database and z/OS environment the
+                    entire development team depended on.</li>
+                  <li>Contributed to the DevOps modernisation: moved the source of truth from the mainframe to Git,
+                    with automated delivery from the repository to the mainframe (IBM DBB, Zowe).</li>
+                </ul>
+              </div>
+            </details>
           </li>
           <li>
-            <div class="when">3 seasons</div>
-            <div>
-              <h3>Campsite Controller &amp; Operations Support</h3>
-              <p class="org">Maistra d.d.</p>
-              <ul class="check-list">
-                <li>Resolved reservation and billing issues in real time during peak tourist season.</li>
-                <li>Worked daily with internal reservation and billing systems, where every error directly affects
-                  revenue and guest experience.</li>
-                <li>Rehired for three consecutive seasons.</li>
-              </ul>
-            </div>
+            <details class="job">
+              <summary>
+                <span class="job-meta"><span class="role">Campsite Controller &amp; Operations Support · Maistra
+                    d.d.</span><span>3 seasons</span></span>
+                <span class="job-outcome">Fixed billing problems live, in peak season. Rehired three times.</span>
+                <span class="job-foot">
+                  <span class="chips">
+                    <span>Operations</span>
+                    <span>Reservations</span>
+                    <span>Billing</span>
+                  </span>
+                  <span class="job-toggle"><span class="more">Details</span><span class="less">Close</span></span>
+                </span>
+              </summary>
+              <div class="job-body">
+                <ul class="check-list">
+                  <li>Resolved reservation and billing issues in real time during peak tourist season.</li>
+                  <li>Worked daily with internal reservation and billing systems, where every error directly affects
+                    revenue and guest experience.</li>
+                  <li>Rehired for three consecutive seasons.</li>
+                </ul>
+              </div>
+            </details>
           </li>
           <li>
-            <div class="when">5+ clients</div>
-            <div>
-              <h3>Freelance Web Developer</h3>
-              <p class="org">Self-employed</p>
-              <ul class="check-list">
-                <li>Delivered custom websites (HTML, CSS, JavaScript, WordPress) from needs analysis to launch.</li>
-                <li>Ran each project on my own: negotiation, requirements and delivery within agreed deadlines.</li>
-                <li>Selected work is <a href="#projects">below</a>.</li>
-              </ul>
-            </div>
+            <details class="job">
+              <summary>
+                <span class="job-meta"><span class="role">Freelance Web Developer · Self-employed</span><span>5+
+                    clients</span></span>
+                <span class="job-outcome">Took client projects from first call to launch, on my own.</span>
+                <span class="job-foot">
+                  <span class="chips">
+                    <span>HTML/CSS/JS</span>
+                    <span>WordPress</span>
+                    <span>Figma</span>
+                  </span>
+                  <span class="job-toggle"><span class="more">Details</span><span class="less">Close</span></span>
+                </span>
+              </summary>
+              <div class="job-body">
+                <ul class="check-list">
+                  <li>Delivered custom websites (HTML, CSS, JavaScript, WordPress) from needs analysis to launch.</li>
+                  <li>Ran each project on my own: negotiation, requirements and delivery within agreed deadlines.</li>
+                  <li>Selected work is <a href="#projects">below</a>.</li>
+                </ul>
+              </div>
+            </details>
           </li>
         </ol>
 
         <div class="skills" aria-label="Skills">
-          <div>
+          <div class="tile">
             <h3>Mainframe</h3>
             <ul>
               <li>z/OS</li>
@@ -388,7 +505,7 @@
               <li>IBM DBB · Zowe</li>
             </ul>
           </div>
-          <div>
+          <div class="tile">
             <h3>Programming &amp; tools</h3>
             <ul>
               <li>C · C#</li>
@@ -398,7 +515,7 @@
               <li>VS Code</li>
             </ul>
           </div>
-          <div>
+          <div class="tile">
             <h3>Web &amp; design</h3>
             <ul>
               <li>HTML · CSS</li>
@@ -407,7 +524,7 @@
               <li>Adobe Photoshop</li>
             </ul>
           </div>
-          <div>
+          <div class="tile">
             <h3>Professional</h3>
             <ul>
               <li>Teamwork in a dev team</li>
@@ -425,9 +542,12 @@
     <section class="section" id="certifications">
       <div class="wrap">
         <div class="section-head">
-          <p class="label">03 — Certifications</p>
-          <h2>10 IBM mainframe badges</h2>
-          <p>Every badge is verifiable on Credly.</p>
+          <div>
+            <p class="label">03 — Certifications</p>
+            <h2><span class="hl">10</span> IBM mainframe badges</h2>
+          </div>
+          <p>From hands-on z/OS challenges to hardware, security and build tooling. Every badge is verifiable on
+            Credly.</p>
         </div>
 
         <div class="cert-groups">
@@ -442,7 +562,7 @@
           </div>
 
           <div class="cert-group">
-            <h3>IBM Mainframe Specialist, powered by Interskill</h3>
+            <h3>IBM Mainframe Specialist · Interskill</h3>
             <p>Six foundations badges across hardware, system, security and application programming.</p>
             <ul class="cert-grid">
               <li class="cert"><span class="cert-hex alt" aria-hidden="true">z17</span>IBM Z Hardware z17 —
@@ -472,7 +592,8 @@
         </div>
 
         <p class="cert-cta">
-          <a class="btn" href="https://www.credly.com/users/marin-sabo.f8425966" target="_blank" rel="noopener">
+          <a class="btn btn-primary" href="https://www.credly.com/users/marin-sabo.f8425966" target="_blank"
+            rel="noopener">
             Verify on Credly
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
               stroke-linejoin="round" aria-hidden="true">
@@ -487,105 +608,98 @@
     <section class="section" id="projects">
       <div class="wrap">
         <div class="section-head">
-          <p class="label">04 — Other work</p>
-          <h2>Before mainframe: freelance web &amp; design</h2>
-          <p>I ran web projects for clients on my own, from the first call to launch. That’s where
-            I learned to work out what people actually need, and to deliver it on time.</p>
+          <div>
+            <p class="label">04 — Other work</p>
+            <h2>Freelance web <span class="hl">&amp; design</span></h2>
+          </div>
+          <p>Before mainframe, I ran web projects for clients on my own, from the first call to launch. That’s where I
+            learned to work out what people actually need, and to deliver it on time.</p>
         </div>
 
         <ul class="project-grid">
-          <li class="project">
-            <div class="project-tile photo">
-              <img src="brushy/images/Dashboard.webp" alt="" loading="lazy">
-            </div>
-            <div class="project-body">
-              <p class="project-kind">Research &amp; UX design · DentOS conference</p>
-              <h3><a href="brushy/">Brushy</a></h3>
-              <p>A concept app that turns tooth brushing into a game for children. I did the research (with 70
-                primary-school pupils) and designed the app in Figma.</p>
-              <ul class="chips">
-                <li>Research</li>
-                <li>Figma</li>
-                <li>UX</li>
-              </ul>
-            </div>
+          <li>
+            <article class="project" data-tilt>
+              <div class="project-tile cover">
+                <img src="images/brushy-logo.webp" alt="" loading="lazy">
+              </div>
+              <span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg></span>
+              <div class="project-body">
+                <p class="project-kind">Research &amp; UX design · DentOS</p>
+                <h3><a href="brushy/">Brushy</a></h3>
+                <p>A concept app that turns tooth brushing into a game for children. I did the research (with 70 primary-school pupils) and designed the app in Figma.</p>
+                <ul class="chips"><li>Research</li><li>Figma</li><li>UX</li></ul>
+              </div>
+            </article>
           </li>
-          <li class="project">
-            <div class="project-tile">
-              <img src="images/vukovarski-golubici-all-white-logo.webp" alt="" loading="lazy">
-            </div>
-            <div class="project-body">
-              <p class="project-kind">Website redesign</p>
-              <h3><a href="work/vukovarski-golubici.html">Vukovarski Golubići</a></h3>
-              <p>Rebuilt a children’s choir’s outdated website from scratch on WordPress, then trained the staff to
-                run it on their own.</p>
-              <ul class="chips">
-                <li>WordPress</li>
-                <li>Design</li>
-                <li>Client training</li>
-              </ul>
-            </div>
+          <li>
+            <article class="project" data-tilt>
+              <div class="project-tile">
+                <img src="images/vukovarski-golubici-all-white-logo.webp" alt="" loading="lazy">
+              </div>
+              <span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg></span>
+              <div class="project-body">
+                <p class="project-kind">Website redesign</p>
+                <h3><a href="work/vukovarski-golubici.html">Vukovarski Golubići</a></h3>
+                <p>Rebuilt a children’s choir’s outdated website from scratch on WordPress, then trained the staff to run it on their own.</p>
+                <ul class="chips"><li>WordPress</li><li>Design</li><li>Client training</li></ul>
+              </div>
+            </article>
           </li>
-          <li class="project">
-            <div class="project-tile">
-              <img src="images/gamechanger-all-white-logo.webp" alt="" loading="lazy">
-            </div>
-            <div class="project-body">
-              <p class="project-kind">Event website</p>
-              <h3><a href="work/gamechanger.html">GameChanger</a></h3>
-              <p>Website for a gaming and Web3 conference, presenting 100+ speakers and sponsors on a fixed launch
-                deadline.</p>
-              <ul class="chips">
-                <li>WordPress</li>
-                <li>Design</li>
-                <li>SEO</li>
-              </ul>
-            </div>
+          <li>
+            <article class="project" data-tilt>
+              <div class="project-tile">
+                <img src="images/gamechanger-all-white-logo.webp" alt="" loading="lazy">
+              </div>
+              <span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg></span>
+              <div class="project-body">
+                <p class="project-kind">Event website</p>
+                <h3><a href="work/gamechanger.html">GameChanger</a></h3>
+                <p>Website for a gaming and Web3 conference, presenting 100+ speakers and sponsors on a fixed launch deadline.</p>
+                <ul class="chips"><li>WordPress</li><li>Design</li><li>SEO</li></ul>
+              </div>
+            </article>
           </li>
-          <li class="project">
-            <div class="project-tile">
-              <img src="images/wavelance-all-white-logo.webp" alt="" loading="lazy">
-            </div>
-            <div class="project-body">
-              <p class="project-kind">Landing page</p>
-              <h3><a href="work/wavelance.html">WaveLance</a></h3>
-              <p>Landing page for a LinkedIn personal-branding agency: services, results and a clear path to booking
-                a call.</p>
-              <ul class="chips">
-                <li>UX/UI</li>
-                <li>Development</li>
-              </ul>
-            </div>
+          <li>
+            <article class="project" data-tilt>
+              <div class="project-tile">
+                <img src="images/wavelance-all-white-logo.webp" alt="" loading="lazy">
+              </div>
+              <span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg></span>
+              <div class="project-body">
+                <p class="project-kind">Landing page</p>
+                <h3><a href="work/wavelance.html">WaveLance</a></h3>
+                <p>Landing page for a LinkedIn personal-branding agency: services, results and a clear path to booking a call.</p>
+                <ul class="chips"><li>UX/UI</li><li>Development</li></ul>
+              </div>
+            </article>
           </li>
-          <li class="project">
-            <div class="project-tile">
-              <img src="images/codehustling-all-white-logo.png" alt="" loading="lazy">
-            </div>
-            <div class="project-body">
-              <p class="project-kind">Community website</p>
-              <h3><a href="work/codehustling.html">CodeHustling</a></h3>
-              <p>A central hub for a web-development Instagram community, bringing scattered information together in
-                one place.</p>
-              <ul class="chips">
-                <li>Design</li>
-                <li>Development</li>
-                <li>Hosting</li>
-              </ul>
-            </div>
+          <li>
+            <article class="project" data-tilt>
+              <div class="project-tile">
+                <img src="images/codehustling-all-white-logo.png" alt="" loading="lazy">
+              </div>
+              <span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg></span>
+              <div class="project-body">
+                <p class="project-kind">Community website</p>
+                <h3><a href="work/codehustling.html">CodeHustling</a></h3>
+                <p>A central hub for a web-development Instagram community, bringing scattered information together in one place.</p>
+                <ul class="chips"><li>Design</li><li>Development</li><li>Hosting</li></ul>
+              </div>
+            </article>
           </li>
-          <li class="project">
-            <div class="project-tile">
-              <img src="images/ikarus-agency-all-white-logo.webp" alt="" loading="lazy">
-            </div>
-            <div class="project-body">
-              <p class="project-kind">Rebrand &amp; website</p>
-              <h3><a href="work/ikarus.html">Ikarus Agency</a></h3>
-              <p>A new brand identity and website for a digital marketing agency.</p>
-              <ul class="chips">
-                <li>Branding</li>
-                <li>Web design</li>
-              </ul>
-            </div>
+          <li>
+            <article class="project" data-tilt>
+              <div class="project-tile">
+                <img src="images/ikarus-agency-all-white-logo.webp" alt="" loading="lazy">
+              </div>
+              <span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg></span>
+              <div class="project-body">
+                <p class="project-kind">Rebrand &amp; website</p>
+                <h3><a href="work/ikarus.html">Ikarus Agency</a></h3>
+                <p>A new brand identity and website for a digital marketing agency.</p>
+                <ul class="chips"><li>Branding</li><li>Web design</li></ul>
+              </div>
+            </article>
           </li>
         </ul>
       </div>
@@ -593,30 +707,58 @@
 
     <!-- ============ Education ============ -->
     <section class="section" id="education">
-      <div class="wrap edu-grid">
-        <div>
-          <p class="label">05 — Education</p>
-          <h2>Education</h2>
-          <div class="edu-item">
-            <h3>FERIT Osijek</h3>
-            <p>BSc in Computer Science · 3rd year · Software Engineering track</p>
-          </div>
-          <div class="edu-item">
-            <h3>Technical School Požega</h3>
-            <p>Computer Science · 2020 – 2024</p>
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="label">05 — Education</p>
+            <h2>Education <span class="hl">&amp; recognition</span></h2>
           </div>
         </div>
-        <div>
-          <p class="label">Achievements</p>
-          <h2>Recognition</h2>
-          <ul class="check-list">
-            <li>Top state graduation exam (Matura) result in my class at Technical School Požega</li>
-            <li>Ranked in the top 2% of students in Požega-Slavonia County</li>
-            <li>City of Požega Scholarship for academic excellence</li>
-            <li>2nd place at the national competition “Opisujemo sustave” (2024), with maximum points for
-              presentation</li>
-            <li>Member of the City of Požega Youth Council (2022 – 2023)</li>
-          </ul>
+
+        <div class="edu-grid">
+          <div>
+            <div class="tile edu-card">
+              <p class="tile-kicker">2024 – now <b>3rd year</b></p>
+              <h3>FERIT Osijek</h3>
+              <p class="edu-sub">BSc in Computer Science · Software Engineering track</p>
+
+              <details class="coursework">
+                <summary>Skills from coursework</summary>
+                <div class="course-groups">
+                  <div>
+                    <h4>Programming</h4>
+                    <ul class="course-list">
+                      <li>Programming II <span class="gain">C</span></li>
+                      <li>Object-Oriented Programming <span class="gain">OOP design</span></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4>Data &amp; systems</h4>
+                    <ul class="course-list">
+                      <li>Databases <span class="gain">SQL · data modelling</span></li>
+                      <li>Operating Systems <span class="gain">processes · memory</span></li>
+                    </ul>
+                  </div>
+                </div>
+              </details>
+            </div>
+            <div class="tile edu-card">
+              <p class="tile-kicker">2020 – 2024</p>
+              <h3>Technical School Požega</h3>
+              <p class="edu-sub">Computer Science</p>
+            </div>
+          </div>
+          <div class="tile achievements">
+            <p class="tile-kicker">Achievements</p>
+            <ul class="check-list">
+              <li><strong>Top Matura result</strong> in my class at Technical School Požega</li>
+              <li><strong>Top 2%</strong> of students in Požega-Slavonia County</li>
+              <li><strong>City of Požega Scholarship</strong> for academic excellence</li>
+              <li><strong>2nd place</strong> at the national competition “Opisujemo sustave” (2024), with maximum
+                points for presentation</li>
+              <li><strong>City of Požega Youth Council</strong> member (2022 – 2023)</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
@@ -625,17 +767,17 @@
     <section class="contact" id="contact">
       <div class="wrap">
         <p class="label">06 — Contact</p>
-        <h2>Let’s talk.</h2>
+        <h2>Let’s<br><span class="hl">talk.</span></h2>
         <p class="contact-lede">I’m looking for a student job or a 2027 internship in mainframe or enterprise
           development. I can work remotely, or on-site in Osijek.</p>
         <a class="contact-email" href="mailto:marin.sabo.contact@gmail.com">marin.sabo.contact@gmail.com</a>
         <ul class="contact-links">
+          <li><a class="btn btn-primary" href="assets/Marin-Sabo-CV.pdf" download>Download CV (PDF)</a></li>
           <li><a class="btn" href="https://www.linkedin.com/in/marinsabo/" target="_blank" rel="noopener">LinkedIn</a>
           </li>
           <li><a class="btn" href="https://github.com/marinsabo" target="_blank" rel="noopener">GitHub</a></li>
           <li><a class="btn" href="https://www.credly.com/users/marin-sabo.f8425966" target="_blank"
               rel="noopener">Credly</a></li>
-          <li><a class="btn" href="assets/Marin-Sabo-CV.pdf" download>Download CV (PDF)</a></li>
         </ul>
       </div>
     </section>
