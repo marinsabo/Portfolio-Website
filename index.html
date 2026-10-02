@@ -1,3066 +1,654 @@
 <!DOCTYPE html>
-<html lang="hr">
+<html lang="en">
 
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R3D48QJG19"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Marin Sabo — Mainframe Developer</title>
+  <meta name="description"
+    content="Marin Sabo — Computer Science student at FERIT Osijek and mainframe developer working with z/OS, COBOL, CICS, Db2 and JCL. Open to student jobs and 2027 internships.">
+  <link rel="canonical" href="https://marinsabo.online/">
 
-    gtag('config', 'G-R3D48QJG19');
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Marin Sabo — Mainframe Developer">
+  <meta property="og:description"
+    content="CS student at FERIT Osijek. Mainframe developer intern at CROZ: z/OS, COBOL, CICS, Db2, JCL and Git-based delivery with IBM DBB.">
+  <meta property="og:url" content="https://marinsabo.online/">
+  <meta property="og:image" content="https://marinsabo.online/images/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <meta name="theme-color" content="#f6f4ef" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111317" media="(prefers-color-scheme: dark)">
+
+  <script>
+    try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) { }
   </script>
 
-  <link rel="icon" type="image/png" href="favicon_io/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="favicon_io/favicon.svg" />
-  <link rel="shortcut icon" href="favicon_io/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png" />
-  <link rel="manifest" href="favicon_io/site.webmanifest">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MS Development | Digitalna rješenja koja rade. Dokazano.</title>
-  <meta name="description"
-    content="Gradimo brze, dinamične i funkcionalne web sustave koji vašim kupcima olakšavaju kupnju, a vaše poslovanje podižu na višu razinu. ">
-
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700;900&display=swap"
-    rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700;900&display=swap"
-      rel="stylesheet">
-  </noscript>
-
-  <!-- Styles -->
-  <style>
-    :root {
-      --color-bg: #130821;
-      --color-surface-elev: #1E1030;
-      --color-accent: #FFB54C;
-      --color-secondary: #9E25A6;
-      --color-text-high: #F5F5F5;
-      --color-text-medium: #B8B0C5;
-      --color-text-low: #625675;
-      --gradient-mesh: radial-gradient(at 0% 0%, hsla(296, 64%, 40%, 1) 0, transparent 50%),
-        radial-gradient(at 100% 0%, hsla(35, 100%, 65%, 1) 0, transparent 50%);
-      --font-display: 'Montserrat', sans-serif;
-      --font-body: 'Inter', sans-serif;
-      --grid-gutter: 24px;
-      --container-width: 1440px;
-      --header-height: 80px;
-      --transition-fast: 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
-      --transition-smooth: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-      --card-bg: #1e1b2e;
-      --card-border: rgba(255, 255, 255, 0.08);
-      --accent-yellow: #ffb800;
-      --tag-bg: rgba(255, 255, 255, 0.1);
-      --text-muted: #9ca3af;
-    }
-
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      font-size: 16px;
-    }
-
-    body {
-      background-color: var(--color-bg);
-      color: var(--color-text-medium);
-      font-family: var(--font-body);
-      font-weight: 400;
-      line-height: 1.6;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 9998;
-      box-shadow:
-        inset 0 0 100px rgba(158, 37, 166, 0.15),
-        inset 0 0 150px rgba(255, 181, 76, 0.1);
-      mix-blend-mode: screen;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      font-family: var(--font-display);
-      color: var(--color-text-high);
-      font-weight: 900;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-    }
-
-    h1 {
-      font-size: clamp(2.5rem, 5vw, 4.5rem);
-    }
-
-    h2 {
-      font-size: clamp(2rem, 4vw, 3.5rem);
-      margin-bottom: 1.5rem;
-    }
-
-    h3 {
-      font-size: clamp(1.5rem, 3vw, 2.5rem);
-    }
-
-    p {
-      margin-bottom: 1.5rem;
-      max-width: 65ch;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-      transition: var(--transition-fast);
-    }
-
-    .container {
-      width: 90%;
-      max-width: var(--container-width);
-      margin: 0 auto;
-      padding: 0 var(--grid-gutter);
-    }
-
-    .text-accent {
-      color: var(--color-accent);
-    }
-
-    .text-gradient {
-      background: linear-gradient(90deg, var(--color-text-high), var(--color-accent));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .card-glass {
-      background: linear-gradient(135deg,
-          rgba(255, 255, 255, 0.03) 0%,
-          rgba(255, 255, 255, 0.01) 100%);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-top: 1px solid rgba(255, 255, 255, 0.15);
-      border-left: 1px solid rgba(255, 255, 255, 0.15);
-      box-shadow:
-        0 4px 24px -1px rgba(0, 0, 0, 0.2),
-        0 0 1px 0 rgba(0, 0, 0, 0.4);
-      border-radius: 16px;
-      transition: var(--transition-smooth);
-    }
-
-    .card-glass:hover {
-      transform: translateY(-5px);
-      border-color: rgba(255, 181, 76, 0.3);
-      box-shadow:
-        0 20px 40px -5px rgba(0, 0, 0, 0.4),
-        0 0 1px 0 rgba(255, 181, 76, 0.3);
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1rem 2rem;
-      font-family: var(--font-display);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      border-radius: 50px;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      z-index: 1;
-    }
-
-    .btn-primary {
-      background: transparent;
-      color: var(--color-bg);
-    }
-
-    .btn-primary::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      padding: 2px;
-      background: conic-gradient(from var(--angle), transparent 0%, transparent 70%, var(--color-accent) 100%);
-      -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-      mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      animation: spin 3s linear infinite;
-      pointer-events: none;
-    }
-
-    .btn-primary::after {
-      content: '';
-      position: absolute;
-      inset: 2px;
-      background: var(--color-accent);
-      border-radius: 6px;
-      z-index: -1;
-      transition: var(--transition-fast);
-    }
-
-    .btn-primary:hover::after {
-      background: #ffc570;
-    }
-
-    @property --angle {
-      syntax: '<angle>';
-      initial-value: 0deg;
-      inherits: false;
-    }
-
-    @keyframes spin {
-      from {
-        --angle: 0deg;
-      }
-
-      to {
-        --angle: 360deg;
-      }
-    }
-
-    .cursor-dot,
-    .cursor-outline {
-      position: fixed;
-      top: 0;
-      left: 0;
-      transform: translate(-50%, -50%);
-      /* Initial centering if needed, but we'll control pos via JS */
-      border-radius: 50%;
-      z-index: 9999;
-      pointer-events: none;
-      will-change: transform;
-      /* Hint to browser to promote to compositing layer */
-    }
-
-    .cursor-dot {
-      width: 8px;
-      height: 8px;
-      background-color: white;
-      /* Start off-screen or hidden until JS picks it up */
-      transform: translate(-100px, -100px);
-    }
-
-    .cursor-outline {
-      width: 40px;
-      height: 40px;
-      border: 1px solid rgba(255, 255, 255, 0.5);
-      /* Start off-screen */
-      transform: translate(-100px, -100px);
-      transition: width 0.2s, height 0.2s, background-color 0.2s;
-      /* Removed transform 0.1s */
-    }
-
-    body:hover .cursor-outline {
-      opacity: 1;
-    }
-
-    @media (max-width: 768px) {
-
-      .cursor-dot,
-      .cursor-outline {
-        display: none;
-      }
-
-      body,
-      a,
-      button,
-      .btn {
-        cursor: auto;
-      }
-
-      .pain-point-title {
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
-      }
-    }
-
-    p {
-      width: 90%;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .cursor-hover {
-      transform: translate(-50%, -50%) scale(1.5) !important;
-      background-color: rgba(255, 255, 255, 0.1) !important;
-      mix-blend-mode: exclusion;
-    }
-
-    :focus-visible {
-      outline: none;
-      box-shadow: 0 0 0 2px var(--color-bg), 0 0 0 4px var(--color-accent);
-    }
-
-    .availability-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      margin-bottom: 1.5rem;
-      padding: 8px 16px 8px 10px;
-      background: rgba(255, 255, 255, 0.03);
-      border-radius: 50px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      box-shadow:
-        0 4px 20px rgba(0, 0, 0, 0.1),
-        inset 0 0 20px rgba(255, 255, 255, 0.02);
-      font-family: inherit;
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: rgba(255, 255, 255, 0.9);
-    }
-
-    .status-dot {
-      width: 6px;
-      height: 6px;
-      background-color: #22c55e;
-      border-radius: 50%;
-      box-shadow: 0 0 8px rgba(34, 197, 94, 0.8);
-      position: relative;
-    }
-
-    .status-dot::after {
-      content: '';
-      position: absolute;
-      top: -2px;
-      left: -2px;
-      right: -2px;
-      bottom: -2px;
-      border-radius: 50%;
-      border: 1px solid rgba(34, 197, 94, 0.5);
-      animation: ripple 2s infinite ease-out;
-    }
-
-    @keyframes ripple {
-      0% {
-        transform: scale(1);
-        opacity: 0.8;
-      }
-
-      100% {
-        transform: scale(2.5);
-        opacity: 0;
-      }
-    }
-
-    .hero-section {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-      padding-top: calc(var(--header-height) + 4rem);
-    }
-
-    .hero-container {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    .hero-content {
-      z-index: 2;
-    }
-
-    .hero-subtitle {
-      font-size: 1.25rem;
-      color: var(--color-text-medium);
-      margin-top: 1.5rem;
-      margin-bottom: 3rem;
-      max-width: 500px;
-      text-align: left;
-      margin-left: 0;
-    }
-
-    .hero-visual {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .hero-image-wrapper {
-      position: relative;
-      width: 100%;
-      max-width: 450px;
-      aspect-ratio: 1 / 1.1;
-      border-radius: 24px;
-    }
-
-    .hero-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 24px;
-      position: relative;
-      z-index: 1;
-      filter: grayscale(20%) contrast(1.1);
-      transition: var(--transition-smooth);
-    }
-
-    .hero-image:hover {
-      filter: grayscale(0%) contrast(1);
-    }
-
-    .mesh-gradient-bg {
-      position: absolute;
-      top: -20%;
-      left: -20%;
-      width: 140%;
-      height: 140%;
-      background: var(--gradient-mesh);
-      filter: blur(60px);
-      opacity: 0.6;
-      z-index: 0;
-      animation: pulse-glow 8s ease-in-out infinite alternate;
-    }
-
-    @keyframes pulse-glow {
-      0% {
-        opacity: 0.4;
-        transform: scale(0.9);
-      }
-
-      100% {
-        opacity: 0.7;
-        transform: scale(1.1);
-      }
-    }
-
-    .floating-card {
-      position: absolute;
-      padding: 1rem;
-      z-index: 3;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      animation: float 6s ease-in-out infinite;
-    }
-
-    .code-icon {
-      top: 10%;
-      left: -10%;
-      animation-delay: 0s;
-    }
-
-    .stats-icon {
-      bottom: 15%;
-      right: -5%;
-      animation-delay: 2s;
-    }
-
-    @keyframes float {
-
-      0%,
-      100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(-20px);
-      }
-    }
-
-    @media (max-width: 968px) {
-      .hero-container {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 3rem;
-      }
-
-      .hero-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .hero-image-wrapper {
-        max-width: 350px;
-        margin: 0 auto;
-      }
-
-      .hero-subtitle {
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
-      }
-    }
-
-    .social-proof-section {
-      padding: 4rem 0;
-      background: var(--color-bg);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      overflow: hidden;
-    }
-
-    .marquee-container {
-      width: 100%;
-      overflow: hidden;
-      white-space: nowrap;
-      position: relative;
-    }
-
-    .marquee-container::before,
-    .marquee-container::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      width: 150px;
-      height: 100%;
-      z-index: 2;
-      pointer-events: none;
-    }
-
-    .marquee-container::before {
-      left: 0;
-      background: linear-gradient(to right, var(--color-bg), transparent);
-    }
-
-    .marquee-container::after {
-      right: 0;
-      background: linear-gradient(to left, var(--color-bg), transparent);
-    }
-
-    .marquee-content {
-      display: inline-flex;
-      animation: marquee 30s linear infinite;
-    }
-
-    .marquee-item {
-      padding: 0 3rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      opacity: 0.5;
-      transition: var(--transition-fast);
-    }
-
-    .marquee-item:hover {
-      opacity: 1;
-      filter: drop-shadow(0 0 8px rgba(255, 181, 76, 0.3));
-    }
-
-    .client-logo {
-      height: 40px;
-      width: auto;
-      filter: grayscale(100%) brightness(200%);
-      transition: var(--transition-fast);
-    }
-
-    .marquee-item:hover .client-logo {
-      filter: grayscale(0%) brightness(100%);
-    }
-
-    .client-name {
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 1.5rem;
-      color: var(--color-text-high);
-    }
-
-    @keyframes marquee {
-      0% {
-        transform: translateX(0);
-      }
-
-      100% {
-        transform: translateX(-50%);
-      }
-    }
-
-    .value-prop-section {
-      padding: 8rem 0;
-      position: relative;
-    }
-
-    .value-prop-section .pain-point-content {
-      margin-bottom: 4rem;
-    }
-
-    .value-prop-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    .value-card {
-      padding: 3rem;
-      border-radius: 24px;
-      position: relative;
-      transition: var(--transition-smooth);
-    }
-
-    .traditional-model {
-      opacity: 0.5;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .traditional-model:hover {
-      opacity: 0.8;
-    }
-
-    .ms-model {
-      border: 1px solid rgba(255, 181, 76, 0.3);
-      transform: scale(1.05);
-      box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.5);
-    }
-
-    .model-title {
-      margin-bottom: 2rem;
-      font-size: 2rem;
-    }
-
-    .model-list {
-      list-style: none;
-    }
-
-    .model-item {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-      font-size: 1.1rem;
-    }
-
-    .model-item.negative {
-      color: var(--color-text-low);
-    }
-
-    .model-item.positive {
-      color: var(--color-text-high);
-      font-weight: 600;
-    }
-
-    .icon {
-      font-size: 1.5rem;
-    }
-
-    .spotlight-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: radial-gradient(circle at 50% 0%, rgba(255, 181, 76, 0.15), transparent 70%);
-      z-index: -1;
-      border-radius: inherit;
-      pointer-events: none;
-    }
-
-    @media (max-width: 768px) {
-      .value-prop-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-
-      .ms-model {
-        transform: scale(1);
-      }
-    }
-
-    .tech-section {
-      padding: 6rem 0;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-
-    .tech-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2rem;
-    }
-
-    .tech-card {
-      padding: 2.5rem;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .tech-icon {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 1rem;
-      border-radius: 12px;
-      margin-bottom: 1.5rem;
-      color: var(--color-accent);
-    }
-
-    .tech-card h3 {
-      margin-bottom: 1.25rem;
-    }
-
-    .tech-card p {
-      line-height: 1.7;
-      margin-bottom: 0;
-      width: 100%;
-      margin-left: 0;
-      margin-right: 0;
-    }
-
-    .tech-tags {
-      list-style: none;
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      margin-top: auto;
-      padding-top: 1.5rem;
-    }
-
-    .tech-tags li {
-      font-size: 0.875rem;
-      padding: 0.25rem 0.75rem;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 100px;
-      color: var(--color-text-medium);
-    }
-
-    .shimmer-hover::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 50%;
-      height: 100%;
-      background: linear-gradient(to right,
-          transparent,
-          rgba(255, 255, 255, 0.1),
-          transparent);
-      transform: skewX(-25deg);
-      transition: 0.5s;
-      pointer-events: none;
-    }
-
-    .shimmer-hover:hover::before {
-      left: 150%;
-      transition: 0.5s;
-    }
-
-    .portfolio-section {
-      padding: 8rem 0;
-      background: #0b0514;
-      position: relative;
-    }
-
-    .portfolio-grid {
-      display: flex;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      gap: 2rem;
-      padding-bottom: 2rem;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      /* Firefox */
-    }
-
-    .portfolio-grid::-webkit-scrollbar {
-      display: none;
-      /* Chrome/Safari */
-    }
-
-    .portfolio-nav-container {
-      display: flex;
-      justify-content: flex-end;
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
-
-    @media (max-width: 768px) {
-      .portfolio-nav-container {
-        display: none !important;
-      }
-    }
-
-    .portfolio-nav-btn {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: var(--color-text-high);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: var(--transition-fast);
-    }
-
-    .portfolio-nav-btn:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: var(--color-accent);
-      transform: scale(1.05);
-    }
-
-    .portfolio-nav-btn:disabled {
-      opacity: 0.3;
-      cursor: not-allowed;
-      border-color: rgba(255, 255, 255, 0.05);
-    }
-
-    .portfolio-card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 20px;
-      padding: 1rem;
-      transition: transform 0.3s ease, border-color 0.3s ease;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-
-      /* Carousel Sizing */
-      flex: 0 0 85%;
-      /* Mobile default */
-      scroll-snap-align: center;
-    }
-
-    @media (min-width: 768px) {
-      .portfolio-card {
-        flex: 0 0 calc(50% - 1rem);
-        /* 2 items visible */
-        scroll-snap-align: start;
-      }
-    }
-
-    @media (min-width: 1025px) {
-      .portfolio-card {
-        flex: 0 0 calc(33.333% - 1.33rem);
-        /* 3 items visible */
-        scroll-snap-align: start;
-      }
-    }
-
-    .portfolio-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(112, 71, 235, 0.3);
-    }
-
-    .portfolio-image-wrapper {
-      position: relative;
-      border-radius: 12px;
-      overflow: hidden;
-      aspect-ratio: 4/3;
-    }
-
-    .portfolio-image.object-contain {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      padding: 2.5rem;
-      transition: transform 0.5s ease;
-    }
-
-    .portfolio-card:hover .portfolio-image {
-      transform: scale(1.05);
-    }
-
-    .portfolio-badge {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(4px);
-      border-radius: 6px;
-      padding: 4px 8px;
-      display: flex;
-      align-items: center;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .portfolio-badge .metric-label {
-      color: var(--accent-yellow);
-      font-weight: 700;
-      font-size: 0.75rem;
-      text-transform: capitalize;
-    }
-
-    .portfolio-content {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      padding: 0 0.5rem 0.5rem 0.5rem;
-      flex-grow: 1;
-    }
-
-    .content-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .portfolio-content h3 {
-      font-size: 1.25rem;
-      margin: 0;
-      color: #fff;
-      font-weight: 700;
-    }
-
-    .arrow-icon {
-      color: var(--accent-yellow);
-      opacity: 0;
-      transform: translate(-5px, 5px);
-      transition: all 0.3s ease;
-    }
-
-    .portfolio-card:hover .arrow-icon {
-      opacity: 1;
-      transform: translate(0, 0);
-    }
-
-    .portfolio-content p {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      line-height: 1.5;
-      margin: 0;
-      margin-bottom: 1rem;
-    }
-
-    .card-tags {
-      margin-top: auto;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
-    .tag {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      color: #fff;
-      background: var(--tag-bg);
-      padding: 6px 12px;
-      border-radius: 4px;
-    }
-
-    .tag:hover {
-      background: rgba(255, 255, 255, 0.2);
-    }
-
-    .card-link {
-      position: absolute;
-      inset: 0;
-      z-index: 2;
-    }
-
-    .sr-only {
-      display: none;
-    }
-
-    .header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 100;
-      padding: 1rem 0;
-      /* Prevent layout thrashing on mobile scroll */
-      transition: background-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
-        padding 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
-        backdrop-filter 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
-        -webkit-backdrop-filter 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
-        border-bottom-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
-        box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-      /* Hardware acceleration to keep header pinned */
-      transform: translate3d(0, 0, 0);
-      -webkit-transform: translate3d(0, 0, 0);
-    }
-
-    @media (min-width: 768px) {
-      .header {
-        padding: 1.5rem 0;
-      }
-    }
-
-    .header.scrolled {
-      background: rgba(19, 8, 33, 0.8);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      padding: 1rem 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .header-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: relative;
-    }
-
-    .logo-img {
-      height: 40px;
-      width: auto;
-      position: relative;
-      z-index: 2;
-    }
-
-    .nav-desktop {
-      display: none;
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 1;
-    }
-
-    @media (min-width: 1025px) {
-      .nav-desktop {
-        display: block;
-      }
-    }
-
-    .nav-list {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-      align-items: center;
-      background: rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 50px;
-      padding: 0.8rem 2.5rem;
-      box-shadow:
-        0 4px 24px -1px rgba(0, 0, 0, 0.1),
-        inset 0 0 20px rgba(255, 255, 255, 0.02);
-    }
-
-    .nav-link {
-      font-family: var(--font-display);
-      font-weight: 600;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--color-text-medium);
-      position: relative;
-    }
-
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--color-accent);
-      transition: var(--transition-fast);
-    }
-
-    .nav-link:hover {
-      color: var(--color-text-high);
-    }
-
-    .nav-link:hover::after {
-      width: 100%;
-    }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-    }
-
-    .btn-sm {
-      padding: 0.75rem 1.5rem;
-      font-size: 0.9rem;
-    }
-
-    .mobile-menu-btn {
-      background: none;
-      border: none;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      z-index: 101;
-    }
-
-    @media (min-width: 1025px) {
-      .mobile-menu-btn {
-        display: none;
-      }
-    }
-
-    .hamburger-line {
-      width: 24px;
-      height: 2px;
-      background-color: var(--color-text-high);
-      transition: var(--transition-fast);
-    }
-
-    .mobile-menu-btn.active .hamburger-line:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
-
-    .mobile-menu-btn.active .hamburger-line:nth-child(2) {
-      transform: rotate(-45deg) translate(1px, -1px);
-    }
-
-    .mobile-menu {
-      position: fixed;
-      inset: 0;
-      background: rgba(19, 8, 33, 0.9);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      z-index: 9999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      pointer-events: none;
-      transition: var(--transition-smooth);
-    }
-
-    .mobile-menu-close {
-      position: absolute;
-      top: 1.5rem;
-      right: 1.5rem;
-      /* Matches header container padding roughly */
-      background: none;
-      border: none;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      z-index: 10001;
-      padding: 0;
-    }
-
-    .mobile-menu-close .hamburger-line {
-      background-color: var(--color-text-high);
-    }
-
-    /* Force the lines to form an X for this specific button */
-    .mobile-menu-close .hamburger-line:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
-
-    .mobile-menu-close .hamburger-line:nth-child(2) {
-      transform: rotate(-45deg) translate(1px, -1px);
-    }
-
-    .mobile-menu.active {
-      opacity: 1;
-      pointer-events: all;
-    }
-
-    .mobile-nav-list {
-      list-style: none;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-
-    .mobile-nav-link {
-      font-family: var(--font-display);
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--color-text-medium);
-      transition: var(--transition-fast);
-    }
-
-    .mobile-nav-link:hover,
-    .mobile-nav-link.highlight {
-      color: var(--color-accent);
-    }
-
-    .footer {
-      background: var(--color-surface-elev);
-      padding: 6rem 0 2rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .footer-container {
-      display: grid;
-      grid-template-columns: 1.5fr 2fr;
-      gap: 4rem;
-      margin-bottom: 4rem;
-    }
-
-    .footer-brand {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .footer-logo {
-      height: 40px;
-      width: auto;
-      align-self: flex-start;
-    }
-
-    .footer-desc {
-      color: var(--color-text-medium);
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-
-    .footer-links {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-    }
-
-    .footer-col h4 {
-      font-size: 1.1rem;
-      margin-bottom: 1.5rem;
-      color: var(--color-text-high);
-    }
-
-    .footer-col ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .footer-col a {
-      color: var(--color-text-medium);
-      font-size: 0.95rem;
-      transition: var(--transition-fast);
-    }
-
-    .footer-col a:hover {
-      color: var(--color-accent);
-    }
-
-    .footer-col .nav-link {
-      text-transform: none;
-      font-weight: 400;
-      font-family: var(--font-body);
-    }
-
-    .footer-bottom {
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-      padding-top: 2rem;
-      text-align: center;
-      color: var(--color-text-low);
-      font-size: 0.9rem;
-    }
-
-    .footer-bottom p {
-      width: 100%;
-      max-width: none;
-      margin: 0;
-    }
-
-    @media (max-width: 768px) {
-      .footer {
-        padding: 3rem 0 1.5rem;
-      }
-
-      .footer-container {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        text-align: center;
-        margin-bottom: 2rem;
-      }
-
-      .footer-brand {
-        align-items: center;
-        gap: 0.75rem;
-      }
-
-      .footer-logo {
-        align-self: center;
-        height: 36px;
-      }
-
-      .footer-desc {
-        max-width: 100%;
-        font-size: 0.85rem;
-        margin-bottom: 0;
-      }
-
-      .footer-links {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1.5rem;
-      }
-
-      .footer-col h4 {
-        font-size: 0.85rem;
-        margin-bottom: 0.75rem;
-      }
-
-      .footer-col ul {
-        gap: 0.5rem;
-      }
-
-      .footer-col a {
-        font-size: 0.8rem;
-      }
-
-      .footer-bottom {
-        padding-top: 1.5rem;
-        margin-top: 0;
-      }
-
-      .footer-bottom p {
-        font-size: 0.8rem;
-        margin: 0;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .footer {
-        padding: 2.5rem 0 1.25rem;
-      }
-
-      .footer-container {
-        gap: 1.25rem;
-        margin-bottom: 1.5rem;
-      }
-
-      .footer-brand {
-        gap: 0.5rem;
-      }
-
-      .footer-logo {
-        height: 32px;
-      }
-
-      .footer-desc {
-        font-size: 0.75rem;
-        line-height: 1.4;
-      }
-
-      .footer-links {
-        gap: 1rem;
-      }
-
-      .footer-col h4 {
-        font-size: 0.75rem;
-        margin-bottom: 0.5rem;
-      }
-
-      .footer-col ul {
-        gap: 0.35rem;
-      }
-
-      .footer-col a {
-        font-size: 0.7rem;
-      }
-
-      .footer-bottom {
-        padding-top: 1.25rem;
-      }
-
-      .footer-bottom p {
-        font-size: 0.7rem;
-      }
-    }
-
-    .booking-section {
-      padding: 6rem 0;
-      position: relative;
-    }
-
-    .section-header {
-      margin-bottom: 3rem;
-    }
-
-    .booking-subtitle {
-      text-align: center;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .booking-grid {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    .calendly-column {
-      border-radius: 24px;
-      overflow: hidden;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .status-card {
-      background: #1e1b2e;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 32px;
-      padding: 2rem 1.5rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.2);
-      max-width: 350px;
-      width: 100%;
-      margin: 0 auto;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .status-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 50%;
-      height: 100%;
-      background: linear-gradient(to right,
-          transparent,
-          rgba(255, 255, 255, 0.05),
-          transparent);
-      transform: skewX(-25deg);
-      animation: card-shimmer 6s infinite;
-      pointer-events: none;
-    }
-
-    @keyframes card-shimmer {
-      0% {
-        left: -100%;
-      }
-
-      20% {
-        left: 200%;
-      }
-
-      100% {
-        left: 200%;
-      }
-    }
-
-    .status-badge {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 8px 16px;
-      border-radius: 50px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 2rem;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .status-dot-green {
-      width: 8px;
-      height: 8px;
-      background-color: #22c55e;
-      border-radius: 50%;
-      box-shadow: 0 0 8px #22c55e;
-    }
-
-    .badge-text {
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: #ffb54c;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .big-count-wrapper {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 2.5rem;
-    }
-
-    .big-number {
-      font-size: 6rem;
-      font-weight: 800;
-      line-height: 1;
-      color: #ffb54c;
-      text-shadow: 0 0 30px rgba(255, 181, 76, 0.3);
-    }
-
-    .big-label {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      text-align: left;
-    }
-
-    .label-primary {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #fff;
-    }
-
-    .label-secondary {
-      font-size: 0.875rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: rgba(255, 255, 255, 0.5);
-    }
-
-    .progress-section {
-      width: 100%;
-      margin-bottom: 2rem;
-    }
-
-    .progress-labels {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.6);
-      margin-bottom: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-    }
-
-    .progress-track {
-      width: 100%;
-      height: 12px;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 10px;
-      overflow: hidden;
-    }
-
-    .progress-fill {
-      height: 100%;
-      background: linear-gradient(90deg, #ffb54c, #ff9f1c);
-      border-radius: 10px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .progress-fill::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg,
-          transparent,
-          rgba(255, 255, 255, 0.8),
-          transparent);
-      transform: translateX(-100%);
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-      animation: shimmer 1.5s infinite;
-    }
-
-    @keyframes shimmer {
-      100% {
-        transform: translateX(100%);
-      }
-    }
-
-    .status-footer {
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      padding-top: 1.5rem;
-      width: 100%;
-    }
-
-    .highlight-text {
-      color: #fff;
-      font-size: 1rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .text-yellow {
-      color: #ffb54c;
-      font-weight: 700;
-    }
-
-    .sub-text {
-      color: rgba(255, 255, 255, 0.5);
-      font-size: 0.85rem;
-    }
-
-    @media (max-width: 768px) {
-      .booking-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-      }
-
-      .status-column {
-        order: -1;
-        position: static;
-      }
-    }
-
-    .pain-point-section {
-      padding: 8rem 0;
-      background: var(--color-bg);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .pain-point-wrapper {
-      display: flex;
-      flex-direction: column;
-      gap: 4rem;
-    }
-
-    .pain-point-content {
-      text-align: center;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .pain-point-title {
-      font-size: clamp(2rem, 4vw, 3.5rem);
-      margin-bottom: 2rem;
-      line-height: 1.2;
-    }
-
-    .pain-point-question {
-      display: block;
-      color: var(--color-text-high);
-    }
-
-    .pain-point-text {
-      font-size: 1.25rem;
-      color: var(--color-text-medium);
-      line-height: 1.8;
-      margin: 0 auto;
-      max-width: 700px;
-    }
-
-    .pain-point-text strong {
-      color: var(--color-accent);
-      font-weight: 700;
-    }
-
-    .pain-point-choice {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      margin-top: 2rem;
-    }
-
-    .choice-card {
-      padding: 3rem;
-      border-radius: 24px;
-      transition: var(--transition-smooth);
-      position: relative;
-    }
-
-    .choice-action {
-      border: 2px solid var(--color-accent);
-      transform: scale(1.05);
-    }
-
-    .choice-action:hover {
-      transform: scale(1.08) translateY(-5px);
-      box-shadow: 0 30px 60px -10px rgba(255, 181, 76, 0.3);
-    }
-
-    .choice-nothing {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      opacity: 0.6;
-      transition: var(--transition-smooth);
-    }
-
-    .choice-nothing:hover {
-      opacity: 0.8;
-    }
-
-    .choice-card h3 {
-      font-size: 1.75rem;
-      margin-bottom: 2rem;
-      color: var(--color-text-high);
-    }
-
-    .choice-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-      margin-bottom: 2rem;
-    }
-
-    .choice-list li {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      color: var(--color-text-medium);
-    }
-
-    .choice-action .choice-list li {
-      color: var(--color-text-high);
-    }
-
-    @media (max-width: 968px) {
-      .pain-point-choice {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-
-      .choice-action {
-        transform: scale(1);
-      }
-
-      .choice-action:hover {
-        transform: scale(1.02) translateY(-5px);
-      }
-    }
-
-    @media (max-width: 480px) {
-
-      h1 {
-        font-size: 2rem;
-        line-height: 1.2;
-      }
-
-      h2 {
-        font-size: 1.75rem;
-      }
-
-      h3 {
-        font-size: 1.35rem;
-      }
-
-      .container {
-        width: 95%;
-        padding: 0 1rem;
-      }
-
-      .hero-section {
-        min-height: auto;
-        padding: 6rem 0 4rem;
-      }
-
-      .hero-title {
-        font-size: 2rem !important;
-      }
-
-      .hero-subtitle {
-        font-size: 1rem;
-        margin-bottom: 2rem;
-      }
-
-      .hero-image-wrapper {
-        max-width: 280px;
-      }
-
-      .floating-card {
-        display: none;
-      }
-
-      .btn {
-        width: 100%;
-        padding: 1rem 1.5rem;
-        font-size: 0.9rem;
-      }
-
-      .btn-sm {
-        padding: 0.875rem 1.25rem;
-        font-size: 0.85rem;
-      }
-
-      .header {
-        padding: 1rem 0;
-      }
-
-      .logo-img {
-        height: 32px;
-      }
-
-      .header-actions .btn {
-        display: none;
-      }
-
-      .pain-point-section {
-        padding: 4rem 0;
-      }
-
-      .pain-point-title {
-        font-size: 1.75rem;
-      }
-
-      .pain-point-text {
-        font-size: 1rem;
-      }
-
-      .choice-card {
-        padding: 2rem 1.5rem;
-      }
-
-      .choice-card h3 {
-        font-size: 1.35rem;
-      }
-
-      .choice-list li {
-        font-size: 0.95rem;
-      }
-
-      .value-prop-section {
-        padding: 4rem 0;
-      }
-
-      .value-card {
-        padding: 2rem 1.5rem;
-      }
-
-      .model-title {
-        font-size: 1.5rem;
-      }
-
-      .model-item {
-        font-size: 0.95rem;
-      }
-
-      .tech-section {
-        padding: 4rem 0;
-      }
-
-      .tech-card {
-        padding: 2rem 1.5rem;
-      }
-
-      .tech-icon {
-        padding: 0.75rem;
-      }
-
-      .tech-icon svg {
-        width: 36px;
-        height: 36px;
-      }
-
-      .portfolio-section {
-        padding: 4rem 0;
-      }
-
-
-
-      .booking-section {
-        padding: 4rem 0;
-      }
-
-      .booking-subtitle {
-        font-size: 1rem;
-      }
-
-      .calendly-inline-widget {
-        height: 600px !important;
-      }
-
-      .footer {
-        padding: 4rem 0 2rem;
-      }
-
-      .footer-container {
-        gap: 2rem;
-      }
-
-      .footer-brand {
-        gap: 1rem;
-      }
-
-      .footer-logo {
-        height: 32px;
-      }
-
-      .footer-desc {
-        font-size: 0.9rem;
-      }
-
-      .footer-col h4 {
-        font-size: 1rem;
-      }
-
-      .footer-col a {
-        font-size: 0.875rem;
-      }
-
-      .social-proof-section {
-        padding: 2rem 0;
-      }
-
-      .client-logo {
-        height: 30px;
-      }
-
-      .client-name {
-        font-size: 1.25rem;
-      }
-
-      .marquee-item {
-        padding: 0 1.5rem;
-      }
-
-      .mobile-nav-link {
-        font-size: 1.5rem;
-      }
-
-      /* Status Card Mobile Styles */
-      .status-card {
-        padding: 1.25rem 1rem;
-        max-width: 100%;
-        border-radius: 20px;
-      }
-
-      .status-badge {
-        padding: 6px 12px;
-        margin-bottom: 1rem;
-      }
-
-      .badge-text {
-        font-size: 0.65rem;
-      }
-
-      .big-count-wrapper {
-        margin-bottom: 1.5rem;
-        gap: 0.75rem;
-      }
-
-      .big-number {
-        font-size: 3.5rem;
-      }
-
-      .label-primary {
-        font-size: 1.1rem;
-      }
-
-      .label-secondary {
-        font-size: 0.7rem;
-      }
-
-      .progress-section {
-        margin-bottom: 1.25rem;
-      }
-
-      .progress-labels {
-        font-size: 0.6rem;
-        margin-bottom: 0.5rem;
-      }
-
-      .progress-track {
-        height: 8px;
-      }
-
-      .status-footer {
-        padding-top: 1rem;
-      }
-
-      .highlight-text {
-        font-size: 0.875rem;
-        margin-bottom: 0.35rem;
-      }
-
-      .sub-text {
-        font-size: 0.75rem;
-      }
-    }
-
-    @media (min-width: 481px) and (max-width: 768px) {
-
-      .container {
-        width: 92%;
-      }
-
-      .hero-section {
-        padding: 8rem 0 5rem;
-      }
-
-      .hero-title {
-        font-size: 2.5rem !important;
-      }
-
-      .hero-subtitle {
-        font-size: 1.125rem;
-      }
-
-      .pain-point-section {
-        padding: 5rem 0;
-      }
-
-      .pain-point-title {
-        font-size: 2.25rem;
-      }
-
-      .choice-card {
-        padding: 2.5rem;
-      }
-
-      .value-prop-section,
-      .tech-section,
-      .portfolio-section,
-      .booking-section {
-        padding: 5rem 0;
-      }
-
-      .footer {
-        padding: 5rem 0 2rem;
-      }
-    }
-
-    @media (min-width: 769px) and (max-width: 968px) {
-      .hero-title {
-        font-size: 3rem !important;
-      }
-
-      .pain-point-title {
-        font-size: 2.75rem;
-      }
-    }
-
-    @media (hover: none) and (pointer: coarse) {
-
-      .btn {
-        min-height: 48px;
-      }
-
-      .nav-link,
-      .mobile-nav-link,
-      .footer-col a {
-        padding: 0.5rem 0;
-        min-height: 44px;
-        display: inline-flex;
-        align-items: center;
-      }
-
-      .card-glass:hover,
-      .shimmer-hover:hover::before,
-      .portfolio-item:hover .portfolio-image,
-      .portfolio-item:hover .portfolio-overlay {
-        transform: none;
-        opacity: inherit;
-      }
-
-      .btn-primary::before {
-        animation: none;
-      }
-    }
-
-    @media (max-height: 500px) and (orientation: landscape) {
-      .hero-section {
-        min-height: auto;
-        padding: 4rem 0 3rem;
-      }
-
-      .mobile-menu {
-        overflow-y: auto;
-      }
-
-      .mobile-nav-list {
-        gap: 1rem;
-        padding: 2rem 0;
-      }
-
-      .mobile-nav-link {
-        font-size: 1.5rem;
-      }
-    }
-
-    /* Optimization for 1024x600 and Short Screens */
-    @media (max-height: 800px),
-    (max-width: 1024px) {
-      .hero-section {
-        min-height: auto;
-        padding-top: calc(var(--header-height) + 3rem);
-        padding-bottom: 4rem;
-      }
-
-      .hero-title {
-        font-size: clamp(2.5rem, 4vw, 3.5rem);
-      }
-
-      .hero-subtitle {
-        margin-bottom: 2rem;
-      }
-
-      /* Stacking Grids for 1024px */
-      .value-prop-grid,
-      .tech-grid {
-        grid-template-columns: 1fr;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-    }
-
-    /* Slimmer Calendly Widget & Status Card Logic */
-    @media (max-width: 768px) {
-      .calendly-column {
-        max-width: 500px;
-        margin: 0 auto;
-      }
-
-      .status-column {
-        max-width: 500px;
-        margin: 0 auto;
-        width: 100%;
-      }
-
-      .ms-model {
-        transform: scale(1);
-      }
-    }
-
-    @media (max-width: 1200px) {
-      .container {
-        width: 95%;
-      }
-
-      .hero-container {
-        gap: 2rem;
-      }
-    }
-
-    /* Language Picker */
-    .language-picker {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-right: 20px;
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
-
-    .lang-link {
-      color: var(--text-muted);
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .lang-link:hover {
-      color: var(--text-primary);
-    }
-
-    .lang-link.active {
-      color: var(--text-primary);
-    }
-
-    .sep {
-      color: var(--text-muted);
-      font-size: 0.8rem;
-    }
-
-    /* Mobile Language Picker Adjustment */
-    @media (max-width: 768px) {
-      .language-picker {
-        margin-right: 15px;
-      }
-    }
-  </style>
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Marin Sabo",
+    "url": "https://marinsabo.online/",
+    "email": "mailto:marin.sabo.contact@gmail.com",
+    "jobTitle": "Mainframe Developer",
+    "address": { "@type": "PostalAddress", "addressLocality": "Požega", "addressCountry": "HR" },
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "Faculty of Electrical Engineering, Computer Science and Information Technology Osijek (FERIT)" },
+      { "@type": "HighSchool", "name": "Technical School Požega" }
+    ],
+    "knowsAbout": ["IBM z/OS", "COBOL", "PL/I", "JCL", "CICS", "Db2", "IBM Dependency Based Build", "Zowe", "Git"],
+    "sameAs": [
+      "https://www.linkedin.com/in/marinsabo/",
+      "https://github.com/marinsabo",
+      "https://www.credly.com/users/marin-sabo.f8425966"
+    ]
+  }
+  </script>
+
+  <script data-goatcounter="https://marinsabo.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 
 <body>
-  <!-- Custom Cursor Elements -->
-  <div class="cursor-dot" data-cursor-dot></div>
-  <div class="cursor-outline" data-cursor-outline></div>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- Navigation -->
-  <header class="header">
-    <div class="container header-container">
-      <a href="#" class="logo">
-        <img src="images/logo-dark-noBG.webp" alt="MS Development" class="logo-img">
-      </a>
-
-      <nav class="nav-desktop">
-        <ul class="nav-list">
-          <li><a href="#expertise" class="nav-link">Usluge</a></li>
-          <li><a href="#case-studies" class="nav-link">Portfolio</a></li>
-          <li><a href="#booking" class="nav-link">Kontakt</a></li>
-        </ul>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="#top">Marin Sabo</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#work">Work</a>
+        <a href="#experience">Experience</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
       </nav>
-
       <div class="header-actions">
-        <div class="language-picker">
-          <a href="#" class="lang-link active">HR</a>
-          <span class="sep">|</span>
-          <a href="en/index.html" class="lang-link">EN</a>
-        </div>
-        <a href="#booking" class="btn btn-sm btn-primary magnetic-btn" data-magnetic>
-          <span class="btn-text">Zatraži ponudu</span>
-        </a>
-        <button class="mobile-menu-btn" aria-label="Menu">
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
+        <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+          </svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+          </svg>
         </button>
+        <a class="btn btn-sm" href="assets/Marin-Sabo-CV.pdf" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3v12M7 10l5 5 5-5M5 21h14" />
+          </svg>
+          CV
+        </a>
       </div>
     </div>
-
-
   </header>
 
-  <main>
-    <section class="hero-section">
-      <div class="container hero-container">
-        <div class="hero-content">
-          <div class="availability-badge">
-            <span class="status-dot"></span>
-            <span>Dostupni za Q3 2026</span>
-          </div>
-          <h1 class="hero-title">
-            Unaprijedite svoje poslovanje s <span class="text-gradient">provjerenim web rješenjima</span>
-          </h1>
-          <p class="hero-subtitle">
-            Gradimo brze, dinamične i funkcionalne web sustave koji vašim kupcima olakšavaju kupnju, a vaše poslovanje
-            podižu na višu razinu.
+  <main id="main">
 
+    <!-- ============ Hero ============ -->
+    <section class="hero" id="top">
+      <div class="wrap">
+        <div>
+          <p class="label">Mainframe developer · CS student at FERIT Osijek</p>
+          <h1>Building software for systems that <em>can’t afford to stop.</em></h1>
+          <p class="hero-lede">
+            I’m Marin, a third-year Computer Science student. This summer at CROZ I helped build an application on IBM
+            z/OS in COBOL, CICS and Db2, owned its database, and helped move its delivery from the mainframe to Git.
           </p>
-          <div class="hero-cta-wrapper">
-            <a href="#booking" class="btn btn-primary magnetic-btn" data-magnetic>
-              <span class="btn-text">Besplatan poziv</span>
-            </a>
+          <p class="availability"><span class="dot" aria-hidden="true"></span>Open to student jobs and 2027
+            internships · Remote or Osijek</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="mailto:marin.sabo.contact@gmail.com">Get in touch</a>
+            <a class="btn" href="#work">See my work</a>
+            <a class="btn" href="https://www.linkedin.com/in/marinsabo/" target="_blank" rel="noopener">LinkedIn</a>
           </div>
         </div>
-        <div class="hero-visual">
-          <div class="hero-image-wrapper">
-            <div class="mesh-gradient-bg"></div>
-            <img src="images/MarinSabo.webp" alt="Marin Sabo - Founder" class="hero-image" fetchpriority="high">
+        <figure class="hero-photo">
+          <img src="images/MarinSabo.webp" width="864" height="1080" alt="Portrait of Marin Sabo in a dark suit">
+          <figcaption>Požega · Osijek, Croatia</figcaption>
+        </figure>
+      </div>
+    </section>
 
-            <!-- Floating Glass Elements -->
-            <div class="floating-card card-glass code-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFB54C" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="16 18 22 12 16 6"></polyline>
-                <polyline points="8 6 2 12 8 18"></polyline>
-              </svg>
+    <!-- ============ Featured: DartZ ============ -->
+    <section class="section" id="work">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="label">01 — Featured work</p>
+          <h2>DartZ: a darts league system on IBM z/OS</h2>
+          <p>A team project from my internship at CROZ. DartZ records darts games, tournaments and leagues. It’s a
+            full CICS application with COBOL business logic and a Db2 database underneath.</p>
+          <div class="feature-meta">
+            <span>CROZ, Zagreb</span>
+            <span>Jul – Sep 2026</span>
+            <span>Mainframe Developer (Intern)</span>
+          </div>
+        </div>
+
+        <div class="console" data-console>
+          <div class="console-bar">
+            <span class="lights" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span>CICS · TRANSACTION DZ01</span>
+          </div>
+          <pre class="console-screen" tabindex="0" aria-live="polite"
+            aria-label="Recreated DartZ terminal screen. Use the function keys below to switch screens."><span class="dim">DZL010  </span><span class="hi">                   D A R T Z                    </span><span class="dim">OCT 2026</span>
+<span class="warn">                        LEAGUE STANDINGS</span>
+
+ LEAGUE . : <span class="hi">SLAVONIA AUTUMN LEAGUE 2026</span>          ROUND <span class="hi">09</span> OF <span class="hi">14</span>
+
+<span class="dim"> POS  PLAYER              P   W   L   LEGS    +/-    AVG   PTS</span>
+<span class="dim"> ---  ------------------  --  --  --  -----   ---  -----   ---</span>
+<span class="hi">   1  KOVAC, LUKA          9   8   1  48-21   +27  81.36    16</span>
+   2  MATIC, ANA           9   7   2  45-26   +19  78.02    14
+   3  BABIC, TOMISLAV      9   6   3  41-30   +11  74.55    12
+   4  JURIC, PETRA         9   5   4  38-34    +4  72.90    10
+   5  NOVAK, DARIO         9   4   5  35-37    -2  70.13     8
+   6  PAVLOVIC, IVA        9   2   7  27-43   -16  66.48     4
+
+
+
+
+
+ <span class="dim">DZL011I 6 PLAYERS LISTED. STANDINGS AS OF ROUND 09.</span>
+
+ COMMAND ===> <span class="cursor"> </span></pre>
+          <div class="pf-keys" role="group" aria-label="Function keys">
+            <button type="button" data-key="F1"><b>F1</b>=HELP</button>
+            <button type="button" data-key="F3"><b>F3</b>=EXIT</button>
+            <button type="button" data-key="F5" aria-pressed="true"><b>F5</b>=LEAGUE</button>
+            <button type="button" data-key="F6"><b>F6</b>=MATCH</button>
+            <button type="button" data-key="F9"><b>F9</b>=PLAYER</button>
+          </div>
+        </div>
+        <template id="screen-match"><span class="dim">DZM020  </span><span class="hi">                   D A R T Z                    </span><span class="dim">OCT 2026</span>
+<span class="warn">                      RECORD MATCH RESULT</span>
+
+ MATCH ID . . : <span class="hi">M-2026-0417</span>        ROUND  . . . : <span class="hi">09</span>
+ HOME . . . . : <span class="hi">KOVAC, LUKA</span>        AWAY . . . . : <span class="hi">NOVAK, DARIO</span>
+ FORMAT . . . : <span class="hi">501 DOUBLE OUT</span>     BEST OF  . . : <span class="hi">9 LEGS</span>
+
+<span class="dim"> LEG  WINNER          DARTS  CHECKOUT</span>
+<span class="dim"> ---  --------------  -----  --------</span>
+   1  KOVAC, L.          18       D16
+   2  NOVAK, D.          21       D10
+   3  KOVAC, L.          15       D20
+   4  KOVAC, L.          19        D8
+   5  NOVAK, D.          24        D4
+   6  KOVAC, L.          17      BULL
+   7  KOVAC, L.          16       D18
+
+ RESULT . . . : <span class="hi">5 - 2</span>   WINNER : <span class="hi">KOVAC, LUKA</span>
+ <span class="hi">DZM021I MATCH RECORDED. STANDINGS UPDATED.</span>
+
+ COMMAND ===> <span class="cursor"> </span></template>
+<template id="screen-player"><span class="dim">DZP030  </span><span class="hi">                   D A R T Z                    </span><span class="dim">OCT 2026</span>
+<span class="warn">                         PLAYER PROFILE</span>
+
+ PLAYER ID  . : <span class="hi">P-00142</span>            CLUB . . : <span class="hi">DC POZEGA</span>
+ NAME . . . . : <span class="hi">KOVAC, LUKA</span>
+
+<span class="dim"> SEASON STATISTICS               LAST 5 MATCHES</span>
+<span class="dim"> ------------------------------  --------------</span>
+ MATCHES PLAYED . . :     <span class="hi">9</span>        <span class="hi">W  W  L  W  W</span>
+ LEGS WON / LOST  . : <span class="hi">48 / 21</span>
+ 3-DART AVERAGE . . : <span class="hi">81.36</span>
+ HIGHEST CHECKOUT . :   <span class="hi">132</span>
+ 180s . . . . . . . :     <span class="hi">7</span>
+ BEST LEG (DARTS) . :    <span class="hi">13</span>
+
+
+
+
+ <span class="dim">DZP031I PROFILE DISPLAYED.</span>
+
+ COMMAND ===> <span class="cursor"> </span></template>
+<template id="screen-help"><span class="dim">DZH001  </span><span class="hi">                   D A R T Z                    </span><span class="dim">OCT 2026</span>
+<span class="warn">                              HELP</span>
+
+ DARTZ RECORDS DARTS MATCHES, TOURNAMENTS AND LEAGUES.
+
+ <span class="hi">F5</span>  LEAGUE   CURRENT STANDINGS FOR THE SELECTED LEAGUE
+ <span class="hi">F6</span>  MATCH    RECORD A RESULT LEG BY LEG
+ <span class="hi">F9</span>  PLAYER   SEASON STATISTICS FOR ONE PLAYER
+ <span class="hi">F3</span>  EXIT     END THE DARTZ SESSION
+
+<span class="dim"> UNDER THE HOOD</span>
+ CICS  . . . : TRANSACTIONS AND BMS SCREENS
+ COBOL . . . : BUSINESS LOGIC
+ DB2 . . . . : PLAYERS, MATCHES, LEGS, LEAGUES
+ JCL . . . . : BUILD AND BATCH JOBS
+
+
+
+ <span class="dim">CLICK A KEY BELOW, OR FOCUS THE SCREEN AND PRESS IT.</span>
+
+ COMMAND ===> <span class="cursor"> </span></template>
+<template id="screen-exit">
+
+
+
+
+
+<span class="hi">                      DARTZ SESSION ENDED</span>
+
+<span class="dim">            DZX001I TRANSACTION DZ01 ENDED NORMALLY</span>
+
+
+                PRESS F5 TO START A NEW SESSION
+
+
+
+
+
+
+
+
+ COMMAND ===> <span class="cursor"> </span></template>
+        <p class="console-note">Recreation of the DartZ 3270 interface for this site. Names and numbers are made
+          up. Try the function keys.</p>
+
+        <div class="two-col">
+          <div>
+            <h3>The application</h3>
+            <p>DartZ runs entirely on z/OS. CICS handles the transactions and the terminal screens, COBOL programs
+              hold the business logic, and Db2 stores everything: players, matches, legs, tournaments and leagues.
+              Compiling and batch work run through JCL.</p>
+            <ul class="chips" aria-label="Technologies">
+              <li>z/OS</li>
+              <li>COBOL</li>
+              <li>CICS</li>
+              <li>Db2</li>
+              <li>JCL</li>
+            </ul>
+          </div>
+          <div>
+            <h3>My role</h3>
+            <ul class="check-list">
+              <li><strong>Designed the entire Db2 data model</strong> and built it, which every program in the
+                application depended on.</li>
+              <li><strong>Created the test data</strong> the developers used to test their programs.</li>
+              <li><strong>Kept the database consistent</strong> as the team’s Db2 and z/OS administrator, maintaining
+                the environment the whole team worked in.</li>
+              <li><strong>Worked on the DevOps modernisation</strong> once the application was finished.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pipeline-block">
+          <h3>Modernisation: from datasets to Git</h3>
+          <p>After DartZ was finished, we changed how it’s built and delivered, following IBM Dependency Based Build
+            (DBB). The source of truth moved off the mainframe into Git, and a pipeline now delivers every committed
+            change to z/OS automatically.</p>
+
+          <div class="before-after">
+            <div>
+              <b>Before</b>
+              Source lived in mainframe datasets, and builds were run on the host with JCL.
             </div>
-            <div class="floating-card card-glass stats-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFB54C" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="20" x2="18" y2="10"></line>
-                <line x1="12" y1="20" x2="12" y2="4"></line>
-                <line x1="6" y1="20" x2="6" y2="14"></line>
-              </svg>
+            <div class="after">
+              <b>After</b>
+              Source lives in Git. A commit triggers the pipeline, which builds and delivers the change to the
+              mainframe.
             </div>
           </div>
+
+          <ol class="pipeline" aria-label="Delivery pipeline">
+            <li><strong>VS Code</strong><span>COBOL, JCL and copybooks edited locally</span></li>
+            <li><strong>Git</strong><span>Single source of truth, where every change is a commit</span></li>
+            <li><strong>Pipeline</strong><span>Starts automatically on each push</span></li>
+            <li><strong>IBM DBB</strong><span>Builds the programs affected by the change</span></li>
+            <li><strong>Zowe → z/OS</strong><span>Changes land on the mainframe</span></li>
+          </ol>
         </div>
       </div>
     </section>
 
-    <!-- Social Proof Section -->
-    <section class="social-proof-section">
-      <div class="marquee-container">
-        <div class="marquee-content">
-          <!-- Duplicated content for seamless scrolling -->
-          <a href="gamechanger-case-study.html" class="marquee-item">
-            <img src="images/gamechanger-all-white-logo.webp" alt="GameChanger" class="client-logo">
-            <span class="client-name">GameChanger</span>
-          </a>
-          <a href="ikarus-case-study.html" class="marquee-item">
-            <img src="images/ikarus-agency-all-white-logo.webp" alt="Ikarus Agency" class="client-logo">
-            <span class="client-name">Ikarus Agency</span>
-          </a>
-          <a href="wavelance-case-study.html" class="marquee-item">
-            <img src="images/wavelance-all-white-logo.webp" alt="WaveLance" class="client-logo">
-            <span class="client-name">WaveLance</span>
-          </a>
-          <a href="vukovarski-golubici-case-study.html" class="marquee-item">
-            <img src="images/vukovarski-golubici-all-white-logo.webp" alt="Vukovarski Golubići" class="client-logo">
-            <span class="client-name">Vukovarski Golubići</span>
-          </a>
-          <a href="codehustling-case-study.html" class="marquee-item">
-            <img src="images/codehustling-all-white-logo.png" alt="Code Hustling" class="client-logo">
-            <span class="client-name">CodeHustling</span>
-          </a>
-          <a href="slavonski-brod-case-study.html" class="marquee-item">
-            <img src="images/brod-all-white-logo.png" alt="Brodsko-posavska županija" class="client-logo">
-            <span class="client-name">Brodsko-posavska županija</span>
-          </a>
-
-          <!-- Duplicate for loop -->
-          <a href="gamechanger-case-study.html" class="marquee-item">
-            <img src="images/gamechanger-all-white-logo.webp" alt="GameChanger" class="client-logo">
-            <span class="client-name">GameChanger</span>
-          </a>
-          <a href="ikarus-case-study.html" class="marquee-item">
-            <img src="images/ikarus-agency-all-white-logo.webp" alt="Ikarus Agency" class="client-logo">
-            <span class="client-name">Ikarus Agency</span>
-          </a>
-          <a href="wavelance-case-study.html" class="marquee-item">
-            <img src="images/wavelance-all-white-logo.webp" alt="WaveLance" class="client-logo">
-            <span class="client-name">WaveLance</span>
-          </a>
-          <a href="vukovarski-golubici-case-study.html" class="marquee-item">
-            <img src="images/vukovarski-golubici-all-white-logo.webp" alt="Vukovarski Golubići" class="client-logo">
-            <span class="client-name">Vukovarski Golubići</span>
-          </a>
-          <a href="codehustling-case-study.html" class="marquee-item">
-            <img src="images/codehustling-all-white-logo.png" alt="Code Hustling" class="client-logo">
-            <span class="client-name">CodeHustling</span>
-          </a>
-          <a href="slavonski-brod-case-study.html" class="marquee-item">
-            <img src="images/brod-all-white-logo.png" alt="Brodsko-posavska županija" class="client-logo">
-            <span class="client-name">Brodsko-posavska županija</span>
-          </a>
-        </div>
+    <!-- ============ Why mainframe ============ -->
+    <section class="quote-section" aria-label="Why mainframe">
+      <div class="wrap">
+        <p class="label">Why mainframe</p>
+        <blockquote class="quote">
+          <p>I prefer mastery and real craft over chasing the next shiny framework that will change in two weeks.</p>
+          <footer>That’s why I want to build my career on enterprise systems.</footer>
+        </blockquote>
       </div>
     </section>
 
-    <!-- Pain Point Section -->
-    <section class="pain-point-section">
-      <div class="container">
-        <div class="pain-point-wrapper">
-          <div class="pain-point-content">
-            <h2 class="pain-point-title">
-              <span class="pain-point-question">Status quo je najskuplja poslovna strategija.</span>
-            </h2>
-            <p class="pain-point-text">
-              Ignoriranje problema ne čini da oni nestanu. Dok vaša web stranica stagnira, tržište ubrzano napreduje.
-              <strong>Ovo je razlika između investicije u rast i troška propuštenih prilika</strong>
-            </p>
-          </div>
+    <!-- ============ Experience ============ -->
+    <section class="section" id="experience">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="label">02 — Experience</p>
+          <h2>Where I’ve worked</h2>
+        </div>
 
-          <div class="pain-point-choice">
-            <div class="choice-card choice-action card-glass">
-              <h3>Opcija 1: Investiranje</h3>
-              <ul class="choice-list">
-                <li>✅ Sustav dizajniran s jasnim ciljem – stvoriti vjerne kupce od povremenih posjetitelja </li>
-                <li>✅ Brza i stabilna platforma na koju se možete osloniti dok unaprjeđujete poslovanje</li>
-                <li>✅ Potpuno vlasništvo nad kodom i jednostavnost upravljanja sadržajem bez potrebe za vanjskom pomoći
-                </li>
-                <li>✅ Jasna strategija i vizija koja vašu investiciju povećava kroz nove klijente i prodaju</li>
+        <ol class="timeline">
+          <li>
+            <div class="when">07/2026 – 09/2026</div>
+            <div>
+              <h3>Mainframe Developer (Intern)</h3>
+              <p class="org">CROZ · Zagreb</p>
+              <ul class="check-list">
+                <li>Developed an application on IBM z/OS as part of a team, using COBOL, PL/I and JCL with CICS
+                  transactions and a Db2 database.</li>
+                <li>As the team’s Db2 and system administrator, maintained the database and z/OS environment the
+                  entire development team depended on.</li>
+                <li>Contributed to the DevOps modernisation: moved the source of truth from the mainframe to Git,
+                  with automated delivery from the repository to the mainframe (IBM DBB, Zowe).</li>
               </ul>
-              <a href="#booking" class="btn btn-primary magnetic-btn" data-magnetic>
-                <span class="btn-text">Započni Projekt</span>
-              </a>
             </div>
-
-            <div class="choice-card choice-nothing">
-              <h3>Opcija 2: Propuštena prilika</h3>
-              <ul class="choice-list">
-                <li>⚠️ Konkurencija sa slabijom ponudom se rangira bolje od Vas na Googleu..</li>
-                <li>⚠️ Plaćate oglase koji dovode promet na stranicu, ali ne i klijente!
-                </li>
-                <li>⚠️ Strah Vas je ažurirati stranicu jer je sustav nepouzdan i zastario</li>
-                <li>⚠️ Vaš online brand ruši imidž vašeg branda.
-                </li>
+          </li>
+          <li>
+            <div class="when">3 seasons</div>
+            <div>
+              <h3>Campsite Controller &amp; Operations Support</h3>
+              <p class="org">Maistra d.d.</p>
+              <ul class="check-list">
+                <li>Resolved reservation and billing issues in real time during peak tourist season.</li>
+                <li>Worked daily with internal reservation and billing systems, where every error directly affects
+                  revenue and guest experience.</li>
+                <li>Rehired for three consecutive seasons.</li>
               </ul>
             </div>
+          </li>
+          <li>
+            <div class="when">5+ clients</div>
+            <div>
+              <h3>Freelance Web Developer</h3>
+              <p class="org">Self-employed</p>
+              <ul class="check-list">
+                <li>Delivered custom websites (HTML, CSS, JavaScript, WordPress) from needs analysis to launch.</li>
+                <li>Ran each project on my own: negotiation, requirements and delivery within agreed deadlines.</li>
+                <li>Selected work is <a href="#projects">below</a>.</li>
+              </ul>
+            </div>
+          </li>
+        </ol>
+
+        <div class="skills" aria-label="Skills">
+          <div>
+            <h3>Mainframe</h3>
+            <ul>
+              <li>z/OS</li>
+              <li>COBOL · PL/I</li>
+              <li>JCL</li>
+              <li>CICS</li>
+              <li>Db2</li>
+              <li>IBM DBB · Zowe</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Programming &amp; tools</h3>
+            <ul>
+              <li>C · C#</li>
+              <li>SQL</li>
+              <li>JavaScript</li>
+              <li>Git</li>
+              <li>VS Code</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Web &amp; design</h3>
+            <ul>
+              <li>HTML · CSS</li>
+              <li>WordPress</li>
+              <li>Figma</li>
+              <li>Adobe Photoshop</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Professional</h3>
+            <ul>
+              <li>Teamwork in a dev team</li>
+              <li>Client communication</li>
+              <li>Negotiation</li>
+              <li>Diagnosing problems under pressure</li>
+              <li>Croatian (native) · English</li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Value Proposition Section -->
-    <section class="value-prop-section" id="process">
-      <div class="pain-point-content">
-        <h2 class="pain-point-title">
-          <span class="pain-point-question">Umorni od čekanja mjesecima na jednostavan web projekt?</span>
-        </h2>
-        <p class="pain-point-text">
-          Većina agencija vas drži u mraku s nekim "procesima", birokratskim sastancima i nebuloznim vremenskim
-          okvirima.
-          <strong>Kod nas dobijate direktan pristup developeru koji radi na vašem projektu.</strong>
+    <!-- ============ Certifications ============ -->
+    <section class="section" id="certifications">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="label">03 — Certifications</p>
+          <h2>10 IBM mainframe badges</h2>
+          <p>Every badge is verifiable on Credly.</p>
+        </div>
+
+        <div class="cert-groups">
+          <div class="cert-group">
+            <h3>IBM Z Xplore</h3>
+            <p>Hands-on z/OS challenges, from the first login to the full advanced track.</p>
+            <ul class="cert-grid">
+              <li class="cert"><span class="cert-hex" aria-hidden="true">★</span>IBM Z Xplore — All Star</li>
+              <li class="cert"><span class="cert-hex" aria-hidden="true">ADV</span>IBM Z Xplore — Advanced</li>
+              <li class="cert"><span class="cert-hex" aria-hidden="true">CON</span>IBM Z Xplore — Concepts</li>
+            </ul>
+          </div>
+
+          <div class="cert-group">
+            <h3>IBM Mainframe Specialist, powered by Interskill</h3>
+            <p>Six foundations badges across hardware, system, security and application programming.</p>
+            <ul class="cert-grid">
+              <li class="cert"><span class="cert-hex alt" aria-hidden="true">z17</span>IBM Z Hardware z17 —
+                Foundations</li>
+              <li class="cert"><span class="cert-hex alt" aria-hidden="true">ENV</span>Mainframe Environment —
+                Foundations 3.1</li>
+              <li class="cert"><span class="cert-hex alt" aria-hidden="true">SYS</span>Parallel Sysplex —
+                Foundations (z/OS 3.1)</li>
+              <li class="cert"><span class="cert-hex alt" aria-hidden="true">SEC</span>Mainframe Security —
+                Foundations (z/OS 3.1)</li>
+              <li class="cert"><span class="cert-hex alt" aria-hidden="true">DB</span>Database — Fundamentals 2023
+              </li>
+              <li class="cert"><span class="cert-hex alt" aria-hidden="true">APP</span>Application Programmer —
+                Secure Coding</li>
+            </ul>
+          </div>
+
+          <div class="cert-group">
+            <h3>Build &amp; security</h3>
+            <ul class="cert-grid">
+              <li class="cert"><span class="cert-hex" aria-hidden="true">DBB</span>IBM Dependency Based Build
+                Fundamentals</li>
+              <li class="cert"><span class="cert-hex ongoing" aria-hidden="true">THM</span>TryHackMe — ongoing
+                training in cybersecurity and penetration testing</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="cert-cta">
+          <a class="btn" href="https://www.credly.com/users/marin-sabo.f8425966" target="_blank" rel="noopener">
+            Verify on Credly
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" aria-hidden="true">
+              <path d="M7 17 17 7M8 7h9v9" />
+            </svg>
+          </a>
         </p>
       </div>
-      <div class="container">
-        <div class="value-prop-grid">
-          <!-- Traditional Model (Left) -->
-          <div class="value-card traditional-model">
-            <h3 class="model-title">Model drugih agencija
-            </h3>
-            <ul class="model-list">
-              <li class="model-item negative">
-                <span class="icon">⚠️</span>
-                <span>Skriveni troškovi koji se pojavljuju pri kraju projekta</span>
-              </li>
-              <li class="model-item negative">
-                <span class="icon">⚠️</span>
-                <span>Projekti koji se rade mjesecima bez jasnog kraja i vizije</span>
-              </li>
-              <li class="model-item negative">
-                <span class="icon">⚠️</span>
-                <span>Razgovor o nepotrebnim, “teško” shvatljivim pojmovima kako bi vas impresionirali i zbunili</span>
-              </li>
-              <li class="model-item negative">
-                <span class="icon">⚠️</span>
-                <span>Gubitak potencijalnih klijenata i prilika dok konkurencija raste i napreduje
-                </span>
-              </li>
-            </ul>
-          </div>
-
-          <!-- MS Development Model (Right) -->
-          <div class="value-card ms-model card-glass">
-            <div class="spotlight-bg"></div>
-            <h3 class="model-title text-gradient">MS Development Model</h3>
-            <ul class="model-list">
-              <li class="model-item positive">
-                <span class="icon">✅</span>
-                <span>Direktna komunikacija, bez posrednika</span>
-              </li>
-              <li class="model-item positive">
-                <span class="icon">✅</span>
-                <span>Jasno definirani datumi isporuke</span>
-              </li>
-              <li class="model-item positive">
-                <span class="icon">✅</span>
-                <span>Fiksne cijene, bez iznenađenja</span>
-              </li>
-              <li class="model-item positive">
-                <span class="icon">✅</span>
-                <span>Transparentnost</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
     </section>
-    <!-- Technical Expertise Section -->
-    <section class="tech-section" id="expertise">
-      <div class="container">
-        <h2 class="section-title text-center">Usluge</h2>
-        <div class="tech-grid">
-          <!-- WordPress -->
-          <div class="tech-card card-glass shimmer-hover">
-            <div class="tech-icon">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#F5F5F5" stroke-width="1.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path
-                  d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
-                </path>
-                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                <line x1="12" y1="22.08" x2="12" y2="12"></line>
-              </svg>
-            </div>
-            <h3>Web Razvoj</h3>
-            <p>Ne prodajemo unaprijed izrađene templateove. Gradimo od nule vašu digitalnu imovinu prilagođenu vašim
-              ciljevima i vizijama! Bilo da se radi o korporativnoj stranici na WordPressu ili kompleksnoj custom web
-              aplikaciji – mi biramo najbolju tehnologiju za vaš siguran rast.
-            </p>
-            <ul class="tech-tags">
-              <li>Sigurnost</li>
-              <li>Brzina</li>
-              <li>Skalabilnost</li>
-            </ul>
-          </div>
 
-          <!-- Shopify -->
-          <div class="tech-card card-glass shimmer-hover">
-            <div class="tech-icon">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#F5F5F5" stroke-width="1.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <path d="M16 10a4 4 0 0 1-8 0"></path>
-              </svg>
-            </div>
-            <h3>E-Commerce razvoj</h3>
-            <p>Izrada i optimizacija web trgovina s fokusom na povećanje prodaje i izgradnje baze stalnih klijenata.
-              Implementiramo napredne funkcionalnosti, automatizaciju procesa i intuitivno korisničko iskustvo (UX) koje
-              posjetitelje pretvara u vjerne kupce.
-            </p>
-            <ul class="tech-tags">
-              <li>Konverzija</li>
-              <li>Automatizacija</li>
-              <li>Integracija</li>
-            </ul>
-          </div>
-
-          <!-- Social Media Management -->
-          <div class="tech-card card-glass shimmer-hover">
-            <div class="tech-icon">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#F5F5F5" stroke-width="1.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M23 6l-9.5 9.5-5-5L1 18"></path>
-                <path d="M17 6h6v6"></path>
-              </svg>
-            </div>
-            <h3>Vođenje društvenih mreža</h3>
-            <p>Strateški i personalizirani pristup vašem brandu na tržištu. Od analize konkurencije i trenutačnog stanja
-              branda do provedbe kampanja na društvenim mrežama – kreiramo sadržaj koji gradi prepoznatljivost i
-              autoritet vašeg brenda, povećava vidljivost te privlači klijente koje zanima baš vaša priča i vaš brand.
-            </p>
-            <ul class="tech-tags">
-              <li>Branding</li>
-              <li>Analitika</li>
-              <li>Rast</li>
-            </ul>
-          </div>
+    <!-- ============ Other work ============ -->
+    <section class="section" id="projects">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="label">04 — Other work</p>
+          <h2>Before mainframe: freelance web &amp; design</h2>
+          <p>I ran web projects for clients on my own, from the first call to launch. That’s where
+            I learned to work out what people actually need, and to deliver it on time.</p>
         </div>
+
+        <ul class="project-grid">
+          <li class="project">
+            <div class="project-tile photo">
+              <img src="brushy/images/Dashboard.webp" alt="" loading="lazy">
+            </div>
+            <div class="project-body">
+              <p class="project-kind">Research &amp; UX design · DentOS conference</p>
+              <h3><a href="brushy/">Brushy</a></h3>
+              <p>A concept app that turns tooth brushing into a game for children. I did the research (with 70
+                primary-school pupils) and designed the app in Figma.</p>
+              <ul class="chips">
+                <li>Research</li>
+                <li>Figma</li>
+                <li>UX</li>
+              </ul>
+            </div>
+          </li>
+          <li class="project">
+            <div class="project-tile">
+              <img src="images/vukovarski-golubici-all-white-logo.webp" alt="" loading="lazy">
+            </div>
+            <div class="project-body">
+              <p class="project-kind">Website redesign</p>
+              <h3><a href="work/vukovarski-golubici.html">Vukovarski Golubići</a></h3>
+              <p>Rebuilt a children’s choir’s outdated website from scratch on WordPress, then trained the staff to
+                run it on their own.</p>
+              <ul class="chips">
+                <li>WordPress</li>
+                <li>Design</li>
+                <li>Client training</li>
+              </ul>
+            </div>
+          </li>
+          <li class="project">
+            <div class="project-tile">
+              <img src="images/gamechanger-all-white-logo.webp" alt="" loading="lazy">
+            </div>
+            <div class="project-body">
+              <p class="project-kind">Event website</p>
+              <h3><a href="work/gamechanger.html">GameChanger</a></h3>
+              <p>Website for a gaming and Web3 conference, presenting 100+ speakers and sponsors on a fixed launch
+                deadline.</p>
+              <ul class="chips">
+                <li>WordPress</li>
+                <li>Design</li>
+                <li>SEO</li>
+              </ul>
+            </div>
+          </li>
+          <li class="project">
+            <div class="project-tile">
+              <img src="images/wavelance-all-white-logo.webp" alt="" loading="lazy">
+            </div>
+            <div class="project-body">
+              <p class="project-kind">Landing page</p>
+              <h3><a href="work/wavelance.html">WaveLance</a></h3>
+              <p>Landing page for a LinkedIn personal-branding agency: services, results and a clear path to booking
+                a call.</p>
+              <ul class="chips">
+                <li>UX/UI</li>
+                <li>Development</li>
+              </ul>
+            </div>
+          </li>
+          <li class="project">
+            <div class="project-tile">
+              <img src="images/codehustling-all-white-logo.png" alt="" loading="lazy">
+            </div>
+            <div class="project-body">
+              <p class="project-kind">Community website</p>
+              <h3><a href="work/codehustling.html">CodeHustling</a></h3>
+              <p>A central hub for a web-development Instagram community, bringing scattered information together in
+                one place.</p>
+              <ul class="chips">
+                <li>Design</li>
+                <li>Development</li>
+                <li>Hosting</li>
+              </ul>
+            </div>
+          </li>
+          <li class="project">
+            <div class="project-tile">
+              <img src="images/ikarus-agency-all-white-logo.webp" alt="" loading="lazy">
+            </div>
+            <div class="project-body">
+              <p class="project-kind">Rebrand &amp; website</p>
+              <h3><a href="work/ikarus.html">Ikarus Agency</a></h3>
+              <p>A new brand identity and website for a digital marketing agency.</p>
+              <ul class="chips">
+                <li>Branding</li>
+                <li>Web design</li>
+              </ul>
+            </div>
+          </li>
+        </ul>
       </div>
     </section>
 
-    <div class="container">
-      <div style="display: flex; justify-content: space-between; align-items: end; margin-bottom: 2rem;">
-        <h2 class="section-title" style="margin-bottom: 0;">Istaknuti Projekti</h2>
-        <div class="portfolio-nav-container" style="margin-bottom: 0;">
-          <button class="portfolio-nav-btn prev-btn" aria-label="Previous">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M15 18l-6-6 6-6" />
-            </svg>
-          </button>
-          <button class="portfolio-nav-btn next-btn" aria-label="Next">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M9 18l6-6-6-6" />
-            </svg>
-          </button>
+    <!-- ============ Education ============ -->
+    <section class="section" id="education">
+      <div class="wrap edu-grid">
+        <div>
+          <p class="label">05 — Education</p>
+          <h2>Education</h2>
+          <div class="edu-item">
+            <h3>FERIT Osijek</h3>
+            <p>BSc in Computer Science · 3rd year · Software Engineering track</p>
+          </div>
+          <div class="edu-item">
+            <h3>Technical School Požega</h3>
+            <p>Computer Science · 2020 – 2024</p>
+          </div>
+        </div>
+        <div>
+          <p class="label">Achievements</p>
+          <h2>Recognition</h2>
+          <ul class="check-list">
+            <li>Top state graduation exam (Matura) result in my class at Technical School Požega</li>
+            <li>Ranked in the top 2% of students in Požega-Slavonia County</li>
+            <li>City of Požega Scholarship for academic excellence</li>
+            <li>2nd place at the national competition “Opisujemo sustave” (2024), with maximum points for
+              presentation</li>
+            <li>Member of the City of Požega Youth Council (2022 – 2023)</li>
+          </ul>
         </div>
       </div>
-
-      <div class="portfolio-grid" id="portfolio-slider">
-
-        <article class="portfolio-card">
-          <div class="portfolio-image-wrapper" style="background-color: #2a2a4a;">
-            <img src="images/wavelance-logo.webp" alt="WaveLance Project" class="portfolio-image object-contain"
-              loading="lazy">
-          </div>
-
-          <div class="portfolio-content">
-            <div class="content-header">
-              <h3>WaveLance</h3>
-              <div class="arrow-icon">↗</div>
-            </div>
-            <p>SaaS platforma za freelancere.</p>
-
-            <div class="card-tags">
-              <span class="tag">SaaS</span>
-              <span class="tag">Platforma</span>
-            </div>
-
-            <a href="wavelance-case-study.html" class="card-link"><span class="sr-only">View Project</span></a>
-          </div>
-        </article>
-
-        <article class="portfolio-card">
-          <div class="portfolio-image-wrapper" style="background-color: #ffcc00;">
-            <img src="images/vukovarski-golubići.webp" alt="Vukovarski Golubići Project"
-              class="portfolio-image object-contain" loading="lazy">
-
-          </div>
-
-          <div class="portfolio-content">
-            <div class="content-header">
-              <h3>Vukovarski Golubići</h3>
-              <div class="arrow-icon">↗</div>
-            </div>
-            <p>Kompletna web platforma za dječji zbor "Vukovarski Golubići"</p>
-
-            <div class="card-tags">
-              <span class="tag">Platforma</span>
-              <span class="tag">Rebranding</span>
-            </div>
-
-            <a href="vukovarski-golubici-case-study.html" class="card-link"><span class="sr-only">View
-                Project</span></a>
-          </div>
-        </article>
-
-        <article class="portfolio-card">
-          <div class="portfolio-image-wrapper" style="background-color: #2f3130;">
-            <img src="images/codehustling.webp" alt="Code Hustling Project" class="portfolio-image object-contain"
-              loading="lazy" style="padding: 4rem;">
-          </div>
-
-          <div class="portfolio-content">
-            <div class="content-header">
-              <h3>Code Hustling</h3>
-              <div class="arrow-icon">↗</div>
-            </div>
-            <p>Cjeloviti rebranding i custom web rješenje.</p>
-
-            <div class="card-tags">
-              <span class="tag">Rebranding</span>
-              <span class="tag">Dizajn</span>
-            </div>
-
-            <a href="codehustling-case-study.html" class="card-link"><span class="sr-only">View
-                Project</span></a>
-          </div>
-        </article>
-
-        <article class="portfolio-card">
-          <div class="portfolio-image-wrapper" style="background-color: #ff0000;">
-            <img src="images/gamechanger-all-white-logo.webp" alt="GameChanger Project"
-              class="portfolio-image object-contain" loading="lazy" style="padding: 4rem;">
-          </div>
-
-          <div class="portfolio-content">
-            <div class="content-header">
-              <h3>GameChanger</h3>
-              <div class="arrow-icon">↗</div>
-            </div>
-            <p>Razvoj landing stranice visokih performansi za vodeću tehnološku konferenciju</p>
-
-            <div class="card-tags">
-              <span class="tag">Event</span>
-              <span class="tag">Gaming</span>
-            </div>
-
-            <a href="gamechanger-case-study.html" class="card-link"><span class="sr-only">View
-                Project</span></a>
-          </div>
-        </article>
-
-        <article class="portfolio-card">
-          <div class="portfolio-image-wrapper" style="background-color: #d60043;">
-            <img src="images/ikarus-agency-all-white-logo.webp" alt="Ikarus Agency Project"
-              class="portfolio-image object-contain" loading="lazy" style="padding: 4rem;">
-          </div>
-
-          <div class="portfolio-content">
-            <div class="content-header">
-              <h3>Ikarus Agency</h3>
-              <div class="arrow-icon">↗</div>
-            </div>
-            <p>Kompletan rebranding i web dizajn.</p>
-
-            <div class="card-tags">
-              <span class="tag">Rebranding</span>
-              <span class="tag">Web Dizajn</span>
-            </div>
-
-            <a href="ikarus-case-study.html" class="card-link"><span class="sr-only">View
-                Project</span></a>
-          </div>
-        </article>
-
-        <article class="portfolio-card">
-          <div class="portfolio-image-wrapper" style="background-color: #0561ad;">
-            <img src="images/brod-all-white-logo.png" alt="Slavonski Brod Project"
-              class="portfolio-image object-contain" loading="lazy" style="padding: 4rem;">
-          </div>
-
-          <div class="portfolio-content">
-            <div class="content-header">
-              <h3>Slavonski Brod</h3>
-              <div class="arrow-icon">↗</div>
-            </div>
-            <p>Strategija i vođenje društvenih mreža.</p>
-
-            <div class="card-tags">
-              <span class="tag">Društvene mreže</span>
-              <span class="tag">Marketing</span>
-            </div>
-
-            <a href="slavonski-brod-case-study.html" class="card-link"><span class="sr-only">Pogledaj projekt</span></a>
-          </div>
-        </article>
-      </div>
-    </div>
     </section>
-    <!-- Booking Section -->
-    <section class="booking-section" id="booking">
-      <div class="container">
-        <div class="section-header text-center">
-          <h2 class="section-title">Spremni za stvarne promjene?
-          </h2>
-          <p class="booking-subtitle">Rezervirajte svoj termin za besplatne konzultacije i pokrenite svoju priču sada!
-          </p>
-        </div>
 
-        <div class="booking-grid">
-
-          <div class="calendly-column card-glass">
-            <div class="calendly-inline-widget" data-url="https://calendly.com/marinsabo/discovery-call"
-              style="min-width:320px;height:700px;"></div>
-            <!-- Calendly script removed for lazy loading -->
-          </div>
-
-          <div class="status-column">
-            <div class="status-card">
-
-              <div class="status-badge">
-                <span class="status-dot-green"></span>
-                <span class="badge-text">PREOSTALA MJESTA</span>
-              </div>
-
-              <div class="big-count-wrapper">
-                <span class="big-number">2</span>
-                <div class="big-label">
-                  <span class="label-primary">Slobodna</span>
-                  <span class="label-secondary">MJESTA</span>
-                </div>
-              </div>
-
-              <div class="progress-section">
-                <div class="progress-labels">
-                  <span>KAPACITET</span>
-                  <span>50% POPUNJENO</span>
-                </div>
-                <div class="progress-track">
-                  <div class="progress-fill" style="width: 50%;"></div>
-                </div>
-              </div>
-
-              <div class="status-footer">
-                <p class="highlight-text">Ovaj mjesec primamo samo <span class="text-yellow">2 nova klijenta.</span></p>
-                <p class="sub-text">Rezervirajte termin prije popunjavanja.</p>
-              </div>
-
-            </div>
-          </div>
-
-        </div>
+    <!-- ============ Contact ============ -->
+    <section class="contact" id="contact">
+      <div class="wrap">
+        <p class="label">06 — Contact</p>
+        <h2>Let’s talk.</h2>
+        <p class="contact-lede">I’m looking for a student job or a 2027 internship in mainframe or enterprise
+          development. I can work remotely, or on-site in Osijek.</p>
+        <a class="contact-email" href="mailto:marin.sabo.contact@gmail.com">marin.sabo.contact@gmail.com</a>
+        <ul class="contact-links">
+          <li><a class="btn" href="https://www.linkedin.com/in/marinsabo/" target="_blank" rel="noopener">LinkedIn</a>
+          </li>
+          <li><a class="btn" href="https://github.com/marinsabo" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a class="btn" href="https://www.credly.com/users/marin-sabo.f8425966" target="_blank"
+              rel="noopener">Credly</a></li>
+          <li><a class="btn" href="assets/Marin-Sabo-CV.pdf" download>Download CV (PDF)</a></li>
+        </ul>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container footer-container">
-      <div class="footer-brand">
-        <img src="images/logo-dark-noBG.webp" alt="MS Development" class="footer-logo">
-        <p class="footer-desc">
-          Brzi, funkcionalni web sustavi koji vašim kupcima olakšavaju kupnju, a vama vođenje posla.
-        </p>
-      </div>
-
-      <div class="footer-links">
-        <div class="footer-col">
-          <h4>Navigacija</h4>
-          <ul>
-            <li><a href="#expertise" class="nav-link">Usluge</a></li>
-            <li><a href="#case-studies" class="nav-link">Portfolio</a></li>
-            <li><a href="#booking" class="nav-link">Kontakt</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Društvene mreže</h4>
-          <ul>
-            <li><a href="#" target="_blank">LinkedIn</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Pravno</h4>
-          <ul>
-            <li><a href="#">Politika privatnosti</a></li>
-            <li><a href="#">Uvjeti korištenja</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="container">
-        <p>&copy; 2026 MS Development. All rights reserved.</p>
-      </div>
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>© <span data-year>2026</span> Marin Sabo</span>
+      <span>Požega, Croatia · Built by hand in HTML, CSS and JavaScript</span>
     </div>
   </footer>
 
-  <!-- Scripts -->
-  <!-- Mobile Menu Overlay (Moved to root for stacking context) -->
-  <div class="mobile-menu">
-    <button class="mobile-menu-close" aria-label="Close Menu">
-      <span class="hamburger-line"></span>
-      <span class="hamburger-line"></span>
-    </button>
-
-    <nav class="mobile-nav">
-      <ul class="mobile-nav-list">
-        <li><a href="#expertise" class="mobile-nav-link">Usluge</a></li>
-        <li><a href="#case-studies" class="mobile-nav-link">Portfolio</a></li>
-        <li><a href="#booking" class="mobile-nav-link">Kontakt</a></li>
-        <li><a href="#booking" class="mobile-nav-link highlight">Zatraži ponudu</a></li>
-      </ul>
-    </nav>
-  </div>
-
-  <script>
-    /* 
-      MS Development - Core Interactions
-    */
-
-    document.addEventListener('DOMContentLoaded', () => {
-      initCustomCursor();
-      registerServiceWorker();
-      initCalendlyWidget();
-    });
-
-    function initCalendlyWidget() {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            // Unobserve to run only once
-            observer.disconnect();
-
-            // Load Calendly script
-            const script = document.createElement('script');
-            script.src = 'https://assets.calendly.com/assets/external/widget.js';
-            script.async = true;
-            document.body.appendChild(script);
-          }
-        });
-      }, {
-        rootMargin: '200px' // Load slightly before comes into view
-      });
-
-      const bookingSection = document.getElementById('booking');
-      if (bookingSection) {
-        observer.observe(bookingSection);
-      }
-    }
-
-    function initCustomCursor() {
-      const cursorDot = document.querySelector('[data-cursor-dot]');
-      const cursorOutline = document.querySelector('[data-cursor-outline]');
-
-      if (!cursorDot || !cursorOutline) return;
-
-      let mouseX = 0;
-      let mouseY = 0;
-      let dotX = 0;
-      let dotY = 0;
-      let outlineX = 0;
-      let outlineY = 0;
-
-      window.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-
-        // Immediate update for dot position targets, can also be done in loop but this ensures fresh data
-        dotX = mouseX;
-        dotY = mouseY;
-      });
-
-      function animate() {
-        // Dot follows instantly (or very quickly)
-        // cursorDot.style.transform = `translate(${dotX}px, ${dotY}px) translate(-50%, -50%)`; 
-        // Note: We used translate(-100px, -100px) in CSS to hide it. 
-        // We need to overwrite that. 
-        // Also need to handle the centering. The CSS has transform: translate(-50%, -50%) BUT 
-        // setting transform in JS overwrites CSS transform.
-        // So we need to include the centering in the JS transform.
-
-        cursorDot.style.transform = `translate3d(${dotX}px, ${dotY}px, 0) translate(-50%, -50%)`;
-
-        // Outline follows with delay (lerp)
-        // Lower factor = slower/smoother lag
-        const speed = 0.2;
-        outlineX += (mouseX - outlineX) * speed;
-        outlineY += (mouseY - outlineY) * speed;
-
-        cursorOutline.style.transform = `translate3d(${outlineX}px, ${outlineY}px, 0) translate(-50%, -50%)`;
-
-        requestAnimationFrame(animate);
-      }
-
-      animate();
-
-      // Hover effects for links and buttons
-      const interactiveElements = document.querySelectorAll('a, button, .btn');
-
-      interactiveElements.forEach(el => {
-        el.addEventListener('mouseenter', () => {
-          // We need to maintain the position translate, so we can't just set transform to scale.
-          // We'll add a class instead, which is cleaner and more performant.
-          cursorOutline.classList.add('cursor-hover');
-        });
-
-        el.addEventListener('mouseleave', () => {
-          cursorOutline.classList.remove('cursor-hover');
-        });
-      });
-    }
-
-    // Magnetic Button Logic
-    const magneticBtns = document.querySelectorAll('[data-magnetic]');
-
-    magneticBtns.forEach(btn => {
-      btn.addEventListener('mousemove', (e) => {
-        const rect = btn.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-
-        // Move the button itself
-        btn.style.transform = `translate3d(${x * 0.3}px, ${y * 0.3}px, 0)`;
-
-        // Move the inner text/content slightly less for parallax
-        const text = btn.querySelector('.btn-text');
-        if (text) {
-          text.style.transform = `translate3d(${x * 0.1}px, ${y * 0.1}px, 0)`;
-        }
-      });
-
-      btn.addEventListener('mouseleave', () => {
-        btn.style.transform = 'translate(0, 0)';
-        const text = btn.querySelector('.btn-text');
-        if (text) {
-          text.style.transform = 'translate(0, 0)';
-        }
-      });
-    });
-
-    // Mobile Menu Toggle
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const mobileMenuCloseBtn = document.querySelector('.mobile-menu-close');
-    const mobileMenu = document.querySelector('.mobile-menu');
-    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
-
-    if (mobileMenuBtn && mobileMenu) {
-      const toggleMenu = () => {
-        mobileMenuBtn.classList.toggle('active');
-        mobileMenu.classList.toggle('active');
-
-        // Prevent scrolling when menu is open
-        if (mobileMenu.classList.contains('active')) {
-          document.body.style.overflow = 'hidden';
-        } else {
-          document.body.style.overflow = '';
-        }
-      };
-
-      const closeMenu = () => {
-        mobileMenuBtn.classList.remove('active');
-        mobileMenu.classList.remove('active');
-        document.body.style.overflow = '';
-      };
-
-      mobileMenuBtn.addEventListener('click', toggleMenu);
-
-      if (mobileMenuCloseBtn) {
-        mobileMenuCloseBtn.addEventListener('click', closeMenu);
-      }
-
-      // Close menu when clicking a link
-      mobileLinks.forEach(link => {
-        link.addEventListener('click', closeMenu);
-      });
-    }
-
-    // Header Scroll Effect
-    const header = document.querySelector('.header');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    });
-
-
-
-    // Service Worker Registration
-    function registerServiceWorker() {
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('sw.js')
-            .then(registration => {
-              console.log('ServiceWorker registration successful with scope: ', registration.scope);
-            })
-            .catch(err => {
-              console.log('ServiceWorker registration failed: ', err);
-            });
-        });
-      }
-    }
-
-    // Disable Right Click
-    document.addEventListener('contextmenu', (e) => e.preventDefault());
-
-    function ctrlShiftKey(e, keyCode) {
-      return e.ctrlKey && e.shiftKey && e.keyCode === keyCode.charCodeAt(0);
-    }
-
-    document.onkeydown = (e) => {
-      // Disable F12, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + U
-      if (
-        event.keyCode === 123 ||
-        ctrlShiftKey(e, 'I') ||
-        ctrlShiftKey(e, 'J') ||
-        ctrlShiftKey(e, 'C') ||
-        (e.ctrlKey && e.keyCode === 'U'.charCodeAt(0))
-      )
-        return false;
-    };
-
-    // Reusable Infinite Carousel Logic
-    function setupInfiniteCarousel(sliderId, prevBtnSelector, nextBtnSelector) {
-      const slider = document.getElementById(sliderId);
-      const prevBtn = document.querySelector(prevBtnSelector);
-      const nextBtn = document.querySelector(nextBtnSelector);
-
-      if (!slider || !prevBtn || !nextBtn) return;
-
-      const cards = Array.from(slider.children);
-      if (cards.length === 0) return;
-
-      const cardCount = cards.length;
-      const cardsToClone = 3; // Number of items to clone for buffer
-
-      // Clone items
-      const firstClones = cards.slice(0, cardsToClone).map(card => card.cloneNode(true));
-      const lastClones = cards.slice(-cardsToClone).map(card => card.cloneNode(true));
-
-      // Append and Prepend clones
-      firstClones.forEach(clone => slider.appendChild(clone));
-      lastClones.reverse().forEach(clone => slider.prepend(clone));
-
-      // Scroll to the first real element
-      const alignSlider = () => {
-        const firstCard = cards[0];
-        if (!firstCard) return;
-
-        const cardWidth = firstCard.offsetWidth;
-        const gap = parseFloat(window.getComputedStyle(slider).gap) || 32; // Default to 32px if not set
-        slider.scrollLeft = cardsToClone * (cardWidth + gap);
-      };
-
-      // Run initially and on resize
-      window.addEventListener('load', alignSlider);
-      window.addEventListener('resize', alignSlider);
-      setTimeout(alignSlider, 100);
-
-      // Scroll Event for Infinite Loop
-      slider.addEventListener('scroll', () => {
-        const firstCard = cards[0];
-        if (!firstCard) return;
-
-        const cardWidth = firstCard.offsetWidth;
-        const gap = parseFloat(window.getComputedStyle(slider).gap) || 32;
-        const itemWidth = cardWidth + gap;
-        const totalRealWidth = cardCount * itemWidth;
-
-        // If scrolled to the start (into prepended clones)
-        if (slider.scrollLeft <= 10) {
-          slider.scrollLeft = slider.scrollLeft + totalRealWidth;
-        }
-        // If scrolled to the end (into appended clones)
-        else if (slider.scrollLeft >= totalRealWidth + (cardsToClone * itemWidth) - 10) {
-          slider.scrollLeft = slider.scrollLeft - totalRealWidth;
-        }
-      });
-
-      nextBtn.addEventListener('click', () => {
-        const currentFirst = slider.children[0];
-        const cardWidth = currentFirst.offsetWidth;
-        const gap = parseFloat(window.getComputedStyle(slider).gap) || 32;
-
-        slider.scrollBy({ left: cardWidth + gap, behavior: 'smooth' });
-      });
-
-      prevBtn.addEventListener('click', () => {
-        const currentFirst = slider.children[0];
-        const cardWidth = currentFirst.offsetWidth;
-        const gap = parseFloat(window.getComputedStyle(slider).gap) || 32;
-
-        slider.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' });
-      });
-    }
-
-    // Initialize Portfolio Carousel
-    setupInfiniteCarousel('portfolio-slider', '.prev-btn', '.next-btn');
-  </script>
+  <script src="script.js" defer></script>
 </body>
-
 
 </html>
