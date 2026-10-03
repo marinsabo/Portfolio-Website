@@ -1,12 +1,12 @@
 {
   "_readme": "Shipped log. Newest first. Add a line at the top when you ship something; the counter and the 'Last shipped' date update themselves. status: 'shipped' or 'next' (in progress). Replace every [bracketed] value with the real one.",
-  "since": "[YEAR]",
+  "since": "2023",
   "entries": [
     {
       "date": "NEXT",
       "status": "next",
-      "title": "[Own product]",
-      "note": "in progress"
+      "title": "Bachelor’s thesis",
+      "note": "applying DevOps principles to building a Db2 database"
     },
     {
       "date": "[MM].2026",
