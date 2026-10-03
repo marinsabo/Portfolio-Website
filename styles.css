@@ -1,20 +1,26 @@
 /* ==========================================================================
-   Marin Sabo — portfolio · "Swiss poster, signal orange"
-   Paper and ink with one accent. Huge, tight Archivo headings, Instrument
+   Marin Sabo — portfolio · "Swiss poster", gold on dark
+   Ink ground, paper text, one gold accent. Huge, tight Archivo headings, Instrument
    Sans for text, JetBrains Mono for metadata only. Square corners, rules
    instead of cards, no shadows or gradients.
    ========================================================================== */
 
 :root {
-  --paper: #F3F0E8;
-  --ink: #141210;
-  --signal: #E64A00;
-  --muted: #57524A;
-  --body-2: #3A3630;
-  --line: #C9C2B4;
-  --surface: #E6E1D6;
-  --muted-on-ink: #B8B0A2;
-  --line-on-ink: #3A3630;
+  --bg: #141210;        /* page: ink */
+  --fg: #F3F0E8;        /* text and rules: paper */
+  --accent: #FFB54C;    /* the ONE accent: MS Development gold */
+  --on-accent: #141210; /* text on gold fills */
+  --muted: #B8B0A2;     /* secondary text (≈8:1 on --bg) */
+  --body-2: #D6CFC2;    /* body text */
+  --line: #3A3630;      /* hairlines, tag borders */
+  --surface: #1E1B18;   /* raised bands and image frames */
+
+  /* the 3270 console */
+  --term: #0B0A09;
+  --term-line: #2A2622;
+  --term-dim: #8F887C;
+  --term-text: #C9C2B4;
+  --term-hi: #F3F0E8;
 
   --font-display: 'Archivo', system-ui, sans-serif;
   --font-body: 'Instrument Sans', system-ui, sans-serif;
@@ -27,7 +33,7 @@
   --ease: cubic-bezier(0.25, 0.1, 0.25, 1);
   --t: 180ms;
 
-  color-scheme: light;
+  color-scheme: dark;
   interpolate-size: allow-keywords;
 }
 
@@ -58,8 +64,8 @@ html {
 
 body {
   margin: 0;
-  background: var(--paper);
-  color: var(--ink);
+  background: var(--bg);
+  color: var(--fg);
   font-family: var(--font-body);
   font-size: 17px;
   line-height: 1.6;
@@ -123,12 +129,12 @@ strong {
 }
 
 ::selection {
-  background: var(--signal);
-  color: var(--ink);
+  background: var(--accent);
+  color: var(--on-accent);
 }
 
 :focus-visible {
-  outline: 2px solid var(--ink);
+  outline: 2px solid var(--fg);
   outline-offset: 3px;
 }
 
@@ -144,8 +150,8 @@ strong {
   top: -80px;
   z-index: 100;
   padding: 12px 18px;
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--fg);
+  color: var(--bg);
   font-weight: 600;
   text-decoration: none;
 }
@@ -221,21 +227,21 @@ strong {
 }
 
 .btn-primary {
-  background: var(--signal);
-  border-color: var(--signal);
-  color: var(--ink);
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
 }
 
 .btn-ink {
-  background: var(--ink);
-  border-color: var(--ink);
-  color: var(--paper);
+  background: var(--fg);
+  border-color: var(--fg);
+  color: var(--bg);
 }
 
 .btn-outline {
   background: transparent;
-  border-color: var(--ink);
-  color: var(--ink);
+  border-color: var(--fg);
+  color: var(--fg);
 }
 
 .btn-sm {
@@ -296,15 +302,15 @@ a:hover .arr-back,
 .brand-mark {
   width: 12px;
   height: 12px;
-  background: var(--signal);
+  background: var(--accent);
 }
 
 .menu-btn {
   min-height: 44px;
   padding: 0 16px;
-  border: 2px solid var(--ink);
+  border: 2px solid var(--fg);
   background: transparent;
-  color: var(--ink);
+  color: var(--fg);
   font: 600 15px/1 var(--font-body);
   cursor: pointer;
 }
@@ -341,7 +347,7 @@ a:hover .arr-back,
 }
 
 .nav .lang a[aria-current] {
-  color: var(--ink);
+  color: var(--fg);
   font-weight: 500;
 }
 
@@ -357,9 +363,9 @@ a:hover .arr-back,
   right: 0;
   z-index: 40;
   padding: 12px 0 24px;
-  background: var(--paper);
-  border-top: 2px solid var(--ink);
-  border-bottom: 2px solid var(--ink);
+  background: var(--bg);
+  border-top: 2px solid var(--fg);
+  border-bottom: 2px solid var(--fg);
 }
 
 .site-header.is-open .nav a:not(.btn) {
@@ -419,7 +425,7 @@ a:hover .arr-back,
   font-size: 13px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--ink);
+  color: var(--fg);
 }
 
 .dot {
@@ -428,7 +434,7 @@ a:hover .arr-back,
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--signal);
+  background: var(--accent);
 }
 
 .hero-title {
@@ -440,8 +446,8 @@ a:hover .arr-back,
 }
 
 .hl {
-  background: var(--signal);
-  color: var(--ink);
+  background: var(--accent);
+  color: var(--on-accent);
   padding: 0 0.12em;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
@@ -471,8 +477,8 @@ a:hover .arr-back,
 /* ---------- Proof strip ---------- */
 
 .proof {
-  border-top: 2px solid var(--ink);
-  border-bottom: 2px solid var(--ink);
+  border-top: 2px solid var(--fg);
+  border-bottom: 2px solid var(--fg);
 }
 
 .proof-grid {
@@ -541,7 +547,7 @@ a:hover .arr-back,
 }
 
 .section > .wrap {
-  border-top: 2px solid var(--ink);
+  border-top: 2px solid var(--fg);
   padding-top: 24px;
 }
 
@@ -578,7 +584,7 @@ a:hover .arr-back,
 
 .facts {
   margin-top: 32px;
-  border-top: 2px solid var(--ink);
+  border-top: 2px solid var(--fg);
 }
 
 .facts > div {
@@ -629,7 +635,7 @@ a:hover .arr-back,
 }
 
 .roles strong {
-  color: var(--ink);
+  color: var(--fg);
 }
 
 .caption {
@@ -640,7 +646,8 @@ a:hover .arr-back,
 
 /* The console: an amber-style 3270 in ink and orange */
 .console {
-  background: var(--ink);
+  background: var(--term);
+  border: 1px solid var(--line);
   color-scheme: dark;
   min-width: 0;
 }
@@ -650,11 +657,11 @@ a:hover .arr-back,
   justify-content: space-between;
   gap: 12px;
   padding: 10px 18px;
-  border-bottom: 1px solid var(--line-on-ink);
+  border-bottom: 1px solid var(--term-line);
   font-family: var(--font-mono);
   font-size: 12px;
   letter-spacing: 0.06em;
-  color: var(--muted-on-ink);
+  color: var(--term-dim);
 }
 
 .console-screen {
@@ -664,7 +671,7 @@ a:hover .arr-back,
   font-family: var(--font-mono);
   font-size: 11.5px;
   line-height: 1.5;
-  color: var(--line);
+  color: var(--term-text);
   white-space: pre;
   min-height: calc(21 * 1.5em + 36px);
   outline: none;
@@ -690,22 +697,22 @@ a:hover .arr-back,
 }
 
 .console-screen .hi {
-  color: var(--paper);
+  color: var(--term-hi);
 }
 
 .console-screen .warn,
 .console-screen .red {
-  color: var(--signal);
+  color: var(--accent);
 }
 
 .console-screen .dim {
-  color: #8F887C;
+  color: var(--term-dim);
 }
 
 .console-screen .cursor {
   display: inline-block;
   width: 0.6em;
-  background: var(--signal);
+  background: var(--accent);
   animation: blink 1.1s steps(1) infinite;
 }
 
@@ -716,7 +723,7 @@ a:hover .arr-back,
 }
 
 .console:focus-within {
-  outline: 2px solid var(--ink);
+  outline: 2px solid var(--fg);
   outline-offset: 3px;
 }
 
@@ -725,7 +732,7 @@ a:hover .arr-back,
   flex-wrap: wrap;
   gap: 6px;
   padding: 12px 18px 16px;
-  border-top: 1px solid var(--line-on-ink);
+  border-top: 1px solid var(--term-line);
 }
 
 @media (min-width: 720px) {
@@ -737,26 +744,26 @@ a:hover .arr-back,
 .pf-keys button {
   min-height: 44px;
   padding: 0 12px;
-  border: 1px solid var(--line-on-ink);
+  border: 1px solid var(--term-line);
   background: transparent;
-  color: var(--paper);
+  color: var(--term-hi);
   font: 400 13px/1 var(--font-mono);
   cursor: pointer;
   transition: border-color var(--t) var(--ease), background-color var(--t) var(--ease);
 }
 
 .pf-keys button:hover {
-  border-color: var(--muted-on-ink);
+  border-color: var(--term-dim);
 }
 
 .pf-keys button[aria-pressed="true"] {
-  background: var(--signal);
-  border-color: var(--signal);
-  color: var(--ink);
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
 }
 
 .pf-keys button:focus-visible {
-  outline: 2px solid var(--paper);
+  outline: 2px solid var(--term-hi);
   outline-offset: 2px;
 }
 
@@ -819,7 +826,7 @@ a:hover .arr-back,
     grid-template-columns: 1fr;
     gap: 8px;
     padding-top: 16px;
-    border-top: 2px solid var(--ink);
+    border-top: 2px solid var(--fg);
   }
 
   .pipeline li::before {
@@ -831,7 +838,7 @@ a:hover .arr-back,
 /* ---------- Experience ---------- */
 
 .jobs {
-  border-top: 2px solid var(--ink);
+  border-top: 2px solid var(--fg);
 }
 
 .job {
@@ -908,7 +915,7 @@ a:hover .arr-back,
   position: relative;
   width: 44px;
   height: 44px;
-  border: 2px solid var(--ink);
+  border: 2px solid var(--fg);
 }
 
 .job-toggle::before,
@@ -920,7 +927,7 @@ a:hover .arr-back,
   width: 14px;
   height: 2px;
   margin: -1px 0 0 -7px;
-  background: var(--ink);
+  background: var(--fg);
   transition: transform 220ms var(--ease);
 }
 
@@ -955,7 +962,7 @@ a:hover .arr-back,
   top: 0.75em;
   width: 10px;
   height: 2px;
-  background: var(--ink);
+  background: var(--fg);
 }
 
 .job-body a {
@@ -1010,7 +1017,7 @@ details[open]::details-content {
 .skills h3 {
   padding-bottom: 12px;
   margin-bottom: 12px;
-  border-bottom: 2px solid var(--ink);
+  border-bottom: 2px solid var(--fg);
   font-family: var(--font-mono);
   font-size: 13px;
   font-weight: 500;
@@ -1026,7 +1033,7 @@ details[open]::details-content {
 /* ---------- Certifications ---------- */
 
 .cert-groups {
-  border-top: 2px solid var(--ink);
+  border-top: 2px solid var(--fg);
 }
 
 .cert-group {
@@ -1080,7 +1087,7 @@ details[open]::details-content {
 /* ---------- Project rows ---------- */
 
 .rows {
-  border-top: 2px solid var(--ink);
+  border-top: 2px solid var(--fg);
 }
 
 .rows li {
@@ -1177,8 +1184,10 @@ details[open]::details-content {
 .shipped {
   margin-top: var(--section-y);
   padding: var(--section-y) 0;
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  color: var(--fg);
 }
 
 .shipped .wrap {
@@ -1194,7 +1203,7 @@ details[open]::details-content {
 }
 
 .shipped .eyebrow {
-  color: var(--muted-on-ink);
+  color: var(--muted);
 }
 
 .counter {
@@ -1204,7 +1213,7 @@ details[open]::details-content {
   font-size: clamp(120px, 16vw, 240px);
   line-height: 0.85;
   letter-spacing: -0.05em;
-  color: var(--signal);
+  color: var(--accent);
   font-variant-numeric: tabular-nums;
 }
 
@@ -1215,11 +1224,11 @@ details[open]::details-content {
   font-weight: 400;
   font-size: 19px;
   line-height: 1.5;
-  color: var(--paper);
+  color: var(--fg);
 }
 
 .log {
-  border-top: 2px solid var(--paper);
+  border-top: 2px solid var(--fg);
 }
 
 .log li {
@@ -1228,7 +1237,7 @@ details[open]::details-content {
   gap: 16px;
   align-items: baseline;
   padding: 16px 0;
-  border-bottom: 1px solid var(--line-on-ink);
+  border-bottom: 1px solid var(--line);
 }
 
 @media (min-width: 640px) {
@@ -1240,33 +1249,33 @@ details[open]::details-content {
 .log-date {
   font-family: var(--font-mono);
   font-size: 13px;
-  color: var(--muted-on-ink);
+  color: var(--muted);
 }
 
 .log-item strong {
-  color: var(--paper);
+  color: var(--fg);
 }
 
 .log-item span {
-  color: var(--muted-on-ink);
+  color: var(--muted);
 }
 
 .log-dot {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: var(--signal);
+  background: var(--accent);
   align-self: center;
 }
 
 .log-dot.is-next {
   background: transparent;
-  border: 2px solid var(--signal);
+  border: 2px solid var(--accent);
 }
 
 .log li.log-empty {
   display: block;
-  color: var(--muted-on-ink);
+  color: var(--muted);
 }
 
 /* ---------- Education ---------- */
@@ -1285,7 +1294,7 @@ details[open]::details-content {
 
 .two-col .list {
   margin-top: 16px;
-  border-top: 2px solid var(--ink);
+  border-top: 2px solid var(--fg);
 }
 
 .list li {
@@ -1302,7 +1311,7 @@ details[open]::details-content {
 }
 
 .list strong {
-  color: var(--ink);
+  color: var(--fg);
 }
 
 .list:not(.plain) strong {
@@ -1321,12 +1330,12 @@ details[open]::details-content {
 .contact {
   margin-top: var(--section-y);
   padding: var(--section-y) 0 64px;
-  background: var(--signal);
-  color: var(--ink);
+  background: var(--accent);
+  color: var(--on-accent);
 }
 
 .contact .eyebrow {
-  color: var(--ink);
+  color: var(--on-accent);
 }
 
 .contact h2 {
@@ -1357,6 +1366,12 @@ details[open]::details-content {
   text-align: left;
 }
 
+.contact .btn-ink {
+  background: var(--on-accent);
+  border-color: var(--on-accent);
+  color: var(--fg);
+}
+
 .contact-links {
   display: flex;
   flex-wrap: wrap;
@@ -1376,14 +1391,14 @@ details[open]::details-content {
 }
 
 .contact :focus-visible {
-  outline-color: var(--ink);
+  outline-color: var(--on-accent);
 }
 
 /* footer sits inside the same orange block, behind a 2px ink rule */
 .site-footer {
   padding: 0 0 40px;
-  background: var(--signal);
-  color: var(--ink);
+  background: var(--accent);
+  color: var(--on-accent);
   font-family: var(--font-mono);
   font-size: 13px;
 }
@@ -1394,7 +1409,7 @@ details[open]::details-content {
   justify-content: space-between;
   gap: 8px 24px;
   padding-top: 20px;
-  border-top: 2px solid var(--ink);
+  border-top: 2px solid var(--on-accent);
 }
 
 /* ---------- Case-study pages ---------- */
@@ -1417,7 +1432,7 @@ details[open]::details-content {
 }
 
 .back-link:hover {
-  color: var(--ink);
+  color: var(--fg);
 }
 
 .case-head {
@@ -1439,8 +1454,8 @@ details[open]::details-content {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   margin-top: 56px;
-  border-top: 2px solid var(--ink);
-  border-bottom: 2px solid var(--ink);
+  border-top: 2px solid var(--fg);
+  border-bottom: 2px solid var(--fg);
 }
 
 .case-facts > div {
@@ -1475,7 +1490,8 @@ details[open]::details-content {
   max-height: 560px;
   width: 100%;
   margin-top: 56px;
-  background: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
 }
 
 .case-cover img {
@@ -1510,7 +1526,7 @@ details[open]::details-content {
 
 .numbered {
   counter-reset: n;
-  border-top: 2px solid var(--ink);
+  border-top: 2px solid var(--fg);
 }
 
 .numbered li {
@@ -1551,7 +1567,7 @@ details[open]::details-content {
   gap: 12px;
   margin-top: 88px;
   padding-top: 24px;
-  border-top: 2px solid var(--ink);
+  border-top: 2px solid var(--fg);
 }
 
 /* ---------- 404 ---------- */
