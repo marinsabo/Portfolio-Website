@@ -446,8 +446,7 @@ a:hover .arr-back,
   width: 112px;
   height: 112px;
   object-fit: cover;
-  filter: grayscale(1);
-  background: var(--surface);
+  /* already grayscale on the page colour; a CSS filter would shift the background */
 }
 
 .hero-row .lead {
