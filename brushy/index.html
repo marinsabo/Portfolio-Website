@@ -1,461 +1,346 @@
 <!DOCTYPE html>
-<html lang="hr">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Brushy – Aplikacija koja mijenja kako djeca brinu o zubima</title>
-  <meta name="description"
-    content="Brushy pretvara pranje zubi u najveću avanturu dana. Jer zdravi zubi počinju s navikom, a navika počinje s motivacijom." />
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title data-i18n="meta.title">Brushy – Turning toothbrushing into a game kids want to play</title>
+  <meta name="description" data-i18n-content="meta.desc"
+    content="Brushy is a research-based app concept that turns kids' toothbrushing into a daily adventure. Case study: research, insights and design." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦷</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700,800,900|Fredoka:600,700&amp;subset=latin-ext&amp;display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=8" />
+  <link rel="stylesheet" href="style.css?v=9" />
   <script data-goatcounter="https://marinsabo.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 
 <body>
-  <nav class="nav" id="nav">
+  <a class="skip" href="#main" data-i18n="nav.skip">Skip to content</a>
+
+  <header class="nav" id="nav">
     <div class="nav__inner">
-      <div class="nav__logo">🦷 <span>Brushy</span></div>
-      <div class="nav__links">
-        <a href="#hero">Početna</a>
-        <a href="#problem">Problem</a>
-        <a href="#solution">Naše rješenje</a>
-        <a href="#features">Značajke aplikacije</a>
-        <a href="#parents">Za roditelje</a>
-        <a href="#closing">Poboljšaj Brushy</a>
+      <a href="#top" class="logo" aria-label="Brushy"><span class="logo__mark">🦷</span>Brushy</a>
+      <nav class="nav__links" id="nav-links" aria-label="Main">
+        <a href="#research" data-i18n="nav.research">Research</a>
+        <a href="#solution" data-i18n="nav.solution">Solution</a>
+        <a href="#features" data-i18n="nav.features">Features</a>
+        <a href="#parents" data-i18n="nav.parents">Parents</a>
+        <a href="#screens" data-i18n="nav.screens">Screens</a>
+      </nav>
+      <div class="nav__actions">
+        <div class="lang" role="group" aria-label="Language">
+          <button type="button" class="lang__btn" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" class="lang__btn" data-lang="hr" aria-pressed="false">HR</button>
+        </div>
+        <button type="button" class="nav__toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links"
+          aria-label="Menu"><span></span><span></span></button>
       </div>
     </div>
-  </nav>
-  <section class="hero" id="hero">
-    <div class="hero__bg-blobs" aria-hidden="true">
-      <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
-      <span class="bubble bub1"></span><span class="bubble bub2"></span><span class="bubble bub3"></span>
-      <span class="bubble bub4"></span><span class="bubble bub5"></span>
-    </div>
-    <div class="hero__inner">
-      <div class="hero__content">
-        <div class="hero__eyebrow">✨ Predstavljamo Brushy</div>
-        <h1 class="hero__title">
-          Vaše dijete
-          ne voli prati zube.<br />
-          <span class="hero__title--glow">Brushy tome staje na kraj.</span>
-        </h1>
-        <p class="hero__sub">
-          Pitali smo djecu što bi im pranje zubi učinilo zanimljivim, a
-          zatim smo stvorili Brushy – besplatnu edukativnu aplikaciju koja dosadnu rutinu pretvara u igru.
-        </p>
-        <div class="hero__cta-row">
-          <a href="#problem" class="btn btn--yellow" id="hero-cta-1">Saznaj više ↓</a>
-          <a href="#screens" class="btn btn--ghost" id="hero-cta-2">Vidi aplikaciju</a>
-        </div>
-        <div class="hero__trust">
-          <span>🎯 Edukativan</span>
-          <span>🔒 Siguran za djecu</span>
-          <span>📊 Roditeljski nadzor</span>
-        </div>
-      </div>
-      <div class="hero__phones" aria-label="Ekrani aplikacije Brushy">
-        <div class="phone-wrap phone-wrap--extra">
-          <div class="phone-frame">
-            <div class="phone-frame__screen"><img src="images/First-load-page.webp" alt="Brushy dobrodošlica" /></div>
-          </div>
-        </div>
-        <div class="phone-wrap phone-wrap--left">
-          <div class="phone-frame">
-            <div class="phone-frame__screen"><img src="images/Quiz.webp" alt="Brushy Quiz" /></div>
-          </div>
-        </div>
-        <div class="phone-wrap phone-wrap--center">
-          <div class="phone-frame phone-frame--hero">
-            <div class="phone-frame__screen"><img src="images/Dashboard.webp" alt="Brushy nadzorna ploča" /></div>
-          </div>
-        </div>
-        <div class="phone-wrap phone-wrap--right">
-          <div class="phone-frame">
-            <div class="phone-frame__screen"><img src="images/Timer-ongoing.webp" alt="Brushy timer" /></div>
-          </div>
-        </div>
-        <div class="phone-wrap phone-wrap--extra">
-          <div class="phone-frame">
-            <div class="phone-frame__screen"><img src="images/Streak_extended.webp" alt="Brushy nagrade" /></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  </header>
 
-  <section class="problem" id="problem">
-    <div class="container">
-      <div class="problem__header">
-        <div class="section-label label--red">⚠️ Istraživanjem utvrđeno</div>
-        <h2 class="section-title">Zašto djeca preskaču pranje zubi?<br />Znamo pravu istinu.</h2>
-        <p class="section-sub">Kroz naše istraživanje provedeno na 70 osnovnoškolaca, otkrili smo stvarne razloge loših
-          higijenskih navika. Brojke su jasne:</p>
-      </div>
-      <div class="crisis-stats">
-        <div class="crisis-stat" id="cs-1">
-          <div class="crisis-stat__num">61<span>%</span></div>
-          <div class="crisis-stat__text">djece već je imalo karijes</div>
-        </div>
-        <div class="crisis-stat" id="cs-2">
-          <div class="crisis-stat__num">41<span>%</span></div>
-          <div class="crisis-stat__text">ih misli da zubaru treba ići samo kad zub zaboli</div>
-        </div>
-        <div class="crisis-stat" id="cs-3">
-          <div class="crisis-stat__num">39<span>%</span></div>
-          <div class="crisis-stat__text">djece jednostavno zaboravi oprati zube</div>
-        </div>
-      </div>
-      <div class="problem__transition problem-transition-card"
-        style="margin-top: 40px; padding: 32px; background: rgba(255,255,255,0.6); border-radius: 24px; box-shadow: var(--sh-sm);">
-        <p style="font-size: 1.15rem; color: var(--mid); line-height: 1.7; margin: 0; text-align: center;">
-          Zašto je to tako? Zato što <strong>39 %</strong> djece jednostavno zaboravi oprati zube, <strong>37 %</strong>
-          je preumorno navečer, a <strong>27 %</strong> njih smatra pranje zubi čistom dosadom. Tradicionalne metode
-          zastrašivanja karijesom jednostavno ne djeluju.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="solution" id="solution">
-    <div class="container">
-      <div class="solution__split">
-        <div class="solution__text">
-          <div class="section-label label--blue">💡 Rješenje</div>
-          <h2 class="section-title">Rješenje? Slušali smo djecu i dali im točno ono što žele.</h2>
-          <p class="solution__desc" style="font-size: 1.125rem; line-height: 1.75;">
-            Umjesto da djeci držimo prodike, pitali smo ih što ih motivira. Otkrili smo da je čak 72 % djece motivirano
-            lijepim i čistim osmijehom, a velik broj njih (25 %) izričito je tražio interaktivnu aplikaciju s brojačem i
-            nagradama. Tako je nastao Brushy – dizajniran za djecu od 7 do 11 godina, utemeljen na znanosti i dječjoj
-            psihologiji.
-          </p>
-        </div>
-        <div class="solution__visual">
-          <div class="phone-frame phone-frame--solution">
-            <img src="images/Dashboard.webp" alt="Brushy nadzorna ploča" />
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="container hero__grid">
+        <div class="hero__copy">
+          <p class="pill pill--sky" data-i18n="hero.eyebrow">Case study · Concept &amp; research</p>
+          <h1 class="hero__title" data-i18n="hero.title">Kids hate brushing their teeth. <span class="hl">So we made it a game.</span></h1>
+          <p class="hero__sub" data-i18n="hero.sub">We asked 70 primary-school children what would make brushing fun, then designed Brushy around their answers: a free educational app that turns a boring routine into a daily adventure.</p>
+          <div class="hero__cta">
+            <a href="#research" class="btn btn--yellow" data-i18n="hero.cta1">Read the case study</a>
+            <a href="#screens" class="btn btn--ghost" data-i18n="hero.cta2">See the screens</a>
           </div>
-          <div class="solution__badge solution__badge--1">🔥 Streak: 7 dana!</div>
-          <div class="solution__badge solution__badge--2">🦷 +100 bodova!</div>
-          <div class="solution__badge solution__badge--3">✅ Cilj postignut!</div>
+        </div>
+        <div class="hero__phones" aria-hidden="true">
+          <div class="phone phone--side phone--l"><img src="images/Quiz.webp" alt="" /></div>
+          <div class="phone phone--main"><img src="images/Dashboard.webp" alt="" /></div>
+          <div class="phone phone--side phone--r"><img src="images/Timer-ongoing.webp" alt="" /></div>
+          <span class="sticker sticker--1" data-i18n="hero.st1">🔥 7-day streak</span>
+          <span class="sticker sticker--2" data-i18n="hero.st2">🦷 +40 teeth</span>
         </div>
       </div>
-    </div>
-  </section>
 
-  <section class="features" id="features">
-    <div class="container">
-      <div class="section-label label--blue">🚀 Funkcionalnosti</div>
-      <h2 class="section-title">Značajke zbog kojih će vaša djeca jedva čekati pranje zubi</h2>
-      <div class="feat-grid">
+      <div class="container">
+        <dl class="glance">
+          <div class="glance__item">
+            <dt data-i18n="glance.typeL">Project</dt>
+            <dd data-i18n="glance.type">Mobile app concept</dd>
+          </div>
+          <div class="glance__item">
+            <dt data-i18n="glance.usersL">For</dt>
+            <dd data-i18n="glance.users">Kids aged 7–11 &amp; their parents</dd>
+          </div>
+          <div class="glance__item">
+            <dt data-i18n="glance.researchL">Research</dt>
+            <dd data-i18n="glance.research">Survey of 70 primary-school pupils</dd>
+          </div>
+          <div class="glance__item">
+            <dt data-i18n="glance.collabL">In collaboration with</dt>
+            <dd data-i18n="glance.collab">Faculty of Dental Medicine and Health &amp; FERIT Osijek</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
 
-        <div class="feat-card feat-card--wide" id="fc-timer">
-          <div class="feat-card__phone">
-            <div class="phone-frame phone-frame--feat">
-              <div class="phone-frame__screen"><img src="images/Timer-ongoing.webp" alt="Timer" /></div>
+    <!-- RESEARCH -->
+    <section class="section" id="research">
+      <div class="container">
+        <header class="section__head">
+          <p class="pill pill--red" data-i18n="res.label">01 · The problem</p>
+          <h2 class="section__title" data-i18n="res.title">Kids know brushing matters. They still skip it.</h2>
+          <p class="section__sub" data-i18n="res.sub">Our survey of 70 primary-school children showed a clear gap between what kids know and what they actually do.</p>
+        </header>
+
+        <div class="stats">
+          <div class="stat reveal">
+            <p class="stat__num" data-count="61">61<span>%</span></p>
+            <p class="stat__text" data-i18n="res.s1">have already had a cavity</p>
+          </div>
+          <div class="stat reveal">
+            <p class="stat__num" data-count="41">41<span>%</span></p>
+            <p class="stat__text" data-i18n="res.s2">think you only need a dentist when a tooth hurts</p>
+          </div>
+          <div class="stat reveal">
+            <p class="stat__num" data-count="39">39<span>%</span></p>
+            <p class="stat__text" data-i18n="res.s3">simply forget to brush</p>
+          </div>
+        </div>
+
+        <div class="why reveal">
+          <div class="why__intro">
+            <h3 data-i18n="res.whyTitle">Why they skip it</h3>
+            <p data-i18n="res.whyText">Scaring kids with cavities doesn't work. The real reasons are everyday ones, and those can be designed for.</p>
+          </div>
+          <ul class="bars">
+            <li class="bar" style="--v:39">
+              <span class="bar__label" data-i18n="res.b1">They forget</span>
+              <span class="bar__track"><span class="bar__fill"></span></span>
+              <span class="bar__val">39%</span>
+            </li>
+            <li class="bar" style="--v:37">
+              <span class="bar__label" data-i18n="res.b2">Too tired in the evening</span>
+              <span class="bar__track"><span class="bar__fill"></span></span>
+              <span class="bar__val">37%</span>
+            </li>
+            <li class="bar" style="--v:27">
+              <span class="bar__label" data-i18n="res.b3">It's boring</span>
+              <span class="bar__track"><span class="bar__fill"></span></span>
+              <span class="bar__val">27%</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOLUTION -->
+    <section class="section section--tint" id="solution">
+      <div class="container split">
+        <div class="split__text">
+          <p class="pill pill--sky" data-i18n="sol.label">02 · The insight</p>
+          <h2 class="section__title" data-i18n="sol.title">Don't lecture kids. Give them what they asked for.</h2>
+          <p class="lead" data-i18n="sol.text">Instead of telling kids what to do, we asked what motivates them. The answers shaped every part of Brushy, designed for ages 7–11 and grounded in science and child psychology.</p>
+          <div class="insights">
+            <div class="insight reveal">
+              <p class="insight__num">72%</p>
+              <p data-i18n="sol.i1">are motivated by a clean, beautiful smile</p>
             </div>
-          </div>
-          <div class="feat-card__body">
-            <div class="feat-icon">⏱️</div>
-            <h3>Interaktivni brojač</h3>
-            <p>Vizualni prikaz usne šupljine koji dijete vodi kroz sva 4 kvadranta tijekom preporučene 2 minute. Kako
-              vrijeme odmiče, zubi na ekranu postaju blistavo čisti!</p>
-            <div class="feat-tags"><span>2 minute</span><span>Kvadranti</span><span>Vizualni napredak</span></div>
-          </div>
-        </div>
-
-        <div class="feat-card" id="fc-rewards">
-          <div class="phone-frame phone-frame--feat-sm">
-            <div class="phone-frame__screen"><img src="images/Shop.webp" alt="Trgovina" /></div>
-          </div>
-          <div class="feat-icon">💎</div>
-          <h3>Sustav nagrađivanja</h3>
-          <p>Svako uspješno pranje donosi virtualnu valutu "Zubiće". Djeca ih štede i troše u Virtualnoj Trgovini za
-            opremanje svog avatara – maskote Brushyja.</p>
-        </div>
-
-        <div class="feat-card" id="fc-lab">
-          <div class="phone-frame phone-frame--feat-sm">
-            <div class="phone-frame__screen"><img src="images/Laboratory.webp" alt="Laboratorij" /></div>
-          </div>
-          <div class="feat-icon">🔬</div>
-          <h3>Laboratorij zdrave hrane</h3>
-          <p>Vaše dijete nije sigurno uzrokuje li jabuka karijes? Kroz naš Laboratorij djeca mogu pretraživati namirnice
-            i saznati njihov "Zubi Score" kako bi naučila razlikovati zdravu hranu od one štetne.</p>
-        </div>
-
-        <div class="feat-card feat-card--wide feat-card--flipped" id="fc-quiz">
-          <div class="feat-card__body">
-            <div class="feat-icon">🧠</div>
-            <h3>Edukacija</h3>
-            <p>Edukativni sadržaj pretvoren u zabavne vizualne kvizove u kojima djeca uče kako pobijediti bakterije i
-              karijes.</p>
-            <div class="feat-tags"><span>Napad Šećerne Vile</span><span>Vizualno učenje</span></div>
-          </div>
-          <div class="feat-card__phone">
-            <div class="phone-frame phone-frame--feat">
-              <div class="phone-frame__screen"><img src="images/Quiz_question.webp" alt="Kviz" /></div>
+            <div class="insight reveal">
+              <p class="insight__num">25%</p>
+              <p data-i18n="sol.i2">explicitly asked for an app with a timer and rewards</p>
             </div>
           </div>
         </div>
+        <ul class="principles">
+          <li class="principle reveal">
+            <span class="principle__icon">🎮</span>
+            <div>
+              <h3 data-i18n="sol.p1t">Play, not lectures</h3>
+              <p data-i18n="sol.p1">Learning happens through games and quizzes, not warnings.</p>
+            </div>
+          </li>
+          <li class="principle reveal">
+            <span class="principle__icon">⏱️</span>
+            <div>
+              <h3 data-i18n="sol.p2t">Guided, not guessed</h3>
+              <p data-i18n="sol.p2">A visual timer walks kids through all four areas of the mouth in two minutes.</p>
+            </div>
+          </li>
+          <li class="principle reveal">
+            <span class="principle__icon">💎</span>
+            <div>
+              <h3 data-i18n="sol.p3t">Rewards that build habits</h3>
+              <p data-i18n="sol.p3">Forming a habit takes about 66 days on average, and the reward economy is built to last that long.</p>
+            </div>
+          </li>
+          <li class="principle reveal">
+            <span class="principle__icon">🔒</span>
+            <div>
+              <h3 data-i18n="sol.p4t">Parents stay in control</h3>
+              <p data-i18n="sol.p4">A PIN-protected parent panel, with all data stored on the device.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
 
-        <div class="feat-card feat-card--wide" id="fc-streak">
-          <div class="feat-card__phone">
-            <div class="phone-frame phone-frame--feat">
-              <div class="phone-frame__screen"><img src="images/Streak_extended.webp" alt="Streak" /></div>
+    <!-- FEATURES -->
+    <section class="section" id="features">
+      <div class="container">
+        <header class="section__head">
+          <p class="pill pill--yellow" data-i18n="feat.label">03 · The app</p>
+          <h2 class="section__title" data-i18n="feat.title">Five features that make brushing the best part of the day</h2>
+        </header>
+
+        <div class="explorer">
+          <div class="explorer__tabs" role="tablist" aria-label="Features">
+            <button class="ftab" role="tab" aria-selected="true" aria-controls="feat-panel" data-img="images/Timer-ongoing.webp">
+              <span class="ftab__icon">⏱️</span>
+              <span class="ftab__body">
+                <strong data-i18n="feat.t1">Interactive timer</strong>
+                <span data-i18n="feat.d1">A visual mouth map guides kids through all four quadrants for the recommended two minutes. As time passes, the teeth on screen get sparkling clean.</span>
+              </span>
+            </button>
+            <button class="ftab" role="tab" aria-selected="false" aria-controls="feat-panel" data-img="images/Shop.webp">
+              <span class="ftab__icon">💎</span>
+              <span class="ftab__body">
+                <strong data-i18n="feat.t2">Rewards &amp; shop</strong>
+                <span data-i18n="feat.d2">Every brush earns "Teeth", a virtual currency kids save and spend in the shop to dress up Brushy, their mascot.</span>
+              </span>
+            </button>
+            <button class="ftab" role="tab" aria-selected="false" aria-controls="feat-panel" data-img="images/Laboratory.webp">
+              <span class="ftab__icon">🔬</span>
+              <span class="ftab__body">
+                <strong data-i18n="feat.t3">Healthy food lab</strong>
+                <span data-i18n="feat.d3">Does an apple cause cavities? Kids search for foods and see their "Tooth Score" to learn what's good for teeth and what isn't.</span>
+              </span>
+            </button>
+            <button class="ftab" role="tab" aria-selected="false" aria-controls="feat-panel" data-img="images/Quiz_question.webp">
+              <span class="ftab__icon">🧠</span>
+              <span class="ftab__body">
+                <strong data-i18n="feat.t4">Learning quizzes</strong>
+                <span data-i18n="feat.d4">Dental education as short, visual quizzes, like "Attack of the Sugar Fairy", where kids learn how to beat bacteria.</span>
+              </span>
+            </button>
+            <button class="ftab" role="tab" aria-selected="false" aria-controls="feat-panel" data-img="images/Streak_extended.webp">
+              <span class="ftab__icon">🔥</span>
+              <span class="ftab__body">
+                <strong data-i18n="feat.t5">Streaks &amp; weekly tasks</strong>
+                <span data-i18n="feat.d5">Brushing every day earns bonus rewards, and weekly tasks keep kids coming back long enough to form a lasting habit.</span>
+              </span>
+            </button>
+          </div>
+          <div class="explorer__stage" id="feat-panel" role="tabpanel">
+            <div class="blob" aria-hidden="true"></div>
+            <div class="phone phone--feat"><img id="feat-img" src="images/Timer-ongoing.webp" alt="" /></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARENTS -->
+    <section class="section section--tint" id="parents">
+      <div class="container split split--rev">
+        <div class="split__media">
+          <div class="phone phone--feat"><img src="images/Parental-Control_dashboard.webp" alt="" /></div>
+        </div>
+        <div class="split__text">
+          <p class="pill pill--green" data-i18n="par.label">04 · For parents</p>
+          <h2 class="section__title" data-i18n="par.title">Designed for kids, built for parents.</h2>
+          <p class="lead" data-i18n="par.text">A PIN-protected parent panel lets you track brushing on a monthly calendar, set brushing length to 2 or 3 minutes, and schedule morning and evening reminders around your family's routine.</p>
+          <ul class="checks">
+            <li data-i18n="par.c1">Monthly brushing calendar</li>
+            <li data-i18n="par.c2">2 or 3 minute sessions</li>
+            <li data-i18n="par.c3">Morning &amp; evening reminders</li>
+          </ul>
+          <div class="privacy">
+            <span class="privacy__icon">🔒</span>
+            <div>
+              <strong data-i18n="par.privT">Privacy by design</strong>
+              <p data-i18n="par.priv">All data stays <b>on your device</b>. Nothing is shared with or sold to third parties.</p>
             </div>
           </div>
-          <div class="feat-card__body">
-            <div class="feat-icon">🔥</div>
-            <h3>Tjedni niz i zadaci</h3>
-            <p>Održavanje svakodnevne navike donosi dodatne nagrade. Znanost kaže da je za usvajanje navike potrebno u
-              prosjeku 66 dana – Brushyjeva ekonomija dizajnirana je da zadrži dječju motivaciju upravo toliko dugo!</p>
-            <div class="feat-tags"><span>Streak</span><span>Dnevni zadaci</span><span>66 dana</span></div>
-          </div>
         </div>
+      </div>
+    </section>
 
+    <!-- SCREENS -->
+    <section class="section" id="screens">
+      <div class="container">
+        <header class="section__head section__head--row">
+          <div>
+            <p class="pill pill--sky" data-i18n="scr.label">05 · Screens</p>
+            <h2 class="section__title" data-i18n="scr.title">A closer look at Brushy</h2>
+            <p class="section__sub" data-i18n="scr.sub">Tap any screen to enlarge it. The UI is in Croatian, the app's first market.</p>
+          </div>
+          <div class="carousel__nav">
+            <button class="round-btn" id="car-prev" aria-label="Previous">‹</button>
+            <button class="round-btn" id="car-next" aria-label="Next">›</button>
+          </div>
+        </header>
       </div>
-    </div>
-  </section>
+      <div class="carousel" id="carousel">
+        <figure class="shot"><button class="phone phone--shot"><img src="images/First-load-page.webp" alt="" loading="lazy" /></button><figcaption data-i18n="scr.1">Welcome</figcaption></figure>
+        <figure class="shot"><button class="phone phone--shot"><img src="images/Dashboard.webp" alt="" loading="lazy" /></button><figcaption data-i18n="scr.2">Home &amp; weekly streak</figcaption></figure>
+        <figure class="shot"><button class="phone phone--shot"><img src="images/Timer-ongoing.webp" alt="" loading="lazy" /></button><figcaption data-i18n="scr.3">Timer in progress</figcaption></figure>
+        <figure class="shot"><button class="phone phone--shot"><img src="images/Timer-end.webp" alt="" loading="lazy" /></button><figcaption data-i18n="scr.4">Brushing done!</figcaption></figure>
+        <figure class="shot"><button class="phone phone--shot"><img src="images/Quiz.webp" alt="" loading="lazy" /></button><figcaption data-i18n="scr.5">Quiz level map</figcaption></figure>
+        <figure class="shot"><button class="phone phone--shot"><img src="images/Quiz_correct-answer.webp" alt="" loading="lazy" /></button><figcaption data-i18n="scr.6">Correct answer</figcaption></figure>
+        <figure class="shot"><button class="phone phone--shot"><img src="images/Shop_active-item.webp" alt="" loading="lazy" /></button><figcaption data-i18n="scr.7">Mascot shop</figcaption></figure>
+        <figure class="shot"><button class="phone phone--shot"><img src="images/Laboratory_search-result.webp" alt="" loading="lazy" /></button><figcaption data-i18n="scr.8">Food lab result</figcaption></figure>
+        <figure class="shot"><button class="phone phone--shot"><img src="images/Streak_broken.webp" alt="" loading="lazy" /></button><figcaption data-i18n="scr.9">Streak broken</figcaption></figure>
+        <figure class="shot"><button class="phone phone--shot"><img src="images/Parental-Control_access.webp" alt="" loading="lazy" /></button><figcaption data-i18n="scr.10">Parent PIN access</figcaption></figure>
+      </div>
+    </section>
 
-  <section class="parents" id="parents" style="padding: 100px 0; background: transparent;">
-    <div class="container">
-      <div class="solution__split">
-        <div class="solution__text">
-          <div class="section-label label--yellow">👨‍👩‍👧 Za roditelje</div>
-          <h2 class="section-title">Dizajnirano za djecu,<br />stvoreno za roditelje.</h2>
-          <p class="solution__desc" style="font-size: 1.125rem; line-height: 1.75; margin-bottom: 24px;">
-            Znamo koliko je roditeljski nadzor važan. Zato Brushy ima poseban Roditeljski panel zaštićen PIN-om. Unutar
-            njega možete pratiti kalendar pranja zubi za tekući mjesec, prilagoditi trajanje pranja (2 ili 3 minute) i
-            namjestiti jutarnje i večernje podsjetnike prema ritmu vaše obitelji.
-          </p>
-          <div class="privacy-block"
-            style="background: rgba(34, 197, 94, 0.1); border-left: 4px solid var(--green); padding: 20px 24px; border-radius: 0 16px 16px 0; box-shadow: 0 4px 12px rgba(34, 197, 94, 0.05);">
-            <p
-              style="margin: 0; font-weight: 800; color: var(--dark); font-size: 1.15rem; display: flex; align-items: center; gap: 8px;">
-              <span>🔒</span> 100% Privatnost zajamčena
-            </p>
-            <p style="margin: 8px 0 0; color: var(--mid); font-size: 0.98rem; line-height: 1.6;">
-              I najvažnije: svi podaci ostaju <strong>isključivo na vašem uređaju</strong>. Nema prijenosa trećim
-              stranama niti prodaje podataka, jer nam je sigurnost vaše djece na prvom mjestu.
-            </p>
-          </div>
-        </div>
-        <div class="solution__visual">
-          <div class="phone-frame phone-frame--solution">
-            <img src="images/Parental-Control_dashboard.webp" alt="Roditeljski nadzor" />
+    <!-- SCIENCE -->
+    <section class="section section--tint" id="science">
+      <div class="container">
+        <div class="science reveal">
+          <div class="science__icon">🎓</div>
+          <div>
+            <p class="pill pill--yellow" data-i18n="sci.label">Grounded in science</p>
+            <h2 class="section__title" data-i18n="sci.title">More than just another app</h2>
+            <p class="lead" data-i18n="sci.text">Brushy is the result of applied, data-driven research developed in collaboration between the <strong>Faculty of Dental Medicine and Health Osijek</strong> and the <strong>Faculty of Electrical Engineering, Computer Science and Information Technology Osijek (FERIT)</strong>. It respects children's cognitive psychology and targets a real problem: the gap between what kids know and how they behave.</p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="screens" id="screens">
-    <div class="container tc">
-      <div class="section-label label--blue">📱 Svi ekrani</div>
-      <h2 class="section-title">Upoznajte Brushy izbliza</h2>
-      <p class="section-sub" style="margin:0 auto 32px;max-width:520px">Kliknite na bilo koji ekran za detaljan prikaz.
-      </p>
-    </div>
-    <div class="screens__filters">
-      <button class="flt active" data-cat="all" id="f-all">Sve</button>
-      <button class="flt" data-cat="onboarding" id="f-onb">Uvod</button>
-      <button class="flt" data-cat="timer" id="f-tim">Timer</button>
-      <button class="flt" data-cat="quiz" id="f-quiz">Kviz</button>
-      <button class="flt" data-cat="progress" id="f-prog">Napredak</button>
-      <button class="flt" data-cat="parent" id="f-par">Roditelj</button>
-    </div>
-    <div class="screens__grid" id="screens-grid">
-      <div class="sc" data-cat="onboarding">
-        <div class="phone-frame phone-frame--sc">
-          <div class="phone-frame__screen"><img src="images/First-load-page.webp" alt="Dobrodošlica" loading="lazy" />
-          </div>
-        </div>
-        <p>Dobrodošlica</p>
-      </div>
-      <div class="sc" data-cat="onboarding">
-        <div class="phone-frame phone-frame--sc">
-          <div class="phone-frame__screen"><img src="images/Role-Roditelj (screen 1).webp" alt="Uloga 1"
-              loading="lazy" /></div>
-        </div>
-        <p>Odabir uloge</p>
-      </div>
-      <div class="sc" data-cat="onboarding">
-        <div class="phone-frame phone-frame--sc">
-          <div class="phone-frame__screen"><img src="images/Role-Roditelj (screen 2).webp" alt="Uloga 2"
-              loading="lazy" /></div>
-        </div>
-        <p>Postavljanje profila</p>
-      </div>
-      <div class="sc" data-cat="timer">
-        <div class="phone-frame phone-frame--sc">
-          <div class="phone-frame__screen"><img src="images/Timer-ongoing.webp" alt="Timer" loading="lazy" /></div>
-        </div>
-        <p>Timer – u tijeku</p>
-      </div>
-      <div class="sc" data-cat="timer">
-        <div class="phone-frame phone-frame--sc">
-          <div class="phone-frame__screen"><img src="images/Timer-end.webp" alt="Timer kraj" loading="lazy" /></div>
-        </div>
-        <p>Timer – završeno!</p>
-      </div>
-      <div class="sc" data-cat="quiz">
-        <div class="phone-frame phone-frame--sc">
-          <div class="phone-frame__screen"><img src="images/Quiz.webp" alt="Kviz mapa" loading="lazy" /></div>
-        </div>
-        <p>Karta razina</p>
-      </div>
-      <div class="sc" data-cat="quiz">
-        <div class="phone-frame phone-frame--sc">
-          <div class="phone-frame__screen"><img src="images/Quiz_question.webp" alt="Pitanje" loading="lazy" /></div>
-        </div>
-        <p>Pitanje</p>
-      </div>
-      <div class="sc" data-cat="quiz">
-        <div class="phone-frame phone-frame--sc">
-          <div class="phone-frame__screen"><img src="images/Quiz_correct-answer.webp" alt="Točno" loading="lazy" />
-          </div>
-        </div>
-        <p>Točno! ✅</p>
-      </div>
-      <div class="sc" data-cat="quiz">
-        <div class="phone-frame phone-frame--sc">
-          <div class="phone-frame__screen"><img src="images/Quiz_incorrect-answer.webp" alt="Netočno" loading="lazy" />
-          </div>
-        </div>
-        <p>Netočno ❌</p>
-      </div>
-      <div class="sc" data-cat="quiz">
-        <div class="phone-frame phone-frame--sc">
-          <div class="phone-frame__screen"><img src="images/Quiz_end.webp" alt="Kviz kraj" loading="lazy" /></div>
-        </div>
-        <p>Kraj kviza</p>
-      </div>
-      <div class="sc" data-cat="progress">
-        <div class="phone-frame phone-frame--sc">
-          <div class="phone-frame__screen"><img src="images/Dashboard.webp" alt="Dashboard" loading="lazy" /></div>
-        </div>
-        <p>Nadzorna ploča</p>
-      </div>
-      <div class="sc" data-cat="progress">
-        <div class="phone-frame phone-frame--sc">
-          <div class="phone-frame__screen"><img src="images/Streak_extended.webp" alt="Streak" loading="lazy" /></div>
-        </div>
-        <p>Streak 🔥</p>
-      </div>
-      <div class="sc" data-cat="progress">
-        <div class="phone-frame phone-frame--sc">
-          <div class="phone-frame__screen"><img src="images/Streak_broken.webp" alt="Streak broken" loading="lazy" />
-          </div>
-        </div>
-        <p>Streak prekinut</p>
-      </div>
-      <div class="sc" data-cat="progress">
-        <div class="phone-frame phone-frame--sc">
-          <div class="phone-frame__screen"><img src="images/Shop.webp" alt="Shop" loading="lazy" /></div>
-        </div>
-        <p>Prodavaonica</p>
-      </div>
-      <div class="sc" data-cat="progress">
-        <div class="phone-frame phone-frame--sc">
-          <div class="phone-frame__screen"><img src="images/Shop_active-item.webp" alt="Shop item" loading="lazy" />
-          </div>
-        </div>
-        <p>Aktivni predmet</p>
-      </div>
-      <div class="sc" data-cat="progress">
-        <div class="phone-frame phone-frame--sc">
-          <div class="phone-frame__screen"><img src="images/Laboratory.webp" alt="Laboratorij" loading="lazy" /></div>
-        </div>
-        <p>Laboratorij 🔬</p>
-      </div>
-      <div class="sc" data-cat="parent">
-        <div class="phone-frame phone-frame--sc">
-          <div class="phone-frame__screen"><img src="images/Parental-Control_dashboard.webp" alt="Roditelji"
-              loading="lazy" /></div>
-        </div>
-        <p>Roditeljska analitika</p>
-      </div>
-      <div class="sc" data-cat="parent">
-        <div class="phone-frame phone-frame--sc">
-          <div class="phone-frame__screen"><img src="images/Parental-Control_access.webp" alt="Pristup"
-              loading="lazy" /></div>
-        </div>
-        <p>PIN pristup</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="testimonials" id="research">
-    <div class="container tc">
-      <div class="section-label label--yellow">📚 Utemeljeno u znanosti</div>
-      <h2 class="section-title">Projekt utemeljen na znanosti</h2>
-      <div class="research-card"
-        style="max-width: 800px; margin: 0 auto; background: linear-gradient(135deg,rgba(255,255,255,.8),rgba(255,255,255,.2)); backdrop-filter: blur(24px); border-radius: var(--r-lg); padding: 48px 40px; border: 1px solid rgba(255,255,255,.5); box-shadow: var(--sh-md);">
-        <p style="font-size: 1.15rem; color: var(--mid); line-height: 1.8; text-align: left; margin: 0;">
-          Brushy nije samo još jedna mobilna aplikacija. On je rezultat primijenjenog znanstveno-istraživačkog rada
-          temeljenog na podacima, razvijen u suradnji <strong>Fakulteta za dentalnu medicinu i zdravstvo</strong> te
-          <strong>Fakulteta elektrotehnike, računarstva i informacijskih tehnologija Osijek</strong>. Napravili smo alat
-          koji uvažava dječju kognitivnu psihologiju i rješava stvarni problem nesuglasja između znanja i ponašanja kod
-          djece.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="closing" id="closing">
-    <div class="closing__bg" aria-hidden="true">
-      <span class="blob cb1"></span><span class="blob cb2"></span>
-    </div>
-    <div class="container tc">
-      <div class="closing__icon">🦷</div>
-      <h2 class="closing__title">Imate ideju?<br />Pomognite nam unaprijediti Brushy.</h2>
-      <p class="closing__sub" style="margin-bottom: 32px;">
-        Podijelite svoje mišljenje, prijedloge ili
-        kritike s nama i budite dio stvaranja aplikacije koja će pranje zubi pretvoriti u najzabavniji dio dana
-      </p>
-      <div style="margin-bottom: 56px; display: flex; justify-content: center; position: relative; z-index: 10;">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc-t0o3n5yCdRnOGmvptM8rXhaKTI5Omn7wMrzjywjhIcHm4A/viewform?usp=publish-editor"
-          class="btn btn--yellow" style="box-shadow: 0 0 40px rgba(245,197,24,0.3);">Ostavite povratnu
-          informaciju</a>
-      </div>
-      <div class="closing__phones">
-        <div class="phone-frame phone-frame--closing">
-          <div class="phone-frame__screen"><img src="images/Dashboard.webp" alt="Brushy dashboard" loading="lazy" />
-          </div>
-        </div>
-        <div class="phone-frame phone-frame--closing phone-frame--closing-main">
-          <div class="phone-frame__screen"><img src="images/Streak_extended.webp" alt="Brushy streak" loading="lazy" />
-          </div>
-        </div>
-        <div class="phone-frame phone-frame--closing">
-          <div class="phone-frame__screen"><img src="images/Quiz_correct-answer.webp" alt="Brushy kviz"
-              loading="lazy" /></div>
+    <!-- CLOSING -->
+    <section class="closing">
+      <div class="container closing__inner">
+        <span class="closing__icon">🦷</span>
+        <h2 class="closing__title" data-i18n="cl.title">Brushy is still a concept. Help shape it.</h2>
+        <p class="closing__sub" data-i18n="cl.sub">Share your thoughts, ideas or criticism and help build the app that makes brushing the most fun part of the day.</p>
+        <div class="closing__cta">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSc-t0o3n5yCdRnOGmvptM8rXhaKTI5Omn7wMrzjywjhIcHm4A/viewform?usp=publish-editor"
+            class="btn btn--yellow" target="_blank" rel="noopener" data-i18n="cl.cta">Leave feedback</a>
+          <a href="../#projects" class="btn btn--light" data-i18n="cl.back" data-i18n-href="cl.backHref">← Back to portfolio</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <footer class="footer">
-    <div class="container tc">
-      <div class="footer__logo">🦷 <span>Brushy</span></div>
-      <p class="footer__copy">© 2026 Brushy. Sva prava pridržana.</p>
+    <div class="container footer__inner">
+      <a href="#top" class="logo logo--sm"><span class="logo__mark">🦷</span>Brushy</a>
+      <p data-i18n="foot.copy">© 2026 Brushy · Concept &amp; research project</p>
     </div>
   </footer>
 
-  <div class="lb-overlay" id="lb-overlay"></div>
-  <div class="lb" id="lb">
-    <button class="lb__close" id="lb-close">✕</button>
-    <button class="lb__nav lb__nav--prev" id="lb-prev">‹</button>
-    <img src="" alt="" id="lb-img" class="lb__img" />
-    <button class="lb__nav lb__nav--next" id="lb-next">›</button>
-    <div class="lb__cap" id="lb-cap"></div>
+  <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Screen preview" hidden>
+    <button class="lb__close round-btn" id="lb-close" aria-label="Close">✕</button>
+    <button class="lb__nav lb__nav--prev round-btn" id="lb-prev" aria-label="Previous">‹</button>
+    <figure class="lb__fig">
+      <img src="" alt="" id="lb-img" />
+      <figcaption id="lb-cap"></figcaption>
+    </figure>
+    <button class="lb__nav lb__nav--next round-btn" id="lb-next" aria-label="Next">›</button>
   </div>
-  <script src="script.js"></script>
+
+  <script src="script.js?v=9"></script>
 </body>
 
 </html>
