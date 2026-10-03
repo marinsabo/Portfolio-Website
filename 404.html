@@ -13,14 +13,11 @@
       if (m) { location.replace('/work/' + m[1] + '.html'); return; }
       if (/^\/en\/?(index\.html)?$/.test(location.pathname)) location.replace('/');
     })();
-    try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) { }
   </script>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap"
-    rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@800;900&amp;family=Instrument+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
   <link rel="stylesheet" href="/styles.css">
 </head>
 
@@ -37,7 +34,7 @@
 
  COMMAND ===> <span class="cursor"> </span></pre>
       </div>
-      <a class="btn btn-primary" href="/">Go to the homepage</a>
+      <p class="actions"><a class="btn btn-primary" href="/">Go to the homepage <span class="arr" aria-hidden="true">→</span></a></p>
     </div>
   </main>
 </body>

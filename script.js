@@ -2,42 +2,92 @@
   'use strict';
 
   var root = document.documentElement;
+  var lang = root.lang === 'hr' ? 'hr' : 'en';
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // ---------- Theme toggle (light is the default) ----------
-  var toggle = document.querySelector('.theme-toggle');
-  var themeMeta = document.querySelector('meta[name="theme-color"]');
-  var applyTheme = function (next) {
-    root.dataset.theme = next;
-    if (themeMeta) themeMeta.setAttribute('content', next === 'dark' ? '#0f1012' : '#ffffff');
-    try { localStorage.setItem('theme', next); } catch (e) { /* storage unavailable */ }
-  };
-  if (themeMeta && root.dataset.theme === 'dark') themeMeta.setAttribute('content', '#0f1012');
-  if (toggle) {
-    toggle.addEventListener('click', function () {
-      var next = root.dataset.theme === 'dark' ? 'light' : 'dark';
-      // a soft cross-fade where the browser supports view transitions
-      if (document.startViewTransition && !reduceMotion) {
-        document.startViewTransition(function () { applyTheme(next); });
-      } else {
-        applyTheme(next);
+  // ---------- Mobile menu ----------
+  var header = document.querySelector('.site-header');
+  var menuBtn = document.querySelector('.menu-btn');
+  if (header && menuBtn) {
+    var setOpen = function (open) {
+      header.classList.toggle('is-open', open);
+      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    };
+    menuBtn.addEventListener('click', function () {
+      setOpen(menuBtn.getAttribute('aria-expanded') !== 'true');
+    });
+    // close after following a link, or on Escape
+    header.querySelectorAll('.nav a').forEach(function (a) {
+      a.addEventListener('click', function () { setOpen(false); });
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && header.classList.contains('is-open')) {
+        setOpen(false);
+        menuBtn.focus();
       }
     });
-  }
-
-  // ---------- Header border on scroll ----------
-  var header = document.querySelector('.site-header');
-  if (header) {
-    var onScroll = function () {
-      header.classList.toggle('is-scrolled', window.scrollY > 8);
-    };
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
   }
 
   // ---------- Footer year ----------
   var year = document.querySelector('[data-year]');
   if (year) year.textContent = new Date().getFullYear();
+
+  // ---------- Shipped log (data/shipped.json is the single source) ----------
+  var list = document.querySelector('[data-shipped-list]');
+  var lastShipped = document.querySelector('[data-last-shipped]');
+  var src = (document.querySelector('[data-shipped]') || {}).dataset;
+  src = (src && src.shipped) || (lastShipped && lastShipped.dataset.lastShipped);
+
+  if (src && (list || lastShipped)) {
+    fetch(src)
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        var entries = data.entries || [];
+        var shipped = entries.filter(function (e) { return e.status === 'shipped'; });
+
+        if (lastShipped && shipped.length) lastShipped.textContent = shipped[0].date;
+        if (!list) return;
+
+        document.querySelectorAll('[data-shipped-count]').forEach(function (el) {
+          el.textContent = shipped.length;
+        });
+        var countText = document.querySelector('[data-shipped-count-text]');
+        if (countText) countText.textContent = shipped.length + ' ';
+        var since = document.querySelector('[data-shipped-since]');
+        if (since && data.since) since.textContent = data.since;
+
+        list.textContent = '';
+        entries.forEach(function (e) {
+          var li = document.createElement('li');
+
+          var date = document.createElement('span');
+          date.className = 'log-date';
+          date.textContent = e.date;
+
+          var item = document.createElement('span');
+          item.className = 'log-item';
+          var title = document.createElement('strong');
+          title.textContent = e.title;
+          var note = document.createElement('span');
+          note.textContent = ' — ' + ((e.note && (e.note[lang] || e.note.en)) || '');
+          item.appendChild(title);
+          item.appendChild(note);
+
+          var dot = document.createElement('span');
+          dot.className = 'log-dot' + (e.status === 'next' ? ' is-next' : '');
+          dot.setAttribute('role', 'img');
+          dot.setAttribute('aria-label', e.status === 'next'
+            ? (lang === 'hr' ? 'u izradi' : 'in progress')
+            : (lang === 'hr' ? 'isporučeno' : 'shipped'));
+
+          li.appendChild(date);
+          li.appendChild(item);
+          li.appendChild(dot);
+          list.appendChild(li);
+        });
+      })
+      .catch(function () { /* keep the fallback text */ });
+  }
 
   // ---------- DartZ console ----------
   var consoleEl = document.querySelector('[data-console]');
@@ -67,7 +117,7 @@
       window.setTimeout(function () {
         swap();
         screenEl.classList.remove('is-switching');
-      }, 80);
+      }, 60);
     }
     buttons.forEach(function (b) {
       b.setAttribute('aria-pressed', b.dataset.key === key ? 'true' : 'false');
