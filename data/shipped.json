@@ -1,0 +1,102 @@
+{
+  "_readme": "Shipped log. Newest first. Add a line at the top when you ship something; the counter and the 'Last shipped' date update themselves. status: 'shipped' or 'next' (in progress). Replace every [bracketed] value with the real one.",
+  "since": "[YEAR]",
+  "entries": [
+    {
+      "date": "NEXT",
+      "status": "next",
+      "title": "[Own product]",
+      "note": { "en": "in progress", "hr": "u izradi" }
+    },
+    {
+      "date": "[MM].2026",
+      "status": "shipped",
+      "title": "DartZ delivery pipeline",
+      "note": {
+        "en": "source moved to Git, every commit delivered to z/OS with IBM DBB",
+        "hr": "izvorni kod preseljen u Git, svaki commit isporučuje se na z/OS uz IBM DBB"
+      }
+    },
+    {
+      "date": "[MM].2026",
+      "status": "shipped",
+      "title": "DartZ on z/OS",
+      "note": {
+        "en": "darts league system in COBOL, CICS and Db2 at CROZ; I owned the database",
+        "hr": "sustav za pikado lige u COBOL-u, CICS-u i Db2-u u CROZ-u; baza je bila moja"
+      }
+    },
+    {
+      "date": "[MM.YYYY]",
+      "status": "shipped",
+      "title": "IBM Z Xplore All Star",
+      "note": {
+        "en": "finished the full hands-on z/OS challenge track",
+        "hr": "završio cijelu praktičnu stazu z/OS izazova"
+      }
+    },
+    {
+      "date": "[MM.YYYY]",
+      "status": "shipped",
+      "title": "Brushy",
+      "note": {
+        "en": "research with 70 pupils and an app design, presented at DentOS",
+        "hr": "istraživanje sa 70 učenika i dizajn aplikacije, predstavljeno na DentOS-u"
+      }
+    },
+    {
+      "date": "[MM.YYYY]",
+      "status": "shipped",
+      "title": "Vukovarski Golubići",
+      "note": {
+        "en": "a new site for a children’s choir, and training so they run it themselves",
+        "hr": "nova stranica dječjeg zbora i edukacija da je sami vode"
+      }
+    },
+    {
+      "date": "[MM.YYYY]",
+      "status": "shipped",
+      "title": "GameChanger",
+      "note": {
+        "en": "conference site presenting 100+ speakers and sponsors, on a fixed deadline",
+        "hr": "stranica konferencije sa 100+ govornika i sponzora, uz fiksni rok"
+      }
+    },
+    {
+      "date": "[MM.YYYY]",
+      "status": "shipped",
+      "title": "WaveLance",
+      "note": {
+        "en": "landing page that turns LinkedIn visitors into booked calls",
+        "hr": "landing stranica koja posjetitelje s LinkedIna pretvara u dogovorene pozive"
+      }
+    },
+    {
+      "date": "[MM.YYYY]",
+      "status": "shipped",
+      "title": "CodeHustling",
+      "note": {
+        "en": "one hub for a web-development community on Instagram",
+        "hr": "jedno središte za Instagram zajednicu web developera"
+      }
+    },
+    {
+      "date": "[MM.YYYY]",
+      "status": "shipped",
+      "title": "Ikarus Agency",
+      "note": {
+        "en": "brand identity and website for a marketing agency",
+        "hr": "vizualni identitet i web stranica za marketinšku agenciju"
+      }
+    },
+    {
+      "date": "[MM.YYYY]",
+      "status": "shipped",
+      "title": "First paid client",
+      "note": {
+        "en": "[who it was and what I built]",
+        "hr": "[tko je bio klijent i što sam izradio]"
+      }
+    }
+  ]
+}
