@@ -446,7 +446,6 @@ a:hover .arr-back,
   width: 112px;
   height: 112px;
   object-fit: cover;
-  object-position: 50% 18%;
   filter: grayscale(1);
   background: var(--surface);
 }
