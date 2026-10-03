@@ -421,8 +421,8 @@ a:hover .arr-back,
   max-width: 13em;
   margin-top: clamp(16px, 3vh, 32px);
   /* sized by width AND height, so pill + headline + intro fit one screen */
-  font-size: clamp(44px, min(9.4vw, (100vh - 420px) / 2.76), 148px);
-  font-size: clamp(44px, min(9.4vw, (100svh - 420px) / 2.76), 148px);
+  font-size: clamp(44px, min(8.2vw, (100vh - 460px) / 2.76), 128px);
+  font-size: clamp(44px, min(8.2vw, (100svh - 460px) / 2.76), 128px);
   line-height: 0.92;
   letter-spacing: -0.045em;
 }
@@ -454,7 +454,7 @@ a:hover .arr-back,
 }
 
 .hero-foot {
-  margin-top: clamp(20px, 4vh, 48px);
+  margin-top: clamp(32px, 8vh, 96px);
 }
 
 .hero-foot .actions {
