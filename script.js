@@ -2,7 +2,6 @@
   'use strict';
 
   var root = document.documentElement;
-  var lang = root.lang === 'hr' ? 'hr' : 'en';
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // ---------- Mobile menu ----------
@@ -69,16 +68,14 @@
           var title = document.createElement('strong');
           title.textContent = e.title;
           var note = document.createElement('span');
-          note.textContent = ' — ' + ((e.note && (e.note[lang] || e.note.en)) || '');
+          note.textContent = ' — ' + (e.note || '');
           item.appendChild(title);
           item.appendChild(note);
 
           var dot = document.createElement('span');
           dot.className = 'log-dot' + (e.status === 'next' ? ' is-next' : '');
           dot.setAttribute('role', 'img');
-          dot.setAttribute('aria-label', e.status === 'next'
-            ? (lang === 'hr' ? 'u izradi' : 'in progress')
-            : (lang === 'hr' ? 'isporučeno' : 'shipped'));
+          dot.setAttribute('aria-label', e.status === 'next' ? 'in progress' : 'shipped');
 
           li.appendChild(date);
           li.appendChild(item);

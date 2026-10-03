@@ -10,7 +10,6 @@ Plain HTML, CSS and JavaScript, served by GitHub Pages. No build step.
 | --- | --- |
 | `index.html` | The portfolio (single page, English) |
 | `work/*.html` | Short case studies of freelance web projects |
-| `hr/` | Croatian versions of the homepage and case studies. Keep them in sync with the English pages |
 | `data/shipped.json` | The Shipped log. Newest entry first; the counter and "Last shipped" date are computed from it |
 | `brushy/` | Brushy app concept (research & UX design) |
 | `assets/Marin-Sabo-CV.pdf` | Downloadable CV |
