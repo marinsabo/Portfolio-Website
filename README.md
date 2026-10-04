@@ -1,30 +1,24 @@
 # marinsabo.online
 
-Source for my freelance site, [marinsabo.online](https://marinsabo.online). It lists the client projects I've built and has a case study for each one, in Croatian and English.
+Personal portfolio of Marin Sabo — Computer Science student at FERIT Osijek and mainframe developer (z/OS, COBOL, CICS, Db2, JCL).
 
-Plain HTML, CSS and JavaScript, no build step. Hosted on GitHub Pages with a custom domain.
+Plain HTML, CSS and JavaScript, served by GitHub Pages. No build step.
 
 ## Structure
 
-```
-index.html                 Croatian homepage (default)
-en/                        English versions of the homepage and case studies
-*-case-study.html          one page per client project
-case-study.css             shared styles for the case study pages
-brushy/                    case study for Brushy, a kids' toothbrushing app concept (EN/HR toggle)
-script.js                  custom cursor, mobile menu, infinite project carousel
-sw.js                      service worker: cache-first for images, stale-while-revalidate for the rest
-```
+| Path | What it is |
+| --- | --- |
+| `index.html` | The portfolio (single page, English) |
+| `work/*.html` | Short case studies of freelance web projects |
+| `data/shipped.json` | The Shipped log. Newest entry first; the counter and "Last shipped" date are computed from it |
+| `brushy/` | Brushy app concept (research & UX design) |
+| `assets/Marin-Sabo-CV.pdf` | Downloadable CV |
+| `styles.css`, `script.js` | Shared styles; the menu, Shipped log and DartZ console |
+| `404.html` | Not-found page; also redirects old case-study URLs to `work/` |
+| `sw.js` | Removes the service worker the previous site installed. Keep it for a while so returning visitors aren't stuck on a cached copy of the old site. |
 
-## Running locally
+The DartZ console screens live in `<template id="screen-…">` blocks in `index.html` (64 columns wide).
 
-Any static server works. The service worker only registers over `http://localhost` or HTTPS, so opening `index.html` straight from disk skips it.
+## Analytics
 
-```
-python3 -m http.server 8000
-```
-
-## Notes
-
-- The carousel clones the first and last three cards to each end and jumps `scrollLeft` when you reach a clone, so it loops without a visible reset.
-- After changing any precached file in `sw.js`, bump `CACHE_NAME` so returning visitors get the new version.
+[GoatCounter](https://www.goatcounter.com/) (cookie-free, no consent banner needed), site code `marinsabo`.
