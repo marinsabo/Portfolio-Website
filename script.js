@@ -1,211 +1,135 @@
-/* 
-  MS Development - Core Interactions
-*/
+(function () {
+  'use strict';
 
-document.addEventListener('DOMContentLoaded', () => {
-    initCustomCursor();
-});
+  var root = document.documentElement;
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-function initCustomCursor() {
-    const cursorDot = document.querySelector('[data-cursor-dot]');
-    const cursorOutline = document.querySelector('[data-cursor-outline]');
-
-    if (!cursorDot || !cursorOutline) return;
-
-    window.addEventListener('mousemove', (e) => {
-        const posX = e.clientX;
-        const posY = e.clientY;
-
-        // Dot follows instantly
-        cursorDot.style.left = `${posX}px`;
-        cursorDot.style.top = `${posY}px`;
-
-        // Outline follows with slight delay (using animate for smoothness)
-        cursorOutline.animate({
-            left: `${posX}px`,
-            top: `${posY}px`
-        }, { duration: 500, fill: "forwards" });
-    });
-
-    // Hover effects for links and buttons
-    const interactiveElements = document.querySelectorAll('a, button, .btn');
-
-    interactiveElements.forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            cursorOutline.style.transform = 'translate(-50%, -50%) scale(1.5)';
-            cursorOutline.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
-            cursorOutline.style.mixBlendMode = 'exclusion';
-        });
-
-        el.addEventListener('mouseleave', () => {
-            cursorOutline.style.transform = 'translate(-50%, -50%) scale(1)';
-            cursorOutline.style.backgroundColor = 'transparent';
-            cursorOutline.style.mixBlendMode = 'normal';
-        });
-    });
-}
-
-// Magnetic Button Logic
-const magneticBtns = document.querySelectorAll('[data-magnetic]');
-
-magneticBtns.forEach(btn => {
-    btn.addEventListener('mousemove', (e) => {
-        const rect = btn.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-
-        // Move the button itself
-        btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
-
-        // Move the inner text/content slightly less for parallax
-        const text = btn.querySelector('.btn-text');
-        if (text) {
-            text.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
-        }
-    });
-
-    btn.addEventListener('mouseleave', () => {
-        btn.style.transform = 'translate(0, 0)';
-        const text = btn.querySelector('.btn-text');
-        if (text) {
-            text.style.transform = 'translate(0, 0)';
-        }
-    });
-});
-
-// Mobile Menu Toggle
-const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-const mobileMenuCloseBtn = document.querySelector('.mobile-menu-close');
-const mobileMenu = document.querySelector('.mobile-menu');
-const mobileLinks = document.querySelectorAll('.mobile-nav-link');
-
-if (mobileMenuBtn && mobileMenu) {
-    const toggleMenu = () => {
-        mobileMenuBtn.classList.toggle('active');
-        mobileMenu.classList.toggle('active');
-
-        // Prevent scrolling when menu is open
-        if (mobileMenu.classList.contains('active')) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = '';
-        }
+  // ---------- Mobile menu ----------
+  var header = document.querySelector('.site-header');
+  var menuBtn = document.querySelector('.menu-btn');
+  if (header && menuBtn) {
+    var setOpen = function (open) {
+      header.classList.toggle('is-open', open);
+      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
     };
-
-    const closeMenu = () => {
-        mobileMenuBtn.classList.remove('active');
-        mobileMenu.classList.remove('active');
-        document.body.style.overflow = '';
-    };
-
-    mobileMenuBtn.addEventListener('click', toggleMenu);
-
-    if (mobileMenuCloseBtn) {
-        mobileMenuCloseBtn.addEventListener('click', closeMenu);
-    }
-
-    // Close menu when clicking a link
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', closeMenu);
+    menuBtn.addEventListener('click', function () {
+      setOpen(menuBtn.getAttribute('aria-expanded') !== 'true');
     });
-}
+    // close after following a link, or on Escape
+    header.querySelectorAll('.nav a').forEach(function (a) {
+      a.addEventListener('click', function () { setOpen(false); });
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && header.classList.contains('is-open')) {
+        setOpen(false);
+        menuBtn.focus();
+      }
+    });
+  }
 
-// Header Scroll Effect
-const header = document.querySelector('.header');
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        header.classList.add('scrolled');
+  // ---------- Footer year ----------
+  var year = document.querySelector('[data-year]');
+  if (year) year.textContent = new Date().getFullYear();
+
+  // ---------- Shipped log (data/shipped.json is the single source) ----------
+  var list = document.querySelector('[data-shipped-list]');
+  var lastShipped = document.querySelector('[data-last-shipped]');
+  var src = (document.querySelector('[data-shipped]') || {}).dataset;
+  src = (src && src.shipped) || (lastShipped && lastShipped.dataset.lastShipped);
+
+  if (src && (list || lastShipped)) {
+    fetch(src)
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        var entries = data.entries || [];
+        var shipped = entries.filter(function (e) { return e.status === 'shipped'; });
+
+        if (lastShipped && shipped.length) lastShipped.textContent = shipped[0].date;
+        if (!list) return;
+
+        document.querySelectorAll('[data-shipped-count]').forEach(function (el) {
+          el.textContent = shipped.length;
+        });
+        var countText = document.querySelector('[data-shipped-count-text]');
+        if (countText) countText.textContent = shipped.length + ' ';
+        var since = document.querySelector('[data-shipped-since]');
+        if (since && data.since) since.textContent = data.since;
+
+        list.textContent = '';
+        entries.forEach(function (e) {
+          var li = document.createElement('li');
+
+          var date = document.createElement('span');
+          date.className = 'log-date';
+          date.textContent = e.date;
+
+          var item = document.createElement('span');
+          item.className = 'log-item';
+          var title = document.createElement('strong');
+          title.textContent = e.title;
+          var note = document.createElement('span');
+          note.textContent = ' — ' + (e.note || '');
+          item.appendChild(title);
+          item.appendChild(note);
+
+          var dot = document.createElement('span');
+          dot.className = 'log-dot' + (e.status === 'next' ? ' is-next' : '');
+          dot.setAttribute('role', 'img');
+          dot.setAttribute('aria-label', e.status === 'next' ? 'in progress' : 'shipped');
+
+          li.appendChild(date);
+          li.appendChild(item);
+          li.appendChild(dot);
+          list.appendChild(li);
+        });
+      })
+      .catch(function () { /* keep the fallback text */ });
+  }
+
+  // ---------- DartZ console ----------
+  var consoleEl = document.querySelector('[data-console]');
+  if (!consoleEl) return;
+
+  var screenEl = consoleEl.querySelector('.console-screen');
+  var buttons = consoleEl.querySelectorAll('.pf-keys button');
+
+  // The league screen is rendered in the HTML; the rest live in <template>s.
+  var screens = { league: screenEl.innerHTML };
+  ['match', 'player', 'help', 'exit'].forEach(function (name) {
+    var tpl = document.getElementById('screen-' + name);
+    if (tpl) screens[name] = tpl.innerHTML;
+  });
+
+  var keyToScreen = { F1: 'help', F3: 'exit', F5: 'league', F6: 'match', F9: 'player' };
+
+  function show(key) {
+    var name = keyToScreen[key];
+    if (!name || !screens[name]) return;
+    var swap = function () { screenEl.innerHTML = screens[name]; };
+    if (reduceMotion) {
+      swap();
     } else {
-        header.classList.remove('scrolled');
+      // a very short dip, like the terminal repainting
+      screenEl.classList.add('is-switching');
+      window.setTimeout(function () {
+        swap();
+        screenEl.classList.remove('is-switching');
+      }, 60);
     }
-});
-
-// Portfolio Item Click Handlers - Link to Case Studies
-const portfolioItems = document.querySelectorAll('.portfolio-item');
-portfolioItems.forEach((item, index) => {
-    item.style.cursor = 'pointer';
-    item.addEventListener('click', function () {
-        const caseStudyPages = [
-            'gamechanger-case-study.html',
-            'ikarus-case-study.html',
-            'wavelance-case-study.html'
-        ];
-        if (caseStudyPages[index]) {
-            window.location.href = caseStudyPages[index];
-        }
+    buttons.forEach(function (b) {
+      b.setAttribute('aria-pressed', b.dataset.key === key ? 'true' : 'false');
     });
-});
+  }
 
-// Reusable Infinite Carousel Logic
-function setupInfiniteCarousel(sliderId, prevBtnSelector, nextBtnSelector) {
-    const slider = document.getElementById(sliderId);
-    const prevBtn = document.querySelector(prevBtnSelector);
-    const nextBtn = document.querySelector(nextBtnSelector);
+  buttons.forEach(function (b) {
+    b.addEventListener('click', function () { show(b.dataset.key); });
+  });
 
-    if (!slider || !prevBtn || !nextBtn) return;
-
-    const cards = Array.from(slider.children);
-    if (cards.length === 0) return;
-
-    const cardCount = cards.length;
-    const cardsToClone = 3; // Number of items to clone for buffer
-
-    // Clone items
-    const firstClones = cards.slice(0, cardsToClone).map(card => card.cloneNode(true));
-    const lastClones = cards.slice(-cardsToClone).map(card => card.cloneNode(true));
-
-    // Append and Prepend clones
-    firstClones.forEach(clone => slider.appendChild(clone));
-    lastClones.reverse().forEach(clone => slider.prepend(clone));
-
-    // Scroll to the first real element
-    const alignSlider = () => {
-        const firstCard = cards[0];
-        if (!firstCard) return;
-
-        const cardWidth = firstCard.offsetWidth;
-        const gap = parseFloat(window.getComputedStyle(slider).gap) || 32; // Default to 32px if not set
-        slider.scrollLeft = cardsToClone * (cardWidth + gap);
-    };
-
-    // Run initially and on resize
-    window.addEventListener('load', alignSlider);
-    window.addEventListener('resize', alignSlider);
-    setTimeout(alignSlider, 100);
-
-    // Scroll Event for Infinite Loop
-    slider.addEventListener('scroll', () => {
-        const firstCard = cards[0];
-        if (!firstCard) return;
-
-        const cardWidth = firstCard.offsetWidth;
-        const gap = parseFloat(window.getComputedStyle(slider).gap) || 32;
-        const itemWidth = cardWidth + gap;
-        const totalRealWidth = cardCount * itemWidth;
-
-        // If scrolled to the start (into prepended clones)
-        if (slider.scrollLeft <= 10) {
-            slider.scrollLeft = slider.scrollLeft + totalRealWidth;
-        }
-        // If scrolled to the end (into appended clones)
-        else if (slider.scrollLeft >= totalRealWidth + (cardsToClone * itemWidth) - 10) {
-            slider.scrollLeft = slider.scrollLeft - totalRealWidth;
-        }
-    });
-
-    nextBtn.addEventListener('click', () => {
-        const currentFirst = slider.children[0];
-        const cardWidth = currentFirst.offsetWidth;
-        const gap = parseFloat(window.getComputedStyle(slider).gap) || 32;
-
-        slider.scrollBy({ left: cardWidth + gap, behavior: 'smooth' });
-    });
-
-    prevBtn.addEventListener('click', () => {
-        const currentFirst = slider.children[0];
-        const cardWidth = currentFirst.offsetWidth;
-        const gap = parseFloat(window.getComputedStyle(slider).gap) || 32;
-
-        slider.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' });
-    });
-}
+  // Real function keys work while the console has focus.
+  consoleEl.addEventListener('keydown', function (e) {
+    if (keyToScreen[e.key]) {
+      e.preventDefault();
+      show(e.key);
+    }
+  });
+})();
