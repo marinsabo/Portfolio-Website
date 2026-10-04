@@ -136,26 +136,6 @@ portfolioItems.forEach((item, index) => {
     });
 });
 
-// Disable Right Click
-document.addEventListener('contextmenu', (e) => e.preventDefault());
-
-function ctrlShiftKey(e, keyCode) {
-    return e.ctrlKey && e.shiftKey && e.keyCode === keyCode.charCodeAt(0);
-}
-
-document.onkeydown = (e) => {
-    // Disable F12, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + U
-    if (
-        event.keyCode === 123 ||
-        ctrlShiftKey(e, 'I') ||
-        ctrlShiftKey(e, 'J') ||
-        ctrlShiftKey(e, 'C') ||
-        (e.ctrlKey && e.keyCode === 'U'.charCodeAt(0))
-    ) {
-        return false;
-    }
-};
-
 // Reusable Infinite Carousel Logic
 function setupInfiniteCarousel(sliderId, prevBtnSelector, nextBtnSelector) {
     const slider = document.getElementById(sliderId);
@@ -214,10 +194,6 @@ function setupInfiniteCarousel(sliderId, prevBtnSelector, nextBtnSelector) {
     });
 
     nextBtn.addEventListener('click', () => {
-        const firstCard = cards[0]; // Use original REF for width measurement (or query selector)
-        // Better to query current first child in case of resize updates on clones? 
-        // Actually cards[0] is still in DOM but might be shifted? No, it's just a reference.
-        // Let's us slider.children[0] or just re-measure.
         const currentFirst = slider.children[0];
         const cardWidth = currentFirst.offsetWidth;
         const gap = parseFloat(window.getComputedStyle(slider).gap) || 32;
