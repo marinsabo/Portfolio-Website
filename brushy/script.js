@@ -97,7 +97,7 @@ const HR = {
   'cl.sub': 'Podijelite svoje mišljenje, ideje ili kritike i pomozite nam stvoriti aplikaciju koja će pranje zubi pretvoriti u najzabavniji dio dana.',
   'cl.cta': 'Ostavite povratnu informaciju',
   'cl.back': '← Natrag na portfolio',
-  'cl.backHref': '../index.html',
+  'cl.backHref': '../#projects',
 
   'foot.copy': '© 2026 Brushy · Koncept i istraživački projekt',
 };
