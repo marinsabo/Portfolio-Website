@@ -1,16 +1,17 @@
-const CACHE_NAME = 'ms-dev-v1';
+const CACHE_NAME = 'ms-dev-v2';
 const ASSETS_TO_CACHE = [
     './',
     './index.html',
-    './images/logo-dark-noBG.png',
-    './images/MarinSabo.jpg',
-    './images/gamechanger-all-white-logo.png',
-    './images/ikarus-agency-all-white-logo.png',
-    './images/wavelance-all-white-logo.png',
-    './images/vukovarski-golubici-all-white-logo.png',
-    './images/codehustling-all-white-logo.webp',
-    './images/wavelance-logo.png',
-    './images/gamechanger.webp'
+    './styles.css',
+    './script.js',
+    './images/logo-dark-noBG.webp',
+    './images/MarinSabo.webp',
+    './images/gamechanger-all-white-logo.webp',
+    './images/ikarus-agency-all-white-logo.webp',
+    './images/wavelance-all-white-logo.webp',
+    './images/vukovarski-golubici-all-white-logo.webp',
+    './images/codehustling-all-white-logo.png',
+    './images/wavelance-logo.webp'
 ];
 
 // Install Event - Cache Static Assets
