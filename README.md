@@ -1,4 +1,4 @@
-h1 align="center">Portfolio website</h1>
+<h1 align="center">Portfolio website</h1>
 
 <p align="center">Website used to showcase my skills, projects and some basic information about me.</p>
 
