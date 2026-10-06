@@ -1,21 +1,28 @@
-<h1 align="center">Portfolio website</h1>
+<h1 align="center">Portfolio Website</h1>
 
-<p align="center">Website used to showcase my skills, projects and some basic information about me.</p>
+<p align="center">A website showcasing my skills, projects, and some basic information about me.</p>
 
 ## Links
 
 - [Repo](https://github.com/marinsabo/Portfolio-Website "Portfolio-Website Repo")
-
 - [Live](https://marinsabo.online "Live View")
 
 ## Screenshots
 
-![Home Page](/screenshots/screenshot-desktop.png "Desktop view")
+![Home page – desktop](/screenshots/screenshot-desktop.png "Desktop view")
 
-![Home Page](/screenshots/screenshot-mobile.png "Mobile view")
+![Home page – mobile](/screenshots/screenshot-mobile.png "Mobile view")
 
-## Built with
+## Built With
 
 - HTML5
 - CSS3
 - JavaScript
+
+## AI Usage
+
+Generative AI was used in this project in the following ways:
+
+- analyzing a large number of existing portfolio websites to identify common patterns and best practices
+- brainstorming which sections and information recruiters and employers find most useful
+- writing small code snippets, which I reviewed, tested, and adapted before including them
