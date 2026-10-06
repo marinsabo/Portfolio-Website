@@ -31,7 +31,7 @@
   var year = document.querySelector('[data-year]');
   if (year) year.textContent = new Date().getFullYear();
 
-  // ---------- Shipped log (data/shipped.json is the single source) ----------
+  // ---------- Shipped log (assets/data/shipped.json is the single source) ----------
   var list = document.querySelector('[data-shipped-list]');
   var lastShipped = document.querySelector('[data-last-shipped]');
   var src = (document.querySelector('[data-shipped]') || {}).dataset;
