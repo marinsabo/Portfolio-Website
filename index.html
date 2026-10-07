@@ -1,3066 +1,964 @@
-<!DOCTYPE html>
-<html lang="hr">
-
-<head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R3D48QJG19"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-R3D48QJG19');
-  </script>
-
-  <link rel="icon" type="image/png" href="favicon_io/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="favicon_io/favicon.svg" />
-  <link rel="shortcut icon" href="favicon_io/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png" />
-  <link rel="manifest" href="favicon_io/site.webmanifest">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MS Development | Digitalna rješenja koja rade. Dokazano.</title>
-  <meta name="description"
-    content="Gradimo brze, dinamične i funkcionalne web sustave koji vašim kupcima olakšavaju kupnju, a vaše poslovanje podižu na višu razinu. ">
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700;900&display=swap"
-    rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700;900&display=swap"
-      rel="stylesheet">
-  </noscript>
-
-  <!-- Styles -->
-  <style>
-    :root {
-      --color-bg: #130821;
-      --color-surface-elev: #1E1030;
-      --color-accent: #FFB54C;
-      --color-secondary: #9E25A6;
-      --color-text-high: #F5F5F5;
-      --color-text-medium: #B8B0C5;
-      --color-text-low: #625675;
-      --gradient-mesh: radial-gradient(at 0% 0%, hsla(296, 64%, 40%, 1) 0, transparent 50%),
-        radial-gradient(at 100% 0%, hsla(35, 100%, 65%, 1) 0, transparent 50%);
-      --font-display: 'Montserrat', sans-serif;
-      --font-body: 'Inter', sans-serif;
-      --grid-gutter: 24px;
-      --container-width: 1440px;
-      --header-height: 80px;
-      --transition-fast: 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
-      --transition-smooth: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-      --card-bg: #1e1b2e;
-      --card-border: rgba(255, 255, 255, 0.08);
-      --accent-yellow: #ffb800;
-      --tag-bg: rgba(255, 255, 255, 0.1);
-      --text-muted: #9ca3af;
-    }
-
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      font-size: 16px;
-    }
-
-    body {
-      background-color: var(--color-bg);
-      color: var(--color-text-medium);
-      font-family: var(--font-body);
-      font-weight: 400;
-      line-height: 1.6;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 9998;
-      box-shadow:
-        inset 0 0 100px rgba(158, 37, 166, 0.15),
-        inset 0 0 150px rgba(255, 181, 76, 0.1);
-      mix-blend-mode: screen;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      font-family: var(--font-display);
-      color: var(--color-text-high);
-      font-weight: 900;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-    }
-
-    h1 {
-      font-size: clamp(2.5rem, 5vw, 4.5rem);
-    }
-
-    h2 {
-      font-size: clamp(2rem, 4vw, 3.5rem);
-      margin-bottom: 1.5rem;
-    }
-
-    h3 {
-      font-size: clamp(1.5rem, 3vw, 2.5rem);
-    }
-
-    p {
-      margin-bottom: 1.5rem;
-      max-width: 65ch;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-      transition: var(--transition-fast);
-    }
-
-    .container {
-      width: 90%;
-      max-width: var(--container-width);
-      margin: 0 auto;
-      padding: 0 var(--grid-gutter);
-    }
-
-    .text-accent {
-      color: var(--color-accent);
-    }
-
-    .text-gradient {
-      background: linear-gradient(90deg, var(--color-text-high), var(--color-accent));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .card-glass {
-      background: linear-gradient(135deg,
-          rgba(255, 255, 255, 0.03) 0%,
-          rgba(255, 255, 255, 0.01) 100%);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-top: 1px solid rgba(255, 255, 255, 0.15);
-      border-left: 1px solid rgba(255, 255, 255, 0.15);
-      box-shadow:
-        0 4px 24px -1px rgba(0, 0, 0, 0.2),
-        0 0 1px 0 rgba(0, 0, 0, 0.4);
-      border-radius: 16px;
-      transition: var(--transition-smooth);
-    }
-
-    .card-glass:hover {
-      transform: translateY(-5px);
-      border-color: rgba(255, 181, 76, 0.3);
-      box-shadow:
-        0 20px 40px -5px rgba(0, 0, 0, 0.4),
-        0 0 1px 0 rgba(255, 181, 76, 0.3);
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1rem 2rem;
-      font-family: var(--font-display);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      border-radius: 50px;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      z-index: 1;
-    }
-
-    .btn-primary {
-      background: transparent;
-      color: var(--color-bg);
-    }
-
-    .btn-primary::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      padding: 2px;
-      background: conic-gradient(from var(--angle), transparent 0%, transparent 70%, var(--color-accent) 100%);
-      -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-      mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      animation: spin 3s linear infinite;
-      pointer-events: none;
-    }
-
-    .btn-primary::after {
-      content: '';
-      position: absolute;
-      inset: 2px;
-      background: var(--color-accent);
-      border-radius: 6px;
-      z-index: -1;
-      transition: var(--transition-fast);
-    }
-
-    .btn-primary:hover::after {
-      background: #ffc570;
-    }
-
-    @property --angle {
-      syntax: '<angle>';
-      initial-value: 0deg;
-      inherits: false;
-    }
-
-    @keyframes spin {
-      from {
-        --angle: 0deg;
-      }
-
-      to {
-        --angle: 360deg;
-      }
-    }
-
-    .cursor-dot,
-    .cursor-outline {
-      position: fixed;
-      top: 0;
-      left: 0;
-      transform: translate(-50%, -50%);
-      /* Initial centering if needed, but we'll control pos via JS */
-      border-radius: 50%;
-      z-index: 9999;
-      pointer-events: none;
-      will-change: transform;
-      /* Hint to browser to promote to compositing layer */
-    }
-
-    .cursor-dot {
-      width: 8px;
-      height: 8px;
-      background-color: white;
-      /* Start off-screen or hidden until JS picks it up */
-      transform: translate(-100px, -100px);
-    }
-
-    .cursor-outline {
-      width: 40px;
-      height: 40px;
-      border: 1px solid rgba(255, 255, 255, 0.5);
-      /* Start off-screen */
-      transform: translate(-100px, -100px);
-      transition: width 0.2s, height 0.2s, background-color 0.2s;
-      /* Removed transform 0.1s */
-    }
-
-    body:hover .cursor-outline {
-      opacity: 1;
-    }
-
-    @media (max-width: 768px) {
-
-      .cursor-dot,
-      .cursor-outline {
-        display: none;
-      }
-
-      body,
-      a,
-      button,
-      .btn {
-        cursor: auto;
-      }
-
-      .pain-point-title {
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
-      }
-    }
-
-    p {
-      width: 90%;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .cursor-hover {
-      transform: translate(-50%, -50%) scale(1.5) !important;
-      background-color: rgba(255, 255, 255, 0.1) !important;
-      mix-blend-mode: exclusion;
-    }
-
-    :focus-visible {
-      outline: none;
-      box-shadow: 0 0 0 2px var(--color-bg), 0 0 0 4px var(--color-accent);
-    }
-
-    .availability-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      margin-bottom: 1.5rem;
-      padding: 8px 16px 8px 10px;
-      background: rgba(255, 255, 255, 0.03);
-      border-radius: 50px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      box-shadow:
-        0 4px 20px rgba(0, 0, 0, 0.1),
-        inset 0 0 20px rgba(255, 255, 255, 0.02);
-      font-family: inherit;
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: rgba(255, 255, 255, 0.9);
-    }
-
-    .status-dot {
-      width: 6px;
-      height: 6px;
-      background-color: #22c55e;
-      border-radius: 50%;
-      box-shadow: 0 0 8px rgba(34, 197, 94, 0.8);
-      position: relative;
-    }
-
-    .status-dot::after {
-      content: '';
-      position: absolute;
-      top: -2px;
-      left: -2px;
-      right: -2px;
-      bottom: -2px;
-      border-radius: 50%;
-      border: 1px solid rgba(34, 197, 94, 0.5);
-      animation: ripple 2s infinite ease-out;
-    }
-
-    @keyframes ripple {
-      0% {
-        transform: scale(1);
-        opacity: 0.8;
-      }
-
-      100% {
-        transform: scale(2.5);
-        opacity: 0;
-      }
-    }
-
-    .hero-section {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-      padding-top: calc(var(--header-height) + 4rem);
-    }
-
-    .hero-container {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    .hero-content {
-      z-index: 2;
-    }
-
-    .hero-subtitle {
-      font-size: 1.25rem;
-      color: var(--color-text-medium);
-      margin-top: 1.5rem;
-      margin-bottom: 3rem;
-      max-width: 500px;
-      text-align: left;
-      margin-left: 0;
-    }
-
-    .hero-visual {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .hero-image-wrapper {
-      position: relative;
-      width: 100%;
-      max-width: 450px;
-      aspect-ratio: 1 / 1.1;
-      border-radius: 24px;
-    }
-
-    .hero-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 24px;
-      position: relative;
-      z-index: 1;
-      filter: grayscale(20%) contrast(1.1);
-      transition: var(--transition-smooth);
-    }
-
-    .hero-image:hover {
-      filter: grayscale(0%) contrast(1);
-    }
-
-    .mesh-gradient-bg {
-      position: absolute;
-      top: -20%;
-      left: -20%;
-      width: 140%;
-      height: 140%;
-      background: var(--gradient-mesh);
-      filter: blur(60px);
-      opacity: 0.6;
-      z-index: 0;
-      animation: pulse-glow 8s ease-in-out infinite alternate;
-    }
-
-    @keyframes pulse-glow {
-      0% {
-        opacity: 0.4;
-        transform: scale(0.9);
-      }
-
-      100% {
-        opacity: 0.7;
-        transform: scale(1.1);
-      }
-    }
-
-    .floating-card {
-      position: absolute;
-      padding: 1rem;
-      z-index: 3;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      animation: float 6s ease-in-out infinite;
-    }
-
-    .code-icon {
-      top: 10%;
-      left: -10%;
-      animation-delay: 0s;
-    }
-
-    .stats-icon {
-      bottom: 15%;
-      right: -5%;
-      animation-delay: 2s;
-    }
-
-    @keyframes float {
-
-      0%,
-      100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(-20px);
-      }
-    }
-
-    @media (max-width: 968px) {
-      .hero-container {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 3rem;
-      }
-
-      .hero-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .hero-image-wrapper {
-        max-width: 350px;
-        margin: 0 auto;
-      }
-
-      .hero-subtitle {
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
-      }
-    }
-
-    .social-proof-section {
-      padding: 4rem 0;
-      background: var(--color-bg);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      overflow: hidden;
-    }
-
-    .marquee-container {
-      width: 100%;
-      overflow: hidden;
-      white-space: nowrap;
-      position: relative;
-    }
-
-    .marquee-container::before,
-    .marquee-container::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      width: 150px;
-      height: 100%;
-      z-index: 2;
-      pointer-events: none;
-    }
-
-    .marquee-container::before {
-      left: 0;
-      background: linear-gradient(to right, var(--color-bg), transparent);
-    }
-
-    .marquee-container::after {
-      right: 0;
-      background: linear-gradient(to left, var(--color-bg), transparent);
-    }
-
-    .marquee-content {
-      display: inline-flex;
-      animation: marquee 30s linear infinite;
-    }
-
-    .marquee-item {
-      padding: 0 3rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      opacity: 0.5;
-      transition: var(--transition-fast);
-    }
-
-    .marquee-item:hover {
-      opacity: 1;
-      filter: drop-shadow(0 0 8px rgba(255, 181, 76, 0.3));
-    }
-
-    .client-logo {
-      height: 40px;
-      width: auto;
-      filter: grayscale(100%) brightness(200%);
-      transition: var(--transition-fast);
-    }
-
-    .marquee-item:hover .client-logo {
-      filter: grayscale(0%) brightness(100%);
-    }
-
-    .client-name {
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 1.5rem;
-      color: var(--color-text-high);
-    }
-
-    @keyframes marquee {
-      0% {
-        transform: translateX(0);
-      }
-
-      100% {
-        transform: translateX(-50%);
-      }
-    }
-
-    .value-prop-section {
-      padding: 8rem 0;
-      position: relative;
-    }
-
-    .value-prop-section .pain-point-content {
-      margin-bottom: 4rem;
-    }
-
-    .value-prop-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    .value-card {
-      padding: 3rem;
-      border-radius: 24px;
-      position: relative;
-      transition: var(--transition-smooth);
-    }
-
-    .traditional-model {
-      opacity: 0.5;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .traditional-model:hover {
-      opacity: 0.8;
-    }
-
-    .ms-model {
-      border: 1px solid rgba(255, 181, 76, 0.3);
-      transform: scale(1.05);
-      box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.5);
-    }
-
-    .model-title {
-      margin-bottom: 2rem;
-      font-size: 2rem;
-    }
-
-    .model-list {
-      list-style: none;
-    }
-
-    .model-item {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-      font-size: 1.1rem;
-    }
-
-    .model-item.negative {
-      color: var(--color-text-low);
-    }
-
-    .model-item.positive {
-      color: var(--color-text-high);
-      font-weight: 600;
-    }
-
-    .icon {
-      font-size: 1.5rem;
-    }
-
-    .spotlight-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: radial-gradient(circle at 50% 0%, rgba(255, 181, 76, 0.15), transparent 70%);
-      z-index: -1;
-      border-radius: inherit;
-      pointer-events: none;
-    }
-
-    @media (max-width: 768px) {
-      .value-prop-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-
-      .ms-model {
-        transform: scale(1);
-      }
-    }
-
-    .tech-section {
-      padding: 6rem 0;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-
-    .tech-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2rem;
-    }
-
-    .tech-card {
-      padding: 2.5rem;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .tech-icon {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 1rem;
-      border-radius: 12px;
-      margin-bottom: 1.5rem;
-      color: var(--color-accent);
-    }
-
-    .tech-card h3 {
-      margin-bottom: 1.25rem;
-    }
-
-    .tech-card p {
-      line-height: 1.7;
-      margin-bottom: 0;
-      width: 100%;
-      margin-left: 0;
-      margin-right: 0;
-    }
-
-    .tech-tags {
-      list-style: none;
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      margin-top: auto;
-      padding-top: 1.5rem;
-    }
-
-    .tech-tags li {
-      font-size: 0.875rem;
-      padding: 0.25rem 0.75rem;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 100px;
-      color: var(--color-text-medium);
-    }
-
-    .shimmer-hover::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 50%;
-      height: 100%;
-      background: linear-gradient(to right,
-          transparent,
-          rgba(255, 255, 255, 0.1),
-          transparent);
-      transform: skewX(-25deg);
-      transition: 0.5s;
-      pointer-events: none;
-    }
-
-    .shimmer-hover:hover::before {
-      left: 150%;
-      transition: 0.5s;
-    }
-
-    .portfolio-section {
-      padding: 8rem 0;
-      background: #0b0514;
-      position: relative;
-    }
-
-    .portfolio-grid {
-      display: flex;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      gap: 2rem;
-      padding-bottom: 2rem;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      /* Firefox */
-    }
-
-    .portfolio-grid::-webkit-scrollbar {
-      display: none;
-      /* Chrome/Safari */
-    }
-
-    .portfolio-nav-container {
-      display: flex;
-      justify-content: flex-end;
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
-
-    @media (max-width: 768px) {
-      .portfolio-nav-container {
-        display: none !important;
-      }
-    }
-
-    .portfolio-nav-btn {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: var(--color-text-high);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: var(--transition-fast);
-    }
-
-    .portfolio-nav-btn:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: var(--color-accent);
-      transform: scale(1.05);
-    }
-
-    .portfolio-nav-btn:disabled {
-      opacity: 0.3;
-      cursor: not-allowed;
-      border-color: rgba(255, 255, 255, 0.05);
-    }
-
-    .portfolio-card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 20px;
-      padding: 1rem;
-      transition: transform 0.3s ease, border-color 0.3s ease;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-
-      /* Carousel Sizing */
-      flex: 0 0 85%;
-      /* Mobile default */
-      scroll-snap-align: center;
-    }
-
-    @media (min-width: 768px) {
-      .portfolio-card {
-        flex: 0 0 calc(50% - 1rem);
-        /* 2 items visible */
-        scroll-snap-align: start;
-      }
-    }
-
-    @media (min-width: 1025px) {
-      .portfolio-card {
-        flex: 0 0 calc(33.333% - 1.33rem);
-        /* 3 items visible */
-        scroll-snap-align: start;
-      }
-    }
-
-    .portfolio-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(112, 71, 235, 0.3);
-    }
-
-    .portfolio-image-wrapper {
-      position: relative;
-      border-radius: 12px;
-      overflow: hidden;
-      aspect-ratio: 4/3;
-    }
-
-    .portfolio-image.object-contain {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      padding: 2.5rem;
-      transition: transform 0.5s ease;
-    }
-
-    .portfolio-card:hover .portfolio-image {
-      transform: scale(1.05);
-    }
-
-    .portfolio-badge {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(4px);
-      border-radius: 6px;
-      padding: 4px 8px;
-      display: flex;
-      align-items: center;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .portfolio-badge .metric-label {
-      color: var(--accent-yellow);
-      font-weight: 700;
-      font-size: 0.75rem;
-      text-transform: capitalize;
-    }
-
-    .portfolio-content {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      padding: 0 0.5rem 0.5rem 0.5rem;
-      flex-grow: 1;
-    }
-
-    .content-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .portfolio-content h3 {
-      font-size: 1.25rem;
-      margin: 0;
-      color: #fff;
-      font-weight: 700;
-    }
-
-    .arrow-icon {
-      color: var(--accent-yellow);
-      opacity: 0;
-      transform: translate(-5px, 5px);
-      transition: all 0.3s ease;
-    }
-
-    .portfolio-card:hover .arrow-icon {
-      opacity: 1;
-      transform: translate(0, 0);
-    }
-
-    .portfolio-content p {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      line-height: 1.5;
-      margin: 0;
-      margin-bottom: 1rem;
-    }
-
-    .card-tags {
-      margin-top: auto;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
-    .tag {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      color: #fff;
-      background: var(--tag-bg);
-      padding: 6px 12px;
-      border-radius: 4px;
-    }
-
-    .tag:hover {
-      background: rgba(255, 255, 255, 0.2);
-    }
-
-    .card-link {
-      position: absolute;
-      inset: 0;
-      z-index: 2;
-    }
-
-    .sr-only {
-      display: none;
-    }
-
-    .header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 100;
-      padding: 1rem 0;
-      /* Prevent layout thrashing on mobile scroll */
-      transition: background-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
-        padding 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
-        backdrop-filter 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
-        -webkit-backdrop-filter 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
-        border-bottom-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
-        box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-      /* Hardware acceleration to keep header pinned */
-      transform: translate3d(0, 0, 0);
-      -webkit-transform: translate3d(0, 0, 0);
-    }
-
-    @media (min-width: 768px) {
-      .header {
-        padding: 1.5rem 0;
-      }
-    }
-
-    .header.scrolled {
-      background: rgba(19, 8, 33, 0.8);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      padding: 1rem 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .header-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: relative;
-    }
-
-    .logo-img {
-      height: 40px;
-      width: auto;
-      position: relative;
-      z-index: 2;
-    }
-
-    .nav-desktop {
-      display: none;
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 1;
-    }
-
-    @media (min-width: 1025px) {
-      .nav-desktop {
-        display: block;
-      }
-    }
-
-    .nav-list {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-      align-items: center;
-      background: rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 50px;
-      padding: 0.8rem 2.5rem;
-      box-shadow:
-        0 4px 24px -1px rgba(0, 0, 0, 0.1),
-        inset 0 0 20px rgba(255, 255, 255, 0.02);
-    }
-
-    .nav-link {
-      font-family: var(--font-display);
-      font-weight: 600;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--color-text-medium);
-      position: relative;
-    }
-
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--color-accent);
-      transition: var(--transition-fast);
-    }
-
-    .nav-link:hover {
-      color: var(--color-text-high);
-    }
-
-    .nav-link:hover::after {
-      width: 100%;
-    }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-    }
-
-    .btn-sm {
-      padding: 0.75rem 1.5rem;
-      font-size: 0.9rem;
-    }
-
-    .mobile-menu-btn {
-      background: none;
-      border: none;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      z-index: 101;
-    }
-
-    @media (min-width: 1025px) {
-      .mobile-menu-btn {
-        display: none;
-      }
-    }
-
-    .hamburger-line {
-      width: 24px;
-      height: 2px;
-      background-color: var(--color-text-high);
-      transition: var(--transition-fast);
-    }
-
-    .mobile-menu-btn.active .hamburger-line:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
-
-    .mobile-menu-btn.active .hamburger-line:nth-child(2) {
-      transform: rotate(-45deg) translate(1px, -1px);
-    }
-
-    .mobile-menu {
-      position: fixed;
-      inset: 0;
-      background: rgba(19, 8, 33, 0.9);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      z-index: 9999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      pointer-events: none;
-      transition: var(--transition-smooth);
-    }
-
-    .mobile-menu-close {
-      position: absolute;
-      top: 1.5rem;
-      right: 1.5rem;
-      /* Matches header container padding roughly */
-      background: none;
-      border: none;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      z-index: 10001;
-      padding: 0;
-    }
-
-    .mobile-menu-close .hamburger-line {
-      background-color: var(--color-text-high);
-    }
-
-    /* Force the lines to form an X for this specific button */
-    .mobile-menu-close .hamburger-line:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
-
-    .mobile-menu-close .hamburger-line:nth-child(2) {
-      transform: rotate(-45deg) translate(1px, -1px);
-    }
-
-    .mobile-menu.active {
-      opacity: 1;
-      pointer-events: all;
-    }
-
-    .mobile-nav-list {
-      list-style: none;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-
-    .mobile-nav-link {
-      font-family: var(--font-display);
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--color-text-medium);
-      transition: var(--transition-fast);
-    }
-
-    .mobile-nav-link:hover,
-    .mobile-nav-link.highlight {
-      color: var(--color-accent);
-    }
-
-    .footer {
-      background: var(--color-surface-elev);
-      padding: 6rem 0 2rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .footer-container {
-      display: grid;
-      grid-template-columns: 1.5fr 2fr;
-      gap: 4rem;
-      margin-bottom: 4rem;
-    }
-
-    .footer-brand {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .footer-logo {
-      height: 40px;
-      width: auto;
-      align-self: flex-start;
-    }
-
-    .footer-desc {
-      color: var(--color-text-medium);
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-
-    .footer-links {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-    }
-
-    .footer-col h4 {
-      font-size: 1.1rem;
-      margin-bottom: 1.5rem;
-      color: var(--color-text-high);
-    }
-
-    .footer-col ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .footer-col a {
-      color: var(--color-text-medium);
-      font-size: 0.95rem;
-      transition: var(--transition-fast);
-    }
-
-    .footer-col a:hover {
-      color: var(--color-accent);
-    }
-
-    .footer-col .nav-link {
-      text-transform: none;
-      font-weight: 400;
-      font-family: var(--font-body);
-    }
-
-    .footer-bottom {
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-      padding-top: 2rem;
-      text-align: center;
-      color: var(--color-text-low);
-      font-size: 0.9rem;
-    }
-
-    .footer-bottom p {
-      width: 100%;
-      max-width: none;
-      margin: 0;
-    }
-
-    @media (max-width: 768px) {
-      .footer {
-        padding: 3rem 0 1.5rem;
-      }
-
-      .footer-container {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        text-align: center;
-        margin-bottom: 2rem;
-      }
-
-      .footer-brand {
-        align-items: center;
-        gap: 0.75rem;
-      }
-
-      .footer-logo {
-        align-self: center;
-        height: 36px;
-      }
-
-      .footer-desc {
-        max-width: 100%;
-        font-size: 0.85rem;
-        margin-bottom: 0;
-      }
-
-      .footer-links {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1.5rem;
-      }
-
-      .footer-col h4 {
-        font-size: 0.85rem;
-        margin-bottom: 0.75rem;
-      }
-
-      .footer-col ul {
-        gap: 0.5rem;
-      }
-
-      .footer-col a {
-        font-size: 0.8rem;
-      }
-
-      .footer-bottom {
-        padding-top: 1.5rem;
-        margin-top: 0;
-      }
-
-      .footer-bottom p {
-        font-size: 0.8rem;
-        margin: 0;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .footer {
-        padding: 2.5rem 0 1.25rem;
-      }
-
-      .footer-container {
-        gap: 1.25rem;
-        margin-bottom: 1.5rem;
-      }
-
-      .footer-brand {
-        gap: 0.5rem;
-      }
-
-      .footer-logo {
-        height: 32px;
-      }
-
-      .footer-desc {
-        font-size: 0.75rem;
-        line-height: 1.4;
-      }
-
-      .footer-links {
-        gap: 1rem;
-      }
-
-      .footer-col h4 {
-        font-size: 0.75rem;
-        margin-bottom: 0.5rem;
-      }
-
-      .footer-col ul {
-        gap: 0.35rem;
-      }
-
-      .footer-col a {
-        font-size: 0.7rem;
-      }
-
-      .footer-bottom {
-        padding-top: 1.25rem;
-      }
-
-      .footer-bottom p {
-        font-size: 0.7rem;
-      }
-    }
-
-    .booking-section {
-      padding: 6rem 0;
-      position: relative;
-    }
-
-    .section-header {
-      margin-bottom: 3rem;
-    }
-
-    .booking-subtitle {
-      text-align: center;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .booking-grid {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    .calendly-column {
-      border-radius: 24px;
-      overflow: hidden;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .status-card {
-      background: #1e1b2e;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 32px;
-      padding: 2rem 1.5rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.2);
-      max-width: 350px;
-      width: 100%;
-      margin: 0 auto;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .status-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 50%;
-      height: 100%;
-      background: linear-gradient(to right,
-          transparent,
-          rgba(255, 255, 255, 0.05),
-          transparent);
-      transform: skewX(-25deg);
-      animation: card-shimmer 6s infinite;
-      pointer-events: none;
-    }
-
-    @keyframes card-shimmer {
-      0% {
-        left: -100%;
-      }
-
-      20% {
-        left: 200%;
-      }
-
-      100% {
-        left: 200%;
-      }
-    }
-
-    .status-badge {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 8px 16px;
-      border-radius: 50px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 2rem;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .status-dot-green {
-      width: 8px;
-      height: 8px;
-      background-color: #22c55e;
-      border-radius: 50%;
-      box-shadow: 0 0 8px #22c55e;
-    }
-
-    .badge-text {
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: #ffb54c;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .big-count-wrapper {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 2.5rem;
-    }
-
-    .big-number {
-      font-size: 6rem;
-      font-weight: 800;
-      line-height: 1;
-      color: #ffb54c;
-      text-shadow: 0 0 30px rgba(255, 181, 76, 0.3);
-    }
-
-    .big-label {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      text-align: left;
-    }
-
-    .label-primary {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #fff;
-    }
-
-    .label-secondary {
-      font-size: 0.875rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: rgba(255, 255, 255, 0.5);
-    }
-
-    .progress-section {
-      width: 100%;
-      margin-bottom: 2rem;
-    }
-
-    .progress-labels {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.6);
-      margin-bottom: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-    }
-
-    .progress-track {
-      width: 100%;
-      height: 12px;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 10px;
-      overflow: hidden;
-    }
-
-    .progress-fill {
-      height: 100%;
-      background: linear-gradient(90deg, #ffb54c, #ff9f1c);
-      border-radius: 10px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .progress-fill::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg,
-          transparent,
-          rgba(255, 255, 255, 0.8),
-          transparent);
-      transform: translateX(-100%);
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-      animation: shimmer 1.5s infinite;
-    }
-
-    @keyframes shimmer {
-      100% {
-        transform: translateX(100%);
-      }
-    }
-
-    .status-footer {
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      padding-top: 1.5rem;
-      width: 100%;
-    }
-
-    .highlight-text {
-      color: #fff;
-      font-size: 1rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .text-yellow {
-      color: #ffb54c;
-      font-weight: 700;
-    }
-
-    .sub-text {
-      color: rgba(255, 255, 255, 0.5);
-      font-size: 0.85rem;
-    }
-
-    @media (max-width: 768px) {
-      .booking-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-      }
-
-      .status-column {
-        order: -1;
-        position: static;
-      }
-    }
-
-    .pain-point-section {
-      padding: 8rem 0;
-      background: var(--color-bg);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .pain-point-wrapper {
-      display: flex;
-      flex-direction: column;
-      gap: 4rem;
-    }
-
-    .pain-point-content {
-      text-align: center;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .pain-point-title {
-      font-size: clamp(2rem, 4vw, 3.5rem);
-      margin-bottom: 2rem;
-      line-height: 1.2;
-    }
-
-    .pain-point-question {
-      display: block;
-      color: var(--color-text-high);
-    }
-
-    .pain-point-text {
-      font-size: 1.25rem;
-      color: var(--color-text-medium);
-      line-height: 1.8;
-      margin: 0 auto;
-      max-width: 700px;
-    }
-
-    .pain-point-text strong {
-      color: var(--color-accent);
-      font-weight: 700;
-    }
-
-    .pain-point-choice {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      margin-top: 2rem;
-    }
-
-    .choice-card {
-      padding: 3rem;
-      border-radius: 24px;
-      transition: var(--transition-smooth);
-      position: relative;
-    }
-
-    .choice-action {
-      border: 2px solid var(--color-accent);
-      transform: scale(1.05);
-    }
-
-    .choice-action:hover {
-      transform: scale(1.08) translateY(-5px);
-      box-shadow: 0 30px 60px -10px rgba(255, 181, 76, 0.3);
-    }
-
-    .choice-nothing {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      opacity: 0.6;
-      transition: var(--transition-smooth);
-    }
-
-    .choice-nothing:hover {
-      opacity: 0.8;
-    }
-
-    .choice-card h3 {
-      font-size: 1.75rem;
-      margin-bottom: 2rem;
-      color: var(--color-text-high);
-    }
-
-    .choice-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-      margin-bottom: 2rem;
-    }
-
-    .choice-list li {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      color: var(--color-text-medium);
-    }
-
-    .choice-action .choice-list li {
-      color: var(--color-text-high);
-    }
-
-    @media (max-width: 968px) {
-      .pain-point-choice {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-
-      .choice-action {
-        transform: scale(1);
-      }
-
-      .choice-action:hover {
-        transform: scale(1.02) translateY(-5px);
-      }
-    }
-
-    @media (max-width: 480px) {
-
-      h1 {
-        font-size: 2rem;
-        line-height: 1.2;
-      }
-
-      h2 {
-        font-size: 1.75rem;
-      }
-
-      h3 {
-        font-size: 1.35rem;
-      }
-
-      .container {
-        width: 95%;
-        padding: 0 1rem;
-      }
-
-      .hero-section {
-        min-height: auto;
-        padding: 6rem 0 4rem;
-      }
-
-      .hero-title {
-        font-size: 2rem !important;
-      }
-
-      .hero-subtitle {
-        font-size: 1rem;
-        margin-bottom: 2rem;
-      }
-
-      .hero-image-wrapper {
-        max-width: 280px;
-      }
-
-      .floating-card {
-        display: none;
-      }
-
-      .btn {
-        width: 100%;
-        padding: 1rem 1.5rem;
-        font-size: 0.9rem;
-      }
-
-      .btn-sm {
-        padding: 0.875rem 1.25rem;
-        font-size: 0.85rem;
-      }
-
-      .header {
-        padding: 1rem 0;
-      }
-
-      .logo-img {
-        height: 32px;
-      }
-
-      .header-actions .btn {
-        display: none;
-      }
-
-      .pain-point-section {
-        padding: 4rem 0;
-      }
-
-      .pain-point-title {
-        font-size: 1.75rem;
-      }
-
-      .pain-point-text {
-        font-size: 1rem;
-      }
-
-      .choice-card {
-        padding: 2rem 1.5rem;
-      }
-
-      .choice-card h3 {
-        font-size: 1.35rem;
-      }
-
-      .choice-list li {
-        font-size: 0.95rem;
-      }
-
-      .value-prop-section {
-        padding: 4rem 0;
-      }
-
-      .value-card {
-        padding: 2rem 1.5rem;
-      }
-
-      .model-title {
-        font-size: 1.5rem;
-      }
-
-      .model-item {
-        font-size: 0.95rem;
-      }
-
-      .tech-section {
-        padding: 4rem 0;
-      }
-
-      .tech-card {
-        padding: 2rem 1.5rem;
-      }
-
-      .tech-icon {
-        padding: 0.75rem;
-      }
-
-      .tech-icon svg {
-        width: 36px;
-        height: 36px;
-      }
-
-      .portfolio-section {
-        padding: 4rem 0;
-      }
-
-
-
-      .booking-section {
-        padding: 4rem 0;
-      }
-
-      .booking-subtitle {
-        font-size: 1rem;
-      }
-
-      .calendly-inline-widget {
-        height: 600px !important;
-      }
-
-      .footer {
-        padding: 4rem 0 2rem;
-      }
-
-      .footer-container {
-        gap: 2rem;
-      }
-
-      .footer-brand {
-        gap: 1rem;
-      }
-
-      .footer-logo {
-        height: 32px;
-      }
-
-      .footer-desc {
-        font-size: 0.9rem;
-      }
-
-      .footer-col h4 {
-        font-size: 1rem;
-      }
-
-      .footer-col a {
-        font-size: 0.875rem;
-      }
-
-      .social-proof-section {
-        padding: 2rem 0;
-      }
-
-      .client-logo {
-        height: 30px;
-      }
-
-      .client-name {
-        font-size: 1.25rem;
-      }
-
-      .marquee-item {
-        padding: 0 1.5rem;
-      }
-
-      .mobile-nav-link {
-        font-size: 1.5rem;
-      }
-
-      /* Status Card Mobile Styles */
-      .status-card {
-        padding: 1.25rem 1rem;
-        max-width: 100%;
-        border-radius: 20px;
-      }
-
-      .status-badge {
-        padding: 6px 12px;
-        margin-bottom: 1rem;
-      }
-
-      .badge-text {
-        font-size: 0.65rem;
-      }
-
-      .big-count-wrapper {
-        margin-bottom: 1.5rem;
-        gap: 0.75rem;
-      }
-
-      .big-number {
-        font-size: 3.5rem;
-      }
-
-      .label-primary {
-        font-size: 1.1rem;
-      }
-
-      .label-secondary {
-        font-size: 0.7rem;
-      }
-
-      .progress-section {
-        margin-bottom: 1.25rem;
-      }
-
-      .progress-labels {
-        font-size: 0.6rem;
-        margin-bottom: 0.5rem;
-      }
-
-      .progress-track {
-        height: 8px;
-      }
-
-      .status-footer {
-        padding-top: 1rem;
-      }
-
-      .highlight-text {
-        font-size: 0.875rem;
-        margin-bottom: 0.35rem;
-      }
-
-      .sub-text {
-        font-size: 0.75rem;
-      }
-    }
-
-    @media (min-width: 481px) and (max-width: 768px) {
-
-      .container {
-        width: 92%;
-      }
-
-      .hero-section {
-        padding: 8rem 0 5rem;
-      }
-
-      .hero-title {
-        font-size: 2.5rem !important;
-      }
-
-      .hero-subtitle {
-        font-size: 1.125rem;
-      }
-
-      .pain-point-section {
-        padding: 5rem 0;
-      }
-
-      .pain-point-title {
-        font-size: 2.25rem;
-      }
-
-      .choice-card {
-        padding: 2.5rem;
-      }
-
-      .value-prop-section,
-      .tech-section,
-      .portfolio-section,
-      .booking-section {
-        padding: 5rem 0;
-      }
-
-      .footer {
-        padding: 5rem 0 2rem;
-      }
-    }
-
-    @media (min-width: 769px) and (max-width: 968px) {
-      .hero-title {
-        font-size: 3rem !important;
-      }
-
-      .pain-point-title {
-        font-size: 2.75rem;
-      }
-    }
-
-    @media (hover: none) and (pointer: coarse) {
-
-      .btn {
-        min-height: 48px;
-      }
-
-      .nav-link,
-      .mobile-nav-link,
-      .footer-col a {
-        padding: 0.5rem 0;
-        min-height: 44px;
-        display: inline-flex;
-        align-items: center;
-      }
-
-      .card-glass:hover,
-      .shimmer-hover:hover::before,
-      .portfolio-item:hover .portfolio-image,
-      .portfolio-item:hover .portfolio-overlay {
-        transform: none;
-        opacity: inherit;
-      }
-
-      .btn-primary::before {
-        animation: none;
-      }
-    }
-
-    @media (max-height: 500px) and (orientation: landscape) {
-      .hero-section {
-        min-height: auto;
-        padding: 4rem 0 3rem;
-      }
-
-      .mobile-menu {
-        overflow-y: auto;
-      }
-
-      .mobile-nav-list {
-        gap: 1rem;
-        padding: 2rem 0;
-      }
-
-      .mobile-nav-link {
-        font-size: 1.5rem;
-      }
-    }
-
-    /* Optimization for 1024x600 and Short Screens */
-    @media (max-height: 800px),
-    (max-width: 1024px) {
-      .hero-section {
-        min-height: auto;
-        padding-top: calc(var(--header-height) + 3rem);
-        padding-bottom: 4rem;
-      }
-
-      .hero-title {
-        font-size: clamp(2.5rem, 4vw, 3.5rem);
-      }
-
-      .hero-subtitle {
-        margin-bottom: 2rem;
-      }
-
-      /* Stacking Grids for 1024px */
-      .value-prop-grid,
-      .tech-grid {
-        grid-template-columns: 1fr;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-    }
-
-    /* Slimmer Calendly Widget & Status Card Logic */
-    @media (max-width: 768px) {
-      .calendly-column {
-        max-width: 500px;
-        margin: 0 auto;
-      }
-
-      .status-column {
-        max-width: 500px;
-        margin: 0 auto;
-        width: 100%;
-      }
-
-      .ms-model {
-        transform: scale(1);
-      }
-    }
-
-    @media (max-width: 1200px) {
-      .container {
-        width: 95%;
-      }
-
-      .hero-container {
-        gap: 2rem;
-      }
-    }
-
-    /* Language Picker */
-    .language-picker {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-right: 20px;
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
-
-    .lang-link {
-      color: var(--text-muted);
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .lang-link:hover {
-      color: var(--text-primary);
-    }
-
-    .lang-link.active {
-      color: var(--text-primary);
-    }
-
-    .sep {
-      color: var(--text-muted);
-      font-size: 0.8rem;
-    }
-
-    /* Mobile Language Picker Adjustment */
-    @media (max-width: 768px) {
-      .language-picker {
-        margin-right: 15px;
-      }
-    }
-  </style>
-</head>
-
-<body>
-  <!-- Custom Cursor Elements -->
-  <div class="cursor-dot" data-cursor-dot></div>
-  <div class="cursor-outline" data-cursor-outline></div>
-
-  <!-- Navigation -->
-  <header class="header">
-    <div class="container header-container">
-      <a href="#" class="logo">
-        <img src="images/logo-dark-noBG.webp" alt="MS Development" class="logo-img">
-      </a>
-
-      <nav class="nav-desktop">
-        <ul class="nav-list">
-          <li><a href="#expertise" class="nav-link">Usluge</a></li>
-          <li><a href="#case-studies" class="nav-link">Portfolio</a></li>
-          <li><a href="#booking" class="nav-link">Kontakt</a></li>
-        </ul>
-      </nav>
-
-      <div class="header-actions">
-        <div class="language-picker">
-          <a href="#" class="lang-link active">HR</a>
-          <span class="sep">|</span>
-          <a href="en/index.html" class="lang-link">EN</a>
-        </div>
-        <a href="#booking" class="btn btn-sm btn-primary magnetic-btn" data-magnetic>
-          <span class="btn-text">Zatraži ponudu</span>
-        </a>
-        <button class="mobile-menu-btn" aria-label="Menu">
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Marin Sabo</title>
+    <meta
+      name="description"
+      content="I’m Marin Sabo, a mainframe developer and CS student at FERIT Osijek. I work with z/OS, COBOL, CICS, Db2 and JCL, and I’m open to student jobs and 2027 internships."
+    />
+    <link rel="canonical" href="https://marinsabo.online/" />
+
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content="Marin Sabo — Mainframe Developer" />
+    <meta
+      property="og:description"
+      content="I’m Marin Sabo, a mainframe developer and CS student at FERIT Osijek. I work with z/OS, COBOL, CICS, Db2 and JCL, and I’m open to student jobs and 2027 internships."
+    />
+    <meta property="og:url" content="https://marinsabo.online/" />
+    <meta
+      property="og:image"
+      content="https://marinsabo.online/assets/images/og.png"
+    />
+    <meta property="og:locale" content="en_GB" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
+    <meta name="theme-color" content="#141210" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@800;900&amp;family=Instrument+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Marin Sabo",
+        "url": "https://marinsabo.online/",
+        "email": "mailto:marin.sabo.contact@gmail.com",
+        "jobTitle": "Mainframe Developer",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Požega",
+          "addressCountry": "HR"
+        },
+        "alumniOf": [
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Faculty of Electrical Engineering, Computer Science and Information Technology Osijek (FERIT)"
+          },
+          { "@type": "HighSchool", "name": "Technical School Požega" }
+        ],
+        "knowsAbout": [
+          "IBM z/OS",
+          "COBOL",
+          "PL/I",
+          "JCL",
+          "CICS",
+          "Db2",
+          "IBM Dependency Based Build",
+          "Zowe",
+          "Git"
+        ],
+        "sameAs": [
+          "https://www.linkedin.com/in/marinsabo/",
+          "https://github.com/marinsabo",
+          "https://www.credly.com/users/marin-sabo.f8425966"
+        ]
+      }
+    </script>
+    <script
+      data-goatcounter="https://marinsabo.goatcounter.com/count"
+      async
+      src="https://gc.zgo.at/count.js"
+    ></script>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="#top"
+          ><span class="brand-mark" aria-hidden="true"></span>Marin Sabo</a
+        >
+        <button
+          class="menu-btn"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          Menu
         </button>
+        <nav class="nav" id="site-nav" aria-label="Primary">
+          <a href="#work">Work</a>
+          <a href="#experience">Experience</a>
+          <a href="#certifications">Certifications</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+          <a
+            class="btn btn-outline btn-sm"
+            href="assets/Marin-Sabo-CV.pdf"
+            target="_blank"
+            rel="noopener"
+            >Résumé <span class="arr" aria-hidden="true">↗</span></a
+          >
+        </nav>
       </div>
-    </div>
+    </header>
 
-
-  </header>
-
-  <main>
-    <section class="hero-section">
-      <div class="container hero-container">
-        <div class="hero-content">
-          <div class="availability-badge">
-            <span class="status-dot"></span>
-            <span>Dostupni za Q3 2026</span>
-          </div>
+    <main id="main">
+      <!-- ============ Hero ============ -->
+      <section class="hero" id="top">
+        <div class="wrap">
+          <p class="pill">
+            <span class="dot" aria-hidden="true"></span>Open to student jobs
+            &amp; 2027 internships · Remote or Osijek
+          </p>
           <h1 class="hero-title">
-            Unaprijedite svoje poslovanje s <span class="text-gradient">provjerenim web rješenjima</span>
+            I build software for systems that can’t afford to
+            <mark class="hl">stop.</mark>
           </h1>
-          <p class="hero-subtitle">
-            Gradimo brze, dinamične i funkcionalne web sustave koji vašim kupcima olakšavaju kupnju, a vaše poslovanje
-            podižu na višu razinu.
-
+          <p class="hero-role">
+            Mainframe Developer <span aria-hidden="true">·</span> z/OS
+            <span aria-hidden="true">·</span> COBOL
+            <span aria-hidden="true">·</span> CICS
+            <span aria-hidden="true">·</span> Db2
           </p>
-          <div class="hero-cta-wrapper">
-            <a href="#booking" class="btn btn-primary magnetic-btn" data-magnetic>
-              <span class="btn-text">Besplatan poziv</span>
-            </a>
-          </div>
-        </div>
-        <div class="hero-visual">
-          <div class="hero-image-wrapper">
-            <div class="mesh-gradient-bg"></div>
-            <img src="images/MarinSabo.webp" alt="Marin Sabo - Founder" class="hero-image" fetchpriority="high">
-
-            <!-- Floating Glass Elements -->
-            <div class="floating-card card-glass code-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFB54C" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="16 18 22 12 16 6"></polyline>
-                <polyline points="8 6 2 12 8 18"></polyline>
-              </svg>
+          <div class="hero-foot">
+            <div class="hero-row">
+              <img
+                class="hero-photo"
+                src="assets/images/MarinSabo.webp"
+                width="224"
+                height="224"
+                alt="Portrait of Marin Sabo"
+              />
+              <p class="lead">
+                Hi, I’m Marin, a <strong>mainframe developer</strong> and
+                <strong>CS student at FERIT Osijek</strong>. At CROZ I
+                <strong>owned the Db2 database</strong> behind a z/OS
+                application built in COBOL and CICS.
+              </p>
             </div>
-            <div class="floating-card card-glass stats-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFB54C" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="20" x2="18" y2="10"></line>
-                <line x1="12" y1="20" x2="12" y2="4"></line>
-                <line x1="6" y1="20" x2="6" y2="14"></line>
-              </svg>
+            <div class="actions">
+              <a class="btn btn-primary" href="#work"
+                >See my work <span class="arr" aria-hidden="true">→</span></a
+              >
+              <a class="btn btn-ink" href="mailto:marin.sabo.contact@gmail.com"
+                >Email me</a
+              >
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Social Proof Section -->
-    <section class="social-proof-section">
-      <div class="marquee-container">
-        <div class="marquee-content">
-          <!-- Duplicated content for seamless scrolling -->
-          <a href="gamechanger-case-study.html" class="marquee-item">
-            <img src="images/gamechanger-all-white-logo.webp" alt="GameChanger" class="client-logo">
-            <span class="client-name">GameChanger</span>
-          </a>
-          <a href="ikarus-case-study.html" class="marquee-item">
-            <img src="images/ikarus-agency-all-white-logo.webp" alt="Ikarus Agency" class="client-logo">
-            <span class="client-name">Ikarus Agency</span>
-          </a>
-          <a href="wavelance-case-study.html" class="marquee-item">
-            <img src="images/wavelance-all-white-logo.webp" alt="WaveLance" class="client-logo">
-            <span class="client-name">WaveLance</span>
-          </a>
-          <a href="vukovarski-golubici-case-study.html" class="marquee-item">
-            <img src="images/vukovarski-golubici-all-white-logo.webp" alt="Vukovarski Golubići" class="client-logo">
-            <span class="client-name">Vukovarski Golubići</span>
-          </a>
-          <a href="codehustling-case-study.html" class="marquee-item">
-            <img src="images/codehustling-all-white-logo.png" alt="Code Hustling" class="client-logo">
-            <span class="client-name">CodeHustling</span>
-          </a>
-          <a href="slavonski-brod-case-study.html" class="marquee-item">
-            <img src="images/brod-all-white-logo.png" alt="Brodsko-posavska županija" class="client-logo">
-            <span class="client-name">Brodsko-posavska županija</span>
-          </a>
-
-          <!-- Duplicate for loop -->
-          <a href="gamechanger-case-study.html" class="marquee-item">
-            <img src="images/gamechanger-all-white-logo.webp" alt="GameChanger" class="client-logo">
-            <span class="client-name">GameChanger</span>
-          </a>
-          <a href="ikarus-case-study.html" class="marquee-item">
-            <img src="images/ikarus-agency-all-white-logo.webp" alt="Ikarus Agency" class="client-logo">
-            <span class="client-name">Ikarus Agency</span>
-          </a>
-          <a href="wavelance-case-study.html" class="marquee-item">
-            <img src="images/wavelance-all-white-logo.webp" alt="WaveLance" class="client-logo">
-            <span class="client-name">WaveLance</span>
-          </a>
-          <a href="vukovarski-golubici-case-study.html" class="marquee-item">
-            <img src="images/vukovarski-golubici-all-white-logo.webp" alt="Vukovarski Golubići" class="client-logo">
-            <span class="client-name">Vukovarski Golubići</span>
-          </a>
-          <a href="codehustling-case-study.html" class="marquee-item">
-            <img src="images/codehustling-all-white-logo.png" alt="Code Hustling" class="client-logo">
-            <span class="client-name">CodeHustling</span>
-          </a>
-          <a href="slavonski-brod-case-study.html" class="marquee-item">
-            <img src="images/brod-all-white-logo.png" alt="Brodsko-posavska županija" class="client-logo">
-            <span class="client-name">Brodsko-posavska županija</span>
-          </a>
+      <!-- ============ Proof strip ============ -->
+      <section class="proof" aria-label="Highlights">
+        <div class="wrap">
+          <ul class="proof-list">
+            <li>
+              <strong>CROZ</strong>
+              <span>Mainframe developer intern, 2026</span>
+            </li>
+            <li>
+              <strong>10</strong>
+              <span>IBM mainframe badges, incl. Z Xplore All Star</span>
+            </li>
+            <li>
+              <strong>Top 4</strong>
+              <span>of the mainframe course, picked for QED 2026</span>
+            </li>
+            <li>
+              <a href="#shipped"
+                ><strong data-shipped-count>9</strong>
+                <span>things shipped since 2023</span></a
+              >
+            </li>
+          </ul>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Pain Point Section -->
-    <section class="pain-point-section">
-      <div class="container">
-        <div class="pain-point-wrapper">
-          <div class="pain-point-content">
-            <h2 class="pain-point-title">
-              <span class="pain-point-question">Status quo je najskuplja poslovna strategija.</span>
-            </h2>
-            <p class="pain-point-text">
-              Ignoriranje problema ne čini da oni nestanu. Dok vaša web stranica stagnira, tržište ubrzano napreduje.
-              <strong>Ovo je razlika između investicije u rast i troška propuštenih prilika</strong>
+      <!-- ============ Featured: DartZ ============ -->
+      <section class="section" id="work">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="eyebrow">01 — Featured work</p>
+            <h2>DartZ on z/OS</h2>
+          </div>
+
+          <div class="featured">
+            <div class="featured-text">
+              <p class="lead">
+                A darts tournament and league system, built by our team during
+                my internship at CROZ. CICS runs the transactions and screens,
+                COBOL holds the business logic, Db2 stores the players, matches
+                and leagues, and JCL handles builds and batch work.
+              </p>
+              <dl class="facts">
+                <div>
+                  <dt>Where</dt>
+                  <dd>CROZ, Zagreb · team project</dd>
+                </div>
+                <div>
+                  <dt>When</dt>
+                  <dd>Jul – Sep 2026</dd>
+                </div>
+                <div>
+                  <dt>Stack</dt>
+                  <dd>z/OS · COBOL · CICS · Db2 · JCL</dd>
+                </div>
+              </dl>
+              <h3 class="mini-head">My role</h3>
+              <ol class="roles">
+                <li>
+                  <span
+                    ><strong
+                      >Designed and built the entire Db2 data model.</strong
+                    >
+                    Every program in the application read from and wrote to
+                    it.</span
+                  >
+                </li>
+                <li>
+                  <span
+                    ><strong>Test data for the whole team.</strong> I created
+                    the data the developers used to test their programs.</span
+                  >
+                </li>
+                <li>
+                  <span
+                    ><strong>Db2 &amp; z/OS admin.</strong> I kept the database
+                    consistent and maintained the environment the team worked
+                    in.</span
+                  >
+                </li>
+              </ol>
+            </div>
+
+            <div class="featured-media">
+              <div class="console" data-console>
+                <div class="console-bar">
+                  <span>CICS · TRANSACTION DZ01</span>
+                  <span>3270</span>
+                </div>
+                <pre
+                  class="console-screen"
+                  tabindex="0"
+                  aria-label="Recreated DartZ terminal screen. Use the function keys or type a command below to switch screens."
+                ><span class="dim">DZL010  </span><span class="hi">                   D A R T Z                    </span><span class="dim">OCT 2026</span>
+<span class="warn">                        LEAGUE STANDINGS                        </span>
+
+ LEAGUE . : <span class="hi">SLAVONIA AUTUMN LEAGUE 2026</span>          ROUND <span class="hi">09</span> OF <span class="hi">14</span>
+
+<span class="dim"> POS  PLAYER              P   W   L   LEGS    +/-    AVG   PTS</span>
+<span class="dim"> ---  ------------------  --  --  --  -----   ---  -----   ---</span>
+<span class="hi">   1  KOVAC, LUKA          9   8   1  48-21   +27  81.36    16</span>
+   2  MATIC, ANA           9   7   2  45-26   +19  78.02    14
+   3  BABIC, TOMISLAV      9   6   3  41-30   +11  74.55    12
+   4  JURIC, PETRA         9   5   4  38-34    +4  72.90    10
+   5  NOVAK, DARIO         9   4   5  35-37    -2  70.13     8
+   6  PAVLOVIC, IVA        9   2   7  27-43   -16  66.48     4
+
+
+
+
+<span class="dim"> DZL011I 6 PLAYERS LISTED. STANDINGS AS OF ROUND 09.</span>
+
+
+</pre>
+                <form class="console-cmd" data-console-cmd>
+                  <label for="dz-cmd">COMMAND ===&gt;</label>
+                  <input
+                    id="dz-cmd"
+                    name="cmd"
+                    type="text"
+                    autocomplete="off"
+                    autocapitalize="characters"
+                    spellcheck="false"
+                    placeholder="TYPE HELP"
+                  />
+                  <button class="visually-hidden" type="submit" tabindex="-1">Run</button>
+                </form>
+                <p class="console-msg" data-console-msg aria-live="polite"></p>
+                <div class="pf-keys" role="group" aria-label="Function keys">
+                  <button type="button" data-key="F1"><b>F1</b>=HELP</button>
+                  <button type="button" data-key="F3"><b>F3</b>=EXIT</button>
+                  <button type="button" data-key="F4"><b>F4</b>=TABLES</button>
+                  <button type="button" data-key="F5" aria-pressed="true">
+                    <b>F5</b>=LEAGUE
+                  </button>
+                  <button type="button" data-key="F6"><b>F6</b>=MATCH</button>
+                  <button type="button" data-key="F9"><b>F9</b>=PLAYER</button>
+                </div>
+              </div>
+              <p class="caption">
+                A recreation for this site. Names and numbers are made up.
+                <span class="only-narrow"
+                  >Swipe the screen sideways to see every column.</span
+                >
+              </p>
+              <!-- Screen text is column-aligned: keep it inside <pre> so formatters leave it alone. -->
+<pre class="screen-src" id="screen-match" data-summary="Match result: Kovac beat Novak 5 legs to 2." hidden><span class="dim">DZM020  </span><span class="hi">                   D A R T Z                    </span><span class="dim">OCT 2026</span>
+<span class="warn">                      RECORD MATCH RESULT                       </span>
+
+ MATCH ID . : <span class="hi">M-2026-0417</span>           ROUND . . . : <span class="hi">09</span>
+ HOME . . . : <span class="hi">KOVAC, LUKA</span>           AWAY  . . . : <span class="hi">NOVAK, DARIO</span>
+ FORMAT . . : <span class="hi">501 DOUBLE OUT</span>        BEST OF . . : <span class="hi">9 LEGS</span>
+
+<span class="dim"> LEG  WINNER              DARTS  CHECKOUT</span>
+<span class="dim"> ---  ------------------  -----  --------</span>
+   1  KOVAC, L.              18  D16
+   2  NOVAK, D.              21  D10
+   3  KOVAC, L.              15  D20
+   4  KOVAC, L.              19  D8
+   5  NOVAK, D.              24  D4
+   6  KOVAC, L.              17  BULL
+   7  KOVAC, L.              16  D18
+
+ RESULT . . : <span class="hi">5 - 2</span>                 WINNER  . . : <span class="hi">KOVAC, LUKA</span>
+
+<span class="hi"> DZM021I MATCH RECORDED. STANDINGS UPDATED.</span>
+</pre>
+<pre class="screen-src" id="screen-player" data-summary="Player profile for Luka Kovac: 9 matches, 81.36 three-dart average." hidden><span class="dim">DZP030  </span><span class="hi">                   D A R T Z                    </span><span class="dim">OCT 2026</span>
+<span class="warn">                         PLAYER PROFILE                         </span>
+
+ PLAYER ID  : <span class="hi">P-00142</span>               CLUB  . . . : <span class="hi">DC POZEGA</span>
+ NAME . . . : <span class="hi">KOVAC, LUKA</span>
+
+<span class="dim"> SEASON STATISTICS                   LAST 5 MATCHES</span>
+<span class="dim"> ------------------------------      --------------</span>
+ MATCHES PLAYED . . : <span class="hi">9</span>               <span class="hi">W  W  L  W  W</span>
+ LEGS WON / LOST  . : <span class="hi">48 / 21</span>
+ 3-DART AVERAGE . . : <span class="hi">81.36</span>
+ HIGHEST CHECKOUT . : <span class="hi">132</span>
+ 180s . . . . . . . : <span class="hi">7</span>
+ BEST LEG (DARTS) . : <span class="hi">13</span>
+
+
+
+
+
+
+<span class="dim"> DZP031I PROFILE DISPLAYED.</span></pre>
+<pre class="screen-src" id="screen-tables" data-summary="Simplified Db2 tables: league, player, entry, match and leg." hidden><span class="dim">DZT040  </span><span class="hi">                   D A R T Z                    </span><span class="dim">OCT 2026</span>
+<span class="warn">                    DB2 TABLES (SIMPLIFIED)                     </span>
+
+<span class="dim"> TABLE     KEY           REFERENCES</span>
+<span class="dim"> --------  ------------  ----------------------------------</span>
+ <span class="hi">LEAGUE</span>    LEAGUE_ID     -
+ <span class="hi">PLAYER</span>    PLAYER_ID     -
+ <span class="hi">ENTRY</span>     LEAGUE_ID,    LEAGUE, PLAYER
+           PLAYER_ID
+ <span class="hi">MATCH</span>     MATCH_ID      LEAGUE, PLAYER (HOME), PLAYER (AWAY)
+ <span class="hi">LEG</span>       MATCH_ID,     MATCH, PLAYER (WINNER)
+           LEG_NO
+
+<span class="dim"> STANDINGS AND AVERAGES ARE DERIVED FROM MATCH AND LEG ROWS,</span>
+<span class="dim"> SO THEY CAN NEVER DISAGREE WITH THE RESULTS.</span>
+
+
+
+
+
+<span class="dim"> DZT041I 5 TABLES LISTED.</span></pre>
+<pre class="screen-src" id="screen-help" data-summary="Help: lists the function keys and typed commands." hidden><span class="dim">DZH001  </span><span class="hi">                   D A R T Z                    </span><span class="dim">OCT 2026</span>
+<span class="warn">                              HELP                              </span>
+
+ DARTZ RECORDS DARTS MATCHES, TOURNAMENTS AND LEAGUES.
+
+ <span class="hi">F4</span>  TABLES   THE DB2 TABLES BEHIND THE SCREENS
+ <span class="hi">F5</span>  LEAGUE   CURRENT STANDINGS FOR THE SELECTED LEAGUE
+ <span class="hi">F6</span>  MATCH    RECORD A RESULT, LEG BY LEG
+ <span class="hi">F9</span>  PLAYER   SEASON STATISTICS FOR ONE PLAYER
+ <span class="hi">F3</span>  EXIT     END THE DARTZ SESSION
+
+<span class="dim"> UNDER THE HOOD</span>
+ CICS  . . : TRANSACTIONS AND BMS SCREENS
+ COBOL . . : BUSINESS LOGIC
+ DB2 . . . : PLAYERS, MATCHES, LEGS, LEAGUES
+ JCL . . . : BUILD AND BATCH JOBS
+
+<span class="dim"> TYPE A COMMAND BELOW, OR PRESS A KEY:</span>
+ <span class="hi">LEAGUE  MATCH  PLAYER  TABLES  RESUME  CONTACT  EXIT</span>
+
+<span class="dim"> DZH002I HELP DISPLAYED.</span></pre>
+<pre class="screen-src" id="screen-exit" data-summary="Session ended. Press F5 to start again." hidden>
+
+
+<span class="hi">                      DARTZ SESSION ENDED                       </span>
+
+<span class="dim"> DZX001I TRANSACTION DZ01 ENDED NORMALLY.</span>
+
+ PRESS F5 OR TYPE LEAGUE TO START A NEW SESSION.
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+            </div>
+          </div>
+
+          <div class="pipeline-block">
+            <p class="eyebrow">Modernisation</p>
+            <h3 class="block-title">From datasets to Git</h3>
+            <p class="body-text">
+              After DartZ was finished, we changed how it’s built and delivered,
+              following IBM Dependency Based Build. The source of truth moved
+              off the mainframe into Git, and a pipeline now delivers every
+              committed change to z/OS automatically.
+            </p>
+            <ol class="pipeline">
+              <li>
+                <strong>VS Code</strong
+                ><span>COBOL, JCL and copybooks edited locally</span>
+              </li>
+              <li>
+                <strong>Git</strong
+                ><span
+                  >Single source of truth, where every change is a commit</span
+                >
+              </li>
+              <li>
+                <strong>Pipeline</strong
+                ><span>Starts automatically on each push</span>
+              </li>
+              <li>
+                <strong>IBM DBB</strong
+                ><span>Builds the programs affected by the change</span>
+              </li>
+              <li>
+                <strong>Zowe → z/OS</strong
+                ><span>Changes land on the mainframe</span>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ Experience ============ -->
+      <section class="section" id="experience">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="eyebrow">02 — Experience</p>
+            <h2>Where I’ve delivered</h2>
+            <p class="lead">
+              Three very different jobs. In each one, people relied on me to get
+              things right, and to fix problems fast.
             </p>
           </div>
 
-          <div class="pain-point-choice">
-            <div class="choice-card choice-action card-glass">
-              <h3>Opcija 1: Investiranje</h3>
-              <ul class="choice-list">
-                <li>✅ Sustav dizajniran s jasnim ciljem – stvoriti vjerne kupce od povremenih posjetitelja </li>
-                <li>✅ Brza i stabilna platforma na koju se možete osloniti dok unaprjeđujete poslovanje</li>
-                <li>✅ Potpuno vlasništvo nad kodom i jednostavnost upravljanja sadržajem bez potrebe za vanjskom pomoći
-                </li>
-                <li>✅ Jasna strategija i vizija koja vašu investiciju povećava kroz nove klijente i prodaju</li>
+          <ol class="jobs">
+            <li>
+              <details class="job" open>
+                <summary>
+                  <span class="job-when">07 – 09/2026</span>
+                  <h3 class="job-title">
+                    Mainframe Developer (Intern) <span>· CROZ, Zagreb</span>
+                  </h3>
+                  <span class="job-outcome"
+                    >Owned the database the whole team built on.</span
+                  >
+                  <span class="tags"
+                    ><span>z/OS</span><span>COBOL</span><span>PL/I</span
+                    ><span>CICS</span><span>Db2</span><span>DBB</span></span
+                  >
+                  <span class="job-toggle" aria-hidden="true"></span>
+                </summary>
+                <div class="job-body">
+                  <ul>
+                    <li>
+                      <strong>Developed an application on IBM z/OS</strong> as
+                      part of a team, using COBOL, PL/I and JCL with CICS
+                      transactions and a Db2 database.
+                    </li>
+                    <li>
+                      As the team’s <strong>Db2 and system administrator</strong>,
+                      maintained the database and z/OS environment the entire
+                      development team depended on.
+                    </li>
+                    <li>
+                      <strong>Contributed to the DevOps modernisation:</strong>
+                      moved the source of truth from the mainframe to Git, with
+                      automated delivery from the repository to the mainframe
+                      (IBM DBB, Zowe).
+                    </li>
+                  </ul>
+                </div>
+              </details>
+            </li>
+            <li>
+              <details class="job">
+                <summary>
+                  <span class="job-when">3 seasons</span>
+                  <h3 class="job-title">
+                    Campsite Controller &amp; Operations Support
+                    <span>· Maistra d.d.</span>
+                  </h3>
+                  <span class="job-outcome"
+                    >Fixed billing problems live, in peak season.</span
+                  >
+                  <span class="tags"
+                    ><span>Operations</span><span>Reservations</span
+                    ><span>Billing</span></span
+                  >
+                  <span class="job-toggle" aria-hidden="true"></span>
+                </summary>
+                <div class="job-body">
+                  <ul>
+                    <li>
+                      <strong>Resolved reservation and billing issues</strong>
+                      in real time during peak tourist season.
+                    </li>
+                    <li>
+                      Worked daily with internal reservation and billing
+                      systems, where every error directly affects revenue and
+                      guest experience.
+                    </li>
+                    <li><strong>Rehired for three consecutive seasons.</strong></li>
+                  </ul>
+                </div>
+              </details>
+            </li>
+            <li>
+              <details class="job">
+                <summary>
+                  <span class="job-when">5+ clients</span>
+                  <h3 class="job-title">
+                    Freelance Web Developer <span>· Self-employed</span>
+                  </h3>
+                  <span class="job-outcome"
+                    >Took client projects from first call to launch, on my
+                    own.</span
+                  >
+                  <span class="tags"
+                    ><span>HTML/CSS/JS</span><span>WordPress</span
+                    ><span>Figma</span></span
+                  >
+                  <span class="job-toggle" aria-hidden="true"></span>
+                </summary>
+                <div class="job-body">
+                  <ul>
+                    <li>
+                      <strong>Delivered custom websites</strong> (HTML, CSS,
+                      JavaScript, WordPress) from needs analysis to launch.
+                    </li>
+                    <li>
+                      <strong>Ran each project on my own:</strong> negotiation,
+                      requirements and delivery within agreed deadlines.
+                    </li>
+                    <li>Selected work is <a href="#projects">below</a>.</li>
+                  </ul>
+                </div>
+              </details>
+            </li>
+          </ol>
+
+          <div class="skills">
+            <div>
+              <h3>Mainframe</h3>
+              <ul class="tags"><li>z/OS</li><li>COBOL</li><li>PL/I</li><li>JCL</li><li>CICS</li><li>Db2</li><li>IBM DBB</li><li>Zowe</li></ul>
+            </div>
+            <div>
+              <h3>Programming</h3>
+              <ul class="tags"><li>C</li><li>C#</li><li>SQL</li><li>JavaScript</li><li>Git</li></ul>
+            </div>
+            <div>
+              <h3>Web &amp; design</h3>
+              <ul class="tags"><li>HTML</li><li>CSS</li><li>WordPress</li><li>Figma</li></ul>
+            </div>
+            <div>
+              <h3>Languages</h3>
+              <ul class="tags"><li>Croatian (native)</li><li>English</li></ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ Certifications ============ -->
+      <section class="section band-paper" id="certifications">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="eyebrow">03 — Certifications</p>
+            <h2>10 IBM mainframe badges</h2>
+            <p class="lead">
+              From hands-on z/OS challenges to hardware, security and build
+              tooling. Every badge is verifiable on Credly.
+            </p>
+          </div>
+
+          <div class="cert-groups">
+            <div class="cert-group">
+              <h3>IBM Z Xplore</h3>
+              <ul class="cert-list">
+                <li><span class="code">ALL</span>All Star</li>
+                <li><span class="code">ADV</span>Advanced</li>
+                <li><span class="code">CON</span>Concepts</li>
               </ul>
-              <a href="#booking" class="btn btn-primary magnetic-btn" data-magnetic>
-                <span class="btn-text">Započni Projekt</span>
+            </div>
+            <div class="cert-group">
+              <h3>IBM Mainframe Specialist · Interskill</h3>
+              <ul class="cert-list">
+                <li><span class="code">z17</span>IBM Z Hardware z17 — Foundations</li>
+                <li><span class="code">ENV</span>Mainframe Environment — Foundations 3.1</li>
+                <li><span class="code">SYS</span>Parallel Sysplex — Foundations</li>
+                <li><span class="code">SEC</span>Mainframe Security — Foundations</li>
+                <li><span class="code">DB</span>Database — Fundamentals 2023</li>
+                <li><span class="code">APP</span>Application Programmer — Secure Coding</li>
+              </ul>
+            </div>
+            <div class="cert-group">
+              <h3>Build &amp; security</h3>
+              <ul class="cert-list">
+                <li><span class="code">DBB</span>IBM Dependency Based Build Fundamentals</li>
+                <li><span class="code">THM</span>TryHackMe — ongoing cybersecurity training</li>
+              </ul>
+            </div>
+          </div>
+
+          <p class="actions">
+            <a
+              class="btn btn-ink"
+              href="https://www.credly.com/users/marin-sabo.f8425966"
+              target="_blank"
+              rel="noopener"
+              >Verify on Credly <span class="arr" aria-hidden="true">↗</span></a
+            >
+          </p>
+        </div>
+      </section>
+
+      <!-- ============ Other work ============ -->
+      <section class="section" id="projects">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="eyebrow">04 — Other work</p>
+            <h2>Web, design &amp; research</h2>
+            <p class="lead">
+              Alongside mainframe, I’ve run web projects for clients on my own,
+              from the first call to launch, and led a UX research project.
+              That’s where I learned to work out what people actually need, and
+              to deliver it on time.
+            </p>
+          </div>
+
+          <ol class="rows">
+            <li>
+              <a class="row" href="brushy/">
+                <span class="row-num">01</span>
+                <span class="row-name">Brushy</span>
+                <span class="row-line"
+                  >A concept app that turns tooth brushing into a game for
+                  children. I did the research with 70 pupils and designed it in
+                  Figma.</span
+                >
+                <span class="row-kind">Research &amp; UX · DentOS</span>
+                <span class="row-arrow" aria-hidden="true">→</span>
               </a>
-            </div>
+            </li>
+            <li>
+              <a class="row" href="work/vukovarski-golubici.html">
+                <span class="row-num">02</span>
+                <span class="row-name">Vukovarski Golubići</span>
+                <span class="row-line"
+                  >Rebuilt a children’s choir’s outdated website on WordPress,
+                  then trained the staff to run it.</span
+                >
+                <span class="row-kind">Website redesign</span>
+                <span class="row-arrow" aria-hidden="true">→</span>
+              </a>
+            </li>
+            <li>
+              <a class="row" href="work/gamechanger.html">
+                <span class="row-num">03</span>
+                <span class="row-name">GameChanger</span>
+                <span class="row-line"
+                  >Website for a gaming and Web3 conference: 100+ speakers and
+                  sponsors, on a fixed launch deadline.</span
+                >
+                <span class="row-kind">Event website</span>
+                <span class="row-arrow" aria-hidden="true">→</span>
+              </a>
+            </li>
+            <li>
+              <a class="row" href="work/wavelance.html">
+                <span class="row-num">04</span>
+                <span class="row-name">WaveLance</span>
+                <span class="row-line"
+                  >Landing page for a LinkedIn personal-branding agency, with a
+                  clear path to booking a call.</span
+                >
+                <span class="row-kind">Landing page</span>
+                <span class="row-arrow" aria-hidden="true">→</span>
+              </a>
+            </li>
+            <li>
+              <a class="row" href="work/codehustling.html">
+                <span class="row-num">05</span>
+                <span class="row-name">CodeHustling</span>
+                <span class="row-line"
+                  >A central hub for a web-development community on
+                  Instagram.</span
+                >
+                <span class="row-kind">Community website</span>
+                <span class="row-arrow" aria-hidden="true">→</span>
+              </a>
+            </li>
+            <li>
+              <a class="row" href="work/ikarus.html">
+                <span class="row-num">06</span>
+                <span class="row-name">Ikarus Agency</span>
+                <span class="row-line"
+                  >Brand identity and website for the web development agency I
+                  ran with a friend.</span
+                >
+                <span class="row-kind">Own agency · brand &amp; website</span>
+                <span class="row-arrow" aria-hidden="true">→</span>
+              </a>
+            </li>
+          </ol>
 
-            <div class="choice-card choice-nothing">
-              <h3>Opcija 2: Propuštena prilika</h3>
-              <ul class="choice-list">
-                <li>⚠️ Konkurencija sa slabijom ponudom se rangira bolje od Vas na Googleu..</li>
-                <li>⚠️ Plaćate oglase koji dovode promet na stranicu, ali ne i klijente!
+          <div class="quotes">
+            <h3 class="mini-head">What clients said</h3>
+            <figure class="quote">
+              <blockquote>
+                <p>
+                  Marin is an outstanding web developer with excellent skills in
+                  both front end and back end technologies. His work is always
+                  user friendly, visually appealing, and high performing.
+                </p>
+                <p>
+                  Additionally, he is a great team player, communicates well,
+                  and consistently brings a positive attitude.
+                </p>
+                <p>I highly recommend him for any web development role.</p>
+              </blockquote>
+              <figcaption>
+                <img
+                  class="quote-photo"
+                  src="assets/images/clients/afreen.webp"
+                  width="112"
+                  height="112"
+                  alt=""
+                  loading="lazy"
+                />
+                <strong>Afreen Dharar</strong>
+                <span>Founder, WaveLance · client</span>
+              </figcaption>
+            </figure>
+            <figure class="quote">
+              <blockquote>
+                <p>
+                  Our old website made the choir look inactive. Marin built us a
+                  new one from scratch and trained us to run it ourselves, and
+                  we’ve been publishing news and galleries on our own ever
+                  since.
+                </p>
+              </blockquote>
+              <figcaption>
+                <img
+                  class="quote-photo"
+                  src="assets/images/clients/dubravka.webp"
+                  width="112"
+                  height="112"
+                  alt=""
+                  loading="lazy"
+                />
+                <strong>Dubravka Lemac</strong>
+                <span>Choir director, Vukovarski Golubići · client</span>
+              </figcaption>
+            </figure>
+            <figure class="quote">
+              <blockquote>
+                <p>
+                  Information about our community was scattered everywhere.
+                  Marin brought it together in one website and kept it running
+                  after launch. I’d recommend him for any web project.
+                </p>
+              </blockquote>
+              <figcaption>
+                <img
+                  class="quote-photo"
+                  src="assets/images/clients/fabion.webp"
+                  width="112"
+                  height="112"
+                  alt=""
+                  loading="lazy"
+                />
+                <strong>Fabion Kallaku</strong>
+                <span>Founder, CodeHustling · client</span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ Shipped log ============ -->
+      <section class="shipped" id="shipped" data-shipped="assets/data/shipped.json">
+        <div class="wrap">
+          <div class="shipped-side">
+            <p class="eyebrow">05 — Shipped log</p>
+            <p class="counter" data-shipped-count aria-hidden="true">9</p>
+            <h2 class="shipped-text">
+              <span class="visually-hidden" data-shipped-count-text>9 </span
+              >things shipped since <span data-shipped-since>2023</span>.
+              Every launch gets a line here, no matter how small.
+            </h2>
+          </div>
+          <div>
+          <ol class="log" data-shipped-list>
+            <li class="log-empty">
+              Latest: DartZ delivery pipeline (09.2026), DartZ on z/OS
+              (08.2026), IBM Z Xplore All Star (06.2026).
+            </li>
+          </ol>
+          <button class="btn btn-outline btn-sm log-more" type="button" data-shipped-more hidden>
+            Show all
+          </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ Education ============ -->
+      <section class="section" id="education">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="eyebrow">06 — Education</p>
+            <h2>Education &amp; recognition</h2>
+          </div>
+
+          <div class="two-col">
+            <div>
+              <h3 class="mini-head">Education</h3>
+              <ul class="list">
+                <li>
+                  <span class="when">2024 – now</span>
+                  <span
+                    ><strong>FERIT Osijek</strong> BSc in Computer Science ·
+                    Software Engineering track · 3rd year<span class="thesis"
+                      >Bachelor’s thesis, in progress:
+                      <em
+                        >Applying DevOps Principles to Building a Db2
+                        Database</em
+                      ></span
+                    ></span
+                  >
                 </li>
-                <li>⚠️ Strah Vas je ažurirati stranicu jer je sustav nepouzdan i zastario</li>
-                <li>⚠️ Vaš online brand ruši imidž vašeg branda.
+                <li>
+                  <span class="when">2020 – 2024</span>
+                  <span
+                    ><strong>Technical School Požega</strong> Computer
+                    Science</span
+                  >
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="mini-head">Achievements</h3>
+              <ul class="list plain">
+                <li>
+                  <strong>QED 2026</strong>, CROZ’s conference in Zadar:
+                  selected by the professor among the
+                  <strong>top 4 students</strong> of the elective course
+                  Fundamentals of Mainframe Technology to attend (grade 5/5)
+                </li>
+                <li>
+                  <strong>Top national exam result</strong> in my class at
+                  Technical School Požega
+                </li>
+                <li>
+                  <strong>Top 2%</strong> of students in Požega-Slavonia County
+                </li>
+                <li>
+                  <strong>City of Požega Scholarship</strong> for academic
+                  excellence
+                </li>
+                <li>
+                  <strong>2nd place</strong> at the national competition
+                  “Opisujemo sustave” (2024), with maximum points for
+                  presentation
+                </li>
+                <li>
+                  <strong>City of Požega Youth Council</strong> member (2022 –
+                  2023)
                 </li>
               </ul>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Value Proposition Section -->
-    <section class="value-prop-section" id="process">
-      <div class="pain-point-content">
-        <h2 class="pain-point-title">
-          <span class="pain-point-question">Umorni od čekanja mjesecima na jednostavan web projekt?</span>
-        </h2>
-        <p class="pain-point-text">
-          Većina agencija vas drži u mraku s nekim "procesima", birokratskim sastancima i nebuloznim vremenskim
-          okvirima.
-          <strong>Kod nas dobijate direktan pristup developeru koji radi na vašem projektu.</strong>
-        </p>
-      </div>
-      <div class="container">
-        <div class="value-prop-grid">
-          <!-- Traditional Model (Left) -->
-          <div class="value-card traditional-model">
-            <h3 class="model-title">Model drugih agencija
-            </h3>
-            <ul class="model-list">
-              <li class="model-item negative">
-                <span class="icon">⚠️</span>
-                <span>Skriveni troškovi koji se pojavljuju pri kraju projekta</span>
-              </li>
-              <li class="model-item negative">
-                <span class="icon">⚠️</span>
-                <span>Projekti koji se rade mjesecima bez jasnog kraja i vizije</span>
-              </li>
-              <li class="model-item negative">
-                <span class="icon">⚠️</span>
-                <span>Razgovor o nepotrebnim, “teško” shvatljivim pojmovima kako bi vas impresionirali i zbunili</span>
-              </li>
-              <li class="model-item negative">
-                <span class="icon">⚠️</span>
-                <span>Gubitak potencijalnih klijenata i prilika dok konkurencija raste i napreduje
-                </span>
-              </li>
-            </ul>
-          </div>
-
-          <!-- MS Development Model (Right) -->
-          <div class="value-card ms-model card-glass">
-            <div class="spotlight-bg"></div>
-            <h3 class="model-title text-gradient">MS Development Model</h3>
-            <ul class="model-list">
-              <li class="model-item positive">
-                <span class="icon">✅</span>
-                <span>Direktna komunikacija, bez posrednika</span>
-              </li>
-              <li class="model-item positive">
-                <span class="icon">✅</span>
-                <span>Jasno definirani datumi isporuke</span>
-              </li>
-              <li class="model-item positive">
-                <span class="icon">✅</span>
-                <span>Fiksne cijene, bez iznenađenja</span>
-              </li>
-              <li class="model-item positive">
-                <span class="icon">✅</span>
-                <span>Transparentnost</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Technical Expertise Section -->
-    <section class="tech-section" id="expertise">
-      <div class="container">
-        <h2 class="section-title text-center">Usluge</h2>
-        <div class="tech-grid">
-          <!-- WordPress -->
-          <div class="tech-card card-glass shimmer-hover">
-            <div class="tech-icon">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#F5F5F5" stroke-width="1.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path
-                  d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
-                </path>
-                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                <line x1="12" y1="22.08" x2="12" y2="12"></line>
-              </svg>
-            </div>
-            <h3>Web Razvoj</h3>
-            <p>Ne prodajemo unaprijed izrađene templateove. Gradimo od nule vašu digitalnu imovinu prilagođenu vašim
-              ciljevima i vizijama! Bilo da se radi o korporativnoj stranici na WordPressu ili kompleksnoj custom web
-              aplikaciji – mi biramo najbolju tehnologiju za vaš siguran rast.
-            </p>
-            <ul class="tech-tags">
-              <li>Sigurnost</li>
-              <li>Brzina</li>
-              <li>Skalabilnost</li>
-            </ul>
-          </div>
-
-          <!-- Shopify -->
-          <div class="tech-card card-glass shimmer-hover">
-            <div class="tech-icon">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#F5F5F5" stroke-width="1.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <path d="M16 10a4 4 0 0 1-8 0"></path>
-              </svg>
-            </div>
-            <h3>E-Commerce razvoj</h3>
-            <p>Izrada i optimizacija web trgovina s fokusom na povećanje prodaje i izgradnje baze stalnih klijenata.
-              Implementiramo napredne funkcionalnosti, automatizaciju procesa i intuitivno korisničko iskustvo (UX) koje
-              posjetitelje pretvara u vjerne kupce.
-            </p>
-            <ul class="tech-tags">
-              <li>Konverzija</li>
-              <li>Automatizacija</li>
-              <li>Integracija</li>
-            </ul>
-          </div>
-
-          <!-- Social Media Management -->
-          <div class="tech-card card-glass shimmer-hover">
-            <div class="tech-icon">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#F5F5F5" stroke-width="1.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M23 6l-9.5 9.5-5-5L1 18"></path>
-                <path d="M17 6h6v6"></path>
-              </svg>
-            </div>
-            <h3>Vođenje društvenih mreža</h3>
-            <p>Strateški i personalizirani pristup vašem brandu na tržištu. Od analize konkurencije i trenutačnog stanja
-              branda do provedbe kampanja na društvenim mrežama – kreiramo sadržaj koji gradi prepoznatljivost i
-              autoritet vašeg brenda, povećava vidljivost te privlači klijente koje zanima baš vaša priča i vaš brand.
-            </p>
-            <ul class="tech-tags">
-              <li>Branding</li>
-              <li>Analitika</li>
-              <li>Rast</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="container">
-      <div style="display: flex; justify-content: space-between; align-items: end; margin-bottom: 2rem;">
-        <h2 class="section-title" style="margin-bottom: 0;">Istaknuti Projekti</h2>
-        <div class="portfolio-nav-container" style="margin-bottom: 0;">
-          <button class="portfolio-nav-btn prev-btn" aria-label="Previous">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M15 18l-6-6 6-6" />
-            </svg>
-          </button>
-          <button class="portfolio-nav-btn next-btn" aria-label="Next">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M9 18l6-6-6-6" />
-            </svg>
-          </button>
-        </div>
-      </div>
-
-      <div class="portfolio-grid" id="portfolio-slider">
-
-        <article class="portfolio-card">
-          <div class="portfolio-image-wrapper" style="background-color: #2a2a4a;">
-            <img src="images/wavelance-logo.webp" alt="WaveLance Project" class="portfolio-image object-contain"
-              loading="lazy">
-          </div>
-
-          <div class="portfolio-content">
-            <div class="content-header">
-              <h3>WaveLance</h3>
-              <div class="arrow-icon">↗</div>
-            </div>
-            <p>SaaS platforma za freelancere.</p>
-
-            <div class="card-tags">
-              <span class="tag">SaaS</span>
-              <span class="tag">Platforma</span>
-            </div>
-
-            <a href="wavelance-case-study.html" class="card-link"><span class="sr-only">View Project</span></a>
-          </div>
-        </article>
-
-        <article class="portfolio-card">
-          <div class="portfolio-image-wrapper" style="background-color: #ffcc00;">
-            <img src="images/vukovarski-golubići.webp" alt="Vukovarski Golubići Project"
-              class="portfolio-image object-contain" loading="lazy">
-
-          </div>
-
-          <div class="portfolio-content">
-            <div class="content-header">
-              <h3>Vukovarski Golubići</h3>
-              <div class="arrow-icon">↗</div>
-            </div>
-            <p>Kompletna web platforma za dječji zbor "Vukovarski Golubići"</p>
-
-            <div class="card-tags">
-              <span class="tag">Platforma</span>
-              <span class="tag">Rebranding</span>
-            </div>
-
-            <a href="vukovarski-golubici-case-study.html" class="card-link"><span class="sr-only">View
-                Project</span></a>
-          </div>
-        </article>
-
-        <article class="portfolio-card">
-          <div class="portfolio-image-wrapper" style="background-color: #2f3130;">
-            <img src="images/codehustling.webp" alt="Code Hustling Project" class="portfolio-image object-contain"
-              loading="lazy" style="padding: 4rem;">
-          </div>
-
-          <div class="portfolio-content">
-            <div class="content-header">
-              <h3>Code Hustling</h3>
-              <div class="arrow-icon">↗</div>
-            </div>
-            <p>Cjeloviti rebranding i custom web rješenje.</p>
-
-            <div class="card-tags">
-              <span class="tag">Rebranding</span>
-              <span class="tag">Dizajn</span>
-            </div>
-
-            <a href="codehustling-case-study.html" class="card-link"><span class="sr-only">View
-                Project</span></a>
-          </div>
-        </article>
-
-        <article class="portfolio-card">
-          <div class="portfolio-image-wrapper" style="background-color: #ff0000;">
-            <img src="images/gamechanger-all-white-logo.webp" alt="GameChanger Project"
-              class="portfolio-image object-contain" loading="lazy" style="padding: 4rem;">
-          </div>
-
-          <div class="portfolio-content">
-            <div class="content-header">
-              <h3>GameChanger</h3>
-              <div class="arrow-icon">↗</div>
-            </div>
-            <p>Razvoj landing stranice visokih performansi za vodeću tehnološku konferenciju</p>
-
-            <div class="card-tags">
-              <span class="tag">Event</span>
-              <span class="tag">Gaming</span>
-            </div>
-
-            <a href="gamechanger-case-study.html" class="card-link"><span class="sr-only">View
-                Project</span></a>
-          </div>
-        </article>
-
-        <article class="portfolio-card">
-          <div class="portfolio-image-wrapper" style="background-color: #d60043;">
-            <img src="images/ikarus-agency-all-white-logo.webp" alt="Ikarus Agency Project"
-              class="portfolio-image object-contain" loading="lazy" style="padding: 4rem;">
-          </div>
-
-          <div class="portfolio-content">
-            <div class="content-header">
-              <h3>Ikarus Agency</h3>
-              <div class="arrow-icon">↗</div>
-            </div>
-            <p>Kompletan rebranding i web dizajn.</p>
-
-            <div class="card-tags">
-              <span class="tag">Rebranding</span>
-              <span class="tag">Web Dizajn</span>
-            </div>
-
-            <a href="ikarus-case-study.html" class="card-link"><span class="sr-only">View
-                Project</span></a>
-          </div>
-        </article>
-
-        <article class="portfolio-card">
-          <div class="portfolio-image-wrapper" style="background-color: #0561ad;">
-            <img src="images/brod-all-white-logo.png" alt="Slavonski Brod Project"
-              class="portfolio-image object-contain" loading="lazy" style="padding: 4rem;">
-          </div>
-
-          <div class="portfolio-content">
-            <div class="content-header">
-              <h3>Slavonski Brod</h3>
-              <div class="arrow-icon">↗</div>
-            </div>
-            <p>Strategija i vođenje društvenih mreža.</p>
-
-            <div class="card-tags">
-              <span class="tag">Društvene mreže</span>
-              <span class="tag">Marketing</span>
-            </div>
-
-            <a href="slavonski-brod-case-study.html" class="card-link"><span class="sr-only">Pogledaj projekt</span></a>
-          </div>
-        </article>
-      </div>
-    </div>
-    </section>
-    <!-- Booking Section -->
-    <section class="booking-section" id="booking">
-      <div class="container">
-        <div class="section-header text-center">
-          <h2 class="section-title">Spremni za stvarne promjene?
-          </h2>
-          <p class="booking-subtitle">Rezervirajte svoj termin za besplatne konzultacije i pokrenite svoju priču sada!
+      <!-- ============ Contact ============ -->
+      <section class="contact" id="contact">
+        <div class="wrap">
+          <p class="eyebrow">07 — Contact</p>
+          <h2>Let’s talk.</h2>
+          <p class="contact-lede">
+            I’m looking for a <strong>student job or a 2027 internship</strong> in
+            mainframe or enterprise development. I can work
+            <strong>remotely, or on-site in Osijek</strong>.
           </p>
-        </div>
-
-        <div class="booking-grid">
-
-          <div class="calendly-column card-glass">
-            <div class="calendly-inline-widget" data-url="https://calendly.com/marinsabo/discovery-call"
-              style="min-width:320px;height:700px;"></div>
-            <!-- Calendly script removed for lazy loading -->
-          </div>
-
-          <div class="status-column">
-            <div class="status-card">
-
-              <div class="status-badge">
-                <span class="status-dot-green"></span>
-                <span class="badge-text">PREOSTALA MJESTA</span>
-              </div>
-
-              <div class="big-count-wrapper">
-                <span class="big-number">2</span>
-                <div class="big-label">
-                  <span class="label-primary">Slobodna</span>
-                  <span class="label-secondary">MJESTA</span>
-                </div>
-              </div>
-
-              <div class="progress-section">
-                <div class="progress-labels">
-                  <span>KAPACITET</span>
-                  <span>50% POPUNJENO</span>
-                </div>
-                <div class="progress-track">
-                  <div class="progress-fill" style="width: 50%;"></div>
-                </div>
-              </div>
-
-              <div class="status-footer">
-                <p class="highlight-text">Ovaj mjesec primamo samo <span class="text-yellow">2 nova klijenta.</span></p>
-                <p class="sub-text">Rezervirajte termin prije popunjavanja.</p>
-              </div>
-
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer-container">
-      <div class="footer-brand">
-        <img src="images/logo-dark-noBG.webp" alt="MS Development" class="footer-logo">
-        <p class="footer-desc">
-          Brzi, funkcionalni web sustavi koji vašim kupcima olakšavaju kupnju, a vama vođenje posla.
-        </p>
-      </div>
-
-      <div class="footer-links">
-        <div class="footer-col">
-          <h4>Navigacija</h4>
-          <ul>
-            <li><a href="#expertise" class="nav-link">Usluge</a></li>
-            <li><a href="#case-studies" class="nav-link">Portfolio</a></li>
-            <li><a href="#booking" class="nav-link">Kontakt</a></li>
+          <a
+            class="btn btn-ink btn-email"
+            href="mailto:marin.sabo.contact@gmail.com"
+            >marin.sabo.contact@gmail.com</a
+          >
+          <ul class="contact-links">
+            <li>
+              <a
+                href="https://github.com/marinsabo"
+                target="_blank"
+                rel="noopener"
+                >GitHub <span class="arr" aria-hidden="true">↗</span></a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/marinsabo/"
+                target="_blank"
+                rel="noopener"
+                >LinkedIn <span class="arr" aria-hidden="true">↗</span></a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.credly.com/users/marin-sabo.f8425966"
+                target="_blank"
+                rel="noopener"
+                >Credly <span class="arr" aria-hidden="true">↗</span></a
+              >
+            </li>
+            <li>
+              <a href="assets/Marin-Sabo-CV.pdf" target="_blank" rel="noopener"
+                >Résumé (PDF) <span class="arr" aria-hidden="true">↗</span></a
+              >
+            </li>
           </ul>
         </div>
-        <div class="footer-col">
-          <h4>Društvene mreže</h4>
-          <ul>
-            <li><a href="#" target="_blank">LinkedIn</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Pravno</h4>
-          <ul>
-            <li><a href="#">Politika privatnosti</a></li>
-            <li><a href="#">Uvjeti korištenja</a></li>
-          </ul>
-        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <span>© <span data-year>2026</span> Marin Sabo</span>
       </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="container">
-        <p>&copy; 2026 MS Development. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
+    </footer>
 
-  <!-- Scripts -->
-  <!-- Mobile Menu Overlay (Moved to root for stacking context) -->
-  <div class="mobile-menu">
-    <button class="mobile-menu-close" aria-label="Close Menu">
-      <span class="hamburger-line"></span>
-      <span class="hamburger-line"></span>
-    </button>
-
-    <nav class="mobile-nav">
-      <ul class="mobile-nav-list">
-        <li><a href="#expertise" class="mobile-nav-link">Usluge</a></li>
-        <li><a href="#case-studies" class="mobile-nav-link">Portfolio</a></li>
-        <li><a href="#booking" class="mobile-nav-link">Kontakt</a></li>
-        <li><a href="#booking" class="mobile-nav-link highlight">Zatraži ponudu</a></li>
-      </ul>
-    </nav>
-  </div>
-
-  <script>
-    /* 
-      MS Development - Core Interactions
-    */
-
-    document.addEventListener('DOMContentLoaded', () => {
-      initCustomCursor();
-      registerServiceWorker();
-      initCalendlyWidget();
-    });
-
-    function initCalendlyWidget() {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            // Unobserve to run only once
-            observer.disconnect();
-
-            // Load Calendly script
-            const script = document.createElement('script');
-            script.src = 'https://assets.calendly.com/assets/external/widget.js';
-            script.async = true;
-            document.body.appendChild(script);
-          }
-        });
-      }, {
-        rootMargin: '200px' // Load slightly before comes into view
-      });
-
-      const bookingSection = document.getElementById('booking');
-      if (bookingSection) {
-        observer.observe(bookingSection);
-      }
-    }
-
-    function initCustomCursor() {
-      const cursorDot = document.querySelector('[data-cursor-dot]');
-      const cursorOutline = document.querySelector('[data-cursor-outline]');
-
-      if (!cursorDot || !cursorOutline) return;
-
-      let mouseX = 0;
-      let mouseY = 0;
-      let dotX = 0;
-      let dotY = 0;
-      let outlineX = 0;
-      let outlineY = 0;
-
-      window.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-
-        // Immediate update for dot position targets, can also be done in loop but this ensures fresh data
-        dotX = mouseX;
-        dotY = mouseY;
-      });
-
-      function animate() {
-        // Dot follows instantly (or very quickly)
-        // cursorDot.style.transform = `translate(${dotX}px, ${dotY}px) translate(-50%, -50%)`; 
-        // Note: We used translate(-100px, -100px) in CSS to hide it. 
-        // We need to overwrite that. 
-        // Also need to handle the centering. The CSS has transform: translate(-50%, -50%) BUT 
-        // setting transform in JS overwrites CSS transform.
-        // So we need to include the centering in the JS transform.
-
-        cursorDot.style.transform = `translate3d(${dotX}px, ${dotY}px, 0) translate(-50%, -50%)`;
-
-        // Outline follows with delay (lerp)
-        // Lower factor = slower/smoother lag
-        const speed = 0.2;
-        outlineX += (mouseX - outlineX) * speed;
-        outlineY += (mouseY - outlineY) * speed;
-
-        cursorOutline.style.transform = `translate3d(${outlineX}px, ${outlineY}px, 0) translate(-50%, -50%)`;
-
-        requestAnimationFrame(animate);
-      }
-
-      animate();
-
-      // Hover effects for links and buttons
-      const interactiveElements = document.querySelectorAll('a, button, .btn');
-
-      interactiveElements.forEach(el => {
-        el.addEventListener('mouseenter', () => {
-          // We need to maintain the position translate, so we can't just set transform to scale.
-          // We'll add a class instead, which is cleaner and more performant.
-          cursorOutline.classList.add('cursor-hover');
-        });
-
-        el.addEventListener('mouseleave', () => {
-          cursorOutline.classList.remove('cursor-hover');
-        });
-      });
-    }
-
-    // Magnetic Button Logic
-    const magneticBtns = document.querySelectorAll('[data-magnetic]');
-
-    magneticBtns.forEach(btn => {
-      btn.addEventListener('mousemove', (e) => {
-        const rect = btn.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-
-        // Move the button itself
-        btn.style.transform = `translate3d(${x * 0.3}px, ${y * 0.3}px, 0)`;
-
-        // Move the inner text/content slightly less for parallax
-        const text = btn.querySelector('.btn-text');
-        if (text) {
-          text.style.transform = `translate3d(${x * 0.1}px, ${y * 0.1}px, 0)`;
-        }
-      });
-
-      btn.addEventListener('mouseleave', () => {
-        btn.style.transform = 'translate(0, 0)';
-        const text = btn.querySelector('.btn-text');
-        if (text) {
-          text.style.transform = 'translate(0, 0)';
-        }
-      });
-    });
-
-    // Mobile Menu Toggle
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const mobileMenuCloseBtn = document.querySelector('.mobile-menu-close');
-    const mobileMenu = document.querySelector('.mobile-menu');
-    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
-
-    if (mobileMenuBtn && mobileMenu) {
-      const toggleMenu = () => {
-        mobileMenuBtn.classList.toggle('active');
-        mobileMenu.classList.toggle('active');
-
-        // Prevent scrolling when menu is open
-        if (mobileMenu.classList.contains('active')) {
-          document.body.style.overflow = 'hidden';
-        } else {
-          document.body.style.overflow = '';
-        }
-      };
-
-      const closeMenu = () => {
-        mobileMenuBtn.classList.remove('active');
-        mobileMenu.classList.remove('active');
-        document.body.style.overflow = '';
-      };
-
-      mobileMenuBtn.addEventListener('click', toggleMenu);
-
-      if (mobileMenuCloseBtn) {
-        mobileMenuCloseBtn.addEventListener('click', closeMenu);
-      }
-
-      // Close menu when clicking a link
-      mobileLinks.forEach(link => {
-        link.addEventListener('click', closeMenu);
-      });
-    }
-
-    // Header Scroll Effect
-    const header = document.querySelector('.header');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    });
-
-
-
-    // Service Worker Registration
-    function registerServiceWorker() {
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('sw.js')
-            .then(registration => {
-              console.log('ServiceWorker registration successful with scope: ', registration.scope);
-            })
-            .catch(err => {
-              console.log('ServiceWorker registration failed: ', err);
-            });
-        });
-      }
-    }
-
-    // Disable Right Click
-    document.addEventListener('contextmenu', (e) => e.preventDefault());
-
-    function ctrlShiftKey(e, keyCode) {
-      return e.ctrlKey && e.shiftKey && e.keyCode === keyCode.charCodeAt(0);
-    }
-
-    document.onkeydown = (e) => {
-      // Disable F12, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + U
-      if (
-        event.keyCode === 123 ||
-        ctrlShiftKey(e, 'I') ||
-        ctrlShiftKey(e, 'J') ||
-        ctrlShiftKey(e, 'C') ||
-        (e.ctrlKey && e.keyCode === 'U'.charCodeAt(0))
-      )
-        return false;
-    };
-
-    // Reusable Infinite Carousel Logic
-    function setupInfiniteCarousel(sliderId, prevBtnSelector, nextBtnSelector) {
-      const slider = document.getElementById(sliderId);
-      const prevBtn = document.querySelector(prevBtnSelector);
-      const nextBtn = document.querySelector(nextBtnSelector);
-
-      if (!slider || !prevBtn || !nextBtn) return;
-
-      const cards = Array.from(slider.children);
-      if (cards.length === 0) return;
-
-      const cardCount = cards.length;
-      const cardsToClone = 3; // Number of items to clone for buffer
-
-      // Clone items
-      const firstClones = cards.slice(0, cardsToClone).map(card => card.cloneNode(true));
-      const lastClones = cards.slice(-cardsToClone).map(card => card.cloneNode(true));
-
-      // Append and Prepend clones
-      firstClones.forEach(clone => slider.appendChild(clone));
-      lastClones.reverse().forEach(clone => slider.prepend(clone));
-
-      // Scroll to the first real element
-      const alignSlider = () => {
-        const firstCard = cards[0];
-        if (!firstCard) return;
-
-        const cardWidth = firstCard.offsetWidth;
-        const gap = parseFloat(window.getComputedStyle(slider).gap) || 32; // Default to 32px if not set
-        slider.scrollLeft = cardsToClone * (cardWidth + gap);
-      };
-
-      // Run initially and on resize
-      window.addEventListener('load', alignSlider);
-      window.addEventListener('resize', alignSlider);
-      setTimeout(alignSlider, 100);
-
-      // Scroll Event for Infinite Loop
-      slider.addEventListener('scroll', () => {
-        const firstCard = cards[0];
-        if (!firstCard) return;
-
-        const cardWidth = firstCard.offsetWidth;
-        const gap = parseFloat(window.getComputedStyle(slider).gap) || 32;
-        const itemWidth = cardWidth + gap;
-        const totalRealWidth = cardCount * itemWidth;
-
-        // If scrolled to the start (into prepended clones)
-        if (slider.scrollLeft <= 10) {
-          slider.scrollLeft = slider.scrollLeft + totalRealWidth;
-        }
-        // If scrolled to the end (into appended clones)
-        else if (slider.scrollLeft >= totalRealWidth + (cardsToClone * itemWidth) - 10) {
-          slider.scrollLeft = slider.scrollLeft - totalRealWidth;
-        }
-      });
-
-      nextBtn.addEventListener('click', () => {
-        const currentFirst = slider.children[0];
-        const cardWidth = currentFirst.offsetWidth;
-        const gap = parseFloat(window.getComputedStyle(slider).gap) || 32;
-
-        slider.scrollBy({ left: cardWidth + gap, behavior: 'smooth' });
-      });
-
-      prevBtn.addEventListener('click', () => {
-        const currentFirst = slider.children[0];
-        const cardWidth = currentFirst.offsetWidth;
-        const gap = parseFloat(window.getComputedStyle(slider).gap) || 32;
-
-        slider.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' });
-      });
-    }
-
-    // Initialize Portfolio Carousel
-    setupInfiniteCarousel('portfolio-slider', '.prev-btn', '.next-btn');
-  </script>
-</body>
-
-
+    <script src="assets/js/script.js" defer></script>
+  </body>
 </html>
