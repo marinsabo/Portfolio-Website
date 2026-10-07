@@ -171,7 +171,7 @@ strong {
 
 .eyebrow {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -198,7 +198,7 @@ strong {
 
 .mini-head {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -402,7 +402,7 @@ a:hover .arr-back,
   padding: 8px 14px;
   border: 1px solid var(--line);
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 14px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--fg);
@@ -447,6 +447,10 @@ a:hover .arr-back,
   height: 112px;
   object-fit: cover;
   /* already grayscale on the page colour; a CSS filter would shift the background */
+}
+
+.lead strong {
+  color: var(--fg);
 }
 
 .hero-row .lead {
@@ -548,7 +552,7 @@ a:hover .arr-back,
 
 .facts dt {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--muted);
@@ -580,7 +584,7 @@ a:hover .arr-back,
 .roles li::before {
   content: counter(r, decimal-leading-zero);
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 14px;
   color: var(--muted);
   padding-top: 4px;
 }
@@ -610,7 +614,7 @@ a:hover .arr-back,
   padding: 10px 18px;
   border-bottom: 1px solid var(--term-line);
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: 0.06em;
   color: var(--term-dim);
 }
@@ -756,15 +760,15 @@ a:hover .arr-back,
   content: counter(s, decimal-leading-zero);
   grid-row: span 2;
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 14px;
   color: var(--muted);
   padding-top: 4px;
 }
 
 .pipeline span {
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.45;
-  color: var(--muted);
+  color: var(--body-2);
 }
 
 @media (min-width: 900px) {
@@ -812,8 +816,8 @@ a:hover .arr-back,
 .job-when {
   grid-column: 1;
   font-family: var(--font-mono);
-  font-size: 13px;
-  color: var(--muted);
+  font-size: 15px;
+  color: var(--fg);
 }
 
 .job-title {
@@ -830,7 +834,7 @@ a:hover .arr-back,
   font-weight: 500;
   font-size: 18px;
   letter-spacing: 0;
-  color: var(--muted);
+  color: var(--body-2);
 }
 
 .job-outcome {
@@ -849,9 +853,9 @@ a:hover .arr-back,
   padding: 5px 10px;
   border: 1px solid var(--line);
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.3;
-  color: var(--muted);
+  color: var(--body-2);
 }
 
 .job .tags {
@@ -904,6 +908,10 @@ a:hover .arr-back,
 .job-body li {
   position: relative;
   padding-left: 22px;
+}
+
+.job-body strong {
+  color: var(--fg);
 }
 
 .job-body li::before {
@@ -970,15 +978,16 @@ details[open]::details-content {
   margin-bottom: 12px;
   border-bottom: 2px solid var(--fg);
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
-.skills p {
-  font-size: 17px;
-  color: var(--body-2);
+.skills .tags > * {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--fg);
 }
 
 /* ---------- Certifications ---------- */
@@ -1024,7 +1033,7 @@ details[open]::details-content {
 
 .code {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 13px;
   color: var(--muted);
 }
 
@@ -1056,7 +1065,7 @@ details[open]::details-content {
 .row-num {
   grid-row: span 3;
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 14px;
   color: var(--muted);
   padding-top: 10px;
 }
@@ -1078,7 +1087,7 @@ details[open]::details-content {
 .row-kind {
   grid-column: 2;
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--muted);
@@ -1217,7 +1226,7 @@ details[open]::details-content {
 .quote figcaption span,
 .quote figcaption a {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 14px;
   color: var(--muted);
 }
 
@@ -1315,7 +1324,7 @@ details[open]::details-content {
 
 .log-date {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 14px;
   color: var(--muted);
 }
 
@@ -1398,8 +1407,8 @@ details[open]::details-content {
 
 .when {
   font-family: var(--font-mono);
-  font-size: 13px;
-  color: var(--muted);
+  font-size: 14px;
+  color: var(--body-2);
   padding-top: 4px;
 }
 
@@ -1478,7 +1487,7 @@ details[open]::details-content {
   background: var(--accent);
   color: var(--on-accent);
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .site-footer .wrap {
@@ -1502,7 +1511,7 @@ details[open]::details-content {
   gap: 8px;
   min-height: 44px;
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 14px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--muted);
@@ -1543,7 +1552,7 @@ details[open]::details-content {
 
 .case-facts dt {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--muted);
@@ -1620,7 +1629,7 @@ details[open]::details-content {
 .numbered li::before {
   content: counter(n, decimal-leading-zero);
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 14px;
   color: var(--muted);
   padding-top: 4px;
 }
@@ -1635,7 +1644,7 @@ details[open]::details-content {
   padding: 6px 10px;
   border: 1px solid var(--line);
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 13px;
   color: var(--muted);
 }
 
