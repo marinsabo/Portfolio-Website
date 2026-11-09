@@ -1,5 +1,5 @@
 {
-  "_readme": "Shipped log. Newest first. Add a line at the top when you ship something; the counter and the 'Last shipped' date update themselves. status: 'shipped' or 'next' (in progress). date: MM.YYYY.",
+  "_readme": "Shipped log. Newest first. Add a line at the top when you ship something; the counters on the homepage update themselves (also update the fallback numbers in index.html). status: 'shipped' or 'next' (in progress). date: MM.YYYY.",
   "since": "2023",
   "entries": [
     {

@@ -171,7 +171,7 @@ strong {
 
 .eyebrow {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -198,7 +198,7 @@ strong {
 
 .mini-head {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -402,7 +402,7 @@ a:hover .arr-back,
   padding: 8px 14px;
   border: 1px solid var(--line);
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 14px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--fg);
@@ -421,8 +421,8 @@ a:hover .arr-back,
   max-width: 13em;
   margin-top: clamp(16px, 3vh, 32px);
   /* sized by width AND height, so pill + headline + intro fit one screen */
-  font-size: clamp(44px, min(8.2vw, (100vh - 460px) / 2.76), 128px);
-  font-size: clamp(44px, min(8.2vw, (100svh - 460px) / 2.76), 128px);
+  font-size: clamp(44px, min(8.2vw, (100vh - 520px) / 2.76), 120px);
+  font-size: clamp(44px, min(8.2vw, (100svh - 520px) / 2.76), 120px);
   line-height: 0.92;
   letter-spacing: -0.045em;
 }
@@ -447,6 +447,10 @@ a:hover .arr-back,
   height: 112px;
   object-fit: cover;
   /* already grayscale on the page colour; a CSS filter would shift the background */
+}
+
+.lead strong {
+  color: var(--fg);
 }
 
 .hero-row .lead {
@@ -548,7 +552,7 @@ a:hover .arr-back,
 
 .facts dt {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--muted);
@@ -580,7 +584,7 @@ a:hover .arr-back,
 .roles li::before {
   content: counter(r, decimal-leading-zero);
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 14px;
   color: var(--muted);
   padding-top: 4px;
 }
@@ -610,7 +614,7 @@ a:hover .arr-back,
   padding: 10px 18px;
   border-bottom: 1px solid var(--term-line);
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: 0.06em;
   color: var(--term-dim);
 }
@@ -756,15 +760,15 @@ a:hover .arr-back,
   content: counter(s, decimal-leading-zero);
   grid-row: span 2;
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 14px;
   color: var(--muted);
   padding-top: 4px;
 }
 
 .pipeline span {
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.45;
-  color: var(--muted);
+  color: var(--body-2);
 }
 
 @media (min-width: 900px) {
@@ -812,8 +816,8 @@ a:hover .arr-back,
 .job-when {
   grid-column: 1;
   font-family: var(--font-mono);
-  font-size: 13px;
-  color: var(--muted);
+  font-size: 15px;
+  color: var(--fg);
 }
 
 .job-title {
@@ -830,7 +834,7 @@ a:hover .arr-back,
   font-weight: 500;
   font-size: 18px;
   letter-spacing: 0;
-  color: var(--muted);
+  color: var(--body-2);
 }
 
 .job-outcome {
@@ -849,9 +853,9 @@ a:hover .arr-back,
   padding: 5px 10px;
   border: 1px solid var(--line);
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.3;
-  color: var(--muted);
+  color: var(--body-2);
 }
 
 .job .tags {
@@ -904,6 +908,10 @@ a:hover .arr-back,
 .job-body li {
   position: relative;
   padding-left: 22px;
+}
+
+.job-body strong {
+  color: var(--fg);
 }
 
 .job-body li::before {
@@ -970,15 +978,16 @@ details[open]::details-content {
   margin-bottom: 12px;
   border-bottom: 2px solid var(--fg);
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
-.skills p {
-  font-size: 17px;
-  color: var(--body-2);
+.skills .tags > * {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--fg);
 }
 
 /* ---------- Certifications ---------- */
@@ -1024,7 +1033,7 @@ details[open]::details-content {
 
 .code {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 13px;
   color: var(--muted);
 }
 
@@ -1056,7 +1065,7 @@ details[open]::details-content {
 .row-num {
   grid-row: span 3;
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 14px;
   color: var(--muted);
   padding-top: 10px;
 }
@@ -1078,7 +1087,7 @@ details[open]::details-content {
 .row-kind {
   grid-column: 2;
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--muted);
@@ -1217,7 +1226,7 @@ details[open]::details-content {
 .quote figcaption span,
 .quote figcaption a {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 14px;
   color: var(--muted);
 }
 
@@ -1315,7 +1324,7 @@ details[open]::details-content {
 
 .log-date {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 14px;
   color: var(--muted);
 }
 
@@ -1398,8 +1407,8 @@ details[open]::details-content {
 
 .when {
   font-family: var(--font-mono);
-  font-size: 13px;
-  color: var(--muted);
+  font-size: 14px;
+  color: var(--body-2);
   padding-top: 4px;
 }
 
@@ -1478,7 +1487,7 @@ details[open]::details-content {
   background: var(--accent);
   color: var(--on-accent);
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .site-footer .wrap {
@@ -1502,7 +1511,7 @@ details[open]::details-content {
   gap: 8px;
   min-height: 44px;
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 14px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--muted);
@@ -1543,7 +1552,7 @@ details[open]::details-content {
 
 .case-facts dt {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--muted);
@@ -1620,7 +1629,7 @@ details[open]::details-content {
 .numbered li::before {
   content: counter(n, decimal-leading-zero);
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 14px;
   color: var(--muted);
   padding-top: 4px;
 }
@@ -1635,7 +1644,7 @@ details[open]::details-content {
   padding: 6px 10px;
   border: 1px solid var(--line);
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 13px;
   color: var(--muted);
 }
 
@@ -1684,6 +1693,279 @@ details[open]::details-content {
 }
 
 /* ---------- Motion off on request ---------- */
+
+/* ---------- Hero role line ---------- */
+
+.hero-role {
+  margin-top: clamp(16px, 2.5vh, 28px);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(20px, 2.4vw, 32px);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--fg);
+}
+
+.hero-role span {
+  color: var(--accent);
+}
+
+@media (min-width: 1100px) {
+  .hero-photo {
+    width: 136px;
+    height: 136px;
+  }
+}
+
+/* ---------- Proof strip ---------- */
+
+.proof-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.proof-list li {
+  min-width: 0;
+}
+
+.proof-list li > *,
+.proof-list li > a {
+  display: block;
+}
+
+.proof-list li {
+  padding: 20px 16px 20px 0;
+}
+
+.proof-list li:nth-child(2n) {
+  padding-left: 16px;
+  border-left: 1px solid var(--line);
+}
+
+.proof-list li:nth-child(n + 3) {
+  border-top: 1px solid var(--line);
+}
+
+.proof-list a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.proof-list a:hover strong {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.proof-list strong {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(28px, 3.4vw, 44px);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--accent);
+}
+
+.proof-list span {
+  display: block;
+  margin-top: 8px;
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--body-2);
+}
+
+@media (min-width: 900px) {
+  .proof-list {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .proof-list li,
+  .proof-list li:nth-child(2n) {
+    padding: 28px 24px;
+    border-top: 0;
+    border-left: 1px solid var(--line);
+  }
+
+  .proof-list li:nth-child(n + 3) {
+    border-top: 0;
+  }
+
+  .proof-list li:first-child {
+    padding-left: 0;
+    border-left: 0;
+  }
+}
+
+/* ---------- Light band (one break in the dark scroll) ---------- */
+
+.band-paper {
+  --bg: #F3F0E8;
+  --fg: #141210;
+  --muted: #5E574C;
+  --body-2: #2E2A25;
+  --line: #D2CBBE;
+  margin-top: var(--section-y);
+  padding-bottom: var(--section-y);
+  background: var(--bg);
+  color: var(--fg);
+}
+
+.band-paper ::selection {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+.band-paper :focus-visible {
+  outline-color: var(--fg);
+}
+
+/* certifications: three compact columns instead of long rows */
+.band-paper .cert-groups {
+  display: grid;
+  gap: 0 48px;
+}
+
+.band-paper .cert-group {
+  display: block;
+  padding: 24px 0;
+}
+
+.band-paper .cert-group h3 {
+  margin-bottom: 12px;
+  font-size: 20px;
+}
+
+.band-paper .cert-list li {
+  font-size: 16px;
+  padding: 8px 0;
+}
+
+@media (min-width: 900px) {
+  .band-paper .cert-groups {
+    grid-template-columns: 3fr 5fr 4fr;
+  }
+
+  .band-paper .cert-group {
+    border-bottom: 0;
+  }
+}
+
+/* ---------- Console command line ---------- */
+
+.console-cmd {
+  display: flex;
+  align-items: baseline;
+  gap: 1ch;
+  padding: 0 18px 6px calc(18px + 1ch);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--term-text);
+}
+
+.console-cmd label {
+  flex: none;
+}
+
+.console-cmd input {
+  flex: 1;
+  min-width: 0;
+  min-height: 32px;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px dashed var(--term-line);
+  background: transparent;
+  color: var(--term-hi);
+  caret-color: var(--accent);
+  font: inherit;
+  text-transform: uppercase;
+}
+
+.console-cmd input::placeholder {
+  color: var(--term-dim);
+  opacity: 1;
+}
+
+.console-cmd input:focus {
+  outline: none;
+  border-bottom-color: var(--accent);
+}
+
+.console-msg {
+  min-height: 1.5em;
+  padding: 0 18px 10px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--term-dim);
+  text-transform: uppercase;
+}
+
+@media (min-width: 720px) {
+  .console-cmd {
+    padding: 0 24px 6px calc(24px + 1ch);
+    font-size: 13.5px;
+  }
+
+  .console-msg {
+    padding: 0 24px 12px;
+  }
+
+  .only-narrow {
+    display: none;
+  }
+}
+
+/* ---------- Testimonials side by side on wide screens ---------- */
+
+@media (min-width: 1100px) {
+  .quotes {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 48px;
+  }
+
+  .quotes .mini-head {
+    grid-column: 1 / -1;
+  }
+
+  .quote {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: 1fr auto;
+    gap: 28px;
+    align-items: start;
+  }
+
+  .quote blockquote {
+    font-size: 19px;
+  }
+
+  .quote figcaption {
+    display: grid;
+    grid-template-columns: 56px minmax(0, 1fr);
+    column-gap: 16px;
+    row-gap: 2px;
+    align-items: center;
+  }
+
+  .quote-photo {
+    grid-row: span 3;
+    margin-bottom: 0;
+    align-self: start;
+  }
+}
+
+/* ---------- Shipped log fold ---------- */
+
+.log li[hidden] {
+  display: none;
+}
+
+.log-more {
+  margin-top: 24px;
+}
 
 @media (prefers-reduced-motion: reduce) {
   *,

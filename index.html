@@ -100,14 +100,15 @@
         <nav class="nav" id="site-nav" aria-label="Primary">
           <a href="#work">Work</a>
           <a href="#experience">Experience</a>
+          <a href="#certifications">Certifications</a>
           <a href="#projects">Projects</a>
-          <a href="#shipped">Shipped</a>
           <a href="#contact">Contact</a>
           <a
             class="btn btn-outline btn-sm"
-            href="assets/Marin-Sabo-CV.pdf"
-            download
-            >Résumé <span class="arr arr-down" aria-hidden="true">↓</span></a
+            href="assets/Marin_Sabo_CV_EN_no_phone.pdf"
+            target="_blank"
+            rel="noopener"
+            >Résumé <span class="arr" aria-hidden="true">↗</span></a
           >
         </nav>
       </div>
@@ -125,6 +126,12 @@
             I build software for systems that can’t afford to
             <mark class="hl">stop.</mark>
           </h1>
+          <p class="hero-role">
+            Mainframe Developer <span aria-hidden="true">·</span> z/OS
+            <span aria-hidden="true">·</span> COBOL
+            <span aria-hidden="true">·</span> CICS
+            <span aria-hidden="true">·</span> Db2
+          </p>
           <div class="hero-foot">
             <div class="hero-row">
               <img
@@ -135,8 +142,9 @@
                 alt="Portrait of Marin Sabo"
               />
               <p class="lead">
-                Hi, I’m Marin, a mainframe developer and CS student at FERIT
-                Osijek. At CROZ I owned the Db2 database behind a z/OS
+                Hi, I’m Marin, a <strong>mainframe developer</strong> and
+                <strong>CS student at FERIT Osijek</strong>. At CROZ I
+                <strong>owned the Db2 database</strong> behind a z/OS
                 application built in COBOL and CICS.
               </p>
             </div>
@@ -149,6 +157,32 @@
               >
             </div>
           </div>
+        </div>
+      </section>
+
+      <!-- ============ Proof strip ============ -->
+      <section class="proof" aria-label="Highlights">
+        <div class="wrap">
+          <ul class="proof-list">
+            <li>
+              <strong>CROZ</strong>
+              <span>Mainframe developer intern, 2026</span>
+            </li>
+            <li>
+              <strong>10</strong>
+              <span>IBM mainframe badges, incl. Z Xplore All Star</span>
+            </li>
+            <li>
+              <strong>Top 4</strong>
+              <span>of the mainframe course, picked for QED 2026</span>
+            </li>
+            <li>
+              <a href="#shipped"
+                ><strong data-shipped-count>9</strong>
+                <span>things shipped since 2023</span></a
+              >
+            </li>
+          </ul>
         </div>
       </section>
 
@@ -218,10 +252,9 @@
                 <pre
                   class="console-screen"
                   tabindex="0"
-                  aria-live="polite"
-                  aria-label="Recreated DartZ terminal screen. Use the function keys below to switch screens."
+                  aria-label="Recreated DartZ terminal screen. Use the function keys or type a command below to switch screens."
                 ><span class="dim">DZL010  </span><span class="hi">                   D A R T Z                    </span><span class="dim">OCT 2026</span>
-<span class="warn">                        LEAGUE STANDINGS</span>
+<span class="warn">                        LEAGUE STANDINGS                        </span>
 
  LEAGUE . : <span class="hi">SLAVONIA AUTUMN LEAGUE 2026</span>          ROUND <span class="hi">09</span> OF <span class="hi">14</span>
 
@@ -237,13 +270,28 @@
 
 
 
+<span class="dim"> DZL011I 6 PLAYERS LISTED. STANDINGS AS OF ROUND 09.</span>
 
- <span class="dim">DZL011I 6 PLAYERS LISTED. STANDINGS AS OF ROUND 09.</span>
 
- COMMAND ===> <span class="cursor"> </span></pre>
+</pre>
+                <form class="console-cmd" data-console-cmd>
+                  <label for="dz-cmd">COMMAND ===&gt;</label>
+                  <input
+                    id="dz-cmd"
+                    name="cmd"
+                    type="text"
+                    autocomplete="off"
+                    autocapitalize="characters"
+                    spellcheck="false"
+                    placeholder="TYPE HELP"
+                  />
+                  <button class="visually-hidden" type="submit" tabindex="-1">Run</button>
+                </form>
+                <p class="console-msg" data-console-msg aria-live="polite"></p>
                 <div class="pf-keys" role="group" aria-label="Function keys">
                   <button type="button" data-key="F1"><b>F1</b>=HELP</button>
                   <button type="button" data-key="F3"><b>F3</b>=EXIT</button>
+                  <button type="button" data-key="F4"><b>F4</b>=TABLES</button>
                   <button type="button" data-key="F5" aria-pressed="true">
                     <b>F5</b>=LEAGUE
                   </button>
@@ -253,93 +301,116 @@
               </div>
               <p class="caption">
                 A recreation for this site. Names and numbers are made up.
+                <span class="only-narrow"
+                  >Swipe the screen sideways to see every column.</span
+                >
               </p>
-              <template id="screen-match"
-                ><span class="dim">DZM020 </span
-                ><span class="hi"> D A R T Z </span
-                ><span class="dim">OCT 2026</span>
-                <span class="warn"> RECORD MATCH RESULT</span>
+              <!-- Screen text is column-aligned: keep it inside <pre> so formatters leave it alone. -->
+<pre class="screen-src" id="screen-match" data-summary="Match result: Kovac beat Novak 5 legs to 2." hidden><span class="dim">DZM020  </span><span class="hi">                   D A R T Z                    </span><span class="dim">OCT 2026</span>
+<span class="warn">                      RECORD MATCH RESULT                       </span>
 
-                MATCH ID . . : <span class="hi">M-2026-0417</span> ROUND . . . :
-                <span class="hi">09</span> HOME . . . . :
-                <span class="hi">KOVAC, LUKA</span> AWAY . . . . :
-                <span class="hi">NOVAK, DARIO</span> FORMAT . . . :
-                <span class="hi">501 DOUBLE OUT</span> BEST OF . . :
-                <span class="hi">9 LEGS</span>
+ MATCH ID . : <span class="hi">M-2026-0417</span>           ROUND . . . : <span class="hi">09</span>
+ HOME . . . : <span class="hi">KOVAC, LUKA</span>           AWAY  . . . : <span class="hi">NOVAK, DARIO</span>
+ FORMAT . . : <span class="hi">501 DOUBLE OUT</span>        BEST OF . . : <span class="hi">9 LEGS</span>
 
-                <span class="dim"> LEG WINNER DARTS CHECKOUT</span>
-                <span class="dim"> --- -------------- ----- --------</span>
-                1 KOVAC, L. 18 D16 2 NOVAK, D. 21 D10 3 KOVAC, L. 15 D20 4
-                KOVAC, L. 19 D8 5 NOVAK, D. 24 D4 6 KOVAC, L. 17 BULL 7 KOVAC,
-                L. 16 D18 RESULT . . . : <span class="hi">5 - 2</span> WINNER :
-                <span class="hi">KOVAC, LUKA</span>
-                <span class="hi"
-                  >DZM021I MATCH RECORDED. STANDINGS UPDATED.</span
-                >
+<span class="dim"> LEG  WINNER              DARTS  CHECKOUT</span>
+<span class="dim"> ---  ------------------  -----  --------</span>
+   1  KOVAC, L.              18  D16
+   2  NOVAK, D.              21  D10
+   3  KOVAC, L.              15  D20
+   4  KOVAC, L.              19  D8
+   5  NOVAK, D.              24  D4
+   6  KOVAC, L.              17  BULL
+   7  KOVAC, L.              16  D18
 
-                COMMAND ===> <span class="cursor"> </span
-              ></template>
-              <template id="screen-player"
-                ><span class="dim">DZP030 </span
-                ><span class="hi"> D A R T Z </span
-                ><span class="dim">OCT 2026</span>
-                <span class="warn"> PLAYER PROFILE</span>
+ RESULT . . : <span class="hi">5 - 2</span>                 WINNER  . . : <span class="hi">KOVAC, LUKA</span>
 
-                PLAYER ID . : <span class="hi">P-00142</span> CLUB . . :
-                <span class="hi">DC POZEGA</span> NAME . . . . :
-                <span class="hi">KOVAC, LUKA</span>
+<span class="hi"> DZM021I MATCH RECORDED. STANDINGS UPDATED.</span>
+</pre>
+<pre class="screen-src" id="screen-player" data-summary="Player profile for Luka Kovac: 9 matches, 81.36 three-dart average." hidden><span class="dim">DZP030  </span><span class="hi">                   D A R T Z                    </span><span class="dim">OCT 2026</span>
+<span class="warn">                         PLAYER PROFILE                         </span>
 
-                <span class="dim"> SEASON STATISTICS LAST 5 MATCHES</span>
-                <span class="dim">
-                  ------------------------------ --------------</span
-                >
-                MATCHES PLAYED . . : <span class="hi">9</span>
-                <span class="hi">W W L W W</span> LEGS WON / LOST . :
-                <span class="hi">48 / 21</span> 3-DART AVERAGE . . :
-                <span class="hi">81.36</span> HIGHEST CHECKOUT . :
-                <span class="hi">132</span> 180s . . . . . . . :
-                <span class="hi">7</span> BEST LEG (DARTS) . :
-                <span class="hi">13</span>
+ PLAYER ID  : <span class="hi">P-00142</span>               CLUB  . . . : <span class="hi">DC POZEGA</span>
+ NAME . . . : <span class="hi">KOVAC, LUKA</span>
 
-                <span class="dim">DZP031I PROFILE DISPLAYED.</span>
+<span class="dim"> SEASON STATISTICS                   LAST 5 MATCHES</span>
+<span class="dim"> ------------------------------      --------------</span>
+ MATCHES PLAYED . . : <span class="hi">9</span>               <span class="hi">W  W  L  W  W</span>
+ LEGS WON / LOST  . : <span class="hi">48 / 21</span>
+ 3-DART AVERAGE . . : <span class="hi">81.36</span>
+ HIGHEST CHECKOUT . : <span class="hi">132</span>
+ 180s . . . . . . . : <span class="hi">7</span>
+ BEST LEG (DARTS) . : <span class="hi">13</span>
 
-                COMMAND ===> <span class="cursor"> </span
-              ></template>
-              <template id="screen-help"
-                ><span class="dim">DZH001 </span
-                ><span class="hi"> D A R T Z </span
-                ><span class="dim">OCT 2026</span>
-                <span class="warn"> HELP</span>
 
-                DARTZ RECORDS DARTS MATCHES, TOURNAMENTS AND LEAGUES.
 
-                <span class="hi">F5</span> LEAGUE CURRENT STANDINGS FOR THE
-                SELECTED LEAGUE <span class="hi">F6</span> MATCH RECORD A RESULT
-                LEG BY LEG <span class="hi">F9</span> PLAYER SEASON STATISTICS
-                FOR ONE PLAYER <span class="hi">F3</span> EXIT END THE DARTZ
-                SESSION
 
-                <span class="dim"> UNDER THE HOOD</span>
-                CICS . . . : TRANSACTIONS AND BMS SCREENS COBOL . . . : BUSINESS
-                LOGIC DB2 . . . . : PLAYERS, MATCHES, LEGS, LEAGUES JCL . . . .
-                : BUILD AND BATCH JOBS
 
-                <span class="dim"
-                  >CLICK A KEY BELOW, OR FOCUS THE SCREEN AND PRESS IT.</span
-                >
 
-                COMMAND ===> <span class="cursor"> </span
-              ></template>
-              <template id="screen-exit">
-                <span class="hi"> DARTZ SESSION ENDED</span>
+<span class="dim"> DZP031I PROFILE DISPLAYED.</span></pre>
+<pre class="screen-src" id="screen-tables" data-summary="Simplified Db2 tables: league, player, entry, match and leg." hidden><span class="dim">DZT040  </span><span class="hi">                   D A R T Z                    </span><span class="dim">OCT 2026</span>
+<span class="warn">                    DB2 TABLES (SIMPLIFIED)                     </span>
 
-                <span class="dim">
-                  DZX001I TRANSACTION DZ01 ENDED NORMALLY</span
-                >
+<span class="dim"> TABLE     KEY           REFERENCES</span>
+<span class="dim"> --------  ------------  ----------------------------------</span>
+ <span class="hi">LEAGUE</span>    LEAGUE_ID     -
+ <span class="hi">PLAYER</span>    PLAYER_ID     -
+ <span class="hi">ENTRY</span>     LEAGUE_ID,    LEAGUE, PLAYER
+           PLAYER_ID
+ <span class="hi">MATCH</span>     MATCH_ID      LEAGUE, PLAYER (HOME), PLAYER (AWAY)
+ <span class="hi">LEG</span>       MATCH_ID,     MATCH, PLAYER (WINNER)
+           LEG_NO
 
-                PRESS F5 TO START A NEW SESSION COMMAND ===>
-                <span class="cursor"> </span
-              ></template>
+<span class="dim"> STANDINGS AND AVERAGES ARE DERIVED FROM MATCH AND LEG ROWS,</span>
+<span class="dim"> SO THEY CAN NEVER DISAGREE WITH THE RESULTS.</span>
+
+
+
+
+
+<span class="dim"> DZT041I 5 TABLES LISTED.</span></pre>
+<pre class="screen-src" id="screen-help" data-summary="Help: lists the function keys and typed commands." hidden><span class="dim">DZH001  </span><span class="hi">                   D A R T Z                    </span><span class="dim">OCT 2026</span>
+<span class="warn">                              HELP                              </span>
+
+ DARTZ RECORDS DARTS MATCHES, TOURNAMENTS AND LEAGUES.
+
+ <span class="hi">F4</span>  TABLES   THE DB2 TABLES BEHIND THE SCREENS
+ <span class="hi">F5</span>  LEAGUE   CURRENT STANDINGS FOR THE SELECTED LEAGUE
+ <span class="hi">F6</span>  MATCH    RECORD A RESULT, LEG BY LEG
+ <span class="hi">F9</span>  PLAYER   SEASON STATISTICS FOR ONE PLAYER
+ <span class="hi">F3</span>  EXIT     END THE DARTZ SESSION
+
+<span class="dim"> UNDER THE HOOD</span>
+ CICS  . . : TRANSACTIONS AND BMS SCREENS
+ COBOL . . : BUSINESS LOGIC
+ DB2 . . . : PLAYERS, MATCHES, LEGS, LEAGUES
+ JCL . . . : BUILD AND BATCH JOBS
+
+<span class="dim"> TYPE A COMMAND BELOW, OR PRESS A KEY:</span>
+ <span class="hi">LEAGUE  MATCH  PLAYER  TABLES  RESUME  CONTACT  EXIT</span>
+
+<span class="dim"> DZH002I HELP DISPLAYED.</span></pre>
+<pre class="screen-src" id="screen-exit" data-summary="Session ended. Press F5 to start again." hidden>
+
+
+<span class="hi">                      DARTZ SESSION ENDED                       </span>
+
+<span class="dim"> DZX001I TRANSACTION DZ01 ENDED NORMALLY.</span>
+
+ PRESS F5 OR TYPE LEAGUE TO START A NEW SESSION.
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
             </div>
           </div>
 
@@ -352,7 +423,7 @@
               off the mainframe into Git, and a pipeline now delivers every
               committed change to z/OS automatically.
             </p>
-            <ol class="pipeline" aria-label="Delivery pipeline">
+            <ol class="pipeline">
               <li>
                 <strong>VS Code</strong
                 ><span>COBOL, JCL and copybooks edited locally</span>
@@ -412,20 +483,20 @@
                 <div class="job-body">
                   <ul>
                     <li>
-                      Developed an application on IBM z/OS as part of a team,
-                      using COBOL, PL/I and JCL with CICS transactions and a Db2
-                      database.
+                      <strong>Developed an application on IBM z/OS</strong> as
+                      part of a team, using COBOL, PL/I and JCL with CICS
+                      transactions and a Db2 database.
                     </li>
                     <li>
-                      As the team’s Db2 and system administrator, maintained the
-                      database and z/OS environment the entire development team
-                      depended on.
+                      As the team’s <strong>Db2 and system administrator</strong>,
+                      maintained the database and z/OS environment the entire
+                      development team depended on.
                     </li>
                     <li>
-                      Contributed to the DevOps modernisation: moved the source
-                      of truth from the mainframe to Git, with automated
-                      delivery from the repository to the mainframe (IBM DBB,
-                      Zowe).
+                      <strong>Contributed to the DevOps modernisation:</strong>
+                      moved the source of truth from the mainframe to Git, with
+                      automated delivery from the repository to the mainframe
+                      (IBM DBB, Zowe).
                     </li>
                   </ul>
                 </div>
@@ -451,15 +522,15 @@
                 <div class="job-body">
                   <ul>
                     <li>
-                      Resolved reservation and billing issues in real time
-                      during peak tourist season.
+                      <strong>Resolved reservation and billing issues</strong>
+                      in real time during peak tourist season.
                     </li>
                     <li>
                       Worked daily with internal reservation and billing
                       systems, where every error directly affects revenue and
                       guest experience.
                     </li>
-                    <li>Rehired for three consecutive seasons.</li>
+                    <li><strong>Rehired for three consecutive seasons.</strong></li>
                   </ul>
                 </div>
               </details>
@@ -484,12 +555,12 @@
                 <div class="job-body">
                   <ul>
                     <li>
-                      Delivered custom websites (HTML, CSS, JavaScript,
-                      WordPress) from needs analysis to launch.
+                      <strong>Delivered custom websites</strong> (HTML, CSS,
+                      JavaScript, WordPress) from needs analysis to launch.
                     </li>
                     <li>
-                      Ran each project on my own: negotiation, requirements and
-                      delivery within agreed deadlines.
+                      <strong>Ran each project on my own:</strong> negotiation,
+                      requirements and delivery within agreed deadlines.
                     </li>
                     <li>Selected work is <a href="#projects">below</a>.</li>
                   </ul>
@@ -498,32 +569,29 @@
             </li>
           </ol>
 
-          <div class="skills" aria-label="Skills">
+          <div class="skills">
             <div>
               <h3>Mainframe</h3>
-              <p>z/OS · COBOL · PL/I · JCL · CICS · Db2 · IBM DBB · Zowe</p>
+              <ul class="tags"><li>z/OS</li><li>COBOL</li><li>PL/I</li><li>JCL</li><li>CICS</li><li>Db2</li><li>IBM DBB</li><li>Zowe</li></ul>
             </div>
             <div>
               <h3>Programming</h3>
-              <p>C · C# · SQL · JavaScript · Git · VS Code</p>
+              <ul class="tags"><li>C</li><li>C#</li><li>SQL</li><li>JavaScript</li><li>Git</li></ul>
             </div>
             <div>
               <h3>Web &amp; design</h3>
-              <p>HTML · CSS · WordPress · Figma · Photoshop</p>
+              <ul class="tags"><li>HTML</li><li>CSS</li><li>WordPress</li><li>Figma</li></ul>
             </div>
             <div>
-              <h3>Professional</h3>
-              <p>
-                Teamwork in a dev team · Client communication · Negotiation ·
-                Diagnosing problems under pressure · Croatian (native) · English
-              </p>
+              <h3>Languages</h3>
+              <ul class="tags"><li>Croatian (native)</li><li>English</li></ul>
             </div>
           </div>
         </div>
       </section>
 
       <!-- ============ Certifications ============ -->
-      <section class="section" id="certifications">
+      <section class="section band-paper" id="certifications">
         <div class="wrap">
           <div class="section-head">
             <p class="eyebrow">03 — Certifications</p>
@@ -536,72 +604,36 @@
 
           <div class="cert-groups">
             <div class="cert-group">
-              <div>
-                <h3>IBM Z Xplore</h3>
-                <p>
-                  Hands-on z/OS challenges, from the first login to the full
-                  advanced track.
-                </p>
-              </div>
+              <h3>IBM Z Xplore</h3>
               <ul class="cert-list">
-                <li><span class="code">ALL</span>IBM Z Xplore — All Star</li>
-                <li><span class="code">ADV</span>IBM Z Xplore — Advanced</li>
-                <li><span class="code">CON</span>IBM Z Xplore — Concepts</li>
+                <li><span class="code">ALL</span>All Star</li>
+                <li><span class="code">ADV</span>Advanced</li>
+                <li><span class="code">CON</span>Concepts</li>
               </ul>
             </div>
             <div class="cert-group">
-              <div>
-                <h3>IBM Mainframe Specialist · Interskill</h3>
-                <p>
-                  Six foundations badges across hardware, system, security and
-                  application programming.
-                </p>
-              </div>
+              <h3>IBM Mainframe Specialist · Interskill</h3>
               <ul class="cert-list">
-                <li>
-                  <span class="code">z17</span>IBM Z Hardware z17 — Foundations
-                </li>
-                <li>
-                  <span class="code">ENV</span>Mainframe Environment —
-                  Foundations 3.1
-                </li>
-                <li>
-                  <span class="code">SYS</span>Parallel Sysplex — Foundations
-                  (z/OS 3.1)
-                </li>
-                <li>
-                  <span class="code">SEC</span>Mainframe Security — Foundations
-                  (z/OS 3.1)
-                </li>
-                <li>
-                  <span class="code">DB</span>Database — Fundamentals 2023
-                </li>
-                <li>
-                  <span class="code">APP</span>Application Programmer — Secure
-                  Coding
-                </li>
+                <li><span class="code">z17</span>IBM Z Hardware z17 — Foundations</li>
+                <li><span class="code">ENV</span>Mainframe Environment — Foundations 3.1</li>
+                <li><span class="code">SYS</span>Parallel Sysplex — Foundations</li>
+                <li><span class="code">SEC</span>Mainframe Security — Foundations</li>
+                <li><span class="code">DB</span>Database — Fundamentals 2023</li>
+                <li><span class="code">APP</span>Application Programmer — Secure Coding</li>
               </ul>
             </div>
             <div class="cert-group">
-              <div>
-                <h3>Build &amp; security</h3>
-              </div>
+              <h3>Build &amp; security</h3>
               <ul class="cert-list">
-                <li>
-                  <span class="code">DBB</span>IBM Dependency Based Build
-                  Fundamentals
-                </li>
-                <li>
-                  <span class="code">THM</span>TryHackMe — ongoing training in
-                  cybersecurity and penetration testing
-                </li>
+                <li><span class="code">DBB</span>IBM Dependency Based Build Fundamentals</li>
+                <li><span class="code">THM</span>TryHackMe — ongoing cybersecurity training</li>
               </ul>
             </div>
           </div>
 
           <p class="actions">
             <a
-              class="btn btn-outline"
+              class="btn btn-ink"
               href="https://www.credly.com/users/marin-sabo.f8425966"
               target="_blank"
               rel="noopener"
@@ -616,11 +648,12 @@
         <div class="wrap">
           <div class="section-head">
             <p class="eyebrow">04 — Other work</p>
-            <h2>Freelance web &amp; design</h2>
+            <h2>Web, design &amp; research</h2>
             <p class="lead">
-              Before mainframe, I ran web projects for clients on my own, from
-              the first call to launch. That’s where I learned to work out what
-              people actually need, and to deliver it on time.
+              Alongside mainframe, I’ve run web projects for clients on my own,
+              from the first call to launch, and led a UX research project.
+              That’s where I learned to work out what people actually need, and
+              to deliver it on time.
             </p>
           </div>
 
@@ -710,7 +743,7 @@
                   user friendly, visually appealing, and high performing.
                 </p>
                 <p>
-                  Additionally, He is a great team player, communicates well,
+                  Additionally, he is a great team player, communicates well,
                   and consistently brings a positive attitude.
                 </p>
                 <p>I highly recommend him for any web development role.</p>
@@ -779,17 +812,25 @@
       <section class="shipped" id="shipped" data-shipped="assets/data/shipped.json">
         <div class="wrap">
           <div class="shipped-side">
-            <p class="eyebrow">Shipped log</p>
-            <p class="counter" data-shipped-count aria-hidden="true">—</p>
+            <p class="eyebrow">05 — Shipped log</p>
+            <p class="counter" data-shipped-count aria-hidden="true">9</p>
             <h2 class="shipped-text">
-              <span class="visually-hidden" data-shipped-count-text></span
-              >things shipped since <span data-shipped-since>[YEAR]</span>.
+              <span class="visually-hidden" data-shipped-count-text>9 </span
+              >things shipped since <span data-shipped-since>2023</span>.
               Every launch gets a line here, no matter how small.
             </h2>
           </div>
+          <div>
           <ol class="log" data-shipped-list>
-            <li class="log-empty">The log loads with JavaScript.</li>
+            <li class="log-empty">
+              Latest: DartZ delivery pipeline (09.2026), DartZ on z/OS
+              (08.2026), IBM Z Xplore All Star (06.2026).
+            </li>
           </ol>
+          <button class="btn btn-outline btn-sm log-more" type="button" data-shipped-more hidden>
+            Show all
+          </button>
+          </div>
         </div>
       </section>
 
@@ -797,7 +838,7 @@
       <section class="section" id="education">
         <div class="wrap">
           <div class="section-head">
-            <p class="eyebrow">05 — Education</p>
+            <p class="eyebrow">06 — Education</p>
             <h2>Education &amp; recognition</h2>
           </div>
 
@@ -865,11 +906,12 @@
       <!-- ============ Contact ============ -->
       <section class="contact" id="contact">
         <div class="wrap">
-          <p class="eyebrow">06 — Contact</p>
+          <p class="eyebrow">07 — Contact</p>
           <h2>Let’s talk.</h2>
           <p class="contact-lede">
-            I’m looking for a student job or a 2027 internship in mainframe or
-            enterprise development. I can work remotely, or on-site in Osijek.
+            I’m looking for a <strong>student job or a 2027 internship</strong> in
+            mainframe or enterprise development. I can work
+            <strong>remotely, or on-site in Osijek</strong>.
           </p>
           <a
             class="btn btn-ink btn-email"
@@ -902,9 +944,8 @@
               >
             </li>
             <li>
-              <a href="assets/Marin-Sabo-CV.pdf" download
-                >Résumé (PDF)
-                <span class="arr arr-down" aria-hidden="true">↓</span></a
+              <a href="assets/Marin-Sabo-CV.pdf" target="_blank" rel="noopener"
+                >Résumé (PDF) <span class="arr" aria-hidden="true">↗</span></a
               >
             </li>
           </ul>
