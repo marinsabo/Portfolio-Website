@@ -5,7 +5,7 @@
 ## Links
 
 - [Repo](https://github.com/marinsabo/Portfolio-Website "Portfolio-Website Repo")
-- [Live](https://marinsabo.online "Live View")
+- [Live](https://marinsabo.github.io/Portfolio-Website/ "Live View")
 
 ## Screenshots
 

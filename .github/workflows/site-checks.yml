@@ -1,0 +1,24 @@
+name: Site checks
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Validate HTML
+        run: npx --yes html-validate@9 index.html 404.html work/*.html
+
+      - name: Check internal links
+        # External sites and /brushy/ (served from its own repo) are skipped.
+        run: >
+          npx --yes linkinator@6 . --recurse
+          --skip '^https?://(?!localhost)'
+          --skip '/brushy/'
