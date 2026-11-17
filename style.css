@@ -1,0 +1,44 @@
+body {
+  max-width: 48rem;
+  margin: auto;
+  padding: 1rem;
+  text-align: center;
+  line-height: 1.5;
+  color: #41424c;
+  background: #fef8ec;
+}
+
+a {
+  color: #284283;
+}
+
+h1 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+header,
+nav,
+section {
+  border-bottom: 2px solid;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem 2rem;
+  padding-block: 1rem;
+}
+
+section {
+  text-align: left;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 1rem;
+  border-radius: 5px;
+}

@@ -3,82 +3,44 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fef8ec" />
     <title>Marin Sabo</title>
-    <style>
-      h1,
-      p {
-        color: #41424c;
-      }
-
-      a {
-        color: #284283;
-      }
-      body {
-        text-align: center;
-        background-color: #fef8ec;
-        overflow-y: hidden;
-      }
-      navigation {
-        width: 40%;
-        margin-inline: auto;
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-        padding-bottom: 1rem;
-        border-bottom: solid 1.5px black;
-      }
-
-      .sections {
-        width: 60%;
-        margin-top: 1rem;
-        margin-inline: auto;
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-        padding-bottom: 1rem;
-        border-bottom: solid 1.5px black;
-      }
-
-      img {
-        width: 60%;
-        margin-top: 0.5rem;
-        border-radius: 5px;
-      }
-    </style>
+    <meta
+      name="description"
+      content="Marin Sabo, mainframe developer and Computer Science student at FERIT Osijek. Experience, projects and certifications."
+    />
+    <link rel="icon" href="favicon.svg" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header>
-      <h1>Marin Sabo</h1>
+      <h1><a href="index.html">Marin Sabo</a></h1>
       <p>
-        Unlike other portfolio websites, most impressive thing about mine is not
-        its design but its contents.
+        Unlike other portfolio websites, the most impressive thing about mine is
+        not its design but its contents.
       </p>
-      <navigation>
-        <a
-          href="https://marinsabo.github.io/Portfolio-Website/assets/Marin_Sabo_CV_EN_no_phone.pdf"
-          target="_blank"
-          >Résumé</a
-        >
-        <a href="https://github.com/marinsabo" target="_blank">Github</a>
-        <a href="https://www.linkedin.com/in/marinsabo/" target="_blank"
-          >Linkedin</a
-        >
-        <a href="https://www.credly.com/users/marinsabo" target="_blank"
-          >Creedly</a
-        >
-      </navigation>
     </header>
+    <nav aria-label="Profiles">
+      <a href="assets/Marin_Sabo_CV_EN_no_phone.pdf">Résumé</a>
+      <a href="https://github.com/marinsabo">GitHub</a>
+      <a href="https://www.linkedin.com/in/marinsabo/">LinkedIn</a>
+      <a href="https://www.credly.com/users/marinsabo">Credly</a>
+    </nav>
+    <nav aria-label="Pages">
+      <a href="experience.html">Experience</a>
+      <a href="projects.html">Projects</a>
+      <a href="certifications.html">Certifications</a>
+      <a href="about.html">About me</a>
+      <a href="why.html">Why this design?</a>
+      <a href="contact.html">Contact</a>
+    </nav>
     <main>
-      <section class="sections">
-        <a href="#">Experience</a>
-        <a href="#">Projects</a>
-        <a href="#">Certification</a>
-        <a href="#">About me</a>
-        <a href="why.html">Why this design?</a>
-        <a href="contact.html">Contact</a>
-      </section>
-      <img src="assets/images/Sunset Canyon View with Palm Fronds.png" />
+      <img
+        src="assets/images/marin.webp"
+        alt="Marin looking out over a canyon at sunset"
+        width="1536"
+        height="864"
+      />
     </main>
-    <footer></footer>
   </body>
 </html>

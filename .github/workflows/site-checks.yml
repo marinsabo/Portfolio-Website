@@ -14,11 +14,9 @@ jobs:
           node-version: 20
 
       - name: Validate HTML
-        run: npx --yes html-validate@9 index.html 404.html work/*.html
+        run: npx --yes html-validate@9 *.html
 
       - name: Check internal links
-        # External sites and /brushy/ (served from its own repo) are skipped.
         run: >
           npx --yes linkinator@6 . --recurse
           --skip '^https?://(?!localhost)'
-          --skip '/brushy/'
