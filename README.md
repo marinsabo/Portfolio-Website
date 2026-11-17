@@ -18,12 +18,6 @@
 - HTML5
 - CSS3
 
-Design and voice rules are in [BRAND.md](BRAND.md).
-
 ## AI Usage
 
-Generative AI was used in this project in the following ways:
-
-- analyzing a large number of existing portfolio websites to identify common patterns and best practices
-- brainstorming which sections and information recruiters and employers find most useful
-- writing small code snippets, which I reviewed, tested, and adapted before including them
+Generative AI was not used in this project.
