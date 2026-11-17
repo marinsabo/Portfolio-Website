@@ -1,6 +1,6 @@
 <h1 align="center">Portfolio Website</h1>
 
-<p align="center">A website showcasing my skills, projects, and some basic information about me.</p>
+<p align="center">A plain, intentional portfolio: experience, projects, certifications and why it looks the way it does.</p>
 
 ## Links
 
@@ -17,7 +17,8 @@
 
 - HTML5
 - CSS3
-- JavaScript
+
+Design and voice rules are in [BRAND.md](BRAND.md).
 
 ## AI Usage
 
